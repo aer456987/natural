@@ -1,0 +1,218 @@
+@import "~bootstrap/scss/functions";
+@import "./helpers/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap";
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mr+Bedfort&display=swap');
+
+*{
+  letter-spacing: 2px;
+}
+
+body{
+  background: $gray-100;
+  overflow-x: hidden;
+  // background: $secondary;
+}
+
+// 每個頁面的主頁範圍
+.pageContent{
+  min-height: 800px;
+  // background: $white;
+}
+
+// 放大1.2倍
+.scale{
+  transform: scale(1);
+  transition-duration: .5s;
+}
+.scale:hover{
+  transform: scale(1.2);
+  transition-duration: .5s;
+}
+
+// 點擊
+.pointer{
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0 0 5px 1px $gray-500;
+  }
+}
+
+
+.logo{
+  // font-size: 150px;
+  font-family: 'Vibur';
+  color: $secondary;
+  // font-family: 'Mr Bedfort';
+}
+
+.logo_brown{
+  font-family: 'Vibur';
+  color: $brown-500;
+  &:hover{
+    color: $warning;
+  }
+}
+
+// 商品-卡片圖片
+.card_img_style{
+  position: relative;
+  // max-height: 170px;
+  overflow: hidden;
+  background: $black;
+  cursor: pointer;
+
+  .more_msg, img{
+    transition-duration: .5s;
+  }
+  .more_msg{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(4);
+    font-weight: bold;
+    z-index: 1;
+  }
+  img{
+    width: 110%;
+    height: auto;
+  }
+}
+
+.card_img_style:hover{
+  .more_msg, img{
+    transition-duration: .5s;
+  }
+  .more_msg{
+    opacity: .8;
+    color: $white;
+  }
+  img{
+    opacity: .6;
+    transform: scale(1.2);
+  }
+}
+
+// 主要按鈕
+.btn_main{
+  padding: 8px;
+  color: white;
+  background: $primary;
+  &:hover{
+    color: white;
+    background: $secondary;
+  }
+}
+
+// 我的最愛&購物車按鈕
+.btn_red, .btn_green, .btn_green_cart{
+  font-size: 26px;
+  transition-duration: .5s;
+  cursor: pointer;
+}
+.btn_green, .btn_red{
+  transform: scale(1);
+  &:hover{
+    transform: scale(1.2);
+    transition-duration: .5s;
+  }
+}
+
+.btn_green, .btn_green_cart{
+  color: rgba($primary, .7);
+  &:hover{
+    color: $primary;
+  }
+}
+
+  // background-color: transparent
+.btn_red{
+  color: rgba($red, .3);
+  &:hover{
+    color: $red;
+  }
+}
+
+// 購物車 +/-
+.btn_green_cart{
+  padding: 0px 10px;
+  color: $secondary;
+  background: transparent;
+  z-index: 1;
+  &:hover{
+    color: $primary;
+    transform: scale(1.1);
+    transition-duration: .5s;
+  }
+}
+.bg_transparent{
+  background: transparent;
+}
+
+// 訂單進度條
+.progress_style{
+  padding: 6px 10px;
+  font-weight: bold;
+  border-radius: 100%;
+  background: $secondary;
+  transform: scale(1);
+  i{
+    color: $white;
+    font-size: 16px;
+  }
+}
+.progress_active{
+  padding: 8px 13px;
+  background: $primary;
+  transform: scale(1.5);
+  i{
+    font-size: 22px;
+  }
+}
+
+// 購物車
+.table_style{
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+tbody{
+  th, td{
+    vertical-align: middle;
+  }
+}
+
+
+// 產品頁面 多圖
+.img_view{
+  height: 514px;
+  // overflow-y: scroll;
+}
+
+@media(max-width: 1140px){
+  .img_view{
+    height: 400px;
+    // overflow-y: scroll;
+  }
+}
+
+@media(max-width:992px){
+  .img_view{
+    height: 451px;
+    // overflow-y: scroll;
+  }
+}
+
+// MD
+// @media(max-width: 768px){
+//   .img_view{}
+// }
+
+// SM
+// @media(max-width: 576px){
+//   .img_view{}
+// }

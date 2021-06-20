@@ -1,19 +1,77 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    component: () => import('../views/Front.vue'),
+    children: [
+      {
+        path: 'products',
+        name: '線上商城',
+        component: () => import('../views/Products.vue'),
+      },
+      {
+        path: 'product/:id',
+        name: '產品介紹頁面',
+        component: () => import('../views/Product.vue'),
+      },
+    ],
+  }, {
+    path: '/square',
+    name: '結帳流程',
+    component: () => import('../views/Square.vue'),
+    children: [
+      {
+        path: 'cart',
+        name: '購物車',
+        component: () => import('../views/Cart.vue'),
+      },
+      {
+        path: 'order',
+        name: '訂單',
+        component: () => import('../views/order/Order.vue'),
+      },
+      {
+        path: 'order/:id',
+        name: '訂單確認',
+        component: () => import('../views/order/OrderCheck.vue'),
+      },
+      {
+        path: 'orderPaid',
+        name: '付款完成',
+        component: () => import('../views/order/OrderPaid.vue'),
+      },
+    ],
+  }, {
+    path: '/login',
+    name: '登入',
+    component: () => import('../views/Login.vue'),
+  }, {
+    path: '/admin',
+    name: '後台',
+    component: () => import('../views/admin/Dashboard.vue'),
+    children: [
+      {
+        path: 'dashboardOrders',
+        name: '後台訂單頁',
+        component: () => import('../views/admin/DashboardOrders.vue'),
+      },
+      {
+        path: 'dashboardProducts',
+        name: '後台商品頁',
+        component: () => import('../views/admin/DashboardProducts.vue'),
+      },
+      {
+        path: 'coupon',
+        name: '後台優惠券',
+        component: () => import('../views/admin/Coupon.vue'),
+      },
+      {
+        path: 'logout',
+        name: '登出',
+        component: () => import('../views/admin/Logout.vue'),
+      },
+    ],
   },
 ];
 
