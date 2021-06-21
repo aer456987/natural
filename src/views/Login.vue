@@ -98,7 +98,7 @@ export default {
             this.$router.push('/admin/dashboardProducts');
           } else {
             console.log('(錯誤)登入 res:', res);
-            this.msg = `${res.data.message}, 請檢察帳號密碼`;
+            this.msg = `${res.data.message}, 請檢查帳號密碼`;
             this.loadingStatus = false;
             return;
           }
