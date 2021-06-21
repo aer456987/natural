@@ -41,14 +41,14 @@
           <li class="nav-item scale">
             <router-link to="/square/cart"
               class="nav-link">
-              <sapn
+              <span
                 class="d-inline">
                 <i class="bi bi-cart-fill"></i>
                 <span
                   v-if="cartsLength > 0"
                   class="cart_num"
                 >{{ cartsLength || newLength }}</span>
-              </sapn>
+              </span>
             </router-link>
           </li>
         </ul>
