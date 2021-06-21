@@ -120,7 +120,6 @@
               @click="goPay">
               我要付款
             </router-link>
-            <!--  @click.preven="goPay" -->
           </div>
         </div>
       </div>
@@ -130,6 +129,7 @@
 
 <script>
 import Progress from '@/components/Progress.vue';
+import swal from 'sweetalert';
 
 export default {
   name: 'OrderCheck',
@@ -153,9 +153,8 @@ export default {
   methods: {
     getOrder(id) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order/${id}`;
-      // console.log('訂單確定: ', id);
-      // console.log(url);
       this.loadingStatus = true;
+
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
@@ -189,7 +188,6 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)訂單付款 res:', res);
-            // this.swalFn(res.data.message, 'success');
             this.loadingStatus = false;
             this.$router.push('/square/orderPaid');
           } else {
@@ -198,16 +196,28 @@ export default {
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)訂單付款');
+          console.log('(失敗-前台)訂單付款 err');
           console.dir(err);
           this.loadingStatus = false;
         });
     },
+    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
+    },
   },
   mounted() {
     this.order.id = this.$route.params.id;
-    // console.log(this.order.id);
     this.getOrder(this.order.id);
+    this.swalFn('已建立訂單', 'success', 2000, `訂單編號：${this.order.id}`);
   },
 };
 </script>

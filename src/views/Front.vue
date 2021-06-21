@@ -40,8 +40,11 @@
           </li>
           <li class="nav-item scale">
             <router-link to="/square/cart" class="nav-link position-relative">
-              <div class="d-block position-relative
-                start-50 border"
+              <div
+                class="
+                d-block
+                position-relative
+                start-50"
                 style="width: 30px; height: 30px;">
                 <font-awesome-icon icon="cart-plus" />
                 <span

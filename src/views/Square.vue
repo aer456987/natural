@@ -63,10 +63,6 @@ export default {
     };
   },
   methods: {
-    changeStatus(title) {
-      console.log(123);
-      this.title = title;
-    },
     // 取得購物車資料
     getCarts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
@@ -129,46 +125,45 @@ export default {
           this.loadingStatus = false;
         });
     }, // 修改購物車
-    putCart(action, item) {
-      this.loadingStatus = true;
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
-      let newNum = item.qty;
+    // putCart(action, item) {
+    //   this.loadingStatus = true;
+    //   const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
+    //   let newNum = item.qty;
 
-      if (action === 'reduce') {
-        if (item.qty === 1) {
-          console.log('不可小於數量1');
-          this.loadingStatus = false;
-          return;
-        }
-        newNum -= 1;
-      } else if (action === 'add') {
-        newNum += 1;
-      }
+    //   if (action === 'reduce') {
+    //     if (item.qty === 1) {
+    //       this.loadingStatus = false;
+    //       return;
+    //     }
+    //     newNum -= 1;
+    //   } else if (action === 'add') {
+    //     newNum += 1;
+    //   }
 
-      const datas = {
-        data: {
-          product_id: item.product_id,
-          qty: newNum,
-        },
-      };
+    //   const datas = {
+    //     data: {
+    //       product_id: item.product_id,
+    //       qty: newNum,
+    //     },
+    //   };
 
-      this.$http
-        .put(url, datas)
-        .then((res) => {
-          if (res.data.success) {
-            console.log('(成功-前台)修改購物車 res:', res);
-            this.getCarts();
-          } else {
-            console.log('(錯誤-前台)修改購物車 res:', res);
-            this.loadingStatus = false;
-          }
-        })
-        .catch((err) => {
-          console.log('(失敗-前台)修改購物車 res:');
-          console.dir(err);
-          this.loadingStatus = false;
-        });
-    },
+    //   this.$http
+    //     .put(url, datas)
+    //     .then((res) => {
+    //       if (res.data.success) {
+    //         console.log('(成功-前台)修改購物車 res:', res);
+    //         this.getCarts();
+    //       } else {
+    //         console.log('(錯誤-前台)修改購物車 res:', res);
+    //         this.loadingStatus = false;
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log('(失敗-前台)修改購物車 res:');
+    //       console.dir(err);
+    //       this.loadingStatus = false;
+    //     });
+    // },
   },
   mounted() {
     this.getCarts();

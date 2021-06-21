@@ -50,32 +50,33 @@
               <table class="table position-relative">
                 <thead>
                   <tr>
-                    <th class="py-3" scope="col" colspan="2">商品資訊</th>
-                    <th class="py-3" scope="col">數量</th>
-                    <th class="py-3" scope="col">金額</th>
-                    <th class="py-3" scope="col"></th>
+                    <th width="30%" class="py-3" scope="col" colspan="2">商品資訊</th>
+                    <th width="23%" class="py-3" scope="col">數量</th>
+                    <th width="22%" class="py-3" scope="col">金額</th>
+                    <th width="10%" class="py-3" scope="col"></th>
                   </tr>
                 </thead>
 
                 <tbody>
                   <tr v-for="item in carts.carts" :key="item.id">
-                    <td>
-                      <div style="width: 100px; height: 60px; overflow: hidden">
-                        <img
-                          :src="item.product.imageUrl"
-                          alt="預覽"
-                          class="w-100"
-                        />
-                      </div>
+                    <td
+                      style="width: 70px; height: 70px; overflow: hidden"
+                    >
+                      <img
+                        :src="item.product.imageUrl"
+                        alt="預覽"
+                        class="w-100"
+                      />
                     </td>
                     <th scope="row">
                       {{ item.product.title }}
                     </th>
                     <td>
                       <div class="d-flex justify-content-center">
-                        <div class="input-group" style="max-width: 130px">
+                        <div class="input-group"
+                        style="max-width: 130px">
                           <div
-                            class="btn_green_cart"
+                            class="btn_light_green px-2"
                             @click="putCart('reduce', item)"
                           >
                             -
@@ -92,7 +93,7 @@
                             {{ item.qty }}
                           </div>
                           <div
-                            class="btn_green_cart px-2"
+                            class="btn_light_green px-2"
                             @click="putCart('add', item)"
                           >
                             +
@@ -102,10 +103,8 @@
                     </td>
                     <td><span>NT $</span>{{ item.final_total }}</td>
                     <td>
-                      <font-awesome-icon
-                        icon="times"
-                        class="btn_red"
-                        @click="delCart('one', item)" />
+                      <i class="bi bi-x-lg btn_red"
+                        @click="delCart('one', item)"></i>
                     </td>
                   </tr>
                 </tbody>
@@ -123,7 +122,7 @@
             class="col-12 d-flex justify-content-between mb-5">
             <router-link
               to="/products"
-              class="btn btn-outline-secondary px-3 py-1"
+              class="btn btn_outline_green px-3 py-1"
             >
               ◁ 繼續購物
             </router-link>
@@ -150,6 +149,7 @@
 
 <script>
 import Progress from '@/components/Progress.vue';
+import swal from 'sweetalert';
 
 export default {
   name: 'Cart',
@@ -164,10 +164,6 @@ export default {
   },
   components: { Progress },
   methods: {
-    changeStatus(title) {
-      console.log(123);
-      this.title = title;
-    },
     // 取得購物車資料
     getCarts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
@@ -191,24 +187,25 @@ export default {
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)取得購物車全部資料 res:');
+          console.log('(失敗-前台)取得購物車全部資料 err:');
           console.dir(err);
           this.loadingStatus = false;
         });
     }, // 刪除購物車
     delCart(action, item) {
       let url = '';
-      const productName = '';
+      let productName = '';
       this.loadingStatus = true;
-      console.log(productName);
 
       if (action === 'all') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/carts`;
+        productName = '全部商品';
         console.log('刪除全部', url);
       } else if (action === 'one') {
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
+        productName = item.product.title;
         console.log(item);
         console.log(item.id);
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
         console.log('刪除一個', item.id, url);
       }
 
@@ -218,15 +215,18 @@ export default {
           if (res.data.success) {
             console.log('(成功-前台)刪除購物車 res:', res);
             console.log('(成功-前台)刪除購物車 vue:', this.carts);
+            this.swalFn(`${productName} ${res.data.message}`, 'success');
             this.getCarts();
           } else {
             console.log('(錯誤-前台)刪除購物車 res:', res);
+            this.swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)刪除購物車 res:');
+          console.log('(失敗-前台)刪除購物車 err:');
           console.dir(err);
+          this.swalFn(err.data.message, 'error');
           this.loadingStatus = false;
         });
     }, // 修改購物車
@@ -236,8 +236,8 @@ export default {
       let newNum = item.qty;
 
       if (action === 'reduce') {
-        if (item.qty === 1) {
-          console.log('不可小於數量1');
+        if (item.qty < 2) {
+          this.swalFn('數量不可少於 1', 'error');
           this.loadingStatus = false;
           return;
         }
@@ -258,17 +258,31 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)修改購物車 res:', res);
+            this.swalFn(res.data.message, 'success');
             this.getCarts();
           } else {
             console.log('(錯誤-前台)修改購物車 res:', res);
+            this.swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)修改購物車 res:');
+          console.log('(失敗-前台)修改購物車 err:');
           console.dir(err);
           this.loadingStatus = false;
         });
+    },
+    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
     },
   },
   mounted() {

@@ -52,6 +52,7 @@
 
 <script>
 import Progress from '@/components/Progress.vue';
+import swal from 'sweetalert';
 
 export default {
   name: 'OrderPaid',
@@ -61,5 +62,22 @@ export default {
     };
   },
   components: { Progress },
+  methods: {
+    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
+    },
+  },
+  created() {
+    this.swalFn('已完成付款', 'success');
+  },
 };
 </script>

@@ -108,28 +108,28 @@ body{
   }
 }
 
-// 我的最愛&購物車按鈕
-.btn_red, .btn_green, .btn_green_cart{
+// 我的最愛 & 購物車按鈕 & 購物車數量 +/-
+.btn_red, .btn_light_green{
   font-size: 26px;
+  transform: scale(1);
   transition-duration: .5s;
   cursor: pointer;
-}
-.btn_green, .btn_red{
-  transform: scale(1);
   &:hover{
     transform: scale(1.2);
     transition-duration: .5s;
   }
 }
 
-.btn_green, .btn_green_cart{
-  color: rgba($primary, .7);
+.btn_outline_green{
+  border: solid 1px $secondary;
+  color: $secondary;
   &:hover{
-    color: $primary;
+    color: $brown-500;
+    background: $secondary;
   }
 }
 
-  // background-color: transparent
+// background-color: transparent
 .btn_red{
   color: rgba($red, .3);
   &:hover{
@@ -138,15 +138,13 @@ body{
 }
 
 // 購物車 +/-
-.btn_green_cart{
+.btn_light_green{
   padding: 0px 10px;
   color: $secondary;
-  background: transparent;
+  background: $white; // transparent
   z-index: 1;
   &:hover{
     color: $primary;
-    transform: scale(1.1);
-    transition-duration: .5s;
   }
 }
 .bg_transparent{
@@ -185,6 +183,55 @@ tbody{
     vertical-align: middle;
   }
 }
+
+// 彈跳視窗
+.swal-modal{
+  width: auto;
+  padding: 50px 60px;
+}
+
+.swal-title{
+  color: $primary;
+}
+
+.swal-text{
+  max-width: none;
+}
+
+.swal-button{
+  font-size: 16px;
+}
+
+.swal-icon:first-child{
+  margin: 20px auto;
+}
+.swal-icon--success__ring {
+  border-color: rgba($green-100, .2);
+}
+.swal-icon--success__line{
+  background-color: $green-100;
+}
+.swal-icon--success{
+  border-color: $green-100;
+}
+
+.swal-icon--info{
+  // border-color: $primary;
+}
+.swal-icon--info:after, .swal-icon--info:before{
+  // background-color: $primary;
+}
+
+.swal-icon--warning__body{
+  height: 38px;
+  top: 15px;
+}
+
+.swal-icon--warning__dot{
+  bottom: -13px;
+  margin-left: -3px;
+}
+
 
 
 // 產品頁面 多圖

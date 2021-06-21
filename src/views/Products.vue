@@ -13,7 +13,7 @@
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
-        <div class="col-6">
+        <span class="col-6">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
             <ol class="breadcrumb m-0">
               <li class="breadcrumb-item">
@@ -24,24 +24,30 @@
               </li>
             </ol>
           </nav>
-        </div>
-        <div class="col-3">
+        </span>
+        <span class="col-6 col-md-4 col-lg-3
+          position-relative">
+          <i class="bi bi-x-lg
+          btn_light_green fs-6
+          position-absolute top-50 end-0 translate-middle"
+            @click="clearSearch"></i>
           <input
             type="text"
-            class="col-sm-9 form-control text-end"
-            placeholder="search"
+            class="col-sm-9 form-control"
+            placeholder="請輸入關鍵字"
             aria-label="search"
             aria-describedby="basic-addon1"
+            v-model="search"
           />
-        </div>
+        </span>
       </div>
       <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1>
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">
-          <Card :temp-products="tempProducts" @add-cart="addCart"></Card>
+          <Card :temp-products="filterProducts" @add-cart="addCart"></Card>
         </ul>
-        <p class="text-end">共有 {{ tempProducts.length }} 件商品</p>
+        <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
         </div>
     </main>
   </section>
@@ -50,14 +56,24 @@
 <script>
 import Card from '@/components/Card.vue';
 import FilterList from '@/components/FilterList.vue';
+import swal from 'sweetalert';
 
 export default {
   data() {
     return {
       loadingStatus: false,
+      search: '',
       tempProducts: [],
       products: [],
     };
+  },
+  computed: {
+    filterProducts() {
+      return this.products.filter((item) => {
+        console.log(item);
+        return item.title.match(this.search);
+      });
+    },
   },
   components: {
     Card,
@@ -93,22 +109,40 @@ export default {
       const cartData = {
         data: { ...data },
       };
+
       this.$http
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)加入購物車 res:', res);
+            this.swalFn(res.data.message, 'success');
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)加入購物車 res:', res);
+            this.swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)加入購物車 res:');
+          console.log('(失敗-前台)加入購物車 err:');
           console.dir(err);
           this.loadingStatus = false;
         });
+    },
+    clearSearch() {
+      this.search = '';
+    },
+    swalFn(title, icon, timer = 2000, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
     },
   },
   mounted() {

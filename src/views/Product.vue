@@ -52,7 +52,7 @@
           <div class="col-12
             py-1
             flex-nowrap
-            overflow-scroll
+            overflow-auto
             d-xxl-none">
             <div class="row flex-nowrap m-0">
               <div class="col-2 pe-1">
@@ -107,7 +107,7 @@
           </p>
 
           <div class="text-end">
-            <span class="text-decoration-line-through text-gray">
+            <span class="fst-italic text-decoration-line-through text-gray">
               原價$ {{ tempProduct.origin_price }}
             </span>
             <p class="h2 fw-bold mb-2">
@@ -124,7 +124,7 @@
                   <button
                   type="button"
                   class="w-25
-                    btn_green_cart
+                    btn_light_green
                     text-center
                     border"
                     @click="changeNum('reduce')">
@@ -144,7 +144,7 @@
                   <button
                     type="button"
                     class="w-25
-                      btn_green_cart
+                      btn_light_green
                       text-center
                       border"
                     @click="changeNum('add')">
@@ -169,9 +169,9 @@
                 </button>
               </div>
 
-              <div class="col-4 px-2">
-                <i class="bi bi-heart fs-2 text-danger"></i>
-              </div>
+              <template class="col-2 px-2 btn text-end">
+                <i class="bi bi-heart-fill btn_red"></i>
+              </template>
             </div>
             <p class="fw-bold text-danger">每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。</p>
           </div>
@@ -185,7 +185,7 @@
     <section class="col-10 my-2 py-5 container text-center bg-white">
       <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
       <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-11 col-md-9 col-lg-6">
           <p>{{ tempProduct.description }}</p>
         </div>
       </div>
@@ -196,6 +196,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+
 export default {
   data() {
     return {
@@ -235,8 +237,8 @@ export default {
 
       if (action === 'reduce') {
         console.log('reduce');
-        if (this.qty === 1) {
-          console.log('不可小於數量1');
+        if (this.qty < 2) {
+          this.swalFn('數量不可少於 1', 'error');
           return;
           // this.loadingStatus = false;
         }
@@ -254,23 +256,25 @@ export default {
           qty: this.qty,
         },
       };
-
       this.loadingStatus = true;
+
       this.$http
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)加入購物車 res:', res);
+            this.swalFn(res.data.message, 'success');
             this.qty = 1;
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)加入購物車 res:', res);
+            this.swalFn(res.data.message, 'error');
             this.qty = 1;
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)加入購物車 res:');
+          console.log('(失敗-前台)加入購物車 err:');
           console.dir(err);
           this.qty = 1;
           this.loadingStatus = false;
@@ -278,6 +282,18 @@ export default {
     },
     changeImg(img) { // 切換圖片
       this.productImg = img;
+    },
+    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
     },
   },
   created() {

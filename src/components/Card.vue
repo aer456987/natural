@@ -1,11 +1,11 @@
 <template>
-  <!-- {{tempProducts}} -->
   <li
-    class="col-sm-6 col-lg-4 col-xl-3 my-3"
+    class="col-sm-6 col-lg-4 col-xl-3 my-2"
     v-for="product in tempProducts"
     :key="product.id"
   >
-    <div class="card shadow-sm">
+    <!-- {{ product }} -->
+    <div class="card border-0 shadow-sm">
       <router-link
         :to="`/product/${product.id}`"
         class="card-img-top card_img_style"
@@ -16,31 +16,35 @@
         <img class="img-fluid" :src="product.imageUrl" alt="'商品圖" />
         <h2 class="card-title z-9999 position-absolute fw-bold">{{ product.title }}</h2>
       </router-link>
-      <div class="card-body">
-        <!-- <p class="card-text m-0 mb-3">{{ product.description }}</p> -->
+      <!-- <p class="card-text m-0 mb-3">{{ product.description }}</p> -->
 
-        <!-- <p class="text-end fw-bold m-0">
-          NT ${{ product.price }}
-        </p> -->
-      </div>
+      <!-- <p class="text-end fw-bold m-0">
+        NT ${{ product.price }}
+      </p> -->
       <div
         class="
-          card-footer
+          card-body
           bg-white
-          border-0
-          d-flex
-          justify-content-between
-          px-4
-          pt-0
-          pb-4
+          rounded-bottom
+          d-flex justify-content-between align-items-center
+          px-2
+          py-3
         "
       >
-        <font-awesome-icon icon="heart" class="btn_red" />
-        <font-awesome-icon
-          icon="cart-plus"
-          class="btn_green"
-          @click="addCart(product.id)"
-        />
+        <h1 class="h4 fw-bold m-0 text-truncate">
+          {{ product.title }} <br>
+          <span class="h6 fst-italic">${{ product.price }}</span>
+        </h1>
+        <span>
+          <!-- <span class="btn border">
+            <i class="bi bi-heart-fill"></i>
+          </span> -->
+          <span class="btn btn_outline_green fs-4 ms-1"
+            @click="addCart(product.id)">
+            <i class="bi bi-cart-plus-fill"></i>
+              <!-- btn_green -->
+          </span>
+        </span>
       </div>
     </div>
   </li>
