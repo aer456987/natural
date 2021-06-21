@@ -59,7 +59,7 @@ export default {
   data() {
     return {
       progress: 100,
-    };W
+    };
   },
   components: { Progress },
   methods: {
