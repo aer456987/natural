@@ -35,12 +35,12 @@
 
             <div v-if="btnStatus"
               class="row justify-content-center py-4">
-              <div class="col-12 col-md-5">
+              <span class="col-12 col-md-5">
                 <h3 class="mb-3">購物車內沒有商品</h3>
                 <router-link to="/products" class="btn btn_main w-100">
                   前往選購
                 </router-link>
-              </div>
+              </span>
             </div>
 
             <template v-else>
@@ -104,9 +104,9 @@
                 </tbody>
               </table>
 
-              <h5 class="text-end text-danger">
+              <p class="h5 text-end text-danger">
                 總金額NT ${{ carts.total }}
-              </h5>
+              </p>
             </template>
           </div>
 

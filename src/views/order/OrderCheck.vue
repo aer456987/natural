@@ -22,11 +22,11 @@
       <Progress :progress="progress"></Progress>
       <!-- 訂單確認 & 付款 -->
       <h2 class="text-center fw-bold mb-4">訂購人資訊</h2>
-      <div class="container">
-        <div class="row px-md-1 px-lg-5 justify-content-center">
+      <section class="container">
+        <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
           <div class="col-md-12 col-lg-9">
-            <div class="px-5 py-5 mb-5 rounded shadow bg-white">
+            <span class="px-5 py-5 mb-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3">
                 {{ order.id }}
@@ -109,10 +109,10 @@
                 </tr>
                 </tbody>
               </table>
-              <h5 class="text-center mb-3">
+              <p class="h5 text-center mb-3">
                 總金額NT ${{ order.data.total }}
-              </h5>
-            </div>
+              </p>
+            </span>
           </div>
 
           <!-- 我要付款 -->
@@ -124,8 +124,8 @@
               我要付款
             </router-link>
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </main>
   </section>
 </template>

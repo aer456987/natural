@@ -24,7 +24,7 @@
       <h2 class="text-center fw-bold mb-4">訂購人資訊</h2>
       <div class="container">
         <!-- 訂單填寫 -->
-        <template class="row px-lg-0 px-xl-5
+        <section class="row px-lg-0 px-xl-5
         position-relative
         justify-content-center align-items-center">
           <!-- 購物明細 -->
@@ -62,9 +62,9 @@
                 </tbody>
               </table>
 
-              <h5 class="text-center">
+              <p class="h5 text-center">
                 總金額NT ${{ carts.total }}
-              </h5>
+              </p>
             </div>
           </div>
           <!-- 訂購人資訊 -->
@@ -177,7 +177,7 @@
               送出訂單 ▷
             </button>
           </div>
-        </template>
+        </section>
       </div>
     </main>
   </section>
