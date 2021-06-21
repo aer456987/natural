@@ -9,7 +9,7 @@
             <router-link to="/products" class="link-secondary"
             >線上商城</router-link>
           </li>
-          <li class="breadcrumb-item fw-bold active" aria-current="page">
+          <li class="breadcrumb-item active" aria-current="page">
             購物車
           </li>
         </ol>
@@ -17,9 +17,8 @@
       <!-- 進度條 -->
       <Progress :progress="progress"></Progress>
       <!-- 購物車 -->
-      <h3 class="text-center fw-bold mb-4">購物車</h3>
+      <h2 class="text-center fw-bold mb-4">購物車</h2>
       <div class="container">
-
         <div
           class="row px-lg-0 px-xl-5 position-relative">
 
@@ -32,9 +31,7 @@
               text-center
               bg-white
               rounded-3
-              shadow
-            "
-          >
+              shadow">
 
             <div v-if="btnStatus"
               class="row justify-content-center py-4">
@@ -50,10 +47,10 @@
               <table class="table position-relative">
                 <thead>
                   <tr>
-                    <th width="30%" class="py-3" scope="col" colspan="2">商品資訊</th>
-                    <th width="23%" class="py-3" scope="col">數量</th>
-                    <th width="22%" class="py-3" scope="col">金額</th>
-                    <th width="10%" class="py-3" scope="col"></th>
+                    <td width="30%" class="py-3 fs-5" scope="col" colspan="2">商品資訊</td>
+                    <td width="23%" class="py-3 fs-5" scope="col">數量</td>
+                    <td width="22%" class="py-3 fs-5" scope="col">金額</td>
+                    <td width="10%" class="py-3 fs-5" scope="col"></td>
                   </tr>
                 </thead>
 
@@ -68,28 +65,25 @@
                         class="w-100"
                       />
                     </td>
-                    <th scope="row">
+                    <td scope="row">
                       {{ item.product.title }}
-                    </th>
+                    </td>
                     <td>
                       <div class="d-flex justify-content-center">
                         <div class="input-group"
-                        style="max-width: 130px">
-                          <div
+                        style="max-width: 180px">
+                          <span
                             class="btn_light_green px-2"
                             @click="putCart('reduce', item)"
                           >
                             -
-                          </div>
+                          </span>
                           <div
                             class="
                               form-control
                               bg_transparent
                               text-center
-                              fw-bold
-                              border-0
-                            "
-                          >
+                              border">
                             {{ item.qty }}
                           </div>
                           <div
@@ -110,7 +104,7 @@
                 </tbody>
               </table>
 
-              <h5 class="text-end text-danger fw-bold">
+              <h5 class="text-end text-danger">
                 總金額NT ${{ carts.total }}
               </h5>
             </template>
@@ -159,13 +153,11 @@ export default {
       btnStatus: true,
       progress: 0,
       carts: {},
-      title: '購物車',
     };
   },
   components: { Progress },
   methods: {
-    // 取得購物車資料
-    getCarts() {
+    getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
       this.$http
@@ -191,8 +183,8 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    }, // 刪除購物車
-    delCart(action, item) {
+    },
+    delCart(action, item) { // 刪除購物車
       let url = '';
       let productName = '';
       this.loadingStatus = true;
@@ -205,8 +197,6 @@ export default {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
         productName = item.product.title;
         console.log(item);
-        console.log(item.id);
-        console.log('刪除一個', item.id, url);
       }
 
       this.$http
@@ -229,8 +219,8 @@ export default {
           this.swalFn(err.data.message, 'error');
           this.loadingStatus = false;
         });
-    }, // 修改購物車
-    putCart(action, item) {
+    },
+    putCart(action, item) { // 修改購物車
       this.loadingStatus = true;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
       let newNum = item.qty;

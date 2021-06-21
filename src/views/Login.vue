@@ -16,10 +16,9 @@
 
         <div class="mb-3">
           <Form v-slot="{ errors }">
-
             <label
             for="orderEmail"
-            class="form-label mt-3 mb-1 fw-bold"
+            class="form-label mt-3 mb-1"
               >帳號</label
             >
             <Field
@@ -39,7 +38,7 @@
             ></error-message>
 
             <!-- 密碼 -->
-            <label for="orderPs" class="form-label mt-3 mb-1 fw-bold"
+            <label for="orderPs" class="form-label mt-3 mb-1"
             >密碼</label>
             <Field
               type="password"
@@ -58,7 +57,7 @@
             ></error-message>
           </Form>
 
-          <p class="text-danger text-center fw-bold my-3">{{ msg }}</p>
+          <p class="text-danger text-center my-3">{{ msg }}</p>
 
           <button
             type="submit"
@@ -67,11 +66,8 @@
             登入
           </button>
         </div>
-
       </section>
-
     </section>
-
   </section>
 </template>
 
@@ -88,11 +84,10 @@ export default {
     };
   },
   methods: {
-    login() {
+    login() { // 登入驗證
       const url = `${process.env.VUE_APP_PATH}/admin/signin`;
       this.loadingStatus = true;
       this.msg = '資料驗證中，請稍後';
-      // console.log(this.userDatas);
 
       this.$http.post(url, this.userDatas)
         .then((res) => {

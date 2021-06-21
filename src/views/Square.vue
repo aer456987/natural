@@ -21,7 +21,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
+      <span
         class="collapse navbar-collapse flex justify-content-end"
         id="navbarToggler"
       >
@@ -33,19 +33,19 @@
             <router-link to="/products" class="nav-link">線上商城</router-link>
           </li>
           <li class="nav-item scale">
-            <div class="nav-link">
-              <font-awesome-icon icon="heart" />
-            </div>
+            <span class="nav-link">
+              <i class="bi bi-heart-fill"></i>
+            </span>
           </li>
         </ul>
-      </div>
+      </span>
     </div>
   </nav>
   <!-- 主要頁面 -->
   <router-view></router-view>
   <!-- 頁尾 -->
   <footer class="p-3 bg-primary">
-    <div class="container text-center text-secondary fw-bold">
+    <div class="container text-center text-secondary">
       作業使用，無商業行為
     </div>
   </footer>
@@ -63,8 +63,7 @@ export default {
     };
   },
   methods: {
-    // 取得購物車資料
-    getCarts() {
+    getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
       this.$http
@@ -90,8 +89,8 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    }, // 刪除購物車
-    delCart(action, item) {
+    },
+    delCart(action, item) { // 刪除購物車
       let url = '';
       const productName = '';
       this.loadingStatus = true;
@@ -124,46 +123,7 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    }, // 修改購物車
-    // putCart(action, item) {
-    //   this.loadingStatus = true;
-    //   const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
-    //   let newNum = item.qty;
-
-    //   if (action === 'reduce') {
-    //     if (item.qty === 1) {
-    //       this.loadingStatus = false;
-    //       return;
-    //     }
-    //     newNum -= 1;
-    //   } else if (action === 'add') {
-    //     newNum += 1;
-    //   }
-
-    //   const datas = {
-    //     data: {
-    //       product_id: item.product_id,
-    //       qty: newNum,
-    //     },
-    //   };
-
-    //   this.$http
-    //     .put(url, datas)
-    //     .then((res) => {
-    //       if (res.data.success) {
-    //         console.log('(成功-前台)修改購物車 res:', res);
-    //         this.getCarts();
-    //       } else {
-    //         console.log('(錯誤-前台)修改購物車 res:', res);
-    //         this.loadingStatus = false;
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       console.log('(失敗-前台)修改購物車 res:');
-    //       console.dir(err);
-    //       this.loadingStatus = false;
-    //     });
-    // },
+    },
   },
   mounted() {
     this.getCarts();

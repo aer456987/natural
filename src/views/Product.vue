@@ -15,7 +15,7 @@
               >線上商城</router-link
             >
           </li>
-          <li class="breadcrumb-item fw-bold active" aria-current="page">
+          <li class="breadcrumb-item active" aria-current="page">
             {{ tempProduct.title }}
           </li>
         </ol>
@@ -23,25 +23,6 @@
 
       <!-- 主要頁面 -->
       <section class="row mb-1 pb-5 align-items-center">
-        <!-- <div class="d-sm-block d-md-none">SM模式>=576px</div>
-        <div class="d-none d-md-block d-lg-none">MD模式>=768px</div>
-        <div class="d-none d-lg-block d-xl-none">LG模式>=992px</div>
-        <div class="d-none d-xl-block d-xxl-none">XL模式>=1200px</div>
-        <div class="d-none d-xxl-block">XXL模式>=1400px</div>
-
-        <div class="col-1 border">1</div>
-        <div class="col-1 border">2</div>
-        <div class="col-1 border">3</div>
-        <div class="col-1 border">4</div>
-        <div class="col-1 border">5</div>
-        <div class="col-1 border">6</div>
-        <div class="col-1 border">7</div>
-        <div class="col-1 border">8</div>
-        <div class="col-1 border">9</div>
-        <div class="col-1 border">10</div>
-        <div class="col-1 border">11</div>
-        <div class="col-1 border">12</div> -->
-
         <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5">
           <img
@@ -110,7 +91,7 @@
             <span class="fst-italic text-decoration-line-through text-gray">
               原價$ {{ tempProduct.origin_price }}
             </span>
-            <p class="h2 fw-bold mb-2">
+            <p class="h3 fw-bold mb-2">
               快閃特惠價 $1500
             </p>
 
@@ -135,7 +116,6 @@
                     class="form-control
                     m-0 p-1
                     text-center
-                    fw-bold
                     border-0
                     border-top
                     border-bottom"
@@ -173,7 +153,7 @@
                 <i class="bi bi-heart-fill btn_red"></i>
               </template>
             </div>
-            <p class="fw-bold text-danger">每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。</p>
+            <p class="text-danger">每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。</p>
           </div>
         </div>
       </section>
@@ -185,18 +165,17 @@
     <section class="col-10 my-2 py-5 container text-center bg-white">
       <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
       <div class="row justify-content-center">
-        <div class="col-11 col-md-9 col-lg-6">
+        <span class="col-11 col-md-9 col-lg-6">
           <p>{{ tempProduct.description }}</p>
-        </div>
+        </span>
       </div>
     </section>
   </section>
-  <!-- {{ productId }} -->
-  <!-- {{ tempProduct }} -->
 </template>
 
 <script>
 import swal from 'sweetalert';
+import bus from '../components/bus';
 
 export default {
   data() {
@@ -206,6 +185,7 @@ export default {
       productImg: '',
       tempProduct: {},
       qty: Number,
+      cartsLength: Number,
     };
   },
   methods: {
@@ -232,15 +212,11 @@ export default {
         });
     },
     changeNum(action) { // 改變數量
-      // this.loadingStatus = true;
-      // const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
-
       if (action === 'reduce') {
         console.log('reduce');
         if (this.qty < 2) {
           this.swalFn('數量不可少於 1', 'error');
           return;
-          // this.loadingStatus = false;
         }
         this.qty -= 1;
       } else if (action === 'add') {
@@ -265,6 +241,7 @@ export default {
             console.log('(成功-前台)加入購物車 res:', res);
             this.swalFn(res.data.message, 'success');
             this.qty = 1;
+            this.updateCartLength();
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)加入購物車 res:', res);
@@ -278,6 +255,28 @@ export default {
           console.dir(err);
           this.qty = 1;
           this.loadingStatus = false;
+        });
+    },
+    updateCartLength() { // 取得購物車數量
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            let totleQty = 0;
+            this.cartsLength = res.data.data.carts.forEach((item) => {
+              totleQty += item.qty;
+            });
+            this.cartsLength = totleQty;
+            bus.emit('cart-number', this.cartsLength);
+          } else {
+            console.log('(錯誤-單品)取得購物車數量 res:', res);
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-單品)取得購物車數量 err:');
+          console.dir(err);
         });
     },
     changeImg(img) { // 切換圖片
@@ -298,8 +297,6 @@ export default {
   },
   created() {
     this.productId = this.$route.params.id;
-    // console.log(this.$route);
-    // console.log(this.$route.params.id);
     this.getProduct(this.productId);
     this.qty = 1;
   },

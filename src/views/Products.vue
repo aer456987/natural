@@ -19,7 +19,7 @@
               <li class="breadcrumb-item">
                 <router-link to="/" class="link-secondary">首頁</router-link>
               </li>
-              <li class="breadcrumb-item fw-bold active" aria-current="page">
+              <li class="breadcrumb-item active" aria-current="page">
                 線上商城
               </li>
             </ol>
@@ -41,11 +41,11 @@
           />
         </span>
       </div>
-      <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1>
+      <h1 class="pb-5 text-center py-3 m-0">線上商城</h1>
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">
-          <Card :temp-products="filterProducts" @add-cart="addCart"></Card>
+          <Card :temp-products="filterProducts"></Card>
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
         </div>
@@ -69,10 +69,7 @@ export default {
   },
   computed: {
     filterProducts() {
-      return this.products.filter((item) => {
-        console.log(item);
-        return item.title.match(this.search);
-      });
+      return this.products.filter((item) => item.title.match(this.search));
     },
   },
   components: {
@@ -80,7 +77,7 @@ export default {
     FilterList,
   },
   methods: {
-    getProducts() {
+    getProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
       this.loadingStatus = true;
       this.$http
@@ -103,33 +100,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    addCart(data) {
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
-      this.loadingStatus = true;
-      const cartData = {
-        data: { ...data },
-      };
-
-      this.$http
-        .post(url, cartData)
-        .then((res) => {
-          if (res.data.success) {
-            console.log('(成功-前台)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'success');
-            this.loadingStatus = false;
-          } else {
-            console.log('(錯誤-前台)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'error');
-            this.loadingStatus = false;
-          }
-        })
-        .catch((err) => {
-          console.log('(失敗-前台)加入購物車 err:');
-          console.dir(err);
-          this.loadingStatus = false;
-        });
-    },
-    clearSearch() {
+    clearSearch() { // 清除搜尋
       this.search = '';
     },
     swalFn(title, icon, timer = 2000, text, button = false) { // 一般提示視窗

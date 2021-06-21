@@ -3,24 +3,22 @@
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap";
 @import '~bootstrap-icons/font/bootstrap-icons.css';
-@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mr+Bedfort&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
 
 *{
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
 body{
+  font-family: 'Noto Sans HK', sans-serif;
   background: $gray-100;
   overflow-x: hidden;
-  // background: $secondary;
 }
 
 // 每個頁面的主頁範圍
 .pageContent{
   min-height: 800px;
-  // background: $white;
 }
 
 // 放大1.2倍
@@ -41,12 +39,10 @@ body{
   }
 }
 
-
+// logo
 .logo{
-  // font-size: 150px;
   font-family: 'Vibur';
   color: $secondary;
-  // font-family: 'Mr Bedfort';
 }
 
 .logo_brown{
@@ -60,7 +56,6 @@ body{
 // 商品-卡片圖片
 .card_img_style{
   position: relative;
-  // max-height: 170px;
   overflow: hidden;
   background: $black;
   cursor: pointer;
@@ -97,6 +92,23 @@ body{
   }
 }
 
+.cart_num{
+  position: absolute;
+  top: -2px;
+  left: 25px;
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  border: solid 2px $primary;
+  font-family: 'Vibur';
+  font-size: 5px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 26px;
+  color: $primary;
+  background: $secondary;
+}
+
 // 主要按鈕
 .btn_main{
   padding: 8px;
@@ -129,7 +141,6 @@ body{
   }
 }
 
-// background-color: transparent
 .btn_red{
   color: rgba($red, .3);
   &:hover{
@@ -153,20 +164,24 @@ body{
 
 // 訂單進度條
 .progress_style{
-  padding: 6px 10px;
-  font-weight: bold;
+  width: 40px;
+  height: 40px;
   border-radius: 100%;
+  text-align: center;
+  line-height: 40px;
   background: $secondary;
   transform: scale(1);
   i{
     color: $white;
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 .progress_active{
+  width: 50px;
+  height: 50px;
   padding: 8px 13px;
+  line-height: 30px;
   background: $primary;
-  transform: scale(1.5);
   i{
     font-size: 22px;
   }
@@ -225,34 +240,7 @@ tbody{
   margin-left: -3px;
 }
 
-
-
 // 產品頁面 多圖
 .img_view{
   height: 514px;
-  // overflow-y: scroll;
 }
-
-@media(max-width: 1140px){
-  .img_view{
-    height: 400px;
-    // overflow-y: scroll;
-  }
-}
-
-@media(max-width:992px){
-  .img_view{
-    height: 451px;
-    // overflow-y: scroll;
-  }
-}
-
-// MD
-// @media(max-width: 768px){
-//   .img_view{}
-// }
-
-// SM
-// @media(max-width: 576px){
-//   .img_view{}
-// }

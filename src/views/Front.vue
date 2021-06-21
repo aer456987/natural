@@ -22,7 +22,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
+      <span
         class="collapse navbar-collapse flex justify-content-end"
         id="navbarToggler"
       >
@@ -34,45 +34,76 @@
             <router-link to="/products" class="nav-link">線上商城</router-link>
           </li>
           <li class="nav-item scale">
-            <div class="nav-link">
-              <font-awesome-icon icon="heart" />
-            </div>
+            <span class="nav-link">
+              <i class="bi bi-heart-fill"></i>
+            </span>
           </li>
           <li class="nav-item scale">
-            <router-link to="/square/cart" class="nav-link position-relative">
-              <div
-                class="
-                d-block
-                position-relative
-                start-50"
-                style="width: 30px; height: 30px;">
-                <font-awesome-icon icon="cart-plus" />
+            <router-link to="/square/cart"
+              class="nav-link">
+              <sapn
+                class="d-inline">
+                <i class="bi bi-cart-fill"></i>
                 <span
-                  class="
-                    position-absolute
-                    top-0
-                    start-100
-                    translate-middle
-                    text-danger
-                  "
-                  >
-                  <!-- {{ carts.length }} -->
-                  1
-                  <!-- v-if="cart.totalQty > 0"{{ cart.totalQty }} -->
-                </span>
-              </div>
+                  v-if="cartsLength > 0"
+                  class="cart_num"
+                >{{ cartsLength || newLength }}</span>
+              </sapn>
             </router-link>
           </li>
         </ul>
-      </div>
+      </span>
     </div>
   </nav>
-
   <router-view></router-view>
 
   <footer class="p-3 bg-primary">
-    <div class="container text-center text-secondary fw-bold">
+    <div class="container text-center text-secondary">
       作業使用，無商業行為
     </div>
   </footer>
 </template>
+
+<script>
+import bus from '../components/bus';
+
+export default {
+  data() {
+    return {
+      cartsLength: 0,
+      newLength: 0,
+    };
+  },
+  methods: {
+    updateCartLength() { // 取得購物車數量
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-全域)取得購物車數量 res:', res);
+            let totleQty = 0;
+            this.cartsLength = res.data.data.carts.forEach((item) => {
+              totleQty += item.qty;
+            });
+            this.cartsLength = totleQty;
+            console.log('(成功-全域)取得購物車數量 vue:', this.cartsLength);
+          } else {
+            console.log('(錯誤-全域)取得購物車數量 res:', res);
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-全域)取得購物車數量 err:');
+          console.dir(err);
+        });
+    },
+  },
+  mounted() {
+    this.updateCartLength();
+    bus.on('cart-number', (num) => {
+      this.cartsLength = num;
+      this.newLength = num;
+    });
+  },
+};
+</script>

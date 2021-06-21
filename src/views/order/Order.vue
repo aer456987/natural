@@ -13,7 +13,7 @@
           <li class="breadcrumb-item">
             <router-link to="/square/cart" class="link-secondary">購物車</router-link>
           </li>
-          <li class="breadcrumb-item fw-bold active" aria-current="page">
+          <li class="breadcrumb-item active" aria-current="page">
             填寫訂單資料
           </li>
         </ol>
@@ -21,7 +21,7 @@
       <!-- 進度條 -->
       <Progress :progress="progress"></Progress>
       <!-- 購物車 -->
-      <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
+      <h2 class="text-center fw-bold mb-4">訂購人資訊</h2>
       <div class="container">
         <!-- 訂單填寫 -->
         <template class="row px-lg-0 px-xl-5
@@ -40,20 +40,20 @@
                 shadow-sm
               "
             >
-              <h5 class="text-center fw-bold mb-4">購物明細</h5>
+              <h5 class="text-center mb-4">購物明細</h5>
               <table class="table text-center mb-5">
                 <thead>
                   <tr>
-                    <th scope="col">商品資訊</th>
-                    <th scope="col">數量</th>
-                    <th scope="col">金額</th>
+                    <td scope="col">商品資訊</td>
+                    <td scope="col">數量</td>
+                    <td scope="col">金額</td>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="item in carts.carts" :key="item.id">
-                    <th scope="row">
+                    <td scope="row">
                       {{ item.product.title }}
-                    </th>
+                    </td>
                     <td>
                       {{ item.qty }}
                     </td>
@@ -62,7 +62,7 @@
                 </tbody>
               </table>
 
-              <h5 class="text-center fw-bold">
+              <h5 class="text-center">
                 總金額NT ${{ carts.total }}
               </h5>
             </div>
@@ -71,7 +71,7 @@
           <div class="col-lg-6 mb-5">
             <Form v-slot="{ errors }" class="px-3" @change="checkUserDatas">
               <!-- 訂購人姓名 -->
-              <label for="orderName" class="form-label mt-4 mb-1 fw-bold"
+              <label for="orderName" class="form-label mt-3 mb-1"
                 >訂購人姓名<span class="text-danger fw-bold">*</span></label
               >
               <Field
@@ -89,7 +89,7 @@
               ></error-message>
 
               <!-- 聯絡電話 -->
-              <label for="orderTel" class="form-label mt-4 mb-1 fw-bold"
+              <label for="orderTel" class="form-label mt-3 mb-1"
                 >聯絡電話<span class="text-danger fw-bold">*</span></label
               >
               <Field
@@ -108,7 +108,7 @@
               ></error-message>
 
               <!-- Email -->
-              <label for="orderEmail" class="form-label mt-4 mb-1 fw-bold"
+              <label for="orderEmail" class="form-label mt-3 mb-1"
                 >Email<span class="text-danger fw-bold">*</span></label
               >
               <Field
@@ -127,7 +127,7 @@
               ></error-message>
 
               <!-- 寄送地址 -->
-              <label for="orderAddress" class="form-label mt-4 mb-1 fw-bold"
+              <label for="orderAddress" class="form-label mt-3 mb-1"
                 >寄送地址<span class="text-danger fw-bold">*</span></label
               >
               <Field
@@ -145,7 +145,7 @@
               ></error-message>
 
               <!-- 備註 -->
-              <label for="orderMsg" class="form-label mt-4 mb-1 fw-bold"
+              <label for="orderMsg" class="form-label mt-3 mb-1"
                 >備註</label
               >
               <Field
@@ -200,59 +200,28 @@ export default {
         message: '',
       },
       order: { // 單一訂單
-        // id: '-McPYuLuO-sBflWGCvud',
         id: '',
         data: {},
-        // data: {
-        //   create_at: 1623061671,
-        //   id: '-Mba-uy5O_vRLLuhmQyt',
-        //   is_paid: false,
-        //   products: {
-        //     '-Mba-uzREllvnxfu0lgb': {
-        //       final_total: 400,
-        //       id: '-Mba-uzREllvnxfu0lgb',
-        //       product: {
-        //         category: '飼料',
-        //         content: '超取最多1包，1包以上需宅配',
-        //         description: '外國進口高級飼料，一包5kg，有效期限到115/5/10',
-        //         id: '-Ma8iV32OESK_mS6zyC-',
-        //         imageUrl: 'https://cf.shopee.tw/file/d19cad20485e8e8c4e3eb7bf4024753a',
-        //         imagesUrl: [],
-        //         is_enabled: true,
-        //         num: 3,
-        //         origin_price: 599,
-        //         price: 400,
-        //         title: '外國進口飼料',
-        //         unit: '包',
-        //       },
-        //       product_id: '-Ma8iV32OESK_mS6zyC-',
-        //       qty: 1,
-        //       total: 400,
-        //     },
-        //   },
-        //   total: 400,
-        //   user: {
-        //     name: '名字',
-        //     tel: '0912312345',
-        //     email: 'asdas@asd.ewe',
-        //     address: '住址',
-        //   },
-        // },
       },
     };
   },
   components: { Progress },
   methods: {
-    // 取得購物車資料
-    getCarts() {
+    getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
+
       this.$http
         .get(url)
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)取得購物車全部資料 res:', res);
             this.carts = res.data.data;
+
+            if (this.carts.carts.length < 1) {
+              this.$router.push('/square/cart');
+            }
+
             this.loadingStatus = false;
             console.log('(成功-前台)取得購物車全部資料 vue:', this.carts);
           } else {
@@ -265,8 +234,8 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    }, // 驗證是否為空訂單
-    checkUserDatas() {
+    },
+    checkUserDatas() { // 驗證是否為空訂單
       const {
         name, email, tel, address,
       } = this.userDatas.user;
@@ -284,7 +253,7 @@ export default {
         data: this.userDatas,
       })
         .then((res) => {
-          if (!res.data.success) {
+          if (res.data.success) {
             console.log('(成功-前台)送出訂單 res:', res);
             this.$router.push(`/square/order/${res.data.orderId}`);
           } else {
