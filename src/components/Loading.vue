@@ -19,7 +19,7 @@ export default {
   height: 160%
   top: -60px
   background: rgba(white, .5)
-  z-index: 100
+  z-index: 2000
   img
     position: fixed
     top: 50%
