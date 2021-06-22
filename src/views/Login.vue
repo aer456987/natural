@@ -25,7 +25,7 @@
               type="email"
               id="orderEmail"
               name="Email"
-              placeholder="輸入帳號"
+              placeholder="請輸入email"
               class="form-control"
               :class="{ 'is-invalid': errors['Email'] }"
               rules="required|email"

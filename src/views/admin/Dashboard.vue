@@ -64,20 +64,16 @@ export default {
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(後台/成功)帳號認證', res);
-            console.log('(後台/成功)登入確認OK');
+            console.log('(成功-後台)帳號認證', res);
             this.loginStatus = true;
-            console.log(this.loginStatus);
           } else {
-            console.log('(後台/成功)帳號認證', res);
-            console.log('登入確認錯誤');
+            console.log('(錯誤-後台)帳號認證', res);
             this.loginStatus = false;
-            console.log(this.loginStatus);
             this.$router.push('/login');
           }
         })
         .catch((err) => {
-          console.dir('前台帳號認證(失敗)', err);
+          console.dir('(失敗-後台)帳號認證', err);
           this.$router.push('/login');
         });
     },
