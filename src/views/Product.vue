@@ -213,14 +213,12 @@ export default {
     },
     changeNum(action) { // 改變數量
       if (action === 'reduce') {
-        console.log('reduce');
         if (this.qty < 2) {
           this.swalFn('數量不可少於 1', 'error');
           return;
         }
         this.qty -= 1;
       } else if (action === 'add') {
-        console.log('add');
         this.qty += 1;
       }
     },
