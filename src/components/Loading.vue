@@ -15,9 +15,10 @@ export default {
 // loading
 .loadingImg
   position: fixed
-  width: 100%
-  height: 160%
-  top: -60px
+  width: 110%
+  height: 200%
+  top: 0
+  left: 0
   background: rgba(white, .5)
   z-index: 2000
   img
