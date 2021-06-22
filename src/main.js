@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'; // Font Awesome 
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
-import Loading from './components/Loading.vue'; // Loading元件
+import Loading from '@/components/Loading.vue'; // Loading元件
 import 'bootstrap'; // bootstrap icon
 import App from './App.vue';
 import router from './router';

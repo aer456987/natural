@@ -47,7 +47,19 @@
   </nav>
   <!-- 主要頁面 -->
   <router-view></router-view>
+  <!-- 頁尾 -->
+  <footer class="p-3 bg-brown">
+    <div class="container text-center">
+      作業使用，無商業行為
+    </div>
+  </footer>
 </template>
+
+<style lang="sass">
+.form-select:focus
+  border-color: #926E60;
+  box-shadow: 0 0 0 0.15rem rgba(#926E60, .3);
+</style>
 
 <script>
 // import swal from 'sweetalert';

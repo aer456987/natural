@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import bus from '../methods/bus';
+import bus from '@/methods/bus';
 
 export default {
   data() {

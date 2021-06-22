@@ -54,5 +54,10 @@
 <script>
 export default {
   name: 'Square',
+  data() {
+    return {
+      loadingStatus: false,
+    };
+  },
 };
 </script>
