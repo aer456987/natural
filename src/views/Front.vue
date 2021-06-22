@@ -41,13 +41,14 @@
           <li class="nav-item scale">
             <router-link to="/square/cart"
               class="nav-link">
-              <span
-                class="d-inline">
-                <i class="bi bi-cart-fill"></i>
-                <span
-                  v-if="cartsLength > 0"
-                  class="cart_num"
-                >{{ cartsLength || newLength }}</span>
+              <span>
+                <i class="bi bi-cart-fill position-relative">
+                  <span
+                    v-if="cartsLength > 0"
+                    class="cart_num">
+                    {{ cartsLength || newLength }}
+                  </span>
+                </i>
               </span>
             </router-link>
           </li>
