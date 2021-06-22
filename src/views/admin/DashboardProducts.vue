@@ -99,7 +99,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :page="pagination"></Pagination>
+    <Pagination></Pagination>
   </section>
 </template>
 
@@ -108,6 +108,7 @@
 import Pagination from '@/components/pagination.vue';
 
 export default {
+  name: 'DashboardProducts',
   data() {
     return {
       datas: {

@@ -65,6 +65,7 @@
 // import swal from 'sweetalert';
 
 export default {
+  name: 'Dashboard',
   data() {
     return {
       loginStatus: false,

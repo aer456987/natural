@@ -64,7 +64,7 @@ const routes = [
       {
         path: 'coupon',
         name: '後台優惠券',
-        component: () => import('../views/admin/Coupon.vue'),
+        component: () => import('../views/admin/DashboardCoupon.vue'),
       },
       {
         path: 'logout',
