@@ -2,20 +2,26 @@
   <!-- 分頁 -->
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center pt-2">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&laquo;</a>
+      <li class="page-item"
+        :class="{ 'disabled' : !pagesData.has_pre }"
+        @click="$emit('get-data', pagesData.current_page - 1)">
+        <button type="button" class="page-link">&laquo;</button>
       </li>
-      <li class="page-item">
-        <a class="page-link" href="/admin/dashboardProducts">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="/admin/dashboardProducts">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="/admin/dashboardProducts">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">&raquo;</a>
+      <template
+        v-for="page in pagesData.total_pages"
+        :key="`分頁_${page}`">
+        <li class="page-item"
+          :class="{ 'active' : pagesData.current_page === page }"
+          @click="$emit('get-data', page)">
+          <button type="button" class="page-link">
+            {{ page }}
+          </button>
+        </li>
+      </template>
+      <li class="page-item"
+        :class="{ 'disabled' : !pagesData.has_next }"
+        @click="$emit('get-data', pagesData.current_page + 1)">
+        <button type="button" class="page-link">&raquo;</button>
       </li>
     </ul>
   </nav>
@@ -26,11 +32,20 @@ export default {
   name: 'Pagination',
   props: ['page'],
   data() {
-    return {};
+    return {
+      pagesData: {},
+    };
+  },
+  watch: {
+    page: {
+      handler(n) {
+        this.pagesData = n;
+        // console.log('n:', n);
+        // console.log('分頁資料', this.pagesData);
+      },
+    },
   },
   methods: {},
-  created() {
-    console.log(123);
-  },
+  created() {},
 };
 </script>

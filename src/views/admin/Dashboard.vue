@@ -1,7 +1,7 @@
 <template>
   <!-- 導覽列 -->
   <nav class="navbar navbar-expand-lg
-    navbar-dark bg-brown px-2 shadow">
+    navbar-dark bg-brown px-2 shadow-sm">
     <div class="container-fluid">
       <router-link
         to="/"

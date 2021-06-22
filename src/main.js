@@ -16,6 +16,7 @@ import Loading from '@/components/Loading.vue'; // Loading元件
 import 'bootstrap'; // bootstrap icon
 import App from './App.vue';
 import router from './router';
+import { date } from './methods/filters';
 
 defineRule('required', required);
 defineRule('email', email);
@@ -32,6 +33,12 @@ setLocale('zh_TW');
 library.add(faCrow, faSearchPlus);
 
 const app = createApp(App);
+
+// 將 filters.js 的方法解構出來並加入 globalProperties
+app.config.globalProperties.$filters = {
+  date,
+};
+
 app.use(router);
 app.use(VueAxios, axios);
 app.component('Form', Form);

@@ -82,9 +82,9 @@ $green-100:     #50B29B !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary":    #09694C,// $primary, 1D7E63, 09694C
+  "primary":    $primary,// $primary, 1D7E63, 09694C
   "primary-100":rgba(#09694C, .1),
-  "secondary":  #D5D83C,// $secondary, F8DF8F, D5D83C,
+  "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
@@ -538,7 +538,7 @@ $mark-bg:                     #fcf8e3 !default;
 // Customizes the `.table` component with basic values, each used across all table variations.
 
 // scss-docs-start table-variables
-$table-cell-padding-y:        .5rem !default;
+$table-cell-padding-y:        .75rem !default; // .5rem
 $table-cell-padding-x:        .5rem !default;
 $table-cell-padding-y-sm:     .25rem !default;
 $table-cell-padding-x-sm:     .25rem !default;
@@ -1063,17 +1063,17 @@ $pagination-border-radius:          $border-radius !default;
 $pagination-margin-start:           -$pagination-border-width !default;
 $pagination-border-color:           rgba($brown, .5) !default; // $gray-300
 
-$pagination-focus-color:            $link-hover-color !default;
-$pagination-focus-bg:               $gray-200 !default;
-$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
+$pagination-focus-color:            $white !default; // $link-hover-color
+$pagination-focus-bg:               $brown !default; // $gray-200
+$pagination-focus-box-shadow:       0 0 0 2px rgba($brown, .5) !default; // $input-btn-focus-box-shadow
 $pagination-focus-outline:          0 !default;
 
 $pagination-hover-color:            $white !default; // $link-hover-color
 $pagination-hover-bg:               $brown !default; // $gray-200
 $pagination-hover-border-color:     $gray-300 !default;
 
-$pagination-active-color:           $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
+$pagination-active-color:           $white !default; // $component-active-color
+$pagination-active-bg:              $brown !default; // $component-active-bg
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-disabled-color:         $gray-300 !default; // $gray-600

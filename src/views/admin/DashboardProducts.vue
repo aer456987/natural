@@ -1,20 +1,7 @@
 <template>
+  <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent py-5">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
-    <!-- <section class="row">
-      <span class="col-1 border">1</span>
-      <span class="col-1 border">2</span>
-      <span class="col-1 border">3</span>
-      <span class="col-1 border">4</span>
-      <span class="col-1 border">5</span>
-      <span class="col-1 border">6</span>
-      <span class="col-1 border">7</span>
-      <span class="col-1 border">8</span>
-      <span class="col-1 border">9</span>
-      <span class="col-1 border">10</span>
-      <span class="col-1 border">11</span>
-      <span class="col-1 border">12</span>
-    </section> -->
     <div class="row justify-content-between pb-2">
       <span class="col-md-4 col-lg-2 pb-1">
         <select class="form-select"
@@ -38,14 +25,14 @@
     <table class="table table-hover text-center
       rounded overflow-hidden
       shadow-sm">
-      <thead class="table-dark">
+      <thead class="table-dark align-middle">
         <tr>
-          <td width="10%">分類</td>
-          <td width="8%">圖片</td>
+          <td width="9%">分類</td>
+          <td width="7%">圖片</td>
           <td width="13%">產品ID</td>
           <td width="12%">品名</td>
           <td width="12%">描述</td>
-          <td width="10%">說明</td>
+          <td width="12%">說明</td>
           <td width="7%">原價</td>
           <td width="7%">售價</td>
           <td width="7%">狀態</td>
@@ -54,7 +41,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in datas.products"
+        <tr v-for="product in products"
           :key="product.id">
 
           <td data-title="分類">
@@ -85,7 +72,7 @@
             {{ product.is_enabled ? '上架' : '未上架' }}
           </td>
           <td data-title="操作">
-            <button class="btn btn-outline-dark p-1">
+            <button class="btn btn-outline-brown p-1">
               修改
             </button>
           </td>
@@ -99,7 +86,7 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :page="pagination"></Pagination>
+    <Pagination :page="productPagination" @get-data="getProducts"></Pagination>
   </section>
 </template>
 
@@ -111,53 +98,56 @@ export default {
   name: 'DashboardProducts',
   data() {
     return {
-      datas: {
-        pagination: {},
-        products: {},
-        select: '',
-      },
+      loadingStatus: false,
+      productPagination: {},
+      products: {},
+      select: '',
     };
   },
   components: { Pagination },
   methods: {
     getProducts(page = 1) { // 取得全部商品
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products`; // ?page=:page
-      console.log('取得商品', page);
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
+      this.loadingStatus = true;
 
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-後台)取得產品 res', res);
-            this.datas.pagination = res.data.pagination;
-            this.datas.products = res.data.products;
-            console.log('(成功-後台)取得產品 vue', this.datas);
+            this.productPagination = res.data.pagination;
+            this.products = res.data.products;
+            this.loadingStatus = false;
+            console.log('(成功-後台)取得產品 vue', this.productPagination, this.products);
           } else {
             console.log('(錯誤-後台)取得產品 res', res);
+            this.loadingStatus = false;
           }
         })
         .catch((err) => {
           console.log('(失敗-後台)取得產品 err');
           console.dir(err);
+          this.loadingStatus = false;
         });
     },
     delProduct(id) { // 刪除商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`; // ${id}
-      console.log(id);
+      this.loadingStatus = true;
 
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
             this.swalFn(res.data.message, 'success');
             this.getProducts();
-            // console.log('(成功-後台)刪除商品 res', res);
+            this.loadingStatus = false;
           } else {
             this.swalFn(res.data.message, 'error');
-            // console.log('(錯誤-後台)刪除商品 res', res);
+            this.loadingStatus = false;
           }
         })
         .catch((err) => {
           console.log('(失敗-後台)刪除商品 err');
           console.dir(err);
+          this.loadingStatus = false;
         });
     },
     swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
