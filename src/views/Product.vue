@@ -175,7 +175,7 @@
 
 <script>
 import swal from 'sweetalert';
-import bus from '../components/bus';
+import bus from '../methods/bus';
 
 export default {
   data() {
