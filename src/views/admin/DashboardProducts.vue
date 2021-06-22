@@ -1,7 +1,6 @@
 <template>
   <section class="container pageContent py-5">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
-
     <!-- <section class="row">
       <span class="col-1 border">1</span>
       <span class="col-1 border">2</span>
@@ -17,7 +16,7 @@
       <span class="col-1 border">12</span>
     </section> -->
     <div class="row justify-content-between pb-2">
-      <span class="col-md-4 col-lg-2">
+      <span class="col-md-4 col-lg-2 pb-1">
         <select class="form-select"
           @change="changeProduct"
           v-model="select">
@@ -29,24 +28,29 @@
           <option value="其餘用品">其餘用品</option>
         </select>
       </span>
-      <div class="col-6 border"></div>
+      <span class="col-lg-2 text-end pb-1">
+        <button class="btn btn-outline-brown">
+          新增產品
+        </button>
+      </span>
     </div>
 
     <table class="table table-hover text-center
-      rounded overflow-hidden">
+      rounded overflow-hidden
+      shadow-sm">
       <thead class="table-dark">
         <tr>
-          <th width="10%">分類</th>
-          <th width="8%">圖片</th>
-          <th width="13%">產品ID</th>
-          <th width="12%">品名</th>
-          <th width="12%">描述</th>
-          <th width="10%">說明</th>
-          <th width="7%">原價</th>
-          <th width="7%">售價</th>
-          <th width="7%">狀態</th>
-          <th width="7%">操作</th>
-          <th width="7%">刪除</th>
+          <td width="10%">分類</td>
+          <td width="8%">圖片</td>
+          <td width="13%">產品ID</td>
+          <td width="12%">品名</td>
+          <td width="12%">描述</td>
+          <td width="10%">說明</td>
+          <td width="7%">原價</td>
+          <td width="7%">售價</td>
+          <td width="7%">狀態</td>
+          <td width="7%">操作</td>
+          <td width="7%">刪除</td>
         </tr>
       </thead>
       <tbody>
@@ -68,44 +72,40 @@
           <td data-title="品名">
             {{ product.title }}
           </td>
-          <td
-            data-title="描述"
-            class="text-break">
+          <td data-title="描述" class="text-break">
             {{ product.description }}
           </td>
-          <td
-            data-title="說明"
-            class="text-break">
+          <td data-title="說明" class="text-break">
             {{ product.content }}
           </td>
-          <td data-title="原價">
-            {{ product.origin_price }}
-          </td>
-          <td data-title="售價">
-            {{ product.price }}
-          </td>
-          <td data-title="狀態">
-            {{ product.is_enabled }}
+          <td data-title="原價">{{ product.origin_price }}</td>
+          <td data-title="售價">{{ product.price }}</td>
+          <td data-title="狀態"
+            :class="{ 'text-gray' : !product.is_enabled }">
+            {{ product.is_enabled ? '上架' : '未上架' }}
           </td>
           <td data-title="操作">
-            修改
+            <button class="btn btn-outline-dark p-1">
+              修改
+            </button>
           </td>
           <td data-title="刪除">
             <i class="bi bi-trash-fill
-              btn btn-outline-danger"></i>
+              btn btn-outline-danger"
+              @click="delSwalFn(product)"></i>
           </td>
           <!-- {{ product }} -->
 
         </tr>
       </tbody>
     </table>
-    <Pagination></Pagination>
+    <Pagination :page="pagination"></Pagination>
   </section>
 </template>
 
 <script>
-// import swal from 'sweetalert';
-import Pagination from '@/components/pagination.vue';
+import swal from 'sweetalert';
+import Pagination from '@/components/Pagination.vue';
 
 export default {
   name: 'DashboardProducts',
@@ -120,7 +120,7 @@ export default {
   },
   components: { Pagination },
   methods: {
-    getProducts(page = 1) {
+    getProducts(page = 1) { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products`; // ?page=:page
       console.log('取得商品', page);
 
@@ -138,6 +138,56 @@ export default {
         .catch((err) => {
           console.log('(失敗-後台)取得產品 err');
           console.dir(err);
+        });
+    },
+    delProduct(id) { // 刪除商品
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`; // ${id}
+      console.log(id);
+
+      this.$http.delete(url)
+        .then((res) => {
+          if (res.data.success) {
+            this.swalFn(res.data.message, 'success');
+            this.getProducts();
+            // console.log('(成功-後台)刪除商品 res', res);
+          } else {
+            this.swalFn(res.data.message, 'error');
+            // console.log('(錯誤-後台)刪除商品 res', res);
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)刪除商品 err');
+          console.dir(err);
+        });
+    },
+    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
+      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
+      const txt = {
+        title,
+        text,
+        icon,
+        button,
+        timer,
+        closeOnClickOutside: false,
+      };
+      swal(txt);
+    },
+    delSwalFn(product) { // 刪除商品的確認視窗
+      // console.log(product.title, product.id);
+      const txt = {
+        title: `確定要刪除 [${product.title}] 嗎？`,
+        text: '請注意，刪除後將無法復原！',
+        icon: 'warning',
+        buttons: ['取消', '確定刪除'],
+        dangerMode: true,
+      };
+      swal(txt)
+        .then((willDelete) => { // 針對選項執行不同動作
+          if (willDelete) {
+            this.delProduct(product.id);
+          } else {
+            this.swalFn('已取消操作', 'error');
+          }
         });
     },
   },
