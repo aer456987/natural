@@ -161,7 +161,7 @@
   </section>
 
   <!-- 商品說明 -->
-  <section class="row py-5">
+  <section class="row py-5 m-0">
     <section class="col-10 my-2 py-5 container text-center bg-white">
       <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
       <div class="row justify-content-center">
