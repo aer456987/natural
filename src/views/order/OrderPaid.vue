@@ -24,8 +24,8 @@
       <section class="container">
         <div class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
-          <div class="col-md-12 col-lg-9">
-            <span class="px-5 py-5 mb-5 rounded
+          <section class="col-md-12 col-lg-9">
+            <div class="px-5 py-5 mb-5 rounded
               shadow text-center bg-white">
               <h5 class="fw-bold mt-2 mb-4">感謝您的訂購！</h5>
               <p>
@@ -42,8 +42,8 @@
                 class="btn btn-outline-secondary px-3 py-1 my-2">
                   返回線上商城
               </router-link>
-            </span>
-          </div>
+            </div>
+          </section>
         </div>
       </section>
     </main>

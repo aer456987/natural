@@ -26,7 +26,7 @@
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
           <div class="col-md-12 col-lg-9">
-            <span class="px-5 py-5 mb-5 rounded shadow bg-white">
+            <section class="px-5 py-5 mb-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3">
                 {{ order.id }}
@@ -112,7 +112,7 @@
               <p class="h5 text-center mb-3">
                 總金額NT ${{ order.data.total }}
               </p>
-            </span>
+            </section>
           </div>
 
           <!-- 我要付款 -->
