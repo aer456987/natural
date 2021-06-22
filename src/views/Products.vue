@@ -41,7 +41,7 @@
           />
         </span>
       </div>
-      <h1 class="pb-5 text-center py-3 m-0">線上商城</h1>
+      <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1>
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">

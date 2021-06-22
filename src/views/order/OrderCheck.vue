@@ -21,7 +21,7 @@
       <!-- 進度條 -->
       <Progress :progress="progress"></Progress>
       <!-- 訂單確認 & 付款 -->
-      <h2 class="text-center fw-bold mb-4">訂購人資訊</h2>
+      <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
       <section class="container">
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->

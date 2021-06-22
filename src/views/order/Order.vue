@@ -21,7 +21,7 @@
       <!-- 進度條 -->
       <Progress :progress="progress"></Progress>
       <!-- 購物車 -->
-      <h2 class="text-center fw-bold mb-4">訂購人資訊</h2>
+      <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
       <div class="container">
         <!-- 訂單填寫 -->
         <section class="row px-lg-0 px-xl-5
