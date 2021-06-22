@@ -56,7 +56,6 @@
 <script>
 import Card from '@/components/Card.vue';
 import FilterList from '@/components/FilterList.vue';
-import swal from 'sweetalert';
 
 export default {
   data() {
