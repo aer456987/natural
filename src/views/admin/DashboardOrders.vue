@@ -4,10 +4,10 @@
   </div>
 </template>
 
-
 <script>
-  // import swal from 'sweetalert';
+// import swal from 'sweetalert';
+
 export default {
   name: 'DashboardOrders',
-}
+};
 </script>

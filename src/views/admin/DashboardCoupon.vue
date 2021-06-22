@@ -9,5 +9,5 @@
 
 export default {
   name: 'DashboardCoupon',
-}
+};
 </script>

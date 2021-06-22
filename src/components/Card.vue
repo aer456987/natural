@@ -1,4 +1,5 @@
 <template>
+  <!-- 商品頁卡片 -->
   <Loading :status="loadingStatus"></Loading>
   <li
     class="col-sm-6 col-lg-4 col-xl-3 my-2"
