@@ -103,18 +103,6 @@ export default {
     clearSearch() { // 清除搜尋
       this.search = '';
     },
-    swalFn(title, icon, timer = 2000, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
-    },
   },
   mounted() {
     this.getProducts();
