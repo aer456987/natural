@@ -18,9 +18,10 @@
         </select>
       </span>
       <span class="col-lg-2 text-end pb-1">
-        <button class="btn btn-outline-brown">
-          新增產品
-        </button>
+        <button
+          class="btn btn-outline-brown"
+          @click="openModal(true)"
+        >新增產品</button>
       </span>
     </div>
 
@@ -92,9 +93,10 @@
           </td>
 
           <td data-title="操作">
-            <button class="btn btn-outline-brown p-1">
-              修改
-            </button>
+            <button
+              class="btn btn-outline-brown p-1"
+              @click="openModal(false, product)"
+            >修改</button>
           </td>
 
           <td data-title="刪除">
@@ -112,24 +114,35 @@
       :pagination-page="productPagination"
       @get-data="getProducts"
     ></Pagination>
+
+    <ProductModal
+      ref="productModal"
+      :modal-product="tempProduct"
+      :modal-isNew="isNew"
+      @modal-update-product="updateProduct"
+    />
+
   </section>
 </template>
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
 import Pagination from '@/components/DashboarPagination.vue';
+import ProductModal from '@/components/DashboarProductModal.vue';
 
 export default {
   name: 'DashboardProducts',
   data() {
     return {
       loadingStatus: false,
-      productPagination: {},
-      products: {},
       select: '',
+      products: {},
+      productPagination: {},
+      tempProduct: {},
+      isNew: Boolean,
     };
   },
-  components: { Pagination }, // , ProductModal
+  components: { Pagination, ProductModal },
   methods: {
     getProducts(page = 1) { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
@@ -175,16 +188,56 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delProductFn(data) {
+    delProductFn(data) { // 刪除提示視窗
       const { title, id } = data;
       delSwalFn(title, id, this.delProduct);
+    },
+    openModal(isNew, product) { // 打開模組
+      if (isNew) {
+        this.isNew = true;
+        this.tempProduct = { category: '請選擇分類' };
+      } else {
+        this.isNew = false;
+        this.tempProduct = product;
+      }
+      this.$refs.productModal.openModal();
+    },
+    updateProduct(item) { // 新增產品 & 修改產品
+      this.loadingStatus = true;
+      let url = '';
+      let httpMethods = '';
+
+      if (this.isNew) {
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product`;
+        httpMethods = 'post';
+      } else {
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${item.id}`;
+        httpMethods = 'put';
+      }
+
+      this.$http[httpMethods](url, { data: item })
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)新增產品 res', res);
+            swalFn(res.data.message, 'success');
+            this.getProducts();
+            this.$refs.productModal.hideModal();
+          } else {
+            console.log('(錯誤-後台)新增產品 res', res);
+            swalFn(res.data.message, 'error');
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)新增產品 err');
+          console.dir(err);
+          this.loadingStatus = false;
+        });
     },
   },
   mounted() {
     this.getProducts();
     this.select = '全部商品';
-    console.log(this.$refs);
-    // this.openModel();
   },
 };
 </script>

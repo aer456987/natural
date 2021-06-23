@@ -68,8 +68,12 @@
 
 <style lang="sass">
 .form-select:focus
-  border-color: #926E60;
-  box-shadow: 0 0 0 0.15rem rgba(#926E60, .3);
+  border-color: #926E60
+  box-shadow: 0 0 0 0.15rem rgba(#926E60, .3)
+
+.form-control:focus
+  border-color: #926E60
+  box-shadow: 0 0 0 0.15rem rgba(#926E60, .3)
 </style>
 
 <script>
