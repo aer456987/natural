@@ -86,13 +86,13 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :page="productPagination" @get-data="getProducts"></Pagination>
+    <Pagination :pagination-page="productPagination" @get-data="getProducts"></Pagination>
   </section>
 </template>
 
 <script>
+import Pagination from '@/components/DashboarPagination.vue';
 import swal from 'sweetalert';
-import Pagination from '@/components/Pagination.vue';
 
 export default {
   name: 'DashboardProducts',

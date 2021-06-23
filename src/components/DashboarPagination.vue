@@ -30,14 +30,14 @@
 <script>
 export default {
   name: 'Pagination',
-  props: ['page'],
+  props: ['paginationPage'],
   data() {
     return {
       pagesData: {},
     };
   },
   watch: {
-    page: {
+    paginationPage: {
       handler(n) {
         this.pagesData = n;
         // console.log('n:', n);

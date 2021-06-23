@@ -1,7 +1,7 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <!-- 篩選列表 -->
-  <FilterList class="sticky-top" :products="products"></FilterList>
+  <ProductFilterList class="sticky-top" :products="products"></ProductFilterList>
   <header class="header position-relative">
     <img
       class="img-fluid w-100 shadow"
@@ -45,7 +45,7 @@
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">
-          <Card :temp-products="filterProducts"></Card>
+          <ProductCard :cart-product-data="filterProducts"></ProductCard>
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
         </div>
@@ -54,10 +54,11 @@
 </template>
 
 <script>
-import Card from '@/components/Card.vue';
-import FilterList from '@/components/FilterList.vue';
+import ProductCard from '@/components/ProductCard.vue';
+import ProductFilterList from '@/components/ProductFilterList.vue';
 
 export default {
+  name: 'Products',
   data() {
     return {
       loadingStatus: false,
@@ -72,8 +73,8 @@ export default {
     },
   },
   components: {
-    Card,
-    FilterList,
+    ProductCard,
+    ProductFilterList,
   },
   methods: {
     getProducts() { // 取得全部商品

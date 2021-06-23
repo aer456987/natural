@@ -3,7 +3,7 @@
   <Loading :status="loadingStatus"></Loading>
   <li
     class="col-sm-6 col-lg-4 col-xl-3 my-2"
-    v-for="product in tempProducts"
+    v-for="product in cartProductData"
     :key="product.id"
   >
     <div class="card border-0 shadow-sm">
@@ -12,18 +12,14 @@
         class="card-img-top card_img_style"
       >
         <div class="more_msg">
-          <font-awesome-icon icon="search-plus" />
+          <Font-awesome-icon icon="search-plus" />
         </div>
         <img class="img-fluid" :src="product.imageUrl" alt="'商品圖" />
       </router-link>
       <div
-        class="
-          card-body
-          bg-white
-          rounded-bottom
+        class="card-body bg-white rounded-bottom
           d-flex justify-content-between align-items-center
-          px-2
-          py-3
+          px-2 py-3
         "
       >
         <h1 class="h4 m-0 text-truncate">
@@ -47,7 +43,7 @@ import bus from '@/methods/bus';
 
 export default {
   name: 'Card',
-  props: ['tempProducts'],
+  props: ['cartProductData'],
   data() {
     return {
       loadingStatus: false,

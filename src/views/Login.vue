@@ -73,6 +73,7 @@
 
 <script>
 export default {
+  name: 'Login',
   data() {
     return {
       loadingStatus: false,

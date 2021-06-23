@@ -69,6 +69,7 @@
 import bus from '@/methods/bus';
 
 export default {
+  name: 'Front',
   data() {
     return {
       cartsLength: 0,

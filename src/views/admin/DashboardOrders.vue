@@ -93,12 +93,12 @@
         </tr>
       </tbody>
     </table>
-    <Pagination :page="ordersPagination" @get-data="getOrders"></Pagination>
+    <Pagination :pagination-page="ordersPagination" @get-data="getOrders"></Pagination>
   </section>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination.vue';
+import Pagination from '@/components/DashboarPagination.vue';
 // import swal from 'sweetalert';
 
 export default {

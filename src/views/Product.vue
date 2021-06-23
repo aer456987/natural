@@ -178,6 +178,7 @@ import swal from 'sweetalert';
 import bus from '@/methods/bus';
 
 export default {
+  name: 'Product',
   data() {
     return {
       loadingStatus: false, // false
