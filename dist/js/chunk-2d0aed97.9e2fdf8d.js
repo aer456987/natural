@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0aed97"],{"0c8f":function(n,e,a){"use strict";a.r(e);var c=a("7a23");function d(n,e,a,d,o,r){return Object(c["t"])(),Object(c["d"])("div",null," 優惠券 ")}var o={name:"DashboardCoupon"};o.render=d;e["default"]=o}}]);
+//# sourceMappingURL=chunk-2d0aed97.9e2fdf8d.js.map
