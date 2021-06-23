@@ -44,7 +44,7 @@ app.use(VueAxios, axios);
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
-app.component('font-awesome-icon', FontAwesomeIcon);
+app.component('Font-awesome-icon', FontAwesomeIcon);
 app.component('Loading', Loading);
 app.config.productionTip = false;
 

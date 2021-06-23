@@ -5,7 +5,7 @@
       <router-link
         to="/"
         class="nav-link logo h3 mb-0 p-0">
-        <font-awesome-icon
+        <Font-awesome-icon
           icon="crow"
           class="d-inline-block align-text-top" />
         Natural
