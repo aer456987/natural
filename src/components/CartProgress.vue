@@ -41,7 +41,7 @@
       <div
         class="progress_style position-absolute top-0 start-100 translate-middle"
         :class="{
-            'progress_active' : progressValue===100
+            'progress_active' : progressValue===100,
           }"
       >
         <i class="bi bi-credit-card"></i>
