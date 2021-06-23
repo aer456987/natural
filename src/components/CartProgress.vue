@@ -41,6 +41,7 @@
 
 <script>
 export default {
+  name: 'CartProgress',
   props: ['progressValue'],
 };
 </script>

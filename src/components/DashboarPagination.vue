@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'Pagination',
+  name: 'DashboarPagination',
   props: ['paginationPage'],
   data() {
     return {

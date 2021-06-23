@@ -41,6 +41,6 @@
 
 <script>
 export default {
-  name: 'FilterList',
+  name: 'ProductFilterList',
 };
 </script>

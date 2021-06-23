@@ -38,7 +38,7 @@ import swal from 'sweetalert';
 import bus from '@/methods/bus';
 
 export default {
-  name: 'Card',
+  name: 'ProductCard',
   props: ['cartProductData'],
   data() {
     return {
