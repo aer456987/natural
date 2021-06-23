@@ -96,7 +96,7 @@
           <td data-title="刪除">
             <i
               class="bi bi-trash-fill btn btn-outline-danger"
-              @click="delOrder('one', order)"
+              @click="delOrderFn(order, 'one')"
             ></i>
           </td>
           <!-- {{ order }} -->
@@ -111,8 +111,8 @@
 </template>
 
 <script>
+import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
 import Pagination from '@/components/DashboarPagination.vue';
-// import swal from 'sweetalert';
 
 export default {
   name: 'DashboardOrders',
@@ -149,7 +149,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrder(action, item) {
+    delOrder(id, action) {
       let url = '';
       this.loadingStatus = true;
 
@@ -157,16 +157,18 @@ export default {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/all`;
         console.log('刪除全部', url);
       } else if (action === 'one') {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${item.id}`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${id}`;
       }
 
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-後台)取得訂單 res', res);
+            swalFn(res.data.message, 'success');
             this.getOrders();
           } else {
             console.log('(錯誤-後台)取得訂單 res', res);
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
@@ -175,6 +177,10 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
+    },
+    delOrderFn(data, action) {
+      const { id } = data;
+      delSwalFn(id, id, this.delOrder, action);
     },
   },
   mounted() {

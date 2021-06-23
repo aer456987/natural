@@ -41,8 +41,8 @@
           position-relative">
           <i
             class="bi bi-x-lg
-              btn_light_green fs-6
-              position-absolute top-50 end-0 translate-middle"
+            btn_light_green fs-6
+            position-absolute top-50 end-0 translate-middle"
             @click="clearSearch"></i>
           <input
             type="text"

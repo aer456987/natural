@@ -159,8 +159,8 @@
 </style>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import Progress from '@/components/CartProgress.vue';
-import swal from 'sweetalert';
 
 export default {
   name: 'Cart',
@@ -222,18 +222,18 @@ export default {
           if (res.data.success) {
             console.log('(成功-前台)刪除購物車 res:', res);
             console.log('(成功-前台)刪除購物車 vue:', this.carts);
-            this.swalFn(`${productName} ${res.data.message}`, 'success');
+            swalFn(`${productName} ${res.data.message}`, 'success');
             this.getCarts();
           } else {
             console.log('(錯誤-前台)刪除購物車 res:', res);
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
           console.log('(失敗-前台)刪除購物車 err:');
           console.dir(err);
-          this.swalFn(err.data.message, 'error');
+          swalFn(err.data.message, 'error');
           this.loadingStatus = false;
         });
     },
@@ -244,7 +244,7 @@ export default {
 
       if (action === 'reduce') {
         if (item.qty < 2) {
-          this.swalFn('數量不可少於 1', 'error');
+          swalFn('數量不可少於 1', 'error');
           this.loadingStatus = false;
           return;
         }
@@ -265,11 +265,11 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)修改購物車 res:', res);
-            this.swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success');
             this.getCarts();
           } else {
             console.log('(錯誤-前台)修改購物車 res:', res);
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
@@ -278,18 +278,6 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    },
-    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
     },
   },
   mounted() {

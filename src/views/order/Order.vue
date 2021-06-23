@@ -203,7 +203,7 @@
 
 <script>
 import Progress from '@/components/CartProgress.vue';
-import swal from 'sweetalert';
+import { swalFn } from '@/methods/swal';
 
 export default {
   name: 'Order',
@@ -276,7 +276,7 @@ export default {
             this.$router.push(`/square/order/${res.data.orderId}`);
           } else {
             console.log('(錯誤-前台)送出訂單 res', res);
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
@@ -285,18 +285,6 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
-    },
-    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
     },
   },
   mounted() {

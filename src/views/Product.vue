@@ -176,7 +176,7 @@
 </template>
 
 <script>
-import swal from 'sweetalert';
+import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 
 export default {
@@ -217,7 +217,7 @@ export default {
     changeNum(action) { // 改變數量
       if (action === 'reduce') {
         if (this.qty < 2) {
-          this.swalFn('數量不可少於 1', 'error');
+          swalFn('數量不可少於 1', 'error');
           return;
         }
         this.qty -= 1;
@@ -240,13 +240,13 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-前台)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success');
             this.qty = 1;
             this.updateCartLength();
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.qty = 1;
             this.loadingStatus = false;
           }
@@ -282,18 +282,6 @@ export default {
     },
     changeImg(img) { // 切換圖片
       this.productImg = img;
-    },
-    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
     },
   },
   created() {

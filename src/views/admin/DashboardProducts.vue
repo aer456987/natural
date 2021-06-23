@@ -100,7 +100,7 @@
           <td data-title="刪除">
             <i
               class="bi bi-trash-fill btn btn-outline-danger"
-              @click="delSwalFn(product)"
+              @click="delProductFn(product)"
             ></i>
           </td>
           <!-- {{ product }} -->
@@ -116,8 +116,8 @@
 </template>
 
 <script>
+import { swalFn, delSwalFn } from '@/methods/swal';
 import Pagination from '@/components/DashboarPagination.vue';
-import swal from 'sweetalert';
 
 export default {
   name: 'DashboardProducts',
@@ -155,17 +155,17 @@ export default {
         });
     },
     delProduct(id) { // 刪除商品
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`; // ${id}
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
-            this.swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success');
             this.getProducts();
             this.loadingStatus = false;
           } else {
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
@@ -175,35 +175,9 @@ export default {
           this.loadingStatus = false;
         });
     },
-    swalFn(title, icon, timer = 1500, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
-    },
-    delSwalFn(product) { // 刪除商品的確認視窗
-      // console.log(product.title, product.id);
-      const txt = {
-        title: `確定要刪除 [${product.title}] 嗎？`,
-        text: '請注意，刪除後將無法復原！',
-        icon: 'warning',
-        buttons: ['取消', '確定刪除'],
-        dangerMode: true,
-      };
-      swal(txt)
-        .then((willDelete) => { // 針對選項執行不同動作
-          if (willDelete) {
-            this.delProduct(product.id);
-          } else {
-            this.swalFn('已取消操作', 'error');
-          }
-        });
+    delProductFn(data) {
+      const { title, id } = data;
+      delSwalFn(title, id, this.delProduct);
     },
   },
   created() {

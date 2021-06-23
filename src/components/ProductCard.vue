@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import swal from 'sweetalert';
 import bus from '@/methods/bus';
+import { swalFn } from '@/methods/swal';
 
 export default {
   name: 'ProductCard',
@@ -73,12 +73,12 @@ export default {
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-card)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success');
             this.loadingStatus = false;
             this.updateCartLength();
           } else {
             console.log('(錯誤-card)加入購物車 res:', res);
-            this.swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
         })
@@ -109,18 +109,6 @@ export default {
           console.log('(失敗-cart)取得購物車數量 err:');
           console.dir(err);
         });
-    },
-    swalFn(title, icon, timer = 2000, text, button = false) { // 一般提示視窗
-      // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-      const txt = {
-        title,
-        text,
-        icon,
-        button,
-        timer,
-        closeOnClickOutside: false,
-      };
-      swal(txt);
     },
   },
 };
