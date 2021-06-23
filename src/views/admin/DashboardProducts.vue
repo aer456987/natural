@@ -129,7 +129,7 @@ export default {
       select: '',
     };
   },
-  components: { Pagination },
+  components: { Pagination }, // , ProductModal
   methods: {
     getProducts(page = 1) { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
@@ -180,9 +180,11 @@ export default {
       delSwalFn(title, id, this.delProduct);
     },
   },
-  created() {
+  mounted() {
     this.getProducts();
     this.select = '全部商品';
+    console.log(this.$refs);
+    // this.openModel();
   },
 };
 </script>

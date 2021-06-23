@@ -53,9 +53,9 @@
   <router-view></router-view>
   <!-- 頁尾 -->
   <footer class="p-3 bg-primary">
-    <div class="container text-center text-secondary">
+    <p class="container text-center text-secondary mx-auto my-0">
       作業使用，無商業行為
-    </div>
+    </p>
   </footer>
 </template>
 

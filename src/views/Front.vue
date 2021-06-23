@@ -66,7 +66,7 @@
   <router-view></router-view>
 
   <footer class="p-3 bg-primary">
-    <p class="container text-center text-secondary m-0">
+    <p class="container text-center text-secondary mx-auto my-0">
       作業使用，無商業行為
     </p>
   </footer>

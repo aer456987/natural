@@ -60,7 +60,7 @@
   <router-view></router-view>
   <!-- 頁尾 -->
   <footer class="p-3 bg-brown">
-    <p class="container text-center m-0">
+    <p class="container text-center mx-auto my-0">
       作業使用，無商業行為
     </p>
   </footer>
