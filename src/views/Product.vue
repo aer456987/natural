@@ -3,19 +3,30 @@
   <section class="bg-white">
     <section class="container">
       <!-- 麵包屑&搜尋 -->
-      <nav style="--bs-breadcrumb-divider: '>'"
+      <nav
+        style="--bs-breadcrumb-divider: '>'"
         aria-label="breadcrumb"
-        class="py-4">
+        class="py-4"
+      >
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
-            <router-link to="/" class="link-secondary">首頁</router-link>
+            <router-link
+              to="/"
+              class="link-secondary"
+            >首頁</router-link>
           </li>
           <li class="breadcrumb-item">
-            <router-link to="/products" class="link-secondary">
+            <router-link
+              to="/products"
+              class="link-secondary"
+            >
               線上商城
             </router-link>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+          >
             {{ tempProduct.title }}
           </li>
         </ol>
@@ -25,54 +36,69 @@
       <section class="row mb-1 pb-5 align-items-center">
         <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5">
-          <img class="rounded-2 w-100"
+          <img
+            class="rounded-2 w-100"
             :src="productImg"
-            :alt="tempProduct.title">
+            :alt="tempProduct.title"
+          />
           <!-- 多圖: 橫 -->
-          <div class="col-12 flex-nowrap d-xxl-none
-            py-1 overflow-auto">
+          <div class="col-12 flex-nowrap d-xxl-none py-1 overflow-auto">
             <div class="row flex-nowrap m-0">
               <div class="col-2 pe-1">
-                <img class="w-100 rounded pointer"
-                :src="tempProduct.imageUrl"
-                :alt="tempProduct.title"
-                @click="changeImg(tempProduct.imageUrl)">
+                <img
+                  class="w-100 rounded pointer"
+                  :src="tempProduct.imageUrl"
+                  :alt="tempProduct.title"
+                  @click="changeImg(tempProduct.imageUrl)"
+                />
               </div>
 
-              <div class="col-2 pe-1"
+              <div
+                class="col-2 pe-1"
                 v-for="(img, key) in tempProduct.imagesUrl"
-                :key="`附圖_${key}`">
-                <img class="w-100 p-0 rounded pointer"
+                :key="`附圖_${key}`"
+              >
+                <img
+                  class="w-100 p-0 rounded pointer"
                   :src="img"
                   :alt="`附圖_${key}`"
-                  @click="changeImg(img)">
+                  @click="changeImg(img)"
+                />
               </div>
             </div>
           </div>
         </div>
         <!-- 多圖: 直 -->
-        <div
-        class="col-1 d-none d-xxl-block
-          img_view p-1 overflow-auto">
-          <img class="w-100 mb-2 p-0 rounded-1 pointer"
+        <div class="col-1 d-none d-xxl-block img_view p-1 overflow-auto">
+          <img
+            class="w-100 mb-2 p-0 rounded-1 pointer"
             :src="tempProduct.imageUrl"
             :alt="tempProduct.title"
-            @click="changeImg(tempProduct.imageUrl)">
-          <img class="w-100 mb-2 p-0 rounded-1 pointer"
+            @click="changeImg(tempProduct.imageUrl)"
+          />
+          <template
             v-for="(img, key) in tempProduct.imagesUrl"
             :key="`附圖_${key}`"
-            :src="img"
-            :alt="`附圖_${key}`"
-            @click="changeImg(img)">
+          >
+            <img
+              class="w-100 mb-2 p-0 rounded-1 pointer"
+              :src="img"
+              :alt="`附圖_${key}`"
+              @click="changeImg(img)"
+            />
+          </template>
         </div>
 
         <!-- 商品介紹 -->
-        <div class="col-lg-6 col-xl-7 col-xxl-6
-          py-2 ps-xl-3 ps-xxl-4">
-          <h1 class="mb-3">{{ tempProduct.title }}</h1>
+        <div class="col-lg-6 col-xl-7 col-xxl-6 py-2 ps-xl-3 ps-xxl-4">
+          <h1 class="mb-3">
+            {{ tempProduct.title }}
+          </h1>
+
           <span class="border rounded text-dark px-3 py-1">
             {{ tempProduct.category }}
           </span>
+
           <p class="p-4 my-4 bg-primary-100">
             {{ tempProduct.content }}
           </p>
@@ -81,6 +107,7 @@
             <span class="fst-italic text-decoration-line-through text-gray">
               原價 ${{ tempProduct.origin_price }}
             </span>
+
             <p class="h3 fw-bold mb-2">
               快閃特惠價 $ {{ tempProduct.price }}
             </p>
@@ -89,22 +116,24 @@
               mx-0 mb-2">
               <div class="col-6 p-0">
                 <div class="input-group">
-                  <button type="button"
+                  <button
+                    type="button"
                     class="w-25 btn_light_green text-center border"
-                    @click="changeNum('reduce')">
-                    -
-                  </button>
+                    @click="changeNum('reduce')"
+                  > - </button>
 
                   <input type="number"
                     class="form-control text-center m-0 p-1
-                    border-0 border-top border-bottom"
-                    v-model.number="qty" min="1">
+                      border-0 border-top border-bottom"
+                    v-model.number="qty"
+                    min="1"
+                  >
 
-                  <button type="button"
+                  <button
+                    type="button"
                     class="w-25 btn_light_green text-center border"
-                    @click="changeNum('add')">
-                    +
-                    </button>
+                    @click="changeNum('add')"
+                  > + </button>
 
                 </div>
               </div>
@@ -113,18 +142,20 @@
             <div class="row align-items-center flex-row-reverse mx-0 mb-2">
 
               <div class="col-6 p-0">
-                <button type="button"
+                <button
+                  type="button"
                   class="btn btn_main py-1 w-100"
-                  @click="addCart">
-                  加入購物車
-                </button>
+                  @click="addCart"
+                >加入購物車</button>
               </div>
 
               <span class="col-2 px-2 btn text-end">
                 <i class="bi bi-heart-fill btn_red"></i>
               </span>
             </div>
-            <p class="text-danger">每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。</p>
+            <p class="text-danger">
+              每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。
+            </p>
           </div>
         </div>
       </section>

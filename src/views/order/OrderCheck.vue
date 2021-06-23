@@ -3,19 +3,27 @@
   <section class="container pageContent">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <nav
+        style="--bs-breadcrumb-divider: '>'"
+        aria-label="breadcrumb"
+      >
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
-            <router-link to="/products" class="link-secondary">
-              線上商城
-            </router-link>
+            <router-link
+              to="/products"
+              class="link-secondary"
+            >線上商城</router-link>
           </li>
           <li class="breadcrumb-item">
-            <router-link to="/square/cart" class="link-secondary">購物車</router-link>
+            <router-link
+              to="/square/cart"
+              class="link-secondary"
+            >購物車</router-link>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            訂單確認
-          </li>
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+          >訂單確認</li>
         </ol>
       </nav>
       <!-- 進度條 -->
@@ -36,46 +44,60 @@
               <table class="table table-borderless mb-5">
                 <thead>
                   <tr>
-                    <td colspan="2" scope="row" class="text-center border-end border">
-                      訂購人資訊
-                    </td>
+                    <td
+                      colspan="2"
+                      scope="row"
+                      class="text-center border-end border"
+                    >訂購人資訊</td>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td scope="row" class="text-end border-end pe-sm-0 pe-md-4" width="50%">
-                      姓名
-                    </td>
-                    <td class="ps-sm-0 ps-md-4" width="50%">
-                      {{ order.data.user.name }}
-                    </td>
+                    <td
+                      scope="row"
+                      class="text-end border-end pe-sm-0 pe-md-4"
+                      width="50%"
+                    >姓名</td>
+                    <td
+                      class="ps-sm-0 ps-md-4"
+                      width="50%"
+                    >{{ order.data.user.name }}</td>
                   </tr>
 
                   <tr>
-                    <td scope="row" class="text-end border-end pe-sm-0 pe-md-4" width="50%">
-                      聯絡電話
-                    </td>
-                    <td class="ps-sm-0 ps-md-4" width="50%">
-                      {{ order.data.user.tel }}
-                    </td>
+                    <td
+                      scope="row"
+                      class="text-end border-end pe-sm-0 pe-md-4"
+                      width="50%"
+                    >聯絡電話</td>
+                    <td
+                      class="ps-sm-0 ps-md-4"
+                      width="50%"
+                    >{{ order.data.user.tel }}</td>
                   </tr>
 
                   <tr>
-                    <td scope="row" class="text-end border-end pe-sm-0 pe-md-4" width="50%">
-                      Email
-                    </td>
-                    <td class="ps-sm-0 ps-md-4" width="50%">
-                      {{ order.data.user.email }}
-                    </td>
+                    <td
+                      scope="row"
+                      class="text-end border-end pe-sm-0 pe-md-4"
+                      width="50%"
+                    >Email</td>
+                    <td
+                      class="ps-sm-0 ps-md-4"
+                      width="50%"
+                    >{{ order.data.user.email }}</td>
                   </tr>
 
                   <tr>
-                    <td scope="row" class="text-end border-end pe-sm-0 pe-md-4" width="50%">
-                      寄送地址
-                    </td>
-                    <td class="ps-sm-0 ps-md-4" width="50%">
-                      {{ order.data.user.address }}
-                    </td>
+                    <td
+                      scope="row"
+                      class="text-end border-end pe-sm-0 pe-md-4"
+                      width="50%"
+                    >寄送地址</td>
+                    <td
+                      class="ps-sm-0 ps-md-4"
+                      width="50%"
+                    >{{ order.data.user.address }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -84,20 +106,28 @@
               <table class="table table-borderless mb-5">
                 <thead>
                   <tr>
-                    <td colspan="3" scope="row" class="text-center border-end border">
-                      商品項目
-                    </td>
+                    <td
+                      colspan="3"
+                      scope="row"
+                      class="text-center border-end border"
+                    >商品項目</td>
                   </tr>
                 </thead>
-                <tbody v-for="item in order.data.products" :key="item.id">
+                <tbody
+                  v-for="item in order.data.products"
+                  :key="item.id"
+                >
                   <tr>
-                    <td scope="row" colspan="2" width="50%"
-                    class="text-end border-end pe-sm-0 pe-md-4">
-                      {{ item.product.title }} × {{ item.qty }}
-                    </td>
-                    <td class="ps-sm-0 ps-md-4" width="50%">
-                      NT ${{ item.total }}
-                    </td>
+                    <td
+                      scope="row"
+                      colspan="2"
+                      width="50%"
+                      class="text-end border-end pe-sm-0 pe-md-4"
+                    >{{ item.product.title }} × {{ item.qty }}</td>
+                    <td
+                      class="ps-sm-0 ps-md-4"
+                      width="50%"
+                    >NT ${{ item.total }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -107,11 +137,11 @@
 
           <!-- 我要付款 -->
           <div class="col-12 d-flex justify-content-center mb-5">
-            <router-link to="/square/orderPaid"
+            <router-link
+              to="/square/orderPaid"
               class="btn btn_main px-3 py-1"
-              @click="goPay">
-              我要付款
-            </router-link>
+              @click="goPay"
+            >我要付款</router-link>
           </div>
         </section>
       </section>

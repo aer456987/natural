@@ -2,19 +2,27 @@
   <section class="container pageContent">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <nav
+        style="--bs-breadcrumb-divider: '>'"
+        aria-label="breadcrumb"
+      >
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
-            <router-link to="/products" class="link-secondary">
-            線上商城
-            </router-link>
+            <router-link
+              to="/products"
+              class="link-secondary"
+            >線上商城</router-link>
           </li>
           <li class="breadcrumb-item">
-            <router-link to="/square/cart" class="link-secondary">購物車</router-link>
+            <router-link
+              to="/square/cart"
+              class="link-secondary"
+            >購物車</router-link>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            訂單確認
-          </li>
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+          >訂單確認</li>
         </ol>
       </nav>
       <!-- 進度條 -->
@@ -35,10 +43,10 @@
               <p>
                 如需紙本收據或發票，可至<span class="text-danger">會員中心</span>修改發票設定。
               </p>
-              <router-link to="/products"
-                class="btn btn-outline-secondary px-3 py-1 my-2">
-                返回線上商城
-              </router-link>
+              <router-link
+                to="/products"
+                class="btn btn-outline-secondary px-3 py-1 my-2"
+              >返回線上商城</router-link>
             </main>
           </section>
         </section>

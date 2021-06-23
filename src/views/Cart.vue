@@ -3,16 +3,21 @@
   <section class="container pageContent">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+      <nav
+        style="--bs-breadcrumb-divider: '>'"
+        aria-label="breadcrumb"
+      >
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
-            <router-link to="/products" class="link-secondary">
-              線上商城
-            </router-link>
+            <router-link
+              to="/products"
+              class="link-secondary"
+            >線上商城</router-link>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">
-            購物車
-          </li>
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+          >購物車</li>
         </ol>
       </nav>
       <!-- 進度條 -->
@@ -22,16 +27,20 @@
       <div class="container">
         <main class="row px-lg-0 px-xl-5 position-relative">
 
-          <div class="col-12 table_style bg-white
-              mb-5 p-5 text-center rounded-3 shadow">
+          <div
+            class="col-12 table_style bg-white mb-5 p-5 text-center rounded-3 shadow"
+          >
 
-            <div v-if="btnStatus"
-              class="row justify-content-center py-4">
+            <div
+              v-if="btnStatus"
+              class="row justify-content-center py-4"
+            >
               <span class="col-12 col-md-5">
                 <h3 class="mb-3">購物車內沒有商品</h3>
-                <router-link to="/products" class="btn btn_main w-100">
-                  前往選購
-                </router-link>
+                <router-link
+                  to="/products"
+                  class="btn btn_main w-100"
+                >前往選購</router-link>
               </span>
             </div>
 
@@ -39,44 +48,70 @@
               <table class="table position-relative">
                 <thead>
                   <tr>
-                    <td width="30%" class="py-3 fs-5" scope="col" colspan="2">商品資訊</td>
-                    <td width="23%" class="py-3 fs-5" scope="col">數量</td>
-                    <td width="22%" class="py-3 fs-5" scope="col">金額</td>
-                    <td width="10%" class="py-3 fs-5" scope="col"></td>
+                    <td
+                      width="30%"
+                      scope="col"
+                      class="py-3 fs-5"
+                      colspan="2"
+                    >商品資訊</td>
+                    <td
+                      width="23%"
+                      scope="col"
+                      class="py-3 fs-5"
+                    >數量</td>
+                    <td
+                      width="22%"
+                      scope="col"
+                      class="py-3 fs-5"
+                    >金額</td>
+                    <td
+                      width="10%"
+                      scope="col"
+                      class="py-3 fs-5"
+                    ></td>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="item in carts.carts" :key="item.id">
+                  <tr
+                    v-for="item in carts.carts"
+                    :key="item.id"
+                  >
                     <td class="cart_img">
-                      <img class="w-100"
+                      <img
+                        class="w-100"
                         :src="item.product.imageUrl"
-                        alt="預覽" />
+                        alt="預覽"
+                      />
                     </td>
                     <td scope="row">
                       {{ item.product.title }}
                     </td>
                     <td>
                       <div class="d-flex justify-content-center">
-                        <div class="input-group" style="max-width: 180px">
-                          <span class="btn_light_green px-2"
-                            @click="putCart('reduce', item)">
-                            -
-                          </span>
-                          <div class="form-control text-center border"
-                              bg_transparent>
+                        <div
+                          class="input-group"
+                          style="max-width: 180px"
+                        >
+                          <span
+                            class="btn_light_green px-2"
+                            @click="putCart('reduce', item)"
+                          > - </span>
+                          <div class="form-control text-center border">
                             {{ item.qty }}
                           </div>
-                          <div class="btn_light_green px-2"
-                            @click="putCart('add', item)">
-                            +
-                          </div>
+                          <div
+                            class="btn_light_green px-2"
+                            @click="putCart('add', item)"
+                          > + </div>
                         </div>
                       </div>
                     </td>
                     <td><span>NT $</span>{{ item.final_total }}</td>
                     <td>
-                      <i class="bi bi-x-lg btn_red"
-                        @click="delCart('one', item)"></i>
+                      <i
+                        class="bi bi-x-lg btn_red"
+                        @click="delCart('one', item)"
+                      ></i>
                     </td>
                   </tr>
                 </tbody>
@@ -89,24 +124,26 @@
           </div>
 
           <!-- 繼續購物/清空購物車 -->
-          <div v-if="!btnStatus"
-            class="col-12 d-flex justify-content-between mb-5">
-            <router-link to="/products"
-              class="btn btn_outline_green px-3 py-1">
-              ◁ 繼續購物
-            </router-link>
+          <div
+            v-if="!btnStatus"
+            class="col-12 d-flex justify-content-between mb-5"
+          >
+            <router-link
+              to="/products"
+              class="btn btn_outline_green px-3 py-1"
+            > ◁ 繼續購物 </router-link>
 
-            <button type="button"
+            <button
+              type="button"
               class="btn btn-outline-danger px-3 py-1"
-              @click="delCart('all')">
-              清空購物車
-            </button>
+              @click="delCart('all')"
+            > 清空購物車 </button>
 
-            <router-link to="/square/order"
+            <router-link
+              to="/square/order"
               class="btn btn_main px-3 py-1"
-              :class="{ 'disabled' : btnStatus }">
-              填寫訂單 ▷
-            </router-link>
+              :class="{ 'disabled' : btnStatus }"
+            > 填寫訂單 ▷ </router-link>
           </div>
         </main>
       </div>

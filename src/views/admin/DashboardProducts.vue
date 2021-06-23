@@ -4,9 +4,11 @@
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
     <div class="row justify-content-between pb-2">
       <span class="col-md-4 col-lg-2 pb-1">
-        <select class="form-select"
+        <select
+          class="form-select"
           @change="changeProduct"
-          v-model="select">
+          v-model="select"
+        >
           <option value="全部商品" selected>全部商品</option>
           <option value="募款專案">募款專案</option>
           <option value="飼料">飼料</option>
@@ -22,8 +24,10 @@
       </span>
     </div>
 
-    <table class="table table-hover text-center text-break
-      rounded overflow-hidden shadow-sm">
+    <table
+      class="table table-hover text-center text-break
+        rounded overflow-hidden shadow-sm"
+    >
       <thead class="table-dark align-middle">
         <tr>
           <td width="9%">分類</td>
@@ -40,16 +44,21 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in products" :key="product.id">
+        <tr
+          v-for="product in products"
+          :key="product.id"
+        >
 
           <td data-title="分類">
             {{ product.category }}
           </td>
 
           <td data-title="圖片">
-            <img class="w-100"
+            <img
+              class="w-100"
               :src="product.imageUrl"
-              alt="product.title">
+              alt="product.title"
+            />
           </td>
 
           <td data-title="產品ID">
@@ -75,8 +84,10 @@
             {{ product.price }}
           </td>
 
-          <td data-title="狀態"
-            :class="{ 'text-gray' : !product.is_enabled }">
+          <td
+            data-title="狀態"
+            :class="{ 'text-gray' : !product.is_enabled }"
+          >
             {{ product.is_enabled ? '上架' : '未上架' }}
           </td>
 
@@ -87,16 +98,20 @@
           </td>
 
           <td data-title="刪除">
-            <i class="bi bi-trash-fill
-              btn btn-outline-danger"
-              @click="delSwalFn(product)"></i>
+            <i
+              class="bi bi-trash-fill btn btn-outline-danger"
+              @click="delSwalFn(product)"
+            ></i>
           </td>
           <!-- {{ product }} -->
 
         </tr>
       </tbody>
     </table>
-    <Pagination :pagination-page="productPagination" @get-data="getProducts"></Pagination>
+    <Pagination
+      :pagination-page="productPagination"
+      @get-data="getProducts"
+    ></Pagination>
   </section>
 </template>
 

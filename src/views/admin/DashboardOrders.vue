@@ -18,9 +18,10 @@
       </span>
     </div>
 
-    <table class="table table-hover
-      rounded overflow-hidden shadow-sm
-      text-break text-center">
+    <table
+      class="table table-hover rounded overflow-hidden shadow-sm
+        text-break text-center"
+    >
       <thead class="table-dark align-middle">
         <tr>
           <td width="11%">建立時間</td>
@@ -36,13 +37,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="order in orders" :key="order.id">
+        <tr
+          v-for="order in orders"
+          :key="order.id"
+        >
 
           <td data-title="建立時間">
             {{ $filters.date(order.create_at) }}
           </td>
 
-          <td data-title="訂單編號" class="text-warning">
+          <td
+            data-title="訂單編號"
+            class="text-warning"
+          >
             {{ order.id }}
           </td>
 
@@ -59,8 +66,11 @@
           </td>
 
           <td data-title="訂單內容">
-            <p v-for="item in order.products" :key="item.id"
-              class="m-0">
+            <p
+              v-for="item in order.products"
+              :key="item.id"
+              class="m-0"
+            >
               {{ `${item.product.title}, x ${item.qty}` }}
             </p>
           </td>
@@ -69,9 +79,11 @@
             {{ order.total }}
           </td>
 
-          <td data-title="付款狀態"
+          <td
+            data-title="付款狀態"
             :title="`付款日期： ${ $filters.date(order.paid_date) }`"
-            :class="{ 'text-gray' : !order.is_paid }">
+            :class="{ 'text-gray' : !order.is_paid }"
+          >
             {{ order.is_paid ? '已付款' : '未付款' }}
           </td>
 
@@ -82,15 +94,19 @@
           </td>
 
           <td data-title="刪除">
-            <i class="bi bi-trash-fill
-              btn btn-outline-danger"
-              @click="delOrder('one', order)"></i>
+            <i
+              class="bi bi-trash-fill btn btn-outline-danger"
+              @click="delOrder('one', order)"
+            ></i>
           </td>
           <!-- {{ order }} -->
         </tr>
       </tbody>
     </table>
-    <Pagination :pagination-page="ordersPagination" @get-data="getOrders"></Pagination>
+    <Pagination
+      :pagination-page="ordersPagination"
+      @get-data="getOrders"
+    ></Pagination>
   </section>
 </template>
 

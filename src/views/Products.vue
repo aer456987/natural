@@ -1,35 +1,57 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <!-- 篩選列表 -->
-  <ProductFilterList class="sticky-top" :products="products"></ProductFilterList>
+  <ProductFilterList
+    class="sticky-top"
+    :products="products"
+  ></ProductFilterList>
   <header class="header position-relative">
-    <img class="img-fluid w-100 shadow"
-      src="../assets/imgs/productBackImg.jpg" alt="首圖" />
+    <img
+      class="img-fluid w-100 shadow"
+      src="../assets/imgs/productBackImg.jpg"
+      alt="首圖"
+    />
   </header>
   <section class="container pageContent">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
         <span class="col-6">
-          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+          <nav
+            style="--bs-breadcrumb-divider: '>'"
+            aria-label="breadcrumb"
+          >
             <ol class="breadcrumb m-0">
               <li class="breadcrumb-item">
-                <router-link to="/" class="link-secondary">首頁</router-link>
+                <router-link
+                  to="/"
+                  class="link-secondary"
+                >首頁</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
+              <li
+                class="breadcrumb-item active"
+                aria-current="page"
+              >
                 線上商城
               </li>
             </ol>
           </nav>
         </span>
-        <span class="col-6 col-md-4 col-lg-3 position-relative">
-          <i class="bi bi-x-lg btn_light_green fs-6
-            position-absolute top-50 end-0 translate-middle"
+        <span class="col-6 col-md-4 col-lg-3
+          position-relative">
+          <i
+            class="bi bi-x-lg
+              btn_light_green fs-6
+              position-absolute top-50 end-0 translate-middle"
             @click="clearSearch"></i>
-          <input type="text" placeholder="請輸入關鍵字"
+          <input
+            type="text"
             class="col-sm-9 form-control"
-            aria-label="search" aria-describedby="basic-addon1"
-            v-model="search" />
+            placeholder="請輸入關鍵字"
+            aria-label="search"
+            aria-describedby="basic-addon1"
+            v-model="search"
+          />
         </span>
       </div>
       <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1>
@@ -39,7 +61,7 @@
           <ProductCard :cart-product-data="filterProducts"></ProductCard>
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
-      </div>
+        </div>
     </main>
   </section>
 </template>
