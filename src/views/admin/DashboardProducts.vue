@@ -120,7 +120,7 @@
       :modal-product="tempProduct"
       :modal-isNew="isNew"
       @modal-update-product="updateProduct"
-    />
+    ></ProductModal>
 
   </section>
 </template>
