@@ -1,31 +1,20 @@
 <template>
   <!-- 導覽列 -->
-  <nav class="navbar navbar-expand-lg
-    navbar-dark bg-brown px-2 shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark
+    bg-brown px-2 shadow-sm">
     <div class="container-fluid">
-      <router-link
-        to="/"
-        class="nav-link logo_brown h3 mb-0 p-0">
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top" />
+      <router-link to="/" class="nav-link logo_brown h3 mb-0 p-0">
+        <Font-awesome-icon icon="crow" class="d-inline-block align-text-top" />
         Natural
       </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarToggler"
-        aria-controls="navbarToggler"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button type="button" class="navbar-toggler"
+        data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="collapse navbar-collapse flex justify-content-end"
-        id="navbarToggler"
-      >
+      <div id="navbarToggler"
+        class="collapse navbar-collapse flex justify-content-end">
         <ul class="navbar-nav fs-5 text-center">
           <li class="nav-item">
             <router-link to="/admin/coupon" class="nav-link">優惠券</router-link>
@@ -38,8 +27,7 @@
           </li>
           <li class="nav-item">
             <router-link to="/admin/logout" class="nav-link"
-              >登出</router-link
-            >
+            >登出</router-link>
           </li>
         </ul>
       </div>
@@ -49,9 +37,9 @@
   <router-view></router-view>
   <!-- 頁尾 -->
   <footer class="p-3 bg-brown">
-    <div class="container text-center">
+    <p class="container text-center m-0">
       作業使用，無商業行為
-    </div>
+    </p>
   </footer>
 </template>
 

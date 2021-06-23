@@ -36,8 +36,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="order in orders"
-          :key="order.id">
+        <tr v-for="order in orders" :key="order.id">
 
           <td data-title="建立時間">
             {{ $filters.date(order.create_at) }}
@@ -60,11 +59,9 @@
           </td>
 
           <td data-title="訂單內容">
-            <p
-              v-for="item in order.products"
-              :key="item.id"
+            <p v-for="item in order.products" :key="item.id"
               class="m-0">
-            {{ `${item.product.title}, x ${item.qty}` }}
+              {{ `${item.product.title}, x ${item.qty}` }}
             </p>
           </td>
 

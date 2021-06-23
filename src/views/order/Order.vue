@@ -1,14 +1,13 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent">
-    <main class="py-4">
+    <section class="py-4">
       <!-- 麵包屑&搜尋 -->
       <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
             <router-link to="/products" class="link-secondary"
-              >線上商城</router-link
-            >
+            >線上商城</router-link>
           </li>
           <li class="breadcrumb-item">
             <router-link to="/square/cart" class="link-secondary">購物車</router-link>
@@ -22,24 +21,14 @@
       <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
-      <div class="container">
+      <section class="container">
         <!-- 訂單填寫 -->
         <section class="row px-lg-0 px-xl-5
-        position-relative
-        justify-content-center align-items-center">
+          position-relative justify-content-center align-items-center">
           <!-- 購物明細 -->
           <div class="col-xl-5 col-lg-6">
-            <div
-              class="
-                table_style
-                w-100
-                p-5
-                mb-5
-                rounded
-                bg-white
-                shadow-sm
-              "
-            >
+            <div class="table_style w-100 p-5 mb-5
+                rounded bg-white shadow-sm">
               <h5 class="text-center mb-4">購物明細</h5>
               <table class="table text-center mb-5">
                 <thead>
@@ -54,132 +43,88 @@
                     <td scope="row">
                       {{ item.product.title }}
                     </td>
-                    <td>
-                      {{ item.qty }}
-                    </td>
+                    <td>{{ item.qty }}</td>
                     <td><span>NT $</span>{{ item.final_total }}</td>
                   </tr>
                 </tbody>
               </table>
 
-              <p class="h5 text-center">
-                總金額NT ${{ carts.total }}
-              </p>
+              <p class="h5 text-center">總金額NT ${{ carts.total }}</p>
             </div>
           </div>
           <!-- 訂購人資訊 -->
-          <div class="col-lg-6 mb-5">
+          <main class="col-lg-6 mb-5">
             <Form v-slot="{ errors }" class="px-3" @change="checkUserDatas">
+
               <!-- 訂購人姓名 -->
-              <label for="orderName" class="form-label mt-3 mb-1"
-                >訂購人姓名<span class="text-danger fw-bold">*</span></label
-              >
-              <Field
-                type="text"
-                id="orderName"
-                name="姓名"
+              <label for="orderName" class="form-label mt-3 mb-1">
+                訂購人姓名<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field type="text" name="姓名" id="orderName"
                 class="form-control"
                 :class="{ 'is-invalid': errors['姓名'] }"
                 rules="required"
-                v-model="userDatas.user.name"
-              ></Field>
-              <error-message
-                name="姓名"
-                class="invalid-feedback mb-1"
-              ></error-message>
+                v-model="userDatas.user.name"></Field>
+              <error-message name="姓名" class="invalid-feedback mb-1"></error-message>
 
               <!-- 聯絡電話 -->
-              <label for="orderTel" class="form-label mt-3 mb-1"
-                >聯絡電話<span class="text-danger fw-bold">*</span></label
-              >
-              <Field
-                type="tel"
-                id="orderTel"
-                name="電話"
+              <label for="orderTel" class="form-label mt-3 mb-1">
+                聯絡電話<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field type="tel" name="電話" id="orderTel"
                 class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
                 rules="required|numeric|min:8"
-                v-model="userDatas.user.tel"
-              >
-              </Field>
-              <error-message
-                name="電話"
-                class="invalid-feedback mb-1"
-              ></error-message>
+                v-model="userDatas.user.tel"></Field>
+              <error-message name="電話" class="invalid-feedback mb-1"></error-message>
 
               <!-- Email -->
-              <label for="orderEmail" class="form-label mt-3 mb-1"
-                >Email<span class="text-danger fw-bold">*</span></label
-              >
-              <Field
-                type="email"
-                id="orderEmail"
-                name="Email"
+              <label for="orderEmail" class="form-label mt-3 mb-1">
+                Email<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field type="email" name="Email" id="orderEmail"
                 class="form-control"
                 :class="{ 'is-invalid': errors['Email'] }"
                 rules="required|email"
-                v-model="userDatas.user.email"
-              >
-              </Field>
-              <error-message
-                name="Email"
-                class="invalid-feedback mb-1"
-              ></error-message>
+                v-model="userDatas.user.email"></Field>
+              <error-message name="Email" class="invalid-feedback mb-1"></error-message>
 
               <!-- 寄送地址 -->
-              <label for="orderAddress" class="form-label mt-3 mb-1"
-                >寄送地址<span class="text-danger fw-bold">*</span></label
-              >
-              <Field
-                type="text"
-                id="orderAddress"
-                name="地址"
+              <label for="orderAddress" class="form-label mt-3 mb-1">
+                寄送地址<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field type="text" name="地址" id="orderAddress"
                 class="form-control"
                 :class="{ 'is-invalid': errors['地址'] }"
                 rules="required"
-                v-model="userDatas.user.address"
-              ></Field>
-              <error-message
-                name="地址"
-                class="invalid-feedback mb-1"
-              ></error-message>
+                v-model="userDatas.user.address"></Field>
+              <error-message name="地址" class="invalid-feedback mb-1"></error-message>
 
               <!-- 備註 -->
-              <label for="orderMsg" class="form-label mt-3 mb-1"
-                >備註</label
-              >
-              <Field
-                as="textarea"
-                id="orderMsg"
-                name="備註"
+              <label for="orderMsg" class="form-label mt-3 mb-1">備註</label>
+              <Field as="textarea" name="備註" id="orderMsg"
                 class="form-control"
                 :class="{ 'is-invalid': errors['備註'] }"
-                v-model="userDatas.message"
-              ></Field>
-              <error-message
-                name="備註"
-                class="invalid-feedback mb-1"
-              ></error-message>
+                v-model="userDatas.message"></Field>
+              <error-message name="備註" class="invalid-feedback mb-1"></error-message>
               <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
             </Form>
-          </div>
+          </main>
           <!-- 返回購物車/送出訂單 -->
           <div class="col-12 d-flex justify-content-between mb-5">
-            <router-link to="/square/cart"
-              class="btn btn_outline_green px-3 py-1">
+            <router-link to="/square/cart" class="btn btn_outline_green px-3 py-1">
               ◁ 返回購物車
             </router-link>
 
-            <button
-              class="btn btn_main px-3 py-1"
+            <button class="btn btn_main px-3 py-1"
               :disabled="btnStatus"
               @click="postOrder">
               送出訂單 ▷
             </button>
           </div>
         </section>
-      </div>
-    </main>
+      </section>
+    </section>
   </section>
 </template>
 

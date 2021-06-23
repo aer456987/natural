@@ -1,13 +1,14 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent">
-    <main class="py-4">
+    <section class="py-4">
       <!-- 麵包屑&搜尋 -->
       <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item">
-            <router-link to="/products" class="link-secondary"
-            >線上商城</router-link>
+            <router-link to="/products" class="link-secondary">
+              線上商城
+            </router-link>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             購物車
@@ -19,19 +20,10 @@
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">購物車</h1>
       <div class="container">
-        <div
-          class="row px-lg-0 px-xl-5 position-relative">
+        <main class="row px-lg-0 px-xl-5 position-relative">
 
-          <div
-            class="
-              col-12
-              mb-5
-              p-5
-              table_style
-              text-center
-              bg-white
-              rounded-3
-              shadow">
+          <div class="col-12 table_style bg-white
+              mb-5 p-5 text-center rounded-3 shadow">
 
             <div v-if="btnStatus"
               class="row justify-content-center py-4">
@@ -53,43 +45,29 @@
                     <td width="10%" class="py-3 fs-5" scope="col"></td>
                   </tr>
                 </thead>
-
                 <tbody>
                   <tr v-for="item in carts.carts" :key="item.id">
-                    <td
-                      style="width: 70px; height: 70px; overflow: hidden"
-                    >
-                      <img
+                    <td class="cart_img">
+                      <img class="w-100"
                         :src="item.product.imageUrl"
-                        alt="預覽"
-                        class="w-100"
-                      />
+                        alt="預覽" />
                     </td>
                     <td scope="row">
                       {{ item.product.title }}
                     </td>
                     <td>
                       <div class="d-flex justify-content-center">
-                        <div class="input-group"
-                        style="max-width: 180px">
-                          <span
-                            class="btn_light_green px-2"
-                            @click="putCart('reduce', item)"
-                          >
+                        <div class="input-group" style="max-width: 180px">
+                          <span class="btn_light_green px-2"
+                            @click="putCart('reduce', item)">
                             -
                           </span>
-                          <div
-                            class="
-                              form-control
-                              bg_transparent
-                              text-center
-                              border">
+                          <div class="form-control text-center border"
+                              bg_transparent>
                             {{ item.qty }}
                           </div>
-                          <div
-                            class="btn_light_green px-2"
-                            @click="putCart('add', item)"
-                          >
+                          <div class="btn_light_green px-2"
+                            @click="putCart('add', item)">
                             +
                           </div>
                         </div>
@@ -111,21 +89,16 @@
           </div>
 
           <!-- 繼續購物/清空購物車 -->
-          <div
-            v-if="!btnStatus"
+          <div v-if="!btnStatus"
             class="col-12 d-flex justify-content-between mb-5">
-            <router-link
-              to="/products"
-              class="btn btn_outline_green px-3 py-1"
-            >
+            <router-link to="/products"
+              class="btn btn_outline_green px-3 py-1">
               ◁ 繼續購物
             </router-link>
 
-            <button
-              type="button"
+            <button type="button"
               class="btn btn-outline-danger px-3 py-1"
-              @click="delCart('all')"
-            >
+              @click="delCart('all')">
               清空購物車
             </button>
 
@@ -135,11 +108,18 @@
               填寫訂單 ▷
             </router-link>
           </div>
-        </div>
+        </main>
       </div>
-    </main>
+    </section>
   </section>
 </template>
+
+<style lang="sass">
+.cart_img
+  width: 70px
+  height: 70px
+  overflow: hidden
+</style>
 
 <script>
 import Progress from '@/components/CartProgress.vue';

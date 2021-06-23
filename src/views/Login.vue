@@ -2,12 +2,8 @@
   <Loading :status="loadingStatus"></Loading>
   <section class="p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
-      <router-link
-        to="/"
-        class="nav-link logo h1 my-4 pb-0 text-center">
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top" />
+      <router-link to="/" class="nav-link logo h1 my-4 pb-0 text-center">
+        <Font-awesome-icon icon="crow" class="d-inline-block align-text-top" />
         Natural
       </router-link>
 
@@ -16,51 +12,33 @@
 
         <div class="mb-3">
           <Form v-slot="{ errors }">
-            <label
-            for="orderEmail"
-            class="form-label mt-3 mb-1"
-              >帳號</label
-            >
-            <Field
-              type="email"
-              id="orderEmail"
-              name="Email"
-              placeholder="請輸入email"
-              class="form-control"
+            <label for="orderEmail" class="form-label mt-3 mb-1">
+              帳號
+            </label>
+            <Field type="email" name="Email" placeholder="請輸入email"
+              id="orderEmail" class="form-control"
               :class="{ 'is-invalid': errors['Email'] }"
               rules="required|email"
               v-model="userDatas.username"
-            >
-            </Field>
-            <error-message
-              name="Email"
-              class="invalid-feedback mb-1"
-            ></error-message>
+            ></Field>
+            <error-message name="Email" class="invalid-feedback mb-1"></error-message>
 
             <!-- 密碼 -->
-            <label for="orderPs" class="form-label mt-3 mb-1"
-            >密碼</label>
-            <Field
-              type="password"
-              id="orderPs"
-              name="密碼"
-              placeholder="請輸入密碼"
-              class="form-control"
+            <label for="orderPs" class="form-label mt-3 mb-1">
+              密碼
+            </label>
+            <Field type="password" name="密碼" placeholder="請輸入密碼"
+              id="orderPs" class="form-control"
               :class="{ 'is-invalid': errors['密碼'] }"
               rules="required"
               v-model="userDatas.password"
-            >
-            </Field>
-            <error-message
-              name="密碼"
-              class="invalid-feedback mb-1"
-            ></error-message>
+            ></Field>
+            <error-message name="密碼" class="invalid-feedback mb-1"></error-message>
           </Form>
 
           <p class="text-danger text-center my-3">{{ msg }}</p>
 
-          <button
-            type="submit"
+          <button type="submit"
             class="btn btn_main w-100 mt-1 mb-2"
             @click="login">
             登入

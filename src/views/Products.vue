@@ -3,11 +3,8 @@
   <!-- 篩選列表 -->
   <ProductFilterList class="sticky-top" :products="products"></ProductFilterList>
   <header class="header position-relative">
-    <img
-      class="img-fluid w-100 shadow"
-      src="../assets/imgs/productBackImg.jpg"
-      alt="首圖"
-    />
+    <img class="img-fluid w-100 shadow"
+      src="../assets/imgs/productBackImg.jpg" alt="首圖" />
   </header>
   <section class="container pageContent">
     <main class="py-4">
@@ -25,20 +22,14 @@
             </ol>
           </nav>
         </span>
-        <span class="col-6 col-md-4 col-lg-3
-          position-relative">
-          <i class="bi bi-x-lg
-          btn_light_green fs-6
-          position-absolute top-50 end-0 translate-middle"
+        <span class="col-6 col-md-4 col-lg-3 position-relative">
+          <i class="bi bi-x-lg btn_light_green fs-6
+            position-absolute top-50 end-0 translate-middle"
             @click="clearSearch"></i>
-          <input
-            type="text"
+          <input type="text" placeholder="請輸入關鍵字"
             class="col-sm-9 form-control"
-            placeholder="請輸入關鍵字"
-            aria-label="search"
-            aria-describedby="basic-addon1"
-            v-model="search"
-          />
+            aria-label="search" aria-describedby="basic-addon1"
+            v-model="search" />
         </span>
       </div>
       <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1>
@@ -48,7 +39,7 @@
           <ProductCard :cart-product-data="filterProducts"></ProductCard>
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
-        </div>
+      </div>
     </main>
   </section>
 </template>

@@ -2,29 +2,18 @@
   <!-- 導覽列 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2">
     <div class="container-fluid">
-      <router-link
-        to="/"
-        class="nav-link logo h3 mb-0 p-0">
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top" />
+      <router-link to="/" class="nav-link logo h3 mb-0 p-0">
+        <Font-awesome-icon icon="crow" class="d-inline-block align-text-top" />
         Natural
       </router-link>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarToggler"
-        aria-controls="navbarToggler"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button type="button" class="navbar-toggler"
+        data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <span
-        class="collapse navbar-collapse flex justify-content-end"
-        id="navbarToggler"
-      >
+      <div id="navbarToggler"
+        class="collapse navbar-collapse flex justify-content-end">
         <ul class="navbar-nav fs-5 text-center">
           <li class="nav-item scale">
             <router-link to="/" class="nav-link">關於我們</router-link>
@@ -38,16 +27,16 @@
             </span>
           </li>
         </ul>
-      </span>
+      </div>
     </div>
   </nav>
   <!-- 主要頁面 -->
   <router-view></router-view>
   <!-- 頁尾 -->
   <footer class="p-3 bg-primary">
-    <div class="container text-center text-secondary">
+    <p class="container text-center text-secondary m-0">
       作業使用，無商業行為
-    </div>
+    </p>
   </footer>
 </template>
 

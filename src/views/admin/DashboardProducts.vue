@@ -22,9 +22,8 @@
       </span>
     </div>
 
-    <table class="table table-hover text-center
-      rounded overflow-hidden
-      shadow-sm">
+    <table class="table table-hover text-center text-break
+      rounded overflow-hidden shadow-sm">
       <thead class="table-dark align-middle">
         <tr>
           <td width="9%">分類</td>
@@ -41,41 +40,52 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="product in products"
-          :key="product.id">
+        <tr v-for="product in products" :key="product.id">
 
           <td data-title="分類">
             {{ product.category }}
           </td>
+
           <td data-title="圖片">
-            <img
+            <img class="w-100"
               :src="product.imageUrl"
-              alt="product.title"
-              class="w-100">
+              alt="product.title">
           </td>
-          <td data-title="產品ID" class="text-break">
+
+          <td data-title="產品ID">
             {{ product.id }}
           </td>
+
           <td data-title="品名">
             {{ product.title }}
           </td>
-          <td data-title="描述" class="text-break">
+
+          <td data-title="描述">
             {{ product.description }}
           </td>
-          <td data-title="說明" class="text-break">
+          <td data-title="說明">
             {{ product.content }}
           </td>
-          <td data-title="原價">{{ product.origin_price }}</td>
-          <td data-title="售價">{{ product.price }}</td>
+
+          <td data-title="原價">
+            {{ product.origin_price }}
+          </td>
+
+          <td data-title="售價">
+            {{ product.price }}
+          </td>
+
           <td data-title="狀態"
             :class="{ 'text-gray' : !product.is_enabled }">
             {{ product.is_enabled ? '上架' : '未上架' }}
           </td>
+
           <td data-title="操作">
             <button class="btn btn-outline-brown p-1">
               修改
             </button>
           </td>
+
           <td data-title="刪除">
             <i class="bi bi-trash-fill
               btn btn-outline-danger"
