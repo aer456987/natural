@@ -18,7 +18,7 @@
         </ol>
       </nav>
       <!-- 進度條 -->
-      <Progress :progress="progress"></Progress>
+      <Progress :progress-value="progressNum"></Progress>
       <!-- 感謝信 -->
       <h1 class="pb-5 text-center fw-bold">付款成功</h1>
       <section class="container">
@@ -51,14 +51,14 @@
 </template>
 
 <script>
-import Progress from '@/components/Progress.vue';
+import Progress from '@/components/CartProgress.vue';
 import swal from 'sweetalert';
 
 export default {
   name: 'OrderPaid',
   data() {
     return {
-      progress: 100,
+      progressNum: 100,
     };
   },
   components: { Progress },

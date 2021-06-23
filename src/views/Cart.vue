@@ -15,7 +15,7 @@
         </ol>
       </nav>
       <!-- 進度條 -->
-      <Progress :progress="progress"></Progress>
+      <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">購物車</h1>
       <div class="container">
@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import Progress from '@/components/Progress.vue';
+import Progress from '@/components/CartProgress.vue';
 import swal from 'sweetalert';
 
 export default {
@@ -151,7 +151,7 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true,
-      progress: 0,
+      progressNum: 0,
       carts: {},
     };
   },

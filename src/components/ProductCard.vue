@@ -4,13 +4,11 @@
   <li
     class="col-sm-6 col-lg-4 col-xl-3 my-2"
     v-for="product in cartProductData"
-    :key="product.id"
-  >
+    :key="product.id">
     <div class="card border-0 shadow-sm">
       <router-link
         :to="`/product/${product.id}`"
-        class="card-img-top card_img_style"
-      >
+        class="card-img-top card_img_style">
         <div class="more_msg">
           <Font-awesome-icon icon="search-plus" />
         </div>
@@ -19,9 +17,7 @@
       <div
         class="card-body bg-white rounded-bottom
           d-flex justify-content-between align-items-center
-          px-2 py-3
-        "
-      >
+          px-2 py-3">
         <h1 class="h4 m-0 text-truncate">
           {{ product.title }} <br>
           <span class="h6 fst-italic">${{ product.price }}</span>

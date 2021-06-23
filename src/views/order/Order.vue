@@ -19,7 +19,7 @@
         </ol>
       </nav>
       <!-- 進度條 -->
-      <Progress :progress="progress"></Progress>
+      <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
       <div class="container">
@@ -184,7 +184,7 @@
 </template>
 
 <script>
-import Progress from '@/components/Progress.vue';
+import Progress from '@/components/CartProgress.vue';
 import swal from 'sweetalert';
 
 export default {
@@ -193,7 +193,7 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true, // true 禁用; false 啟用
-      progress: 33,
+      progressNum: 33,
       carts: {},
       userDatas: { // 未送訂單: 訂單資料
         user: {},
