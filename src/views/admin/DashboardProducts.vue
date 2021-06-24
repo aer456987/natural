@@ -10,11 +10,9 @@
           v-model="select"
         >
           <option value="全部商品" selected>全部商品</option>
+          <option value="食物">食物</option>
+          <option value="周邊用品">周邊用品</option>
           <option value="募款專案">募款專案</option>
-          <option value="飼料">飼料</option>
-          <option value="籠具">籠具</option>
-          <option value="玩具">玩具</option>
-          <option value="其餘用品">其餘用品</option>
         </select>
       </span>
       <span class="col-lg-2 text-end pb-1">
