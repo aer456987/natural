@@ -144,14 +144,15 @@
                       }"
                     >
                       <span class="form-check">
-                        <input type="checkbox"
-                          id="enabled_status"
+                        <input
+                          type="checkbox"
+                          id="isPaid_status"
+                          class="form-check-input me-1"
                           name="付款狀態"
                           value="付款狀態"
-                          class="form-check-input me-1"
                           v-model="tempOrder.is_paid"
                         >
-                        <label for="enabled_status">
+                        <label for="isPaid_status">
                           {{ tempOrder.is_paid ? '已付款' : '未付款' }}
                         </label>
                       </span>
@@ -180,12 +181,22 @@
                       處理進度
                     </th>
                     <td class="px-2">
-                      <!-- :class="{
-                        'text-warning' : tempOrder.is_paid,
-                        'text-gray' : !tempOrder.is_paid
-                      }" -->
-                      <span class="text-success">處理中</span>
-                      <span class="text-warning">已出貨</span>
+                      <span
+                        v-if="tempOrder.is_paid"
+                        class="m-0"
+                        :class="{
+                          'text-warning' : tempOrder.user.is_consignment,
+                          'text-success' : !tempOrder.user.is_consignment,
+                        }"
+                      >
+                        {{ tempOrder.user.is_consignment ? '已出貨' : '處理中' }}
+                      </span>
+                      <span
+                        v-else
+                        class="text-gray"
+                      >
+                        訂單成立
+                      </span>
                     </td>
                   </tr>
                 </tbody>
@@ -241,6 +252,24 @@
               </table>
             </div>
 
+            <span
+              v-if="tempOrder.is_paid"
+              class="col-12 form-check
+                d-flex justify-content-end align-items-center"
+            >
+              <input
+                type="checkbox"
+                id="consignment_status"
+                class="form-check-input me-1"
+                name="處理進度"
+                value="處理進度"
+                v-model="tempOrder.user.is_consignment"
+              >
+              <label for="consignment_status">
+                商品出貨
+              </label>
+            </span>
+
           </div>
         </div>
         <div class="modal-footer">
@@ -281,6 +310,7 @@ export default {
           email: '',
           tel: '',
           address: '',
+          is_consignment: Boolean,
         },
       },
     };
@@ -288,6 +318,12 @@ export default {
   watch: {
     modalOrder() {
       this.tempOrder = this.modalOrder;
+    },
+    tempOrder() {
+      if (!this.tempOrder.is_paid) {
+        console.log('修改付款狀態');
+        this.tempOrder.user.is_consignment = false;
+      }
     },
   },
   emits: ['modalUpdateOrderPaid'],

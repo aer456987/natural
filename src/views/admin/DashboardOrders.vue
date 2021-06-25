@@ -30,13 +30,14 @@
     >
       <thead class="table-dark align-middle">
         <tr>
-          <td width="12%">建立時間</td>
-          <td width="14%">訂單編號</td>
-          <td width="13%">訂購人</td>
-          <td width="14%">Email</td>
-          <td width="16%">訂單內容</td>
+          <td width="10%">建立時間</td>
+          <td width="15%">訂單編號</td>
+          <td width="10%">訂購人</td>
+          <td width="12%">Email</td>
+          <td width="15%">訂單內容</td>
           <td width="8%">總金額</td>
-          <td width="7%">狀態</td>
+          <td width="8%">付款狀態</td>
+          <td width="8%">處理進度</td>
           <td width="7%">操作</td>
           <td width="7%">刪除</td>
         </tr>
@@ -68,7 +69,7 @@
 
           <td
             data-title="訂單內容"
-            class="text-start ps-3"
+            class="text-start"
           >
             <p
               v-for="item in order.products"
@@ -80,15 +81,34 @@
           </td>
 
           <td data-title="總金額">
-            {{ order.total }}
+            $ {{ order.total }}
           </td>
 
           <td
             data-title="付款狀態"
-            :title="`付款日期： ${ $filters.date(order.paid_date) }`"
             :class="{ 'text-gray' : !order.is_paid }"
+            :title="`付款日期： ${ $filters.date(order.paid_date) }`"
           >
             {{ order.is_paid ? '已付款' : '未付款' }}
+          </td>
+
+          <td data-title="處理進度">
+            <span
+              v-if="order.is_paid"
+              class="m-0"
+              :class="{
+                'text-warning' : order.user.is_consignment,
+                'text-success' : !order.user.is_consignment,
+              }"
+            >
+              {{ order.user.is_consignment ? '已出貨' : '處理中' }}
+            </span>
+            <span
+              v-else
+              class="text-gray"
+            >
+              訂單成立
+            </span>
           </td>
 
           <td data-title="操作">
