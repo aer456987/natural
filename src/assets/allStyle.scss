@@ -51,6 +51,9 @@ body{
   &:hover{
     color: $warning;
   }
+  &:focus{
+    color: $warning;
+  }
 }
 
 // 商品-卡片圖片

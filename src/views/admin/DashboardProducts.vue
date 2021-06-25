@@ -190,16 +190,6 @@ export default {
       const { title, id } = data;
       delSwalFn(title, id, this.delProduct);
     },
-    openModal(isNew, product) { // 打開模組
-      if (isNew) {
-        this.isNew = true;
-        this.tempProduct = { category: '請選擇分類' };
-      } else {
-        this.isNew = false;
-        this.tempProduct = product;
-      }
-      this.$refs.productModal.openModal();
-    },
     updateProduct(item) { // 新增產品 & 修改產品
       this.loadingStatus = true;
       let url = '';
@@ -231,6 +221,16 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
+    },
+    openModal(isNew, product) { // 打開模組
+      if (isNew) {
+        this.isNew = true;
+        this.tempProduct = { category: '請選擇分類' };
+      } else {
+        this.isNew = false;
+        this.tempProduct = JSON.parse(JSON.stringify(product));
+      }
+      this.$refs.productModal.openModal();
     },
   },
   mounted() {

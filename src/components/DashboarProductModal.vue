@@ -1,21 +1,23 @@
 <template>
+  <!-- 商品 Modal -->
   <section
     class="modal fade m-0"
     id="productModal"
     tabindex="-1"
-    aria-labelledby="productModalLabel"
     aria-hidden="true"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
     ref="modal"
   >
-    <!-- data-bs-backdrop="static"
-    data-bs-keyboard="false" -->
     <section class="modal-dialog modal-dialog-centered">
       <main class="modal-content">
         <div class="modal-header bg-warning text-brown-500">
           <h5
             class="h5 modal-title"
             id="productModalLabel"
-          > {{ modalIsNew ? '新增產品' : '編輯產品' }} </h5>
+          >
+            {{ modalIsNew ? '新增產品' : '編輯產品' }}
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -26,7 +28,7 @@
 
         <section class="modal-body">
           <div class="row">
-            <div class="col-4">
+            <div class="col-md-4">
               <label
                 for="modalImg"
                 class="form-label p-1 m-0"
@@ -47,7 +49,7 @@
               <!-- {{ tempProduct.imageUrl }} -->
               <!-- {{ modalProduct }} -->
             </div>
-            <div class="col-8">
+            <div class="col-md-8">
 
               <form class="row">
                 <span class="col-12">
@@ -65,7 +67,7 @@
                   />
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalCategory"
                     class="form-label p-1 m-0"
@@ -83,7 +85,7 @@
                   </select>
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalUnit"
                     class="form-label p-1 m-0"
@@ -98,7 +100,7 @@
                   />
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalOriginPrice"
                     class="form-label p-1 m-0"
@@ -114,7 +116,7 @@
                   >
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalPrice"
                     class="form-label p-1 m-0"
@@ -130,7 +132,7 @@
                   >
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalDescription"
                     class="form-label p-1 m-0"
@@ -144,7 +146,7 @@
                   ></textarea>
                 </span>
 
-                <span class="col-6">
+                <span class="col-12 col-md-6">
                   <label
                     for="modalContent"
                     class="form-label p-1 m-0"
@@ -158,8 +160,9 @@
                   ></textarea>
                 </span>
 
-                <span class="col-12 form-check
-                  d-flex justify-content-end align-items-center"
+                <span
+                  class="col-12 form-check
+                    d-flex justify-content-end align-items-center"
                 >
                   <input type="checkbox"
                     id="enabled_status"
@@ -182,10 +185,15 @@
           <button
             type="button"
             class="btn btn-warning text-brown-500"
-            @click="$emit('modal-update-product', tempProduct)"
+            @click="$emit('modalUpdateProduct', tempProduct)"
           >
             {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
+          <button
+            type="button"
+            class="btn btn-outline-brown"
+            data-bs-dismiss="modal"
+          >關閉</button>
         </div>
 
       </main>
@@ -193,24 +201,12 @@
   </section>
 </template>
 
-<style lang="sass">
-@media (min-width: 576px)
-  .modal-dialog
-    max-width: 1000px
-
-.btn-close:focus
-  box-shadow: 0 0 0 0.15rem rgba(#4C2F28, .2)
-
-.form-check-input:checked
-  background-color: #F3C95F;
-  border-color: #4C2F28;
-</style>
-
 <script>
 import Modal from 'bootstrap/js/dist/modal';
 
 export default {
-  props: ['modalProduct', 'modalIsNew', 'modalUpdateProduct'],
+  name: 'DashboarProductModal',
+  props: ['modalProduct', 'modalIsNew'],
   data() {
     return {
       modal: '',
@@ -222,6 +218,7 @@ export default {
       this.tempProduct = this.modalProduct;
     },
   },
+  emits: ['modalUpdateProduct'],
   methods: {
     openModal() {
       this.modal.show();

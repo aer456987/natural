@@ -67,6 +67,9 @@
 </template>
 
 <style lang="sass">
+table
+  background: white
+
 .form-select:focus
   border-color: #926E60
   box-shadow: 0 0 0 0.15rem rgba(#926E60, .3)
@@ -74,6 +77,16 @@
 .form-control:focus
   border-color: #926E60
   box-shadow: 0 0 0 0.15rem rgba(#926E60, .3)
+.form-check-input:checked
+  background-color: #F3C95F
+  border-color: #4C2F28
+
+.btn-close:focus
+  box-shadow: 0 0 0 0.15rem rgba(#4C2F28, .2)
+
+@media (min-width: 576px)
+  .modal-dialog
+    max-width: 800px
 </style>
 
 <script>

@@ -4,16 +4,22 @@
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
       <span class="col-md-4 col-lg-2 pb-1">
-        <select class="form-select" id="paySelect">
+        <select
+          class="form-select"
+          id="paySelect"
+        >
           <option selected disabled>選擇付款狀態</option>
           <option value="全部">全部</option>
           <option value="已付款">已付款</option>
           <option value="未付款">未付款</option>
         </select>
       </span>
-      <span class="col-lg-2 text-end pb-1">
-        <button class="btn btn-outline-brown">
-          新增訂單
+      <span class="col-lg-4 text-end pb-1">
+        <button
+          class="btn btn-outline-danger"
+          @click="delAllOrderSwalFn('all')"
+        >
+          刪除全部訂單
         </button>
       </span>
     </div>
@@ -24,16 +30,15 @@
     >
       <thead class="table-dark align-middle">
         <tr>
-          <td width="11%">建立時間</td>
-          <td width="13%">訂單編號</td>
-          <td width="10%">訂購人</td>
-          <td width="10%">電話</td>
-          <td width="13%">收件地址</td>
-          <td width="15%">訂單內容</td>
-          <td width="7%">總金額</td>
+          <td width="12%">建立時間</td>
+          <td width="14%">訂單編號</td>
+          <td width="13%">訂購人</td>
+          <td width="14%">Email</td>
+          <td width="16%">訂單內容</td>
+          <td width="8%">總金額</td>
           <td width="7%">狀態</td>
-          <td width="9%">操作</td>
-          <td width="5%">刪除</td>
+          <td width="7%">操作</td>
+          <td width="7%">刪除</td>
         </tr>
       </thead>
       <tbody>
@@ -57,21 +62,20 @@
             {{ order.user.name }}
           </td>
 
-          <td data-title="電話">
-            {{ order.user.tel }}
+          <td data-title="Email">
+            {{ order.user.email }}
           </td>
 
-          <td data-title="收件地址">
-            {{ order.user.address }}
-          </td>
-
-          <td data-title="訂單內容">
+          <td
+            data-title="訂單內容"
+            class="text-start ps-3"
+          >
             <p
               v-for="item in order.products"
               :key="item.id"
               class="m-0"
             >
-              {{ `${item.product.title}, x ${item.qty}` }}
+              {{ `${item.product.title} x ${item.qty}${item.product.unit}` }}
             </p>
           </td>
 
@@ -88,8 +92,11 @@
           </td>
 
           <td data-title="操作">
-            <button class="btn btn-outline-brown p-1">
-              修改
+            <button
+              class="btn btn-outline-brown p-1 w-100"
+              @click="openOrderModal(order)"
+            >
+              更多
             </button>
           </td>
 
@@ -107,24 +114,31 @@
       :pagination-page="ordersPagination"
       @get-data="getOrders"
     ></Pagination>
+
+    <OrderModal
+      ref="orderModal"
+      :modal-order="tempOrderData"
+      @modal-update-order-paid="updateOrderPaid"
+    ></OrderModal>
   </section>
 </template>
 
 <script>
-import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
+import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
 import Pagination from '@/components/DashboarPagination.vue';
+import OrderModal from '@/components/DashboarOrderModal.vue';
 
 export default {
   name: 'DashboardOrders',
   data() {
     return {
       loadingStatus: false,
-      select: '',
       ordersPagination: {},
       orders: {},
+      tempOrderData: {},
     };
   },
-  components: { Pagination },
+  components: { Pagination, OrderModal },
   methods: {
     getOrders(page = 1) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;
@@ -149,13 +163,12 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrder(id, action) {
+    delOrder(action, id) { // 刪除單筆訂單
       let url = '';
       this.loadingStatus = true;
 
       if (action === 'all') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/all`;
-        console.log('刪除全部', url);
       } else if (action === 'one') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${id}`;
       }
@@ -163,11 +176,11 @@ export default {
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)取得訂單 res', res);
-            swalFn(res.data.message, 'success');
+            console.log('(成功-後台)刪除訂單 res', res);
             this.getOrders();
+            swalFn(res.data.message, 'success');
           } else {
-            console.log('(錯誤-後台)取得訂單 res', res);
+            console.log('(錯誤-後台)刪除訂單 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -178,9 +191,46 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrderFn(data, action) {
+    delOrderFn(data, action) { // 刪除單筆訂單的視窗
       const { id } = data;
       delSwalFn(id, id, this.delOrder, action);
+    },
+    delAllOrderSwalFn(action) { // 刪除全部訂單的視窗(雙重確認)
+      doubleCheckdelSwalFn(action, this.delOrder);
+    },
+    updateOrderPaid(paidData) { // 修改訂單
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${paidData.id}`;
+      this.loadingStatus = true;
+
+      if (paidData.is_paid) {
+        this.tempOrderData.paid_date = Date.parse(new Date()) / 1000;
+      } else {
+        console.log('刪除時間');
+        this.tempOrderData.paid_date = null;
+      }
+
+      this.$http.put(url, { data: paidData })
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)修改訂單 res', res);
+            this.$refs.orderModal.hideOderModal();
+            swalFn(res.data.message, 'success');
+            this.getOrders();
+          } else {
+            console.log('(錯誤-後台)修改訂單 res', res);
+            swalFn(res.data.message, 'error');
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)修改訂單 err');
+          console.dir(err);
+          this.loadingStatus = false;
+        });
+    },
+    openOrderModal(order) { // 打開訂單視窗
+      this.tempOrderData = JSON.parse(JSON.stringify(order));
+      this.$refs.orderModal.openOrderModal();
     },
   },
   mounted() {
