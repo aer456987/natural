@@ -46,7 +46,7 @@ export function doubleCheckdelSwalFn(action, methods) {
 
   const secondCheckTxt = { // 第二層確認文檔
     title: '真的要刪除全部訂單嗎？(2/2)',
-    icon: 'warning',
+    icon: 'info',
     text: '請注意，刪除動作執行後，資料將無法復原！',
     buttons: ['取消', '確定刪除'],
     dangerMode: true,
