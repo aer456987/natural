@@ -1,5 +1,5 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <DashboarLoading :status="loadingStatus"></DashboarLoading>
   <section class="container pageContent py-5">
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
@@ -125,6 +125,7 @@
 
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
+import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/DashboarPagination.vue';
 import OrderModal from '@/components/DashboarOrderModal.vue';
 
@@ -138,7 +139,7 @@ export default {
       tempOrderData: {},
     };
   },
-  components: { Pagination, OrderModal },
+  components: { DashboarLoading, Pagination, OrderModal },
   methods: {
     getOrders(page = 1) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;

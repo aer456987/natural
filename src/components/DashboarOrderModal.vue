@@ -121,6 +121,19 @@
                       class="px-2"
                       width="25%"
                     >
+                      訂單總金額
+                    </th>
+                    <td class="px-2">
+                      $ {{ tempOrder.total }} 元
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-2"
+                      width="25%"
+                    >
                       付款狀態
                     </th>
                     <td
@@ -164,10 +177,15 @@
                       class="px-2"
                       width="25%"
                     >
-                      訂單總金額
+                      處理進度
                     </th>
                     <td class="px-2">
-                      {{ tempOrder.total }}
+                      <!-- :class="{
+                        'text-warning' : tempOrder.is_paid,
+                        'text-gray' : !tempOrder.is_paid
+                      }" -->
+                      <span class="text-success">處理中</span>
+                      <span class="text-warning">已出貨</span>
                     </td>
                   </tr>
                 </tbody>

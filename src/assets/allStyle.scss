@@ -222,13 +222,13 @@ tbody{
   margin: 20px auto;
 }
 .swal-icon--success__ring {
-  border-color: rgba($green-100, .2);
+  border-color: rgba($custom-green, .2);
 }
 .swal-icon--success__line{
-  background-color: $green-100;
+  background-color: $custom-green;
 }
 .swal-icon--success{
-  border-color: $green-100;
+  border-color: $custom-green;
 }
 
 .swal-icon--warning__body{

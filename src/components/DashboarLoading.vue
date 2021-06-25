@@ -5,7 +5,7 @@
     v-if="status"
   >
     <img
-      src="@/assets/imgs/loaging.svg"
+      src="@/assets/imgs/dashboarLoading.svg"
       alt="loading"
     />
   </div>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'Loading',
+  name: 'DashboarLoading.vue',
   props: ['status'],
 };
 </script>

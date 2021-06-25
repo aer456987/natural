@@ -90,8 +90,6 @@ table
 </style>
 
 <script>
-// import swal from 'sweetalert';
-
 export default {
   name: 'Dashboard',
   data() {
