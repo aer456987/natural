@@ -1,13 +1,181 @@
 <template>
-  <div>
-    優惠券
-  </div>
+  <DashboarLoading :status="loadingStatus"></DashboarLoading>
+  <section class="container pageContent py-5">
+    <h1 class="text-center fw-bold m-0 pb-5">優惠券管理</h1>
+    <div class="row justify-content-between pb-2">
+      <span class="col-md-5 col-lg-3 pb-1">
+        <span class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="請輸入優惠券名稱"
+            aria-label="search"
+            aria-describedby="basic-addon1"
+            v-model="couponSearch"
+          />
+          <i
+            class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+            @click="clearSearch"
+          ></i>
+        </span>
+      </span>
+
+      <span class="col-lg-4 text-end pb-1">
+        <button
+          class="btn btn-brown"
+          @click="opanCouponModal(true)"
+        >
+          新增優惠券
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-brown btn-sm ms-1 fs-5"
+          @click="resetData">
+          <i class="bi bi-arrow-counterclockwise"></i>
+        </button>
+      </span>
+    </div>
+
+    <table
+      class="table table-hover rounded overflow-hidden shadow-sm
+        text-break text-center"
+    >
+      <thead class="table-dark align-middle">
+        <tr>
+          <td>優惠券名稱</td>
+          <td>優惠碼</td>
+          <td>折扣 % 數</td>
+          <td>到期日</td>
+          <td>狀態</td>
+          <td>操作</td>
+          <td>刪除</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          v-for="coupon in rendercouponDatas"
+          :key="coupon.id"
+        >
+          <td data-title="優惠券名稱">
+            {{ coupon.title }}
+          </td>
+          <td data-title="優惠碼">
+            {{ coupon.code }}
+          </td>
+          <td data-title="折扣 % 數">
+            {{ coupon.percent }}%
+          </td>
+          <td data-title="到期日">
+            {{ coupon.due_date }}
+          </td>
+          <td
+            data-title="狀態"
+            :class="{
+              'text-warning' : coupon.is_enabled,
+              'text-gray' : !coupon.is_enabled,
+            }"
+          >
+            {{ coupon.is_enabled ? '已啟用' : '未啟用' }}
+          </td>
+          <td data-title="操作">
+            <button
+              class="btn btn-outline-brown"
+              @click="opanCouponModal(false, coupon)"
+            >
+              修改
+            </button>
+          </td>
+          <td data-title="刪除">
+          <i
+            class="bi bi-trash-fill btn btn-outline-danger"
+            @click="delOrderFn(order, 'one')"
+          ></i>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <Pagination
+      :pagination-page="couponPagination"
+      @get-data="getCoupons"
+    ></Pagination>
+
+    <CouponModal
+      ref="couponModal"
+      :modal-coupon="updataCouponData"
+      :modal-isNew ="isNew"
+      @modal-update-coupon="updateCoupon"
+    ></CouponModal>
+  </section>
 </template>
 
 <script>
-// import swal from 'sweetalert';
+import { swalFn } from '@/methods/swal'; // , delSwalFn
+import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/DashboarPagination.vue';
+import CouponModal from '@/components/DashboarCouponModal.vue';
 
 export default {
   name: 'DashboardCoupon',
+  data() {
+    return {
+      loadingStatus: false,
+      couponSearch: '',
+      couponPagination: {},
+      couponDatas: {},
+      rendercouponDatas: {},
+      isNew: Boolean,
+      updataCouponData: {},
+    };
+  },
+  components: { DashboarLoading, Pagination, CouponModal },
+  methods: {
+    getCoupons(page = 1) { // 取得優惠券
+      this.loadingStatus = true;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;
+
+      this.$http.get(url)
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)取得優惠券 res', res);
+            this.couponDatas = res.data.coupons;
+            this.rendercouponDatas = res.data.coupons;
+            this.couponPagination = res.data.pagination;
+            console.log('(成功-後台)取得優惠券 vue', this.couponDatas, this.couponPagination);
+            this.loadingStatus = false;
+          } else {
+            console.log('(錯誤-後台)取得優惠券 res', res);
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)取得優惠券 err', err);
+          this.loadingStatus = false;
+        });
+    },
+    opanCouponModal(isNew, coupon) { // 打開 Modal
+      if (isNew) {
+        this.isNew = true;
+        this.updataCouponData = {};
+      } else {
+        this.isNew = false;
+        this.updataCouponData = JSON.parse(JSON.stringify(coupon));
+      }
+      this.$refs.couponModal.openCouponModal();
+    },
+    updateCoupon(newCouponData) {
+      console.log(newCouponData);
+    },
+    clearSearch() { // 清除搜尋
+      this.couponSearch = '';
+    },
+    resetData() { // 重整資料
+      swalFn('正在重整資料', 'info');
+      this.getCoupons();
+    },
+  },
+  mounted() {
+    this.getCoupons();
+  },
 };
 </script>

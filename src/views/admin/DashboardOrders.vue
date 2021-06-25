@@ -1,6 +1,6 @@
 <template>
   <DashboarLoading :status="loadingStatus"></DashboarLoading>
-  <section class="container pageContent py-5">
+  <section class="container pageContent py-5 overflow-auto">
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
       <span class="col-md-4 col-lg-2 pb-1">
@@ -21,115 +21,125 @@
         >
           刪除全部訂單
         </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-brown btn-sm fs-5 ms-1"
+          @click="resetData">
+          <i class="bi bi-arrow-counterclockwise"></i>
+        </button>
       </span>
     </div>
 
-    <table
-      class="table table-hover rounded overflow-hidden shadow-sm
-        text-break text-center"
-    >
-      <thead class="table-dark align-middle">
-        <tr>
-          <td width="10%">建立時間</td>
-          <td width="15%">訂單編號</td>
-          <td width="10%">訂購人</td>
-          <td width="12%">Email</td>
-          <td width="15%">訂單內容</td>
-          <td width="8%">總金額</td>
-          <td width="8%">付款狀態</td>
-          <td width="8%">處理進度</td>
-          <td width="7%">操作</td>
-          <td width="7%">刪除</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="order in orders"
-          :key="order.id"
-        >
-
-          <td data-title="建立時間">
-            {{ $filters.date(order.create_at) }}
-          </td>
-
-          <td
-            data-title="訂單編號"
-            class="text-warning"
+    <div class="table-responsive">
+      <table
+        class="table table-hover rounded overflow-hidden shadow-sm
+          text-break text-center"
+      >
+        <thead class="table-dark align-middle">
+          <tr>
+            <td width="10%">建立時間</td>
+            <td width="15%">訂單編號</td>
+            <td width="10%">訂購人</td>
+            <td width="12%">Email</td>
+            <td width="15%">訂單內容</td>
+            <td width="8%">總金額</td>
+            <td width="8%">付款狀態</td>
+            <td width="8%">處理進度</td>
+            <td width="7%">操作</td>
+            <td width="7%">刪除</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="order in orders"
+            :key="order.id"
           >
-            {{ order.id }}
-          </td>
 
-          <td data-title="訂購人">
-            {{ order.user.name }}
-          </td>
+            <td data-title="建立時間">
+              {{ $filters.date(order.create_at) }}
+            </td>
 
-          <td data-title="Email">
-            {{ order.user.email }}
-          </td>
-
-          <td
-            data-title="訂單內容"
-            class="text-start"
-          >
-            <p
-              v-for="item in order.products"
-              :key="item.id"
-              class="m-0"
+            <td
+              data-title="訂單編號"
+              class="text-warning"
             >
-              {{ `${item.product.title} x ${item.qty}${item.product.unit}` }}
-            </p>
-          </td>
+              {{ order.id }}
+            </td>
 
-          <td data-title="總金額">
-            $ {{ order.total }}
-          </td>
+            <td data-title="訂購人">
+              {{ order.user.name }}
+            </td>
 
-          <td
-            data-title="付款狀態"
-            :class="{ 'text-gray' : !order.is_paid }"
-            :title="`付款日期： ${ $filters.date(order.paid_date) }`"
-          >
-            {{ order.is_paid ? '已付款' : '未付款' }}
-          </td>
+            <td data-title="Email">
+              {{ order.user.email }}
+            </td>
 
-          <td data-title="處理進度">
-            <span
-              v-if="order.is_paid"
-              class="m-0"
-              :class="{
-                'text-warning' : order.user.is_consignment,
-                'text-success' : !order.user.is_consignment,
-              }"
+            <td
+              data-title="訂單內容"
+              class="text-start"
             >
-              {{ order.user.is_consignment ? '已出貨' : '處理中' }}
-            </span>
-            <span
-              v-else
-              class="text-gray"
-            >
-              訂單成立
-            </span>
-          </td>
+              <p
+                v-for="item in order.products"
+                :key="item.id"
+                class="m-0"
+              >
+                {{ `${item.product.title} x ${item.qty}${item.product.unit}` }}
+              </p>
+            </td>
 
-          <td data-title="操作">
-            <button
-              class="btn btn-outline-brown p-1 w-100"
-              @click="openOrderModal(order)"
-            >
-              更多
-            </button>
-          </td>
+            <td data-title="總金額">
+              $ {{ order.total }}
+            </td>
 
-          <td data-title="刪除">
-            <i
-              class="bi bi-trash-fill btn btn-outline-danger"
-              @click="delOrderFn(order, 'one')"
-            ></i>
-          </td>
-          <!-- {{ order }} -->
-        </tr>
-      </tbody>
-    </table>
+            <td
+              data-title="付款狀態"
+              :class="{ 'text-gray' : !order.is_paid }"
+              :title="`付款日期： ${ $filters.date(order.paid_date) }`"
+            >
+              {{ order.is_paid ? '已付款' : '未付款' }}
+            </td>
+
+            <td data-title="處理進度">
+              <span
+                v-if="order.is_paid"
+                class="m-0"
+                :class="{
+                  'text-warning' : order.user.is_consignment,
+                  'text-success' : !order.user.is_consignment,
+                }"
+              >
+                {{ order.user.is_consignment ? '已出貨' : '處理中' }}
+              </span>
+              <span
+                v-else
+                class="text-gray"
+              >
+                訂單成立
+              </span>
+            </td>
+
+            <td data-title="操作">
+              <button
+                class="btn btn-outline-brown p-1 w-100"
+                @click="openOrderModal(order)"
+              >
+                更多
+              </button>
+            </td>
+
+            <td data-title="刪除">
+              <i
+                class="bi bi-trash-fill btn btn-outline-danger"
+                @click="delOrderFn(order, 'one')"
+              ></i>
+            </td>
+            <!-- {{ order }} -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <Pagination
       :pagination-page="ordersPagination"
       @get-data="getOrders"
@@ -142,6 +152,11 @@
     ></OrderModal>
   </section>
 </template>
+
+<style lang="sass">
+table
+  overflow-x: hidden;
+</style>
 
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
@@ -252,6 +267,10 @@ export default {
     openOrderModal(order) { // 打開訂單視窗
       this.tempOrderData = JSON.parse(JSON.stringify(order));
       this.$refs.orderModal.openOrderModal();
+    },
+    resetData() { // 重整資料
+      swalFn('正在重整資料', 'info');
+      this.getOrders();
     },
   },
   mounted() {

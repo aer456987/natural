@@ -17,9 +17,16 @@
       </span>
       <span class="col-lg-2 text-end pb-1">
         <button
-          class="btn btn-outline-brown"
+          class="btn btn-brown"
           @click="openModal(true)"
         >新增產品</button>
+
+        <button
+          type="button"
+          class="btn btn-outline-brown btn-sm fs-5 ms-1"
+          @click="resetData">
+          <i class="bi bi-arrow-counterclockwise"></i>
+        </button>
       </span>
     </div>
 
@@ -103,7 +110,6 @@
               @click="delProductFn(product)"
             ></i>
           </td>
-          <!-- {{ product }} -->
 
         </tr>
       </tbody>
@@ -232,6 +238,10 @@ export default {
         this.tempProduct = JSON.parse(JSON.stringify(product));
       }
       this.$refs.productModal.openModal();
+    },
+    resetData() { // 重整資料
+      swalFn('正在重整資料', 'info');
+      this.getProducts();
     },
   },
   mounted() {

@@ -32,7 +32,7 @@
             <router-link
               to="/admin/coupon"
               class="nav-link"
-            >優惠券</router-link>
+            >優惠券管理</router-link>
           </li>
           <li class="nav-item">
             <router-link
