@@ -54,8 +54,6 @@ export default {
     paginationPage: {
       handler(n) {
         this.pagesData = n;
-        // console.log('n:', n);
-        // console.log('分頁資料', this.pagesData);
       },
     },
   },
