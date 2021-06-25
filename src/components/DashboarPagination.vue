@@ -3,6 +3,7 @@
   <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center pt-2">
       <li
+        v-if="pagesData.has_pre"
         class="page-item"
         :class="{ 'disabled' : !pagesData.has_pre }"
         @click="$emit('get-data', pagesData.current_page - 1)"
@@ -27,8 +28,8 @@
         </li>
       </template>
       <li
+        v-if="pagesData.has_next"
         class="page-item"
-        :class="{ 'disabled' : !pagesData.has_next }"
         @click="$emit('get-data', pagesData.current_page + 1)"
       >
         <button
