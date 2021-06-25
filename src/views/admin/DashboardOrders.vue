@@ -168,7 +168,7 @@ export default {
       this.loadingStatus = true;
 
       if (action === 'all') {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/all`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders/all`;
       } else if (action === 'one') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${id}`;
       }
