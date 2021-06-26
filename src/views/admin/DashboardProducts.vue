@@ -15,7 +15,7 @@
           <option value="募款專案">募款專案</option>
         </select>
       </span>
-      <span class="col-lg-2 text-end pb-1">
+      <span class="col-lg-6 text-end pb-1">
         <button
           class="btn btn-brown"
           @click="openModal(true)"
@@ -141,7 +141,7 @@ export default {
     return {
       loadingStatus: false,
       select: '',
-      products: {},
+      products: [],
       productPagination: {},
       tempProduct: {},
       isNew: Boolean,

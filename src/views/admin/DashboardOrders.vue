@@ -14,7 +14,7 @@
           <option value="未付款">未付款</option>
         </select>
       </span>
-      <span class="col-lg-4 text-end pb-1">
+      <span class="col-lg-6 text-end pb-1">
         <button
           class="btn btn-outline-danger"
           @click="delAllOrderSwalFn('all')"
@@ -170,7 +170,7 @@ export default {
     return {
       loadingStatus: false,
       ordersPagination: {},
-      orders: {},
+      orders: [],
       tempOrderData: {},
     };
   },

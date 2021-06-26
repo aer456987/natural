@@ -34,7 +34,8 @@
               <label
                 for="modalTitle"
                 class="form-label p-1 m-0"
-              >優惠券名稱<span class="text-danger fw-bold">*</span>
+              >
+                優惠券名稱<span class="text-danger fw-bold">*</span>
               </label>
               <input
                 type="text"
@@ -50,7 +51,8 @@
               <label
                 for="modalCode"
                 class="form-label p-1 m-0"
-              >優惠碼<span class="text-danger fw-bold">*</span>
+              >
+                優惠碼<span class="text-danger fw-bold">*</span>
               </label>
               <input
                 type="text"
@@ -66,7 +68,8 @@
               <label
                 for="modalPercent"
                 class="form-label p-1 m-0"
-              >折扣 % 數<span class="text-danger fw-bold">*</span>
+              >
+                折扣 % 數<span class="text-danger fw-bold">*</span>
               </label>
               <input
                 type="number"
@@ -83,10 +86,8 @@
               <label
                 for="modalDueDate"
                 class="form-label p-1 m-0"
-              >到期日<span class="text-danger fw-bold">*</span>
-                {{ tempCouponData.due_date }} <br>
-                {{ tempDueDate }} <br>
-                {{ `新tempCouponData: ${this.tempCouponData.due_date}` }}
+              >
+                到期日<span class="text-danger fw-bold">*</span>
               </label>
               <input
                 type="date"
@@ -112,7 +113,7 @@
                 v-model="tempCouponData.is_enabled"
               >
               <label for="enabledStatus">
-                <span class="text-danger fw-bold">*</span>是否啟用
+                是否啟用<span class="text-danger fw-bold">*</span>
               </label>
             </span>
 

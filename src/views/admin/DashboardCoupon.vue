@@ -20,7 +20,7 @@
         </span>
       </span>
 
-      <span class="col-lg-4 text-end pb-1">
+      <span class="col-lg-6 text-end pb-1">
         <button
           class="btn btn-brown"
           @click="opanCouponModal(true)"
@@ -53,7 +53,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="coupon in rendercouponDatas"
+          v-for="coupon in filterCoupon"
           :key="coupon.id"
         >
           <td data-title="優惠券名稱">
@@ -122,8 +122,7 @@ export default {
       loadingStatus: false,
       couponSearch: '',
       couponPagination: {},
-      couponDatas: {},
-      rendercouponDatas: {},
+      couponDatas: [],
       isNew: Boolean,
       updataCouponData: {},
     };
@@ -139,7 +138,6 @@ export default {
           if (res.data.success) {
             console.log('(成功-後台)取得優惠券 res', res);
             this.couponDatas = res.data.coupons;
-            this.rendercouponDatas = res.data.coupons;
             this.couponPagination = res.data.pagination;
             console.log('(成功-後台)取得優惠券 vue', this.couponDatas, this.couponPagination);
             this.loadingStatus = false;
@@ -204,6 +202,11 @@ export default {
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
       this.getCoupons();
+    },
+  },
+  computed: {
+    filterCoupon() {
+      return this.couponDatas.filter((item) => item.title.match(this.couponSearch));
     },
   },
   mounted() {
