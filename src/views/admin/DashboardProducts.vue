@@ -3,19 +3,41 @@
   <section class="container pageContent py-5">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
     <div class="row justify-content-between pb-2">
-      <span class="col-md-4 col-lg-2 pb-1">
-        <select
-          class="form-select"
-          @change="changeProduct"
-          v-model="select"
-        >
-          <option value="全部商品" selected>全部商品</option>
-          <option value="食物">食物</option>
-          <option value="周邊用品">周邊用品</option>
-          <option value="募款專案">募款專案</option>
-        </select>
-      </span>
-      <span class="col-lg-6 text-end pb-1">
+      <div class="col-md-6 col-lg-6 pb-1">
+
+        <div class="row">
+          <span class="col-4">
+            <select
+              class="form-select"
+              v-model="productSelect"
+            >
+              <option value="全部商品" selected>全部商品</option>
+              <option value="食物">食物</option>
+              <option value="周邊用品">周邊用品</option>
+              <option value="募款專案">募款專案</option>
+            </select>
+          </span>
+
+          <span class="col-5">
+            <span class=" input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="請輸入品名"
+                aria-label="search"
+                aria-describedby="basic-addon1"
+                v-model="productSearch"
+              />
+              <i
+                class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+                @click="clearSearch"
+              ></i>
+            </span>
+          </span>
+        </div>
+
+      </div>
+      <div class="col-lg-6 text-end pb-1">
         <button
           class="btn btn-brown"
           @click="openModal(true)"
@@ -27,7 +49,7 @@
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
-      </span>
+      </div>
     </div>
 
     <table
@@ -51,7 +73,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="product in products"
+          v-for="product in filterProducts"
           :key="product.id"
         >
 
@@ -139,13 +161,40 @@ export default {
   name: 'DashboardProducts',
   data() {
     return {
-      loadingStatus: false,
-      select: '',
-      products: [],
-      productPagination: {},
-      tempProduct: {},
-      isNew: Boolean,
+      loadingStatus: false, // Loading 狀態
+      productSelect: '', // 選單
+      productSearch: '', // 搜尋
+      productPagination: {}, // 分頁
+      products: [], // 原始資料
+      tempProduct: {}, // 存放新增 & 修改資料
+      isNew: Boolean, // 判斷 madal 是否為新
     };
+  },
+  computed: {
+    filterProducts() { // 渲染資料
+      let newFilterData = [];
+
+      if (this.productSelect === '全部商品') {
+        newFilterData = this.products;
+      } else {
+        newFilterData = this.products.filter((item) => item.category.match(this.productSelect));
+      }
+      if (this.productSearch.length > 0) {
+        newFilterData = this.products.filter((item) => item.title.match(this.productSearch));
+      }
+
+      return newFilterData;
+      // return this.products.filter((item) => item.title.match(this.productSearch));
+    },
+    // filterCategory() {
+    //   let newFilterData = [];
+    //   if (this.productSelect === '全部商品') {
+    //     newFilterData = this.products;
+    //   } else {
+    //     newFilterData = this.products.filter((item) => item.category.match(this.productSelect));
+    //   }
+    //   return newFilterData;
+    // },
   },
   components: { DashboarLoading, Pagination, ProductModal },
   methods: {
@@ -241,12 +290,17 @@ export default {
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
+      this.productSelect = '全部商品';
+      this.clearSearch();
       this.getProducts();
+    },
+    clearSearch() { // 清除搜尋
+      this.productSearch = '';
     },
   },
   mounted() {
+    this.productSelect = '全部商品';
     this.getProducts();
-    this.select = '全部商品';
   },
 };
 </script>

@@ -3,18 +3,41 @@
   <section class="container pageContent py-5 overflow-auto">
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
-      <span class="col-md-4 col-lg-2 pb-1">
-        <select
-          class="form-select"
-          id="paySelect"
-        >
-          <option selected disabled>選擇付款狀態</option>
-          <option value="全部">全部</option>
-          <option value="已付款">已付款</option>
-          <option value="未付款">未付款</option>
-        </select>
-      </span>
-      <span class="col-lg-6 text-end pb-1">
+
+      <div class="col-md-6 col-lg-6 pb-1">
+        <div class="row">
+          <!-- <span class="col-4">
+            <select
+              class="form-select"
+              v-model="orderSelect"
+            >
+              <option value="選擇付款狀態" selected disabled>選擇付款狀態</option>
+              <option value="全部">全部</option>
+              <option value="true">已付款</option>
+              <option value="false">未付款</option>
+            </select>
+          </span> -->
+
+          <span class="col-5">
+            <span class=" input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="請輸入訂單編號"
+                aria-label="search"
+                aria-describedby="basic-addon1"
+                v-model="orderSearch"
+              />
+              <i
+                class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+                @click="clearSearch"
+              ></i>
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-lg-6 text-end pb-1">
         <button
           class="btn btn-outline-danger"
           @click="delAllOrderSwalFn('all')"
@@ -28,7 +51,7 @@
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
-      </span>
+      </div>
     </div>
 
     <div class="table-responsive">
@@ -52,7 +75,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="order in orders"
+            v-for="order in filterOrder"
             :key="order.id"
           >
 
@@ -105,11 +128,11 @@
                 v-if="order.is_paid"
                 class="m-0"
                 :class="{
-                  'text-warning' : order.user.is_consignment,
-                  'text-success' : !order.user.is_consignment,
+                  'text-warning' : order.is_consignment,
+                  'text-success' : !order.is_consignment,
                 }"
               >
-                {{ order.user.is_consignment ? '已出貨' : '處理中' }}
+                {{ order.is_consignment ? '已出貨' : '處理中' }}
               </span>
               <span
                 v-else
@@ -153,11 +176,6 @@
   </section>
 </template>
 
-<style lang="sass">
-table
-  overflow-x: hidden;
-</style>
-
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
 import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
@@ -168,11 +186,32 @@ export default {
   name: 'DashboardOrders',
   data() {
     return {
-      loadingStatus: false,
-      ordersPagination: {},
-      orders: [],
-      tempOrderData: {},
+      loadingStatus: false, // Loading 狀態
+      // orderSelect: '', // 選單
+      orderSearch: '', // 搜尋
+      ordersPagination: {}, // 分頁
+      orders: [], // 原始資料
+      tempOrderData: {}, // 存放新增 & 修改資料
     };
+  },
+  computed: {
+    filterOrder() { // 渲染資料
+      // let newFilterData = [];
+
+      // if (this.orderSelect === '選擇付款狀態' || this.orderSelect === '全部') {
+      //   newFilterData = this.orders;
+      // } else {
+      //   const newType = Boolean(this.orderSelect);
+      //   console.log(this.orderSelect, !newType);
+      //   // newFilterData = this.orders.forEach((item) => item);
+      //   newFilterData = this.orders.filter((item) => item.is_consignment.match(newType));
+      // }
+      // if (this.orderSearch.length > 0) {
+      //   newFilterData = this.orders.filter((item) => item.id.match(this.orderSearch));
+      // }
+
+      return this.orders.filter((item) => item.id.match(this.orderSearch));
+    },
   },
   components: { DashboarLoading, Pagination, OrderModal },
   methods: {
@@ -241,7 +280,6 @@ export default {
       if (paidData.is_paid) {
         this.tempOrderData.paid_date = Date.parse(new Date()) / 1000;
       } else {
-        console.log('刪除時間');
         this.tempOrderData.paid_date = null;
       }
 
@@ -270,10 +308,16 @@ export default {
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
+      // this.orderSelect = '選擇付款狀態';
+      this.clearSearch();
       this.getOrders();
+    },
+    clearSearch() { // 清除搜尋
+      this.orderSearch = '';
     },
   },
   mounted() {
+    // this.orderSelect = '選擇付款狀態';
     this.getOrders();
   },
 };

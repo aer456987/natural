@@ -127,6 +127,11 @@ export default {
       updataCouponData: {},
     };
   },
+  computed: {
+    filterCoupon() {
+      return this.couponDatas.filter((item) => item.title.match(this.couponSearch));
+    },
+  },
   components: { DashboarLoading, Pagination, CouponModal },
   methods: {
     getCoupons(page = 1) { // 取得優惠券
@@ -196,17 +201,13 @@ export default {
           this.loadingStatus = false;
         });
     },
-    clearSearch() { // 清除搜尋
-      this.couponSearch = '';
-    },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
+      this.clearSearch();
       this.getCoupons();
     },
-  },
-  computed: {
-    filterCoupon() {
-      return this.couponDatas.filter((item) => item.title.match(this.couponSearch));
+    clearSearch() { // 清除搜尋
+      this.couponSearch = '';
     },
   },
   mounted() {
