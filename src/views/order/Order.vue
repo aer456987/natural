@@ -214,9 +214,7 @@ export default {
       progressNum: 33,
       carts: {},
       userDatas: { // 未送訂單: 訂單資料
-        user: {
-          is_consignment: false,
-        },
+        user: {},
       },
     };
   },

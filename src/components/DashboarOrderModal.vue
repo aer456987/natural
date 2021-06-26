@@ -185,11 +185,11 @@
                         v-if="tempOrder.is_paid"
                         class="m-0"
                         :class="{
-                          'text-warning' : tempOrder.user.is_consignment,
-                          'text-success' : !tempOrder.user.is_consignment,
+                          'text-warning' : tempOrder.is_consignment,
+                          'text-success' : !tempOrder.is_consignment,
                         }"
                       >
-                        {{ tempOrder.user.is_consignment ? '已出貨' : '處理中' }}
+                        {{ tempOrder.is_consignment ? '已出貨' : '處理中' }}
                       </span>
                       <span
                         v-else
@@ -263,7 +263,7 @@
                 class="form-check-input me-1"
                 name="處理進度"
                 value="處理進度"
-                v-model="tempOrder.user.is_consignment"
+                v-model="tempOrder.is_consignment"
               >
               <label for="consignment_status">
                 商品出貨
@@ -310,7 +310,6 @@ export default {
           email: '',
           tel: '',
           address: '',
-          is_consignment: Boolean,
         },
       },
     };
@@ -322,7 +321,7 @@ export default {
     tempOrder() {
       if (!this.tempOrder.is_paid) {
         console.log('修改付款狀態');
-        this.tempOrder.user.is_consignment = false;
+        this.tempOrder.is_consignment = false;
       }
     },
   },

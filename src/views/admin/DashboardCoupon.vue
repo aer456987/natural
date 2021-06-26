@@ -66,7 +66,7 @@
             {{ coupon.percent }}%
           </td>
           <td data-title="到期日">
-            {{ coupon.due_date }}
+            {{ $filters.date(coupon.due_date) }}
           </td>
           <td
             data-title="狀態"
@@ -156,7 +156,11 @@ export default {
     opanCouponModal(isNew, coupon) { // 打開 Modal
       if (isNew) {
         this.isNew = true;
-        this.updataCouponData = {};
+        this.updataCouponData = {
+          due_date: Math.floor(Date.now() / 1000),
+          is_enabled: 0,
+        };
+        console.log(isNew, this.updataCouponData);
       } else {
         this.isNew = false;
         this.updataCouponData = JSON.parse(JSON.stringify(coupon));
@@ -164,7 +168,35 @@ export default {
       this.$refs.couponModal.openCouponModal();
     },
     updateCoupon(newCouponData) {
-      console.log(newCouponData);
+      this.loadingStatus = true;
+      let url = '';
+      let httpMethods = '';
+
+      if (this.isNew) {
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon`;
+        httpMethods = 'post';
+      } else {
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${newCouponData.id}`;
+        httpMethods = 'put';
+      }
+
+      this.$http[httpMethods](url, { data: newCouponData })
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)修改優惠券 res', res);
+            swalFn(res.data.message, 'success');
+            this.getCoupons();
+            this.$refs.couponModal.hideCouponModal();
+          } else {
+            console.log('(錯誤-後台)修改優惠券 res', res);
+            swalFn(res.data.message, 'error');
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)修改優惠券 err', err);
+          this.loadingStatus = false;
+        });
     },
     clearSearch() { // 清除搜尋
       this.couponSearch = '';

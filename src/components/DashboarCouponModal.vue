@@ -10,8 +10,8 @@
     ref="modal"
   >
     <section class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
+      <main class="modal-content coupon_width mx-auto">
+        <div class="modal-header bg-warning text-brown-500">
           <h5
             class="modal-title"
             id="staticBackdropLabel"
@@ -25,27 +25,128 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">
-          {{ tempCouponData }}
-        </div>
+        <section
+          v-if="tempCouponData"
+          class="modal-body"
+        >
+          <form class="row">
+            <span class="col-12">
+              <label
+                for="modalTitle"
+                class="form-label p-1 m-0"
+              >優惠券名稱<span class="text-danger fw-bold">*</span>
+              </label>
+              <input
+                type="text"
+                id="modalTitle"
+                name="優惠券名稱"
+                class="form-control mb-2"
+                placeholder="請輸入優惠券名稱"
+                v-model="tempCouponData.title"
+              >
+            </span>
+
+            <span class="col-12">
+              <label
+                for="modalCode"
+                class="form-label p-1 m-0"
+              >優惠碼<span class="text-danger fw-bold">*</span>
+              </label>
+              <input
+                type="text"
+                id="modalCode"
+                name="優惠碼"
+                class="form-control mb-2"
+                placeholder="請輸入優惠碼"
+                v-model="tempCouponData.code"
+              >
+            </span>
+
+            <span class="col-12">
+              <label
+                for="modalPercent"
+                class="form-label p-1 m-0"
+              >折扣 % 數<span class="text-danger fw-bold">*</span>
+              </label>
+              <input
+                type="number"
+                id="modalPercent"
+                min='1'
+                name="折扣 % 數"
+                class="form-control mb-2"
+                placeholder="請輸入折扣 % 數"
+                v-model.number="tempCouponData.percent"
+              >
+            </span>
+
+            <span class="col-12">
+              <label
+                for="modalDueDate"
+                class="form-label p-1 m-0"
+              >到期日<span class="text-danger fw-bold">*</span>
+                {{ tempCouponData.due_date }} <br>
+                {{ tempDueDate }} <br>
+                {{ `新tempCouponData: ${this.tempCouponData.due_date}` }}
+              </label>
+              <input
+                type="date"
+                id="modalDueDate"
+                name="到期日"
+                class="form-control mb-2"
+                placeholder="請輸入到期日"
+                v-model="tempDueDate"
+              >
+            </span>
+
+            <span
+              class="col-12 form-check
+                d-flex justify-content-end align-items-center"
+            >
+              <input type="checkbox"
+                id="enabledStatus"
+                name="啟用狀態"
+                value="啟用狀態"
+                class="form-check-input m-2 me-1"
+                :true-value="1"
+                :false-value="0"
+                v-model="tempCouponData.is_enabled"
+              >
+              <label for="enabledStatus">
+                <span class="text-danger fw-bold">*</span>是否啟用
+              </label>
+            </span>
+
+            <span class="text-danger text-end fw-bold mt-1">
+              * 為必填項目
+            </span>
+
+          </form>
+        </section>
         <div class="modal-footer">
           <button
             type="button"
             class="btn btn-warning text-brown-500"
+            @click="$emit('modalUpdateCoupon', tempCouponData)"
           >
-            <!-- @click="$emit('modalUpdateProduct', tempProduct)" -->
             {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
           <button
             type="button"
             class="btn btn-outline-brown"
             data-bs-dismiss="modal"
-          >關閉</button>
+          >
+            關閉
+          </button>
         </div>
-      </div>
+      </main>
     </section>
   </section>
 </template>
+
+<style lang="sass">
+.coupon_width
+  max-width: 600px
+</style>
 
 <script>
 import Modal from 'bootstrap/js/dist/modal';
@@ -57,15 +158,32 @@ export default {
       couponModal: '',
       tempCouponData: {},
       isNewCoupon: true,
+      tempDueDate: Number,
     };
   },
   props: ['modalCoupon', 'modalIsNew'],
   watch: {
     modalCoupon() {
       this.tempCouponData = this.modalCoupon;
+      const isoDate = new Date(this.modalCoupon.due_date * 1000)
+        .toISOString().split('T');
+      console.log(isoDate, [this.tempDueDate]);
+
+      [this.tempDueDate] = isoDate;
+
+      // 為必填欄位
+      // title(String)V
+      // code(String)V
+      // percent(Number)V
+      // due_date(Number)V
+      // is_enabled(Number)
     },
     modalIsNew() {
       this.isNewCoupon = this.modalIsNew;
+    },
+    tempDueDate() {
+      const newDate = Math.floor(new Date(this.tempDueDate) / 1000);
+      this.tempCouponData.due_date = newDate;
     },
   },
   emits: ['modalUpdateCoupon'],

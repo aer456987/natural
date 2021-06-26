@@ -168,7 +168,7 @@
                     id="enabled_status"
                     name="啟用狀態"
                     value="啟用狀態"
-                    class="form-check-input m-2"
+                    class="form-check-input me-1"
                     v-model="tempProduct.is_enabled"
                   >
                   <label for="enabled_status">
@@ -176,7 +176,7 @@
                   </label>
                 </span>
 
-                <span class="text-danger text-end fw-bold">
+                <span class="text-danger text-end fw-bold mt-1">
                   * 為必填項目
                 </span>
               </form>
