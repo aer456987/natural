@@ -88,7 +88,7 @@
           <td data-title="刪除">
           <i
             class="bi bi-trash-fill btn btn-outline-danger"
-            @click="delOrderFn(order, 'one')"
+            @click="delCouponSwalFn(coupon, 'one')"
           ></i>
         </td>
         </tr>
@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal'; // , delSwalFn
+import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
 import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/DashboarPagination.vue';
 import CouponModal from '@/components/DashboarCouponModal.vue';
@@ -135,8 +135,8 @@ export default {
   components: { DashboarLoading, Pagination, CouponModal },
   methods: {
     getCoupons(page = 1) { // 取得優惠券
-      this.loadingStatus = true;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;
+      this.loadingStatus = true;
 
       this.$http.get(url)
         .then((res) => {
@@ -171,9 +171,9 @@ export default {
       this.$refs.couponModal.openCouponModal();
     },
     updateCoupon(newCouponData) {
-      this.loadingStatus = true;
       let url = '';
       let httpMethods = '';
+      this.loadingStatus = true;
 
       if (this.isNew) {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon`;
@@ -200,6 +200,31 @@ export default {
           console.log('(失敗-後台)修改優惠券 err', err);
           this.loadingStatus = false;
         });
+    },
+    delCoupon(action, id) {
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${id}`;
+      this.loadingStatus = true;
+
+      this.$http.delete(url)
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)刪除優惠券 res', res);
+            swalFn(res.data.message, 'success');
+            this.getCoupons();
+          } else {
+            console.log('(錯誤-後台)刪除優惠券 res', res);
+            swalFn(res.data.message, 'error');
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-後台)刪除優惠券 err', err);
+          this.loadingStatus = false;
+        });
+    },
+    delCouponSwalFn(data, action) { // 刪除單筆訂單的視窗
+      const { title, id } = data;
+      delSwalFn(title, id, this.delCoupon, action);
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');

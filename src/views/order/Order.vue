@@ -61,13 +61,15 @@
                       {{ item.qty }}
                     </td>
                     <td>
-                      <span>NT $</span>{{ item.final_total }}
+                      NT ${{ $filters.currency(item.final_total) }}
                     </td>
                   </tr>
                 </tbody>
               </table>
 
-              <p class="h5 text-center">總金額NT ${{ carts.total }}</p>
+              <p class="h5 text-center">
+                總金額NT ${{ $filters.currency(carts.final_total) }}
+              </p>
             </div>
           </div>
           <!-- 訂購人資訊 -->
@@ -140,12 +142,40 @@
                 class="invalid-feedback mb-1"
               ></error-message>
 
-              <!-- 寄送地址 -->
+              <!-- 寄送方式 -->
+              <label
+                for="orderDelivery"
+                class="form-label mt-3 mb-1"
+              >
+                寄送方式<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field
+                as="select"
+                name="寄送方式"
+                id="orderDelivery"
+                class="form-control"
+                :class="{ 'is-invalid': errors['寄送方式'] }"
+                rules="required"
+                v-model="userDatas.user.delivery"
+              >
+                <option value="" selected disabled>選擇寄送方式</option>
+                <option value="宅配">宅配</option>
+                <option value="全家超取">全家</option>
+                <option value="7-11 超取">7-11</option>
+                <option value="萊爾富超取">萊爾富</option>
+                <option value="OK 超取">OK 超取</option>
+              </Field>
+              <error-message
+                name="寄送方式"
+                class="invalid-feedback mb-1"
+              ></error-message>
+
+              <!-- 收件地址 -->
               <label
                 for="orderAddress"
                 class="form-label mt-3 mb-1"
               >
-                寄送地址<span class="text-danger fw-bold">*</span>
+                收件地址(超取請填寫門市名稱)<span class="text-danger fw-bold">*</span>
               </label>
               <Field
                 type="text"
@@ -158,6 +188,32 @@
               ></Field>
               <error-message
                 name="地址"
+                class="invalid-feedback mb-1"
+              ></error-message>
+
+              <!-- 付款方式 -->
+              <label
+                for="orderPayment"
+                class="form-label mt-3 mb-1"
+              >
+                付款方式<span class="text-danger fw-bold">*</span>
+              </label>
+              <Field
+                as="select"
+                name="付款方式"
+                id="orderPayment"
+                class="form-control"
+                :class="{ 'is-invalid': errors['付款方式'] }"
+                rules="required"
+                v-model="userDatas.user.payment"
+              >
+                <option value="" selected disabled>選擇付款方式</option>
+                <option value="信用卡">信用卡</option>
+                <option value="貨到付款">貨到付款</option>
+                <option value="ATM 匯款">ATM 匯款</option>
+              </Field>
+              <error-message
+                name="付款方式"
                 class="invalid-feedback mb-1"
               ></error-message>
 

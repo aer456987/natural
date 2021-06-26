@@ -40,7 +40,9 @@
                 <router-link
                   to="/products"
                   class="btn btn_main w-100"
-                >前往選購</router-link>
+                >
+                  前往選購
+                </router-link>
               </span>
             </div>
 
@@ -78,7 +80,7 @@
                   >
                     <td class="cart_img">
                       <img
-                        class="w-100"
+                        class="w-100 "
                         :src="item.product.imageUrl"
                         alt="預覽"
                       />
@@ -106,7 +108,9 @@
                         </div>
                       </div>
                     </td>
-                    <td><span>NT $</span>{{ item.final_total }}</td>
+                    <td>
+                      NT ${{ $filters.currency(item.final_total) }}
+                    </td>
                     <td>
                       <i
                         class="bi bi-x-lg btn_red"
@@ -117,9 +121,45 @@
                 </tbody>
               </table>
 
-              <p class="h5 text-end text-danger">
-                總金額NT ${{ carts.total }}
-              </p>
+              <div class="row justify-content-end">
+                <span class="col-12 text-end mb-1">
+                  <small class="d-block text-gray">
+                    商品金額NT ${{ $filters.currency(carts.total) }}
+                  </small>
+                  <small
+                    v-if="isDiscount"
+                    class="d-block text-da"
+                  >
+                    - 使用優惠折扣NT ${{ $filters.currency(carts.total - carts.final_total) }}
+                  </small>
+                </span>
+                <span class="col-12 mb-3">
+                  <p class="h5 text-end text-danger">
+                    總金額NT {{ $filters.currency(carts.final_total) }}
+                  </p>
+                </span>
+                <span class="col-md-6 col-lg-5">
+
+                  <span class="input-group input-group-sm">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="請輸入折扣碼"
+                      aria-label="couponNum"
+                      aria-describedby="basic-addon1"
+                      v-model="couponNum.code"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary input-group-text"
+                      @click="useCoupon"
+                    >
+                      套用優惠券
+                    </button>
+                  </span>
+
+                </span>
+              </div>
             </template>
           </div>
 
@@ -170,6 +210,10 @@ export default {
       btnStatus: true,
       progressNum: 0,
       carts: {},
+      couponNum: {
+        code: 'Y2021M03YIP',
+      },
+      isDiscount: false,
     };
   },
   components: { Progress },
@@ -183,11 +227,17 @@ export default {
           if (res.data.success) {
             console.log('(成功-前台)取得購物車全部資料 res:', res);
             this.carts = res.data.data;
+
             if (res.data.data.carts.length > 0) {
               this.btnStatus = false;
             } else {
               this.btnStatus = true;
             }
+
+            if (this.carts.total > this.carts.final_total) {
+              this.isDiscount = true;
+            }
+
             this.loadingStatus = false;
             console.log('(成功-前台)取得購物車全部資料 vue:', this.carts);
           } else {
@@ -275,6 +325,31 @@ export default {
         })
         .catch((err) => {
           console.log('(失敗-前台)修改購物車 err:');
+          console.dir(err);
+          this.loadingStatus = false;
+        });
+    },
+    useCoupon() {
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/coupon`;
+      this.loadingStatus = true;
+
+      this.$http.post(url, { data: this.couponNum })
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-前台)套用優惠券 res:', res);
+            swalFn(res.data.message, 'success');
+            this.rederCode = this.couponNum.code;
+            this.getCarts();
+            this.couponNum.code = '';
+            this.loadingStatus = false;
+          } else {
+            console.log('(錯誤-前台)套用優惠券 res:', res);
+            swalFn(res.data.message, 'error');
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-前台)套用優惠券 err:');
           console.dir(err);
           this.loadingStatus = false;
         });

@@ -112,7 +112,7 @@
             </td>
 
             <td data-title="總金額">
-              $ {{ order.total }}
+              $ {{ $filters.currency(order.total) }}
             </td>
 
             <td
@@ -124,8 +124,9 @@
             </td>
 
             <td data-title="處理進度">
+                <!-- v-if="order.is_paid" -->
               <span
-                v-if="order.is_paid"
+                v-if="order.user.payment ==='貨到付款' || order.is_paid"
                 class="m-0"
                 :class="{
                   'text-warning' : order.is_consignment,
@@ -154,7 +155,7 @@
             <td data-title="刪除">
               <i
                 class="bi bi-trash-fill btn btn-outline-danger"
-                @click="delOrderFn(order, 'one')"
+                @click="delOrderSwalFn(order, 'one')"
               ></i>
             </td>
             <!-- {{ order }} -->
@@ -266,7 +267,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrderFn(data, action) { // 刪除單筆訂單的視窗
+    delOrderSwalFn(data, action) { // 刪除單筆訂單的視窗
       const { id } = data;
       delSwalFn(id, id, this.delOrder, action);
     },

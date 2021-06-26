@@ -29,7 +29,7 @@
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
       <!-- 訂單確認 & 付款 -->
-      <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
+      <h1 class="text-center fw-bold mb-4">訂單成立</h1>
       <section class="container">
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
@@ -41,76 +41,134 @@
               </p>
 
               <!-- 訂購人資訊 -->
+              <h3 class="h5 text-center fw-bold mt-3 mb-2">訂購人資訊</h3>
               <table class="table table-borderless mb-5">
-                <thead>
-                  <tr>
-                    <td
-                      colspan="2"
-                      scope="row"
-                      class="text-center border-end border"
-                    >訂購人資訊</td>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
-                    <td
+                    <th
                       scope="row"
-                      class="text-end border-end pe-sm-0 pe-md-4"
-                      width="50%"
-                    >姓名</td>
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      姓名
+                    </th>
                     <td
-                      class="ps-sm-0 ps-md-4"
-                      width="50%"
-                    >{{ order.data.user.name }}</td>
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.name }}
+                    </td>
                   </tr>
 
                   <tr>
-                    <td
+                    <th
                       scope="row"
-                      class="text-end border-end pe-sm-0 pe-md-4"
-                      width="50%"
-                    >聯絡電話</td>
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      聯絡電話
+                    </th>
                     <td
-                      class="ps-sm-0 ps-md-4"
-                      width="50%"
-                    >{{ order.data.user.tel }}</td>
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.tel }}
+                    </td>
                   </tr>
 
                   <tr>
-                    <td
+                    <th
                       scope="row"
-                      class="text-end border-end pe-sm-0 pe-md-4"
-                      width="50%"
-                    >Email</td>
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      Email
+                    </th>
                     <td
-                      class="ps-sm-0 ps-md-4"
-                      width="50%"
-                    >{{ order.data.user.email }}</td>
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.email }}
+                    </td>
                   </tr>
 
                   <tr>
-                    <td
+                    <th
                       scope="row"
-                      class="text-end border-end pe-sm-0 pe-md-4"
-                      width="50%"
-                    >寄送地址</td>
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      寄送方式
+                    </th>
                     <td
-                      class="ps-sm-0 ps-md-4"
-                      width="50%"
-                    >{{ order.data.user.address }}</td>
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.delivery }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      寄送地址
+                    </th>
+                    <td
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.address }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      付款方式
+                    </th>
+                    <td
+                      class="px-3 border"
+                      width="70%"
+                    >
+                      {{ order.data.user.payment }}
+                      <span class='text-gray'>(未付款)</span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
 
               <!-- 商品項目 -->
-              <table class="table table-borderless mb-5">
+              <h3 class="h5 text-center fw-bold mt-3 mb-2">商品項目</h3>
+              <table class="table table-borderless mb-5 text-center text-break">
                 <thead>
                   <tr>
-                    <td
-                      colspan="3"
+                    <th
                       scope="row"
-                      class="text-center border-end border"
-                    >商品項目</td>
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      品名
+                    </th>
+                    <th
+                      scope="row"
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      數量
+                    </th>
+                    <th
+                      scope="row"
+                      class="px-3 border"
+                      width="30%"
+                    >
+                      金額
+                    </th>
                   </tr>
                 </thead>
                 <tbody
@@ -120,28 +178,42 @@
                   <tr>
                     <td
                       scope="row"
-                      colspan="2"
-                      width="50%"
-                      class="text-end border-end pe-sm-0 pe-md-4"
-                    >{{ item.product.title }} × {{ item.qty }}</td>
-                    <td
-                      class="ps-sm-0 ps-md-4"
-                      width="50%"
-                    >NT ${{ item.total }}</td>
+                      class="border"
+                    >
+                      {{ item.product.title }}
+                    </td>
+                    <td class="px-3 border">
+                      {{ item.qty }} {{ item.product.unit }}
+                    </td>
+                    <td class="px-3 border">
+                      NT ${{ $filters.currency(item.total) }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              <p class="h5 text-center mb-3">總金額NT ${{ order.data.total }}</p>
+              <p class="h5 text-center mb-3">
+                總金額NT ${{ $filters.currency(order.data.total) }}
+              </p>
             </section>
           </main>
 
           <!-- 我要付款 -->
           <div class="col-12 d-flex justify-content-center mb-5">
             <router-link
+              v-if="order.data.user.payment === '貨到付款'"
+              to="/products"
+              class="btn btn_main px-3 py-1"
+            >
+              繼續選購
+            </router-link>
+
+            <router-link
+              v-else
               to="/square/orderPaid"
               class="btn btn_main px-3 py-1"
               @click="goPay"
             >我要付款</router-link>
+
           </div>
         </section>
       </section>

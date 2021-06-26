@@ -168,8 +168,6 @@ export default {
       this.tempCouponData = this.modalCoupon;
       const isoDate = new Date(this.modalCoupon.due_date * 1000)
         .toISOString().split('T');
-      console.log(isoDate, [this.tempDueDate]);
-
       [this.tempDueDate] = isoDate;
 
       // 為必填欄位

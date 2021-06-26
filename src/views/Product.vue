@@ -105,11 +105,11 @@
 
           <div class="text-end">
             <span class="fst-italic text-decoration-line-through text-gray">
-              原價 ${{ tempProduct.origin_price }}
+              原價 ${{ $filters.currency(tempProduct.origin_price) }}
             </span>
 
             <p class="h3 fw-bold mb-2">
-              快閃特惠價 $ {{ tempProduct.price }}
+              快閃特惠價 ${{ $filters.currency(tempProduct.price) }}
             </p>
 
             <div class="row align-items-center flex-row-reverse

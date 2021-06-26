@@ -105,11 +105,11 @@
           </td>
 
           <td data-title="原價">
-            {{ product.origin_price }}
+            {{ $filters.currency(product.origin_price) }}
           </td>
 
           <td data-title="售價">
-            {{ product.price }}
+            {{ $filters.currency(product.price) }}
           </td>
 
           <td

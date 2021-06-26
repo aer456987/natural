@@ -27,7 +27,7 @@
         <h1 class="h4 m-0 text-truncate">
           {{ product.title }} <br>
           <span class="h6 fst-italic">
-            ${{ product.price }}
+            ${{ $filters.currency(product.price) }}
           </span>
         </h1>
         <span

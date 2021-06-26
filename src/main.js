@@ -16,7 +16,7 @@ import Loading from '@/components/Loading.vue'; // Loading元件
 import 'bootstrap'; // bootstrap icon
 import App from './App.vue';
 import router from './router';
-import { date } from './methods/filters';
+import { date, currency } from './methods/filters';
 
 defineRule('required', required);
 defineRule('email', email);
@@ -36,7 +36,7 @@ const app = createApp(App);
 
 // 將 filters.js 的方法解構出來並加入 globalProperties
 app.config.globalProperties.$filters = {
-  date,
+  date, currency,
 };
 
 app.use(router);

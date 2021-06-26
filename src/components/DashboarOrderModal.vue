@@ -5,8 +5,6 @@
     id="orderFirstModal"
     tabindex="-1"
     aria-hidden="true"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
     ref="modal"
   >
     <section class="modal-dialog modal-dialog-centered">
@@ -28,7 +26,7 @@
 
             <div class="col-12">
               <h1 class="h4 text-center my-2">訂購人資訊</h1>
-              <table class="table border rounded shadow-sm">
+              <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
                     <th
@@ -75,10 +73,36 @@
                       class="px-2"
                       width="25%"
                     >
-                      地址
+                      寄送方式
+                    </th>
+                    <td class="px-2">
+                      {{ tempOrder.user.delivery }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-2"
+                      width="25%"
+                    >
+                      寄送地址
                     </th>
                     <td class="px-2">
                       {{ tempOrder.user.address }}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-2"
+                      width="25%"
+                    >
+                      備註
+                    </th>
+                    <td class="px-2">
+                      {{ tempOrder.message ? tempOrder.message : '無'  }}
                     </td>
                   </tr>
                 </tbody>
@@ -87,7 +111,7 @@
 
             <div class="col-12 p-2">
               <h1 class="h4 text-center my-2">訂單資訊</h1>
-              <table class="table border rounded shadow-sm">
+              <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
                     <th
@@ -124,7 +148,20 @@
                       訂單總金額
                     </th>
                     <td class="px-2">
-                      $ {{ tempOrder.total }} 元
+                      $ {{ $filters.currency(tempOrder.total) }} 元
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th
+                      scope="row"
+                      class="px-2"
+                      width="25%"
+                    >
+                      付款方式
+                    </th>
+                    <td class="px-2">
+                      {{ tempOrder.user.payment }}
                     </td>
                   </tr>
 
@@ -136,14 +173,14 @@
                     >
                       付款狀態
                     </th>
-                    <td
-                      class="px-2"
-                      :class="{
+                    <td class="px-2">
+                      <span
+                        class="form-check"
+                        :class="{
                         'text-warning' : tempOrder.is_paid,
                         'text-gray' : !tempOrder.is_paid
                       }"
-                    >
-                      <span class="form-check">
+                      >
                         <input
                           type="checkbox"
                           id="isPaid_status"
@@ -182,7 +219,7 @@
                     </th>
                     <td class="px-2">
                       <span
-                        v-if="tempOrder.is_paid"
+                        v-if="orderStatus"
                         class="m-0"
                         :class="{
                           'text-warning' : tempOrder.is_consignment,
@@ -206,7 +243,7 @@
 
             <div class="col-12 p-2 text-center">
               <h1 class="h4 text-center my-2">購買明細</h1>
-              <table class="table border rounded shadow-sm">
+              <table class="table border rounded shadow-sm text-break">
                 <thead class="border-bottom">
                   <th
                     scope="row"
@@ -224,9 +261,23 @@
 
                   <th
                     scope="row"
-                    class="px-2 py-1"
+                    class="py-1"
                   >
-                    單位
+                    售價
+                  </th>
+
+                  <th
+                    scope="row"
+                    class="py-1"
+                  >
+                    折扣
+                  </th>
+
+                  <th
+                    scope="row"
+                    class="py-1"
+                  >
+                    小計
                   </th>
                 </thead>
                 <tbody>
@@ -235,16 +286,16 @@
                     :key="item.product_id"
                   >
                     <tr>
-                      <td class="text-center">
-                        {{ item.product.title }}
+                      <td>{{ item.product.title }}</td>
+                      <td>{{ item.product.num }} {{ item.product.unit }}</td>
+                      <td>
+                        ${{ $filters.currency(item.product.price) }}
                       </td>
-
-                      <td class="text-center">
-                        {{ item.product.num }}
+                      <td>
+                        {{ item.coupon.percent ? item.coupon.percent + '%' : '無' }}
                       </td>
-
-                      <td class="text-center">
-                        {{ item.product.unit }}
+                      <td>
+                        $ {{ $filters.currency(item.final_total) }}
                       </td>
                     </tr>
                   </template>
@@ -253,7 +304,6 @@
             </div>
 
             <span
-              v-if="tempOrder.is_paid"
               class="col-12 form-check
                 d-flex justify-content-end align-items-center"
             >
@@ -277,7 +327,7 @@
             type="button"
             @click="$emit('modalUpdateOrderPaid', tempOrder)"
             class="btn btn-warning text-brown-500"
-          >變更付款狀態</button>
+          >變更訂單狀態</button>
           <button
             type="button"
             class="btn btn-outline-brown"
@@ -298,6 +348,7 @@ export default {
   data() {
     return {
       orderModal: '',
+      orderStatus: false,
       tempOrder: {
         create_at: Number,
         id: '',
@@ -310,6 +361,7 @@ export default {
           email: '',
           tel: '',
           address: '',
+          payment: '',
         },
       },
     };
@@ -317,11 +369,10 @@ export default {
   watch: {
     modalOrder() {
       this.tempOrder = this.modalOrder;
-    },
-    tempOrder() {
-      if (!this.tempOrder.is_paid) {
-        console.log('修改付款狀態');
-        this.tempOrder.is_consignment = false;
+      if (this.modalOrder.user.payment === '貨到付款' || this.modalOrder.is_paid) {
+        this.orderStatus = true;
+      } else {
+        this.orderStatus = false;
       }
     },
   },
