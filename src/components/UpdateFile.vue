@@ -34,7 +34,7 @@ export default {
   methods: {
     upload() {
       this.isUpload = true;
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/upload`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/upload`;
       const file = this.$refs.fileInput.files[0];
       const formData = new FormData();
       formData.append('file-to-upload', file);

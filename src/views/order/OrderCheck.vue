@@ -246,7 +246,7 @@ export default {
   components: { Progress },
   methods: {
     getOrder(id) { // 取得訂單
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/order/${id}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order/${id}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -271,7 +271,7 @@ export default {
         });
     },
     goPay() { // 前往付款.
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/pay/${this.order.id}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/pay/${this.order.id}`;
       this.loadingStatus = true;
 
       this.$http.post(url)

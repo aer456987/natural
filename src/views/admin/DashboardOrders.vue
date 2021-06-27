@@ -217,7 +217,7 @@ export default {
   components: { DashboarLoading, Pagination, OrderModal },
   methods: {
     getOrders(page = 1) { // 取得訂單
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/orders?page=${page}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -244,9 +244,9 @@ export default {
       this.loadingStatus = true;
 
       if (action === 'all') {
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/orders/all`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders/all`;
       } else if (action === 'one') {
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${id}`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${id}`;
       }
 
       this.$http.delete(url)
@@ -275,7 +275,7 @@ export default {
       doubleCheckdelSwalFn(action, this.delOrder);
     },
     updateOrderPaid(paidData) { // 修改訂單
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/order/${paidData.id}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${paidData.id}`;
       this.loadingStatus = true;
 
       if (paidData.is_paid) {

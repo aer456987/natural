@@ -202,7 +202,7 @@ export default {
   },
   methods: {
     getProducts(page = 1) { // 取得全部商品
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -225,7 +225,7 @@ export default {
         });
     },
     delProduct(id) { // 刪除商品
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${id}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)
@@ -255,10 +255,10 @@ export default {
       let httpMethods = '';
 
       if (this.isNew) {
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product`;
         httpMethods = 'post';
       } else {
-        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
+        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${item.id}`;
         httpMethods = 'put';
       }
 

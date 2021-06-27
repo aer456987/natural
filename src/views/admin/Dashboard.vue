@@ -99,7 +99,7 @@ export default {
   },
   methods: {
     checkLogin() { // axios check 確認登入狀態
-      const url = `${process.env.VUE_APP_API}/api/user/check`;
+      const url = `${process.env.VUE_APP_PATH}/api/user/check`;
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {

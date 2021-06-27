@@ -193,7 +193,7 @@ export default {
   },
   methods: {
     getProduct() { // 取得單筆資料
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${this.productId}`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/product/${this.productId}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -226,7 +226,7 @@ export default {
       }
     },
     addCart() { // 加入購物車
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       const cartData = {
         data: {
           product_id: this.productId,
@@ -259,7 +259,7 @@ export default {
         });
     },
     updateCartLength() { // 取得購物車數量
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
 
       this.$http
         .get(url)
