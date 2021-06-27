@@ -99,17 +99,19 @@
             {{ tempProduct.category }}
           </span>
 
-          <p class="p-4 my-4 bg-primary-100">
+          <p class="p-4 my-4 bg-primary-100 text_pre">
             {{ tempProduct.content }}
           </p>
 
           <div class="text-end">
             <span class="fst-italic text-decoration-line-through text-gray">
-              原價 ${{ $filters.currency(tempProduct.origin_price) }}
+              原價
+              ${{ $filters.currency(tempProduct.origin_price) }} / {{ tempProduct.unit }}
             </span>
 
             <p class="h3 fw-bold mb-2">
-              快閃特惠價 ${{ $filters.currency(tempProduct.price) }}
+              快閃特惠價
+              ${{ $filters.currency(tempProduct.price)}} / {{ tempProduct.unit }}
             </p>
 
             <div class="row align-items-center flex-row-reverse
@@ -167,7 +169,7 @@
     <section class="col-10 my-2 py-5 container text-center bg-white">
       <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
       <div class="row justify-content-center">
-        <span class="col-11 col-md-9 col-lg-6">
+        <span class="col-11 col-md-9 col-lg-6 text_pre">
           <p>{{ tempProduct.description }}</p>
         </span>
       </div>

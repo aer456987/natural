@@ -214,17 +214,20 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delProduct(id) { // 刪除商品
+    delProduct(action, id) { // 刪除商品
+      console.log('方法', action, id);
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
+            console.log('(成功-後台)刪除商品 res', res);
             swalFn(res.data.message, 'success');
             this.getProducts();
             this.loadingStatus = false;
           } else {
+            console.log('(錯誤-後台)刪除商品 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
