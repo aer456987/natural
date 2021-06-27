@@ -185,17 +185,7 @@ export default {
       }
 
       return newFilterData;
-      // return this.products.filter((item) => item.title.match(this.productSearch));
     },
-    // filterCategory() {
-    //   let newFilterData = [];
-    //   if (this.productSelect === '全部商品') {
-    //     newFilterData = this.products;
-    //   } else {
-    //     newFilterData = this.products.filter((item) => item.category.match(this.productSelect));
-    //   }
-    //   return newFilterData;
-    // },
   },
   components: {
     DashboarLoading, Pagination, ProductModal,

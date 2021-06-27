@@ -6,59 +6,64 @@
       class="form-control"
       id="file"
       ref="fileInput"
+      @change="isValue=true"
     />
     <span
       class="input-group-text btn btn-outline-brown"
+      :class="{ 'disabled' : !isValue }"
       @click="upload"
     >
+      <span
+        v-if="isUpload"
+        class="spinner-border spinner-border-sm"
+        role="status"
+      ></span>
       {{ isUpload ? '檔案上傳中' : '上傳圖片' }}
     </span>
   </div>
-  <p class="m-0">圖片上傳中</p>
-
-  <form action="/api/thisismycourse2/admin/upload" enctype="multipart/form-data"
-    method="post">
-    <input type="file" name="file-to-upload">
-    <input type="submit" value="Upload">
-  </form>
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
+
 export default {
   data() {
     return {
-      uploadImgUrl: '',
+      isValue: false,
       isUpload: false,
     };
   },
+  emits: ['uploadImgFile'],
   methods: {
     upload() {
-      this.isUpload = true;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/upload`;
       const file = this.$refs.fileInput.files[0];
       const formData = new FormData();
+      this.isUpload = true;
       formData.append('file-to-upload', file);
-      console.log('正要上傳中');
 
       this.$http.post(url, formData) // 帶入路徑和資料
         .then((res) => {
           if (res.data.success) {
             console.log('(成功-後台)上傳檔案 res', res);
+            this.$emit('uploadImgFile', res.data.imageUrl);
+            this.$refs.fileInput.value = '';
+            this.isValue = false;
             this.isUpload = false;
-            // this.getOrders();
-            // swalFn(res.data.message, 'success');
-            // https://storage.googleapis.com/vue-course-api.apps…N1%2F6xzv4pUojaaSwsAV9v9XjmSpY6qXySFZxt4zUQ%3D%3D
-            this.$refs.fileInput = '';
+            swalFn('圖片上傳成功', 'success');
           } else {
             console.log('(錯誤-後台)上傳檔案 res', res);
-            // swalFn(res.data.message, 'error');
-            // this.isUpload = false;
+            this.isUpload = false;
+            swalFn(res.data.message, 'error');
           }
         })
         .catch((err) => {
           console.log('(錯誤-後台)上傳檔案 err', err);
-          // this.isUpload = false;
+          this.isUpload = false;
         });
+    },
+    log() {
+      console.dir(this.$refs.fileInput);
     },
   },
   mounted() {},

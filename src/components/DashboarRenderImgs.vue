@@ -7,7 +7,9 @@
       <label
         for="modalImg"
         class="form-label p-1 m-0"
-      >主要圖片</label>
+      >
+        主要圖片<span class="text-danger fw-bold">*</span>
+      </label>
       <input
         type="text"
         id="modalImg"
@@ -64,16 +66,18 @@
 
   <div class="row">
     <span class="col-6 mb-1">
-      <UpdateFile></UpdateFile>
+      <UpdateFile @upload-img-file="uploadNewImg"></UpdateFile>
     </span>
 
 <!-- this.tempProduct.imagesUrl.push('123'); -->
     <span class="col-6 mb-1">
       <button
         class="btn btn-brown w-100"
+        :class="{
+          'disabled' : tempMainImg === '' || tempImgs[tempImgs.length - 1] === ''
+        }"
         @click="tempImgs.push('')"
         >
-      <!-- , tempMainImg, tempImgs -->
         新增圖片
       </button>
     </span>
@@ -104,6 +108,16 @@ export default {
   },
   emits: ['updataImgDatas'],
   methods: {
+    uploadNewImg(uploadImg) {
+      console.log('uploadImg', uploadImg);
+      if (this.tempMainImg === '') {
+        this.tempMainImg = uploadImg;
+      } else if (this.tempImgs[this.tempImgs.length - 1] === '') {
+        this.tempImgs[this.tempImgs.length - 1] = uploadImg;
+      } else {
+        this.tempImgs.push(uploadImg);
+      }
+    },
   },
   mounted() {
   },

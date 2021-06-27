@@ -47,10 +47,13 @@
             >訂單管理</router-link>
           </li>
           <li class="nav-item">
-            <router-link
-              to="/admin/logout"
-              class="nav-link"
-            >登出</router-link>
+            <button
+              type="buttom"
+              class="nav-link btn fs-5 border-0 shadow-none"
+              @click="logout"
+            >
+              登出
+            </button>
           </li>
         </ul>
       </div>
@@ -90,6 +93,8 @@ table
 </style>
 
 <script>
+import { swalFn } from '@/methods/swal';
+
 export default {
   name: 'Dashboard',
   data() {
@@ -100,6 +105,7 @@ export default {
   methods: {
     checkLogin() { // axios check 確認登入狀態
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;
+
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
@@ -108,12 +114,30 @@ export default {
           } else {
             console.log('(錯誤-後台)帳號認證', res);
             this.loginStatus = false;
-            this.$router.push('/login');
+            swalFn(res.data.message, 'warning', 3000, '即將於 3 秒後引導至登入畫面');
+            setTimeout(() => { this.$router.push('/login'); }, 3000);
           }
         })
         .catch((err) => {
           console.dir('(失敗-後台)帳號認證', err);
           this.$router.push('/login');
+        });
+    },
+    logout() { // 登出
+      const url = `${process.env.VUE_APP_PATH}/logout`;
+      swalFn('正在登出', 'info');
+
+      this.$http.post(url)
+        .then((res) => {
+          if (res.data.success) {
+            console.log('(成功-後台)登出', res);
+            this.$router.push('/login');
+          } else {
+            console.log('(錯誤-後台)登出', res);
+          }
+        })
+        .catch((err) => {
+          console.dir('(失敗-後台)登出', err);
         });
     },
   },
