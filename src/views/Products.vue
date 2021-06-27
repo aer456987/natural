@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     getProducts() { // 取得全部商品
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
       this.loadingStatus = true;
       this.$http
         .get(url)

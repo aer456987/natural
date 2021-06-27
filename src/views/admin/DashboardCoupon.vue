@@ -135,7 +135,7 @@ export default {
   components: { DashboarLoading, Pagination, CouponModal },
   methods: {
     getCoupons(page = 1) { // 取得優惠券
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupons?page=${page}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -170,16 +170,16 @@ export default {
       }
       this.$refs.couponModal.openCouponModal();
     },
-    updateCoupon(newCouponData) {
+    updateCoupon(newCouponData) { // 更新優惠券
       let url = '';
       let httpMethods = '';
       this.loadingStatus = true;
 
       if (this.isNew) {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon`;
         httpMethods = 'post';
       } else {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${newCouponData.id}`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon/${newCouponData.id}`;
         httpMethods = 'put';
       }
 
@@ -201,8 +201,8 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCoupon(action, id) {
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${id}`;
+    delCoupon(action, id) { // 刪除優惠券
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)

@@ -219,7 +219,7 @@ export default {
   components: { Progress },
   methods: {
     getCarts() { // 取得購物車資料
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
       this.loadingStatus = true;
       this.$http
         .get(url)
@@ -257,11 +257,11 @@ export default {
       this.loadingStatus = true;
 
       if (action === 'all') {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/carts`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/carts`;
         productName = '全部商品';
         console.log('刪除全部', url);
       } else if (action === 'one') {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
         productName = item.product.title;
         console.log(item);
       }
@@ -289,7 +289,7 @@ export default {
     },
     putCart(action, item) { // 修改購物車
       this.loadingStatus = true;
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
       let newNum = item.qty;
 
       if (action === 'reduce') {
@@ -330,7 +330,7 @@ export default {
         });
     },
     useCoupon() {
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/coupon`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/coupon`;
       this.loadingStatus = true;
 
       this.$http.post(url, { data: this.couponNum })

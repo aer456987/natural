@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     addCart(data) { // 加入購物車
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
       this.loadingStatus = true;
       const cartData = {
         data: {
@@ -89,7 +89,7 @@ export default {
         });
     },
     updateCartLength() { // 取得購物車數量
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
 
       this.$http
         .get(url)

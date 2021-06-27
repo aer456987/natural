@@ -277,7 +277,7 @@ export default {
   components: { Progress },
   methods: {
     getCarts() { // 取得購物車資料
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
       this.loadingStatus = true;
 
       this.$http
@@ -315,7 +315,7 @@ export default {
       }
     },
     postOrder() { // 送出訂單
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/order`;
       this.loadingStatus = true;
 
       this.$http.post(url, {

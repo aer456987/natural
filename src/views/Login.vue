@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     login() { // 登入驗證
-      const url = `${process.env.VUE_APP_PATH}/admin/signin`;
+      const url = `${process.env.VUE_APP_API}/admin/signin`;
       this.loadingStatus = true;
       this.msg = '資料驗證中，請稍後';
 

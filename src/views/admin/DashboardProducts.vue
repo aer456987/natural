@@ -3,10 +3,10 @@
   <section class="container pageContent py-5">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
     <div class="row justify-content-between pb-2">
-      <div class="col-md-6 col-lg-6 pb-1">
+      <div class="col-md-8 col-lg-6 pb-1">
 
         <div class="row">
-          <span class="col-4">
+          <span class="col-6 col-lg-6 col-xl-4">
             <select
               class="form-select"
               v-model="productSelect"
@@ -18,8 +18,8 @@
             </select>
           </span>
 
-          <span class="col-5">
-            <span class=" input-group">
+          <span class="col-6 col-lg-6 col-xl-5">
+            <span class="input-group">
               <input
                 type="text"
                 class="form-control"
@@ -37,7 +37,7 @@
         </div>
 
       </div>
-      <div class="col-lg-6 text-end pb-1">
+      <div class="col-md-4 col-lg-6 text-end pb-1">
         <button
           class="btn btn-brown"
           @click="openModal(true)"
@@ -136,6 +136,7 @@
         </tr>
       </tbody>
     </table>
+
     <Pagination
       :pagination-page="productPagination"
       @get-data="getProducts"
@@ -196,10 +197,12 @@ export default {
     //   return newFilterData;
     // },
   },
-  components: { DashboarLoading, Pagination, ProductModal },
+  components: {
+    DashboarLoading, Pagination, ProductModal,
+  },
   methods: {
     getProducts(page = 1) { // 取得全部商品
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -222,7 +225,7 @@ export default {
         });
     },
     delProduct(id) { // 刪除商品
-      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)
@@ -252,10 +255,10 @@ export default {
       let httpMethods = '';
 
       if (this.isNew) {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`;
         httpMethods = 'post';
       } else {
-        url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${item.id}`;
+        url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${item.id}`;
         httpMethods = 'put';
       }
 

@@ -10,7 +10,7 @@
     ref="modal"
   >
     <section class="modal-dialog modal-dialog-centered">
-      <main class="modal-content">
+      <main class="modal-content width_xl">
         <div class="modal-header bg-warning text-brown-500">
           <h5
             class="h5 modal-title"
@@ -27,30 +27,49 @@
         </div>
 
         <section class="modal-body">
-          <div class="row">
-            <div class="col-md-4">
-              <label
-                for="modalImg"
-                class="form-label p-1 m-0"
-              >圖片網址</label>
-              <input
-                type="text"
-                id="modalImg"
-                name="圖片網址"
-                class="form-control mb-2"
-                placeholder="請輸入圖片網址"
-                v-model="tempProduct.imageUrl"
-              />
-              <img
-                :src="tempProduct.imageUrl"
-                alt="主要圖片"
-                class="w-100"
-              />
-              <!-- {{ tempProduct.imageUrl }} -->
-              <!-- {{ modalProduct }} -->
-            </div>
-            <div class="col-md-8">
+          <div
+            class="btn-group d-block text-center"
+            role="group"
+            aria-label="編輯表單切換"
+          >
+            <input
+              type="radio"
+              class="btn-check"
+              name="產品資訊切換功能"
+              id="productMessage"
+              autocomplete="off"
+              :checked="!isShow"
+              @click="isShow=false"
+            >
+            <label
+              class="btn btn-outline-brown"
+              for="productMessage"
+            >
+              編輯資訊
+            </label>
 
+            <input
+              type="radio"
+              class="btn-check"
+              name="產品資訊切換功能"
+              id="productImg"
+              autocomplete="off"
+              @click="isShow=true"
+            >
+            <label
+              class="btn btn-outline-brown"
+              for="productImg"
+            >
+              編輯圖片
+            </label>
+          </div>
+
+          <div class="row">
+
+            <div
+              class="col-12"
+              :class="{ 'd-none' : isShow }"
+            >
               <form class="row">
                 <span class="col-12">
                   <label
@@ -160,29 +179,39 @@
                   ></textarea>
                 </span>
 
-                <span
-                  class="col-12 form-check
-                    d-flex justify-content-end align-items-center"
-                >
-                  <input type="checkbox"
-                    id="enabled_status"
-                    name="啟用狀態"
-                    value="啟用狀態"
-                    class="form-check-input me-1"
-                    v-model="tempProduct.is_enabled"
-                  >
-                  <label for="enabled_status">
-                    是否啟用
-                  </label>
-                </span>
-
-                <span class="text-danger text-end fw-bold mt-1">
+                <p class="text-danger text-end fw-bold">
                   * 為必填項目
-                </span>
+                </p>
               </form>
+            </div>
 
+            <div
+              class="col-12"
+              :class="{ 'd-none' : !isShow }"
+            >
+              <RanderImgs
+                :product-main-img="tempProduct.imageUrl"
+                :product-imgs="tempProduct.imagesUrl"
+                @updata-img-datas="updateImgs"
+              ></RanderImgs>
             </div>
           </div>
+
+          <span
+            class="col-12 form-check
+              d-flex justify-content-end align-items-center"
+          >
+            <input type="checkbox"
+              id="enabled_status"
+              name="啟用狀態"
+              value="啟用狀態"
+              class="form-check-input me-1"
+              v-model="tempProduct.is_enabled"
+            >
+            <label for="enabled_status">
+              是否上架商品
+            </label>
+          </span>
         </section>
 
         <div class="modal-footer">
@@ -207,6 +236,7 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal';
+import RanderImgs from '@/components/DashboarRenderImgs.vue';
 
 export default {
   name: 'DashboarProductModal',
@@ -215,20 +245,30 @@ export default {
     return {
       modal: '',
       tempProduct: {},
+      isShow: false,
     };
   },
   watch: {
     modalProduct() {
       this.tempProduct = this.modalProduct;
+      if (!this.tempProduct.imagesUrl) {
+        this.tempProduct.imagesUrl = [];
+      }
     },
   },
+  components: { RanderImgs },
   emits: ['modalUpdateProduct'],
   methods: {
     openModal() {
+      this.isShow = false;
       this.modal.show();
     },
     hideModal() {
       this.modal.hide();
+    },
+    updateImgs(newMainImg, newImgs) {
+      this.tempProduct.imageUrl = newMainImg;
+      this.tempProduct.imagesUrl = newImgs;
     },
   },
   mounted() {
