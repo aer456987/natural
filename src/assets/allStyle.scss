@@ -44,6 +44,13 @@ body{
   white-space: pre;
 }
 
+// 標題風格
+.title_style{
+  border-radius: 8px;
+  text-shadow: 0 0 5px rgba($dark, .4);
+  background: rgba($white, .8);
+}
+
 // logo
 .logo{
   font-family: 'Vibur';
@@ -253,6 +260,9 @@ tbody{
 
 .height_xl{
   height: 400px !important;
+}
+.height_sm{
+  max-height: 120px !important;
 }
 
 // 產品頁面 多圖
