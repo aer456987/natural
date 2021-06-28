@@ -1,5 +1,5 @@
 <template>
-  <!-- 進度條 -->
+  <!-- 訂單進度條 -->
   <div class="px-lg-5 py-5">
     <div class="position-relative m-5">
       <div class="progress">

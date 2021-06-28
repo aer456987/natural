@@ -1,5 +1,5 @@
 <template>
-  <!-- loading 讀取 -->
+  <!-- 前台 loading 讀取 -->
   <div
     class="loadingImg"
     v-if="status"

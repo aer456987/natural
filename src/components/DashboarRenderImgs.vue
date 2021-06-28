@@ -1,4 +1,5 @@
 <template>
+  <!-- 後台圖片編輯 -->
   <ul
     class="row list-unstyled height_xl overflow-auto"
     @change="$emit('updataImgDatas', tempMainImg, tempImgs)"

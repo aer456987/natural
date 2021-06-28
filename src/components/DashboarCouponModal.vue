@@ -169,13 +169,6 @@ export default {
       const isoDate = new Date(this.modalCoupon.due_date * 1000)
         .toISOString().split('T');
       [this.tempDueDate] = isoDate;
-
-      // 為必填欄位
-      // title(String)V
-      // code(String)V
-      // percent(Number)V
-      // due_date(Number)V
-      // is_enabled(Number)
     },
     modalIsNew() {
       this.isNewCoupon = this.modalIsNew;
