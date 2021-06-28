@@ -100,7 +100,7 @@
           </span>
 
           <p class="p-4 my-4 bg-primary-100 text_pre">
-            {{ tempProduct.content }}
+            {{ tempProduct.description }}
           </p>
 
           <div class="text-end">
@@ -170,7 +170,7 @@
       <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
       <div class="row justify-content-center">
         <span class="col-11 col-md-9 col-lg-6 text_pre">
-          <p>{{ tempProduct.description }}</p>
+          <p>{{ tempProduct.content }}</p>
         </span>
       </div>
     </section>

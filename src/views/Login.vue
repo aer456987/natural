@@ -65,6 +65,13 @@
             class="btn btn_main w-100 mt-1 mb-2"
             @click="login"
           >登入</button>
+
+          <router-link
+            to="/"
+            class="btn btn-outline-primary w-100 mt-1 mb-2"
+          >
+            返回首頁
+          </router-link>
         </div>
       </section>
     </section>

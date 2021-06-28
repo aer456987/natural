@@ -9,7 +9,7 @@
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
       id="all"
       class="btn-check"
@@ -18,11 +18,13 @@
     <label
       class="btn btn-outline-primary py-1 border-0 rounded-0"
       for="all"
-    >全部商品</label>
+    >
+      全部商品
+    </label>
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
       id="fundraise"
       class="btn-check"
@@ -30,55 +32,65 @@
     <label
       class="btn btn-outline-primary py-1 border-0"
       for="fundraise"
-    >募款專案</label>
+    >
+      募款專案
+    </label>
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
-      id="feeds"
+      id="charitableActivities"
       class="btn-check"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
-      for="feeds"
-    >飼料</label>
+      for="charitableActivities"
+    >
+      公益活動
+    </label>
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
-      id="cages"
+      id="lecture"
       class="btn-check"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
-      for="cages"
-    >籠具</label>
+      for="lecture"
+    >
+      講座
+    </label>
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
-      id="toys"
+      id="organicFood"
       class="btn-check"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
-      for="toys"
-    >玩具</label>
+      for="organicFood"
+    >
+      有機食品
+    </label>
 
     <input
       type="radio"
-      name="btnradio"
+      name="productFilterRadio"
       autocomplete="off"
-      id="stationery"
+      id="merchandise"
       class="btn-check"
     />
     <label
       class="btn btn-outline-primary py-1 border-0 rounded-0"
-      for="stationery"
-    >文青周邊</label>
+      for="merchandise"
+    >
+      周邊商品
+    </label>
   </div>
 </nav>
 </template>

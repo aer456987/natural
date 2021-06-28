@@ -12,9 +12,11 @@
               v-model="productSelect"
             >
               <option value="全部商品" selected>全部商品</option>
-              <option value="食物">食物</option>
-              <option value="周邊用品">周邊用品</option>
               <option value="募款專案">募款專案</option>
+              <option value="公益活動">公益活動</option>
+              <option value="講座">講座</option>
+              <option value="有機食品">有機食品</option>
+              <option value="周邊商品">周邊商品</option>
             </select>
           </span>
 

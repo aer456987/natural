@@ -75,7 +75,8 @@
                   <label
                     for="modalName"
                     class="form-label p-1 m-0"
-                  >品名<span class="text-danger fw-bold">*</span></label>
+                  >
+                    品名<span class="text-danger fw-bold">*</span></label>
                   <input
                     type="text"
                     id="modalName"
@@ -90,7 +91,8 @@
                   <label
                     for="modalCategory"
                     class="form-label p-1 m-0"
-                  >產品分類<span class="text-danger fw-bold">*</span></label>
+                  >
+                    產品分類<span class="text-danger fw-bold">*</span></label>
                   <select
                     id="modalCategory"
                     class="form-select mb-2"
@@ -98,9 +100,11 @@
                     v-model="tempProduct.category"
                   >
                     <option selected disabled>請選擇分類</option>
-                    <option value="食物">食物</option>
-                    <option value="周邊用品">周邊用品</option>
                     <option value="募款專案">募款專案</option>
+                    <option value="公益活動">公益活動</option>
+                    <option value="講座">講座</option>
+                    <option value="有機食品">有機食品</option>
+                    <option value="周邊商品">周邊商品</option>
                   </select>
                 </span>
 
@@ -108,7 +112,8 @@
                   <label
                     for="modalUnit"
                     class="form-label p-1 m-0"
-                  >單位<span class="text-danger fw-bold">*</span></label>
+                  >
+                    單位<span class="text-danger fw-bold">*</span></label>
                   <input
                     type="text"
                     id="modalUnit"
@@ -123,7 +128,8 @@
                   <label
                     for="modalOriginPrice"
                     class="form-label p-1 m-0"
-                  >原價<span class="text-danger fw-bold">*</span></label>
+                  >
+                    原價<span class="text-danger fw-bold">*</span></label>
                   <input
                     type="number"
                     id="modalOriginPrice"
@@ -139,7 +145,8 @@
                   <label
                     for="modalPrice"
                     class="form-label p-1 m-0"
-                  >售價<span class="text-danger fw-bold">*</span></label>
+                  >
+                    售價<span class="text-danger fw-bold">*</span></label>
                   <input
                     type="number"
                     id="modalPrice"
@@ -155,7 +162,9 @@
                   <label
                     for="modalDescription"
                     class="form-label p-1 m-0"
-                  >產品描述</label>
+                  >
+                    產品描述
+                  </label>
                   <textarea
                     id="modalDescription"
                     rows="3"
@@ -169,7 +178,9 @@
                   <label
                     for="modalContent"
                     class="form-label p-1 m-0"
-                  >說明內容</label>
+                  >
+                    說明內容
+                  </label>
                   <textarea
                     id="modalContent"
                     rows="3"
