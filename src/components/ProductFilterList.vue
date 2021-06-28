@@ -1,18 +1,24 @@
 <template>
 <!-- 商品頁篩選 -->
-<nav class="row text-center bg-secondary m-0 shadow">
-  <div
+<nav
+  class="row text-center bg-secondary m-0 shadow"
+>
+  <form
     class="btn-group p-0"
     role="group"
     aria-label="Basic radio toggle button group"
+    ref="select"
   >
 
     <input
       type="radio"
       name="productFilterRadio"
+      value="全部商品"
       autocomplete="off"
       id="all"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
       checked
     />
     <label
@@ -25,9 +31,12 @@
     <input
       type="radio"
       name="productFilterRadio"
+      value="募款專案"
       autocomplete="off"
       id="fundraise"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
@@ -39,9 +48,12 @@
     <input
       type="radio"
       name="productFilterRadio"
+      value="公益活動"
       autocomplete="off"
       id="charitableActivities"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
@@ -53,9 +65,12 @@
     <input
       type="radio"
       name="productFilterRadio"
+      value="講座"
       autocomplete="off"
       id="lecture"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
@@ -67,9 +82,12 @@
     <input
       type="radio"
       name="productFilterRadio"
+      value="有機食品"
       autocomplete="off"
       id="organicFood"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
     />
     <label
       class="btn btn-outline-primary py-1 border-0"
@@ -81,9 +99,12 @@
     <input
       type="radio"
       name="productFilterRadio"
+      value="周邊商品"
       autocomplete="off"
       id="merchandise"
       class="btn-check"
+      v-model="productSelect"
+      @change="$emit('filterListMethods', productSelect)"
     />
     <label
       class="btn btn-outline-primary py-1 border-0 rounded-0"
@@ -91,12 +112,18 @@
     >
       周邊商品
     </label>
-  </div>
+  </form>
 </nav>
 </template>
 
 <script>
 export default {
   name: 'ProductFilterList',
+  data() {
+    return {
+      productSelect: '',
+    };
+  },
+  emits: ['filterListMethods'],
 };
 </script>

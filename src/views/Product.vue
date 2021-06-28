@@ -110,7 +110,7 @@
             </span>
 
             <p class="h3 fw-bold mb-2">
-              快閃特惠價
+              售價
               ${{ $filters.currency(tempProduct.price)}} / {{ tempProduct.unit }}
             </p>
 

@@ -4,6 +4,7 @@
   <ProductFilterList
     class="sticky-top"
     :products="products"
+    @filter-list-methods="filterListMethods"
   ></ProductFilterList>
   <header class="header position-relative">
     <img
@@ -75,20 +76,29 @@ export default {
   data() {
     return {
       loadingStatus: false,
-      search: '',
+      select: '', // 分類
+      search: '', // 搜尋
       tempProducts: [],
       products: [],
     };
   },
   computed: {
-    filterProducts() {
-      return this.products.filter((item) => item.title.match(this.search));
+    filterProducts() { // 渲染資料
+      let newfilterData = [];
+      if (this.select === '全部商品') {
+        newfilterData = this.products;
+      } else {
+        newfilterData = this.products.filter((item) => item.category.match(this.select));
+      }
+
+      if (this.search.length > 0) {
+        newfilterData = this.products.filter((item) => item.title.match(this.search));
+      }
+
+      return newfilterData;
     },
   },
-  components: {
-    ProductCard,
-    ProductFilterList,
-  },
+  components: { ProductCard, ProductFilterList },
   methods: {
     getProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
@@ -113,12 +123,18 @@ export default {
           this.loadingStatus = false;
         });
     },
+    filterListMethods(filterTxt) {
+      this.select = filterTxt;
+      console.log('filterTxt', filterTxt);
+      console.log('this.select', this.select);
+    },
     clearSearch() { // 清除搜尋
       this.search = '';
     },
   },
   mounted() {
     this.getProducts();
+    this.select = '全部商品';
   },
 };
 </script>
