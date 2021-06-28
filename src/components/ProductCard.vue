@@ -2,39 +2,49 @@
   <!-- 商品頁卡片 -->
   <Loading :status="loadingStatus"></Loading>
   <li
-    class="col-sm-6 col-lg-4 col-xl-3 my-2"
+    class="col-sm-6 col-lg-4 col-xl-3 my-2 custom_card_style"
     v-for="product in cartProductData"
     :key="product.id"
   >
-    <div class="card custom_card_style border-0 shadow-sm">
+
+    <div class="card text-dark border-0 shadow-sm">
       <router-link
         :to="`/product/${product.id}`"
-        class="card-img-top card_img_style"
       >
-        <div class="more_msg">
-          <Font-awesome-icon icon="search-plus" />
+        <div class="card-img-top card_img_style">
+          <div class="more_msg">
+            <Font-awesome-icon icon="search-plus" />
+          </div>
+          <img
+            class="img-fluid"
+            :src="product.imageUrl"
+            alt="'商品圖"
+          />
         </div>
-        <img
-          class="img-fluid"
-          :src="product.imageUrl"
-          alt="'商品圖"
-        />
       </router-link>
+
       <div
-        class="card-body bg-white rounded-bottom px-2 py-3
+        class="row card-body bg-white rounded-bottom px-2 py-3 m-0
           d-flex justify-content-between align-items-center"
         >
-        <h1 class="h4 m-0 text-truncate">
-          {{ product.title }} <br>
-          <span class="h6 fst-italic">
-            ${{ $filters.currency(product.price) }}
-          </span>
-        </h1>
-        <span
-          class="btn btn_outline_green fs-4 ms-1"
-          @click="addCart(product.id)"
+        <router-link
+          class="col-9 p-0 text-dark border-0"
+          :to="`/product/${product.id}`"
         >
-          <i class="bi bi-cart-plus-fill"></i>
+          <h1 class="h4 m-0 text-truncate">
+            {{ product.title }} <br>
+            <span class="h6 fst-italic">
+              ${{ $filters.currency(product.price) }}
+            </span>
+          </h1>
+        </router-link>
+        <span class="col-3 p-0">
+          <span
+            class="btn btn_outline_green fs-4 ms-1"
+            @click="addCart(product.id)"
+          >
+            <i class="bi bi-cart-plus-fill"></i>
+          </span>
         </span>
       </div>
     </div>

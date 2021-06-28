@@ -136,8 +136,6 @@ export default {
     },
     filterListMethods(filterTxt) {
       this.select = filterTxt;
-      console.log('filterTxt', filterTxt);
-      console.log('this.select', this.select);
     },
     clearSearch() { // 清除搜尋
       this.search = '';

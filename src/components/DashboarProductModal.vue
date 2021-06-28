@@ -28,7 +28,7 @@
 
         <section class="modal-body">
           <div
-            class="btn-group d-block text-center"
+            class="btn-group d-block text-center mb-2"
             role="group"
             aria-label="編輯表單切換"
           >
@@ -167,7 +167,7 @@
                   </label>
                   <textarea
                     id="modalDescription"
-                    rows="3"
+                    rows="5"
                     class="form-control mb-2"
                     placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
@@ -183,7 +183,7 @@
                   </label>
                   <textarea
                     id="modalContent"
-                    rows="3"
+                    rows="5"
                     class="form-control mb-2"
                     placeholder="請輸入說明內容"
                     v-model="tempProduct.content"

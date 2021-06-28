@@ -60,17 +60,17 @@
     >
       <thead class="table-dark align-middle">
         <tr>
-          <td width="9%">分類</td>
-          <td width="7%">圖片</td>
-          <td width="13%">產品ID</td>
-          <td width="12%">品名</td>
-          <td width="12%">描述</td>
-          <td width="12%">說明</td>
-          <td width="7%">原價</td>
-          <td width="7%">售價</td>
-          <td width="7%">狀態</td>
-          <td width="7%">操作</td>
-          <td width="7%">刪除</td>
+          <td width="10%">分類</td>
+          <td width="8%">圖片</td>
+          <td width="15%">產品ID</td>
+          <td width="13%">品名</td>
+          <td width="13%">描述</td>
+          <!-- <td width="12%">說明</td> -->
+          <td width="8%">原價</td>
+          <td width="8%">售價</td>
+          <td width="8%">狀態</td>
+          <td width="8%">操作</td>
+          <td width="8%">刪除</td>
         </tr>
       </thead>
       <tbody>
@@ -102,9 +102,9 @@
           <td data-title="描述">
             {{ product.description }}
           </td>
-          <td data-title="說明">
+          <!-- <td data-title="說明">
             {{ product.content }}
-          </td>
+          </td> -->
 
           <td data-title="原價">
             {{ $filters.currency(product.origin_price) }}
@@ -123,7 +123,7 @@
 
           <td data-title="操作">
             <button
-              class="btn btn-outline-brown p-1"
+              class="btn btn-outline-brown px-2 py-1"
               @click="openModal(false, product)"
             >修改</button>
           </td>

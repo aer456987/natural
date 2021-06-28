@@ -145,7 +145,7 @@
 
             <td data-title="操作">
               <button
-                class="btn btn-outline-brown p-1 w-100"
+                class="btn btn-outline-brown px-2 py-1"
                 @click="openOrderModal(order)"
               >
                 更多

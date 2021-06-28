@@ -209,7 +209,12 @@
               >
                 <option value="" selected disabled>選擇付款方式</option>
                 <option value="信用卡">信用卡</option>
-                <option value="貨到付款">貨到付款</option>
+                <option
+                  v-if="isFundraising"
+                  value="貨到付款"
+                >
+                  貨到付款
+                </option>
                 <option value="ATM 匯款">ATM 匯款</option>
               </Field>
               <error-message
@@ -221,7 +226,9 @@
               <label
                 for="orderMsg"
                 class="form-label mt-3 mb-1"
-              >備註</label>
+              >
+                備註
+              </label>
               <Field
                 as="textarea"
                 name="備註"
@@ -272,6 +279,7 @@ export default {
       userDatas: { // 未送訂單: 訂單資料
         user: {},
       },
+      isFundraising: true,
     };
   },
   components: { Progress },
@@ -290,7 +298,7 @@ export default {
             if (this.carts.carts.length < 1) {
               this.$router.push('/square/cart');
             }
-
+            this.filterFundraising();
             this.loadingStatus = false;
             console.log('(成功-前台)取得購物車全部資料 vue:', this.carts);
           } else {
@@ -303,6 +311,14 @@ export default {
           console.dir(err);
           this.loadingStatus = false;
         });
+    },
+    filterFundraising() {
+      this.carts.carts.forEach((item) => {
+        if (item.product.category === '募款專案') {
+          this.isFundraising = false;
+          console.log(item.product.category === '募款專案');
+        }
+      });
     },
     checkUserDatas() { // 驗證是否為空訂單
       const {

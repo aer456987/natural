@@ -79,7 +79,7 @@
           </td>
           <td data-title="操作">
             <button
-              class="btn btn-outline-brown"
+              class="btn btn-outline-brown px-2 py-1"
               @click="opanCouponModal(false, coupon)"
             >
               修改

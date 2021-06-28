@@ -156,7 +156,12 @@
               </span>
             </div>
             <p class="text-danger">
-              每樣商品都將提撥 5% 收益至環境保育或野生動物救助之相關機構。
+              <span v-if="tempProduct.category === '募款專案'">
+                募款專案依專案內容不同，金額將全數捐至專案相關之機構。
+              </span>
+              <span v-else>
+                活動及產品收益將提撥 10% 至環境保育或野生動物救助之相關機構。
+              </span>
             </p>
           </div>
         </div>
