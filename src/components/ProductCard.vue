@@ -6,7 +6,7 @@
     v-for="product in cartProductData"
     :key="product.id"
   >
-    <div class="card border-0 shadow-sm">
+    <div class="card custom_card_style border-0 shadow-sm">
       <router-link
         :to="`/product/${product.id}`"
         class="card-img-top card_img_style"

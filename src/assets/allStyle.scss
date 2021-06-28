@@ -66,7 +66,6 @@ body{
   position: relative;
   overflow: hidden;
   background: $black;
-  cursor: pointer;
 
   .more_msg, img{
     transition-duration: .5s;
@@ -86,7 +85,8 @@ body{
   }
 }
 
-.card_img_style:hover{
+.custom_card_style:hover{
+  cursor: pointer;
   .more_msg, img{
     transition-duration: .5s;
   }
