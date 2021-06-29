@@ -16,7 +16,7 @@
       <section class="col-md-8 col-xl-5 col-xxl-4 p-5 bg-white rounded-1 shadow">
         <h2 class="text-center fw-bold my-2">後台登入</h2>
 
-        <div class="mb-3">
+        <div class="mb-2">
           <Form v-slot="{ errors }">
             <label
               for="orderEmail"
@@ -62,16 +62,27 @@
 
           <button
             type="submit"
-            class="btn btn_main w-100 mt-1 mb-2"
+            class="btn btn_main w-100 mt-1 mb-1"
             @click="login"
-          >登入</button>
-
-          <router-link
-            to="/"
-            class="btn btn-outline-primary w-100 mt-1 mb-2"
           >
-            返回首頁
-          </router-link>
+            登入
+          </button>
+
+          <span class="d-flex justify-content-center align-items-center">
+            <router-link
+              to="/"
+              class="custom_secondary_link"
+            >
+              返回首頁
+            </router-link>
+            |
+            <router-link
+              to="/login"
+              class="custom_secondary_link"
+            >
+              忘記密碼?
+            </router-link>
+          </span>
         </div>
       </section>
     </section>

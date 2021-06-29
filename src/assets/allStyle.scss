@@ -125,6 +125,16 @@ body{
   background: $secondary;
 }
 
+// 自訂連結
+.custom_secondary_link{
+  padding: 8px;
+  color: $secondary;
+  transition-duration: .3s;
+  &:hover{
+    color: $primary;
+  }
+}
+
 // 主要按鈕
 .btn_main{
   padding: 8px;
