@@ -72,6 +72,15 @@ const routes = [
         component: () => import('../views/admin/Logout.vue'),
       },
     ],
+  }, {
+    path: '/:pathMatch(.*)*',
+    name: '404頁面',
+    component: () => import('../views/NotFound.vue'),
+  }, {
+    path: '/:pathMatch(.*)*',
+    redirect: {
+      name: '404頁面',
+    },
   },
 ];
 
