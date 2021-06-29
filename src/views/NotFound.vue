@@ -5,10 +5,10 @@
       <i class="bi bi-tree fs-3"></i>
       <i class="bi bi-tree-fill fs-5"></i>
       <i class="bi bi-tree fs-1"></i>
-      <i class="bi bi-tree-fill fs-2"></i>
       <small><i class="bi bi-tree"></i></small>
+      <i class="bi bi-tree fs-2"></i>
       <i class="bi bi-tree fs-3"></i>
-      <i class="bi bi-tree-fill fs-1"></i>
+      <i class="bi bi-tree fs-1"></i>
       <i class="bi bi-tree fs-2"></i>
     </div>
 
