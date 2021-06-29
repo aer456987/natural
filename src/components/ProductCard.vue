@@ -38,7 +38,7 @@
             </span>
           </h1>
         </router-link>
-        <span class="col-3 p-0">
+        <span class="col-3 p-0 d-flex justify-content-end">
           <span
             class="btn btn_outline_green fs-4 ms-1"
             @click="addCart(product.id)"
