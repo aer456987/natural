@@ -1,13 +1,16 @@
 <template>
   <HomeNavBar></HomeNavBar>
+  1231253
+
+  <Footer></Footer>
 </template>
 
 <script>
-// @ is an alias to /src
 import HomeNavBar from '@/components/HomeNavBar.vue';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'Home',
-  components: { HomeNavBar },
+  components: { HomeNavBar, Footer },
 };
 </script>

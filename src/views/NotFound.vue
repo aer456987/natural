@@ -17,7 +17,7 @@
 
     <p class="text-gray">也可點擊下方按鈕返回首頁。</p>
     <router-link
-        to="/"
+        to="/home"
         class="btn btn-outline-danger px-3"
       >
         返回首頁
