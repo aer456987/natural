@@ -3,7 +3,7 @@
   <section class="p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
       <router-link
-        to="/"
+        to="/home"
         class="nav-link logo h1 my-4 pb-0 text-center"
       >
         <Font-awesome-icon
@@ -70,7 +70,7 @@
 
           <span class="d-flex justify-content-center align-items-center">
             <router-link
-              to="/"
+              to="/home"
               class="custom_secondary_link"
             >
               返回首頁

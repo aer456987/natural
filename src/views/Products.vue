@@ -36,7 +36,7 @@
             <ol class="breadcrumb m-0">
               <li class="breadcrumb-item">
                 <router-link
-                  to="/"
+                  to="/home"
                   class="link-secondary"
                 >首頁</router-link>
               </li>
