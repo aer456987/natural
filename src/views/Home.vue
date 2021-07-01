@@ -61,37 +61,22 @@
     <!-- 數字 -->
     <section class="container py-6">
       <div class="d-flex justify-content-between">
-        <span class="text-center">
-          <h3 class="fs-7 fw-bold">
-            5<span class="fs-4">/年</span>
-          </h3>
-          <p class="m-0">平台成立</p>
-        </span>
 
-        <span class="text-center">
-          <h3 class="fs-7 fw-bold">
-            {{ $filters.currency(20000) }}<span class="fs-4">/人</span>
-          </h3>
-          <p class="m-0">每月使用者</p>
-        </span>
-
-        <p ref="abc">
-
-        </p>
-
-        <span class="text-center">
-          <h3 class="fs-7 fw-bold">
-            {{ $filters.currency(4500) }}<span class="fs-4">/場</span>
-          </h3>
-          <p class="m-0">公益活動</p>
-        </span>
-
-        <span class="text-center">
-          <h3 class="fs-7 fw-bold">
-            {{ $filters.currency(310) }}<span class="fs-4">/家</span>
-          </h3>
-          <p class="m-0">合作廠商</p>
-        </span>
+        <template
+          v-for="platform in platformData"
+          :key="platform.id"
+        >
+          <span class="text-center">
+            <h3 class="fs-7 fw-bold">
+              <CountTo
+                :end-val="platform.num"
+                :count-to-id="platform.id"
+              ></CountTo>
+              <span class="fs-4">/{{ platform.unit }}</span>
+            </h3>
+            <p class="m-0">{{ platform.text }}</p>
+          </span>
+        </template>
       </div>
     </section>
 
@@ -272,24 +257,48 @@ import HomeNavBar from '@/components/HomeNavBar.vue';
 import Footer from '@/components/Footer.vue';
 import HerderSwiper from '@/components/HomeHerderSwiper.vue';
 import NaturalThreatCard from '@/components/HomeNaturalThreatCard.vue';
+import CountTo from '@/components/count-to';
 
 export default {
   name: 'Home',
-  data() {},
+  data() {
+    return {
+      platformData: [
+        {
+          id: 'year',
+          num: 5,
+          unit: '年',
+          text: '平台成立',
+        },
+        {
+          id: 'user',
+          num: 20000,
+          unit: '人',
+          text: '每月使用者',
+        },
+        {
+          id: 'activity',
+          num: 4500,
+          unit: '場',
+          text: '公益活動',
+        },
+        {
+          id: 'cooperative',
+          num: 310,
+          unit: '家',
+          text: '合作廠商',
+        },
+      ],
+    };
+  },
   components: {
     HomeNavBar,
     Footer,
     HerderSwiper,
     NaturalThreatCard,
+    CountTo,
   },
   methods: {},
-  mounted() {
-    let demo = new CountUp('myTargetElement', 6806);
-    if (!demo.error) {
-      demo.start();
-    } else {
-      console.error(demo.error);
-    }
-  },
+  mounted() {},
 };
 </script>
