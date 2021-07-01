@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2">
     <div class="container-fluid">
       <router-link
-        to="/"
+        to="/home"
         class="nav-link logo h3 mb-0 p-0"
       >
         <Font-awesome-icon
@@ -30,7 +30,7 @@
         <ul class="navbar-nav fs-5 text-center">
           <li class="nav-item scale">
             <router-link
-              to="/"
+              to="/home"
               class="nav-link"
             >關於我們</router-link>
           </li>

@@ -5,6 +5,8 @@
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 @import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
+@import '~swiper/swiper.scss';
+@import "~swiper/components/pagination/pagination.min.css";
 
 *{
   letter-spacing: 2.5px;
@@ -39,6 +41,10 @@ body{
   }
 }
 
+.z-index-sm{
+  z-index: 3;
+}
+
 // 換行
 // .text_pre{
 //   white-space: pre;
@@ -66,6 +72,11 @@ body{
   &:focus{
     color: $warning;
   }
+}
+
+.logo_home{
+  font-family: 'Vibur';
+  color: white;
 }
 
 // 商品-卡片圖片
@@ -278,4 +289,9 @@ tbody{
 // 產品頁面 多圖
 .img_view{
   height: 514px;
+}
+
+// 首頁
+.swiper_header{
+  max-height: 900px;
 }

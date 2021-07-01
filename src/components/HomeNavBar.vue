@@ -1,10 +1,11 @@
 <template>
 <!-- 導覽列 -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark px-2 position-fixed z-index-sm w-100">
     <div class="container-fluid">
       <router-link
         to="/home"
-        class="nav-link logo h3 mb-0 p-0"
+        class="nav-link logo h3 mb-0 p-0 logo_home"
       >
         <Font-awesome-icon
           icon="crow"
@@ -52,7 +53,7 @@
             >
               <i class="bi bi-cart-fill position-relative">
                 <span
-                  class="cart_num"
+                  class="cart_num bg-danger text-white border-0"
                   v-if="cartsLength > 0"
                 >{{ cartsLength || newLength }}</span>
               </i>
