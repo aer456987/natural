@@ -1,12 +1,11 @@
 <template>
-  <section class="row m-0">
+  <section class="row m-0 rounded-1 overflow-hidden">
     <template
       v-for="item in naturalThreatImgs"
       :key="item.img"
     >
-
-      <div class="col-sm-6 col-md-3 mb-2">
-        <div class="set_in_style rounded-circle">
+      <div class="col-6 col-sm-6 col-md-3 p-0">
+        <div class="set_in_style">
           <p class="set_in_text fs-3 fw-bold">
             {{ item.text }}
           </p>
@@ -17,7 +16,6 @@
           >
         </div>
       </div>
-
     </template>
   </section>
 </template>

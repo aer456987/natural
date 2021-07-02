@@ -181,7 +181,7 @@
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
 import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/DashboarPagination.vue';
-import OrderModal from '@/components/dashboar/DashboarOrderModal.vue';
+import OrderModal from '@/components/modal/DashboarOrderModal.vue';
 
 export default {
   name: 'DashboardOrders',
