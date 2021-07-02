@@ -55,6 +55,16 @@ body{
   text-shadow: 0 0 10px $dark;
 }
 
+// 動畫緩衝
+.transition-duration_1{
+  transition-duration: .5s;
+}
+
+// 透明
+.opacity_1{
+  opacity: .5;
+}
+
 // 換行
 // .text_pre{
 //   white-space: pre;

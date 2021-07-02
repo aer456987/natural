@@ -1,5 +1,8 @@
 <template>
-  <HomeNavBar></HomeNavBar>
+  <HomeNavBar
+    class="transition-duration_1"
+    :class="navbarClass"
+  ></HomeNavBar>
   <header class="position-relative">
     <h1 class="position-absolute top-50 start-50 translate-middle
       z-index-2 text-center fw-bold text-light text-shadow"
@@ -15,6 +18,7 @@
     ></Arrow>
     <HerderSwiper></HerderSwiper>
   </header>
+  <div id="main"></div>
 
   <main class="bg-white">
     <!-- 圖片 -->
@@ -243,6 +247,7 @@ export default {
           text: '合作廠商',
         },
       ],
+      navbarClass: '',
     };
   },
   components: {
@@ -255,7 +260,17 @@ export default {
     HomeButton,
     Arrow,
   },
-  methods: {},
-  mounted() {},
+  mounted() {
+    window.addEventListener('scroll', () => {
+      const windowY = window.scrollY;
+      const main = document.querySelector('#main');
+
+      if (windowY > main.offsetTop) {
+        this.navbarClass = 'bg-primary';
+      } else {
+        this.navbarClass = '';
+      }
+    });
+  },
 };
 </script>
