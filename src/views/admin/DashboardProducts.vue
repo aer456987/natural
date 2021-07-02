@@ -200,11 +200,9 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)取得產品 res', res);
             this.productPagination = res.data.pagination;
             this.products = res.data.products;
             this.loadingStatus = false;
-            console.log('(成功-後台)取得產品 vue', this.productPagination, this.products);
           } else {
             console.log('(錯誤-後台)取得產品 res', res);
             this.loadingStatus = false;
@@ -217,19 +215,16 @@ export default {
         });
     },
     delProduct(action, id) { // 刪除商品
-      console.log('方法', action, id);
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
 
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)刪除商品 res', res);
             swalFn(res.data.message, 'success');
             this.getProducts();
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-後台)刪除商品 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -260,12 +255,10 @@ export default {
       this.$http[httpMethods](url, { data: item })
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)新增產品 res', res);
             swalFn(res.data.message, 'success');
             this.getProducts();
             this.$refs.productModal.hideModal();
           } else {
-            console.log('(錯誤-後台)新增產品 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }

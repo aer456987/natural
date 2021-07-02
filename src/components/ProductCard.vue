@@ -82,12 +82,10 @@ export default {
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-card)加入購物車 res:', res);
             swalFn(res.data.message, 'success');
             this.loadingStatus = false;
             this.updateCartLength();
           } else {
-            console.log('(錯誤-card)加入購物車 res:', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }

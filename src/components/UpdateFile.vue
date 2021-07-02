@@ -46,14 +46,12 @@ export default {
       this.$http.post(url, formData) // 帶入路徑和資料
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)上傳檔案 res', res);
             this.$emit('uploadImgFile', res.data.imageUrl);
             this.$refs.fileInput.value = '';
             this.isValue = false;
             this.isUpload = false;
             swalFn('圖片上傳成功', 'success');
           } else {
-            console.log('(錯誤-後台)上傳檔案 res', res);
             this.isUpload = false;
             swalFn(res.data.message, 'error');
           }
@@ -62,9 +60,6 @@ export default {
           console.log('(錯誤-後台)上傳檔案 err', err);
           this.isUpload = false;
         });
-    },
-    log() {
-      console.dir(this.$refs.fileInput);
     },
   },
   mounted() {},

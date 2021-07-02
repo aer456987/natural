@@ -86,13 +86,11 @@ export default {
         .get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-全域)取得購物車數量 res:', res);
             let totleQty = 0;
             this.cartsLength = res.data.data.carts.forEach((item) => {
               totleQty += item.qty;
             });
             this.cartsLength = totleQty;
-            console.log('(成功-全域)取得購物車數量 vue:', this.cartsLength);
           } else {
             console.log('(錯誤-全域)取得購物車數量 res:', res);
           }

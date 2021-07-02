@@ -109,10 +109,8 @@ export default {
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)帳號認證', res);
             this.loginStatus = true;
           } else {
-            console.log('(錯誤-後台)帳號認證', res);
             this.loginStatus = false;
             swalFn(res.data.message, 'warning', 3000, '即將於 3 秒後引導至登入畫面');
             setTimeout(() => { this.$router.push('/login'); }, 3000);
@@ -130,7 +128,6 @@ export default {
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)登出', res);
             this.$router.push('/login');
           } else {
             console.log('(錯誤-後台)登出', res);

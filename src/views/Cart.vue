@@ -225,7 +225,6 @@ export default {
         .get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)取得購物車全部資料 res:', res);
             this.carts = res.data.data;
 
             if (res.data.data.carts.length > 0) {
@@ -239,7 +238,6 @@ export default {
             }
 
             this.loadingStatus = false;
-            console.log('(成功-前台)取得購物車全部資料 vue:', this.carts);
           } else {
             console.log('(錯誤-前台)取得購物車全部資料 res:', res);
             this.loadingStatus = false;
@@ -259,23 +257,18 @@ export default {
       if (action === 'all') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/carts`;
         productName = '全部商品';
-        console.log('刪除全部', url);
       } else if (action === 'one') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
         productName = item.product.title;
-        console.log(item);
       }
 
       this.$http
         .delete(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)刪除購物車 res:', res);
-            console.log('(成功-前台)刪除購物車 vue:', this.carts);
             swalFn(`${productName} ${res.data.message}`, 'success');
             this.getCarts();
           } else {
-            console.log('(錯誤-前台)刪除購物車 res:', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -314,11 +307,9 @@ export default {
         .put(url, datas)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)修改購物車 res:', res);
             swalFn(res.data.message, 'success');
             this.getCarts();
           } else {
-            console.log('(錯誤-前台)修改購物車 res:', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -336,14 +327,12 @@ export default {
       this.$http.post(url, { data: this.couponNum })
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)套用優惠券 res:', res);
             swalFn(res.data.message, 'success');
             this.rederCode = this.couponNum.code;
             this.getCarts();
             this.couponNum.code = '';
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)套用優惠券 res:', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }

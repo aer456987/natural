@@ -118,10 +118,8 @@ export default {
         .get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)取得全部商品資料 res:', res);
             this.tempProducts = res.data.products;
             this.products = res.data.products;
-            console.log('(成功-前台)取得全部商品資料 vue:', this.products);
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)取得全部商品資料 res:', res);

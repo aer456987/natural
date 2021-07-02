@@ -252,12 +252,9 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)取得單筆訂單 res:', res);
             this.order.data.products = JSON.parse(JSON.stringify(res.data.order.products));
             this.order.data.user = JSON.parse(JSON.stringify(res.data.order.user));
             this.order.data.total = res.data.order.total;
-            console.log('products', this.order.data.products);
-            console.log('user', this.order.data.user);
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)取得單筆訂單 res:', res);
@@ -277,7 +274,6 @@ export default {
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)訂單付款 res:', res);
             this.loadingStatus = false;
             this.$router.push('/square/orderPaid');
           } else {

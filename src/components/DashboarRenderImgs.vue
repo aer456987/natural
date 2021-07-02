@@ -110,7 +110,6 @@ export default {
   emits: ['updataImgDatas'],
   methods: {
     uploadNewImg(uploadImg) {
-      console.log('uploadImg', uploadImg);
       if (this.tempMainImg === '') {
         this.tempMainImg = uploadImg;
       } else if (this.tempImgs[this.tempImgs.length - 1] === '') {

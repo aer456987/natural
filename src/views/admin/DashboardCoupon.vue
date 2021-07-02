@@ -141,10 +141,8 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)取得優惠券 res', res);
             this.couponDatas = res.data.coupons;
             this.couponPagination = res.data.pagination;
-            console.log('(成功-後台)取得優惠券 vue', this.couponDatas, this.couponPagination);
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-後台)取得優惠券 res', res);
@@ -163,7 +161,6 @@ export default {
           due_date: Math.floor(Date.now() / 1000),
           is_enabled: 0,
         };
-        console.log(isNew, this.updataCouponData);
       } else {
         this.isNew = false;
         this.updataCouponData = JSON.parse(JSON.stringify(coupon));
@@ -186,12 +183,10 @@ export default {
       this.$http[httpMethods](url, { data: newCouponData })
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)修改優惠券 res', res);
             swalFn(res.data.message, 'success');
             this.getCoupons();
             this.$refs.couponModal.hideCouponModal();
           } else {
-            console.log('(錯誤-後台)修改優惠券 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -208,11 +203,9 @@ export default {
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)刪除優惠券 res', res);
             swalFn(res.data.message, 'success');
             this.getCoupons();
           } else {
-            console.log('(錯誤-後台)刪除優惠券 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }

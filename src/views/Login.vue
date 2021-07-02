@@ -13,7 +13,7 @@
         Natural
       </router-link>
 
-      <section class="col-md-8 col-xl-5 col-xxl-4 p-5 bg-white rounded-1 shadow">
+      <section class="col-md-6 col-xl-5 col-xxl-3 p-5 bg-white rounded-1 shadow">
         <h2 class="text-center fw-bold my-2">後台登入</h2>
 
         <div class="mb-2">
@@ -111,12 +111,10 @@ export default {
       this.$http.post(url, this.userDatas)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功)登入 res:', res);
             this.msg = '登入成功';
             this.loadingStatus = false;
             this.$router.push('/admin/dashboardProducts');
           } else {
-            console.log('(錯誤)登入 res:', res);
             this.msg = `${res.data.message}, 請檢查帳號密碼`;
             this.loadingStatus = false;
             return;

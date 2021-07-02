@@ -223,11 +223,9 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)取得訂單 res', res);
             this.orders = res.data.orders;
             this.ordersPagination = res.data.pagination;
             this.loadingStatus = false;
-            console.log('(成功-後台)取得訂單 vue', this.ordersPagination, this.orders);
           } else {
             console.log('(錯誤-後台)取得訂單 res', res);
             this.loadingStatus = false;
@@ -252,11 +250,9 @@ export default {
       this.$http.delete(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)刪除訂單 res', res);
             this.getOrders();
             swalFn(res.data.message, 'success');
           } else {
-            console.log('(錯誤-後台)刪除訂單 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
@@ -287,12 +283,10 @@ export default {
       this.$http.put(url, { data: paidData })
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-後台)修改訂單 res', res);
             this.$refs.orderModal.hideOderModal();
             swalFn(res.data.message, 'success');
             this.getOrders();
           } else {
-            console.log('(錯誤-後台)修改訂單 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }

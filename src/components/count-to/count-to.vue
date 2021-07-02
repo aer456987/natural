@@ -97,8 +97,7 @@ export default {
     /**
      * @description 监控endVal值变化，调用update方法
      */
-    endVal(newVal, oldVal) {
-      console.log(oldVal);
+    endVal(newVal) {
       this.counter.update(newVal);
     },
   },

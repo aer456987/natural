@@ -207,7 +207,6 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)取得單一商品 res:', res);
             this.tempProduct = res.data.product;
             this.productImg = this.tempProduct.imageUrl;
             this.loadingStatus = false;
@@ -247,13 +246,11 @@ export default {
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)加入購物車 res:', res);
             swalFn(res.data.message, 'success');
             this.qty = 1;
             this.updateCartLength();
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)加入購物車 res:', res);
             swalFn(res.data.message, 'error');
             this.qty = 1;
             this.loadingStatus = false;

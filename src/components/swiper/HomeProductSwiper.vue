@@ -140,13 +140,5 @@ export default {
     };
   },
   components: { Swiper, SwiperSlide },
-  methods: {
-    onSwiper(swiper) {
-      console.log(swiper);
-    },
-    onSlideChange() {
-      console.log('slide change');
-    },
-  },
 };
 </script>

@@ -292,7 +292,6 @@ export default {
         .get(url)
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)取得購物車全部資料 res:', res);
             this.carts = res.data.data;
 
             if (this.carts.carts.length < 1) {
@@ -300,7 +299,6 @@ export default {
             }
             this.filterFundraising();
             this.loadingStatus = false;
-            console.log('(成功-前台)取得購物車全部資料 vue:', this.carts);
           } else {
             console.log('(錯誤-前台)取得購物車全部資料 res:', res);
             this.loadingStatus = false;
@@ -316,7 +314,6 @@ export default {
       this.carts.carts.forEach((item) => {
         if (item.product.category === '募款專案') {
           this.isFundraising = false;
-          console.log(item.product.category === '募款專案');
         }
       });
     },
@@ -339,10 +336,8 @@ export default {
       })
         .then((res) => {
           if (res.data.success) {
-            console.log('(成功-前台)送出訂單 res:', res);
             this.$router.push(`/square/order/${res.data.orderId}`);
           } else {
-            console.log('(錯誤-前台)送出訂單 res', res);
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
           }
