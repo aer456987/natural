@@ -208,13 +208,13 @@
 </template>
 
 <script>
-import HomeNavBar from '@/components/HomeNavBar.vue';
+import HomeNavBar from '@/components/home/HomeNavBar.vue';
 import Footer from '@/components/Footer.vue';
 import HerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import ProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
-import NaturalThreatCard from '@/components/HomeNaturalThreatCard.vue';
+import NaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import CountTo from '@/components/count-to';
-import HomeButton from '@/components/HomeButton.vue';
+import HomeButton from '@/components/home/HomeButton.vue';
 import Arrow from '@/components/Arrow.vue';
 
 export default {
