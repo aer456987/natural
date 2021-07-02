@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
 @import '~swiper/swiper.scss';
+@import "~swiper/components/effect-coverflow/effect-coverflow.min.css";
 @import "~swiper/components/pagination/pagination.min.css";
 
 *{
@@ -41,8 +42,17 @@ body{
   }
 }
 
-.z-index-sm{
+// 圖層
+.z-index-2{
+  z-index: 2;
+}
+.z-index-3{
   z-index: 3;
+}
+
+// 文字陰影
+.text-shadow{
+  text-shadow: 0 0 10px $dark;
 }
 
 // 換行
@@ -292,6 +302,63 @@ tbody{
 }
 
 // 首頁
-.swiper_header{
+.max_height_lg{
   max-height: 900px;
+}
+
+// 置中
+.set_in{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 首頁產品列 Swiper
+.productSwiper_title{
+  width: 100%;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(-50%);
+  padding: 10px;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 0 0 20px $dark;
+  color: $white;
+  background: rgba($white, .3);
+  transition-duration: .5s;
+  opacity: 1;
+}
+
+.productSwiper_text{
+  height: 0;
+  color: $dark;
+  transform: translateY(20px);
+  transition-duration: .5s;
+  opacity: 0;
+}
+
+.productSwiper_content:hover{
+  .productSwiper_title{
+    padding-top: 50%;
+    padding-bottom: 45%;
+    text-shadow: rgba($dark, 1);
+    background: rgba($white, .7);
+    transition-duration: .5s;
+  }
+
+  .productSwiper_text{
+    transform: translateY(0);
+    transition-delay: .5s;
+    transition-duration: .5s;
+    opacity: 1;
+  }
+}
+
+// 首圖箭頭
+.arrow_style{
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

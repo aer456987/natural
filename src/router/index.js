@@ -2,11 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
   {
-    path: '/count',
-    name: 'count',
-    component: () => import('../views/countToDemo.vue'),
-  },
-  {
     path: '/home',
     component: () => import('../views/Home.vue'),
   },

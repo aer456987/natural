@@ -1,5 +1,8 @@
 <template>
-  <span ref="number" :id="countId" :class="getClass"></span>
+  <span
+    ref="number"
+    :id="countId"
+  ></span>
 </template>
 
 <script>
@@ -10,9 +13,6 @@ export default {
   computed: {
     countId() {
       return `count_up_${this.countToId}`;
-    },
-    getClass() {
-      return this.className;
     },
   },
   data() {
@@ -61,7 +61,7 @@ export default {
      */
     useEasing: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     /**
      * @description 是否分组显示
@@ -83,10 +83,6 @@ export default {
     decimal: {
       type: String,
       default: '.',
-    },
-    className: {
-      type: String,
-      default: '',
     },
     countToId: {
       type: String,
