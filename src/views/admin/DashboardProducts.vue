@@ -158,7 +158,7 @@
 import { swalFn, delSwalFn } from '@/methods/swal';
 import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/DashboarPagination.vue';
-import ProductModal from '@/components/DashboarProductModal.vue';
+import ProductModal from '@/components/dashboar/DashboarProductModal.vue';
 
 export default {
   name: 'DashboardProducts',

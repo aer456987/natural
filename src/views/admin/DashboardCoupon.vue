@@ -113,7 +113,7 @@
 import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
 import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/DashboarPagination.vue';
-import CouponModal from '@/components/DashboarCouponModal.vue';
+import CouponModal from '@/components/dashboar/DashboarCouponModal.vue';
 
 export default {
   name: 'DashboardCoupon',
