@@ -22,7 +22,7 @@
 
   <main class="bg-white">
     <!-- 圖片 -->
-      <div class="container pt-6 pb-5">
+      <div class="container py-6">
         <h1 class="h2 fw-bold text-center mb-1">自然，不該被視作理所當然。</h1>
         <p class="text-center mb-5">它們不會說話，卻默默承受著我們造成的業果。</p>
         <NaturalThreatCard></NaturalThreatCard>
