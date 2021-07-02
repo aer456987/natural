@@ -2,10 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
   {
-    path: '/home',
-    component: () => import('../views/Home.vue'),
-  },
-  {
     path: '/',
     component: () => import('../views/Front.vue'),
     children: [
@@ -20,7 +16,12 @@ const routes = [
         component: () => import('../views/Product.vue'),
       },
     ],
-  }, {
+  },
+  {
+    path: '/home',
+    component: () => import('../views/Home.vue'),
+  },
+  {
     path: '/square',
     name: '結帳流程',
     component: () => import('../views/Square.vue'),
@@ -46,11 +47,13 @@ const routes = [
         component: () => import('../views/order/OrderPaid.vue'),
       },
     ],
-  }, {
+  },
+  {
     path: '/login',
     name: '登入',
     component: () => import('../views/Login.vue'),
-  }, {
+  },
+  {
     path: '/admin',
     name: '後台',
     component: () => import('../views/admin/Dashboard.vue'),
@@ -76,11 +79,13 @@ const routes = [
         component: () => import('../views/admin/Logout.vue'),
       },
     ],
-  }, {
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: '404頁面',
     component: () => import('../views/NotFound.vue'),
-  }, {
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: {
       name: '404頁面',
