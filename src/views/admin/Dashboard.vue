@@ -112,9 +112,9 @@ export default {
             this.loginStatus = true;
           } else {
             this.loginStatus = false;
+            document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
             swalFn(res.data.message, 'warning', 3000, '即將於 3 秒後引導至登入畫面');
             setTimeout(() => {
-              document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
               this.$router.push('/login');
             }, 3000);
           }

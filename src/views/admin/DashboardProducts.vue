@@ -148,6 +148,7 @@
       ref="productModal"
       :modal-product="tempProduct"
       :modal-isNew="isNew"
+      :modal-btn-status="btnStatus"
       @modal-update-product="updateProduct"
     ></ProductModal>
 
@@ -165,6 +166,7 @@ export default {
   data() {
     return {
       loadingStatus: false, // Loading 狀態
+      btnStatus: Boolean, // true 禁用; false 啟用
       productSelect: '', // 選單
       productSearch: '', // 搜尋
       productPagination: {}, // 分頁
@@ -272,9 +274,11 @@ export default {
     openModal(isNew, product) { // 打開模組
       if (isNew) {
         this.isNew = true;
+        this.btnStatus = true;
         this.tempProduct = { category: '請選擇分類' };
       } else {
         this.isNew = false;
+        this.btnStatus = false;
         this.tempProduct = JSON.parse(JSON.stringify(product));
       }
       this.$refs.productModal.openModal();

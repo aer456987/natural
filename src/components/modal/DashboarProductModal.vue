@@ -85,6 +85,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入品名"
                     v-model="tempProduct.title"
+                    @change="checkInputValue"
                   />
                 </span>
 
@@ -99,6 +100,7 @@
                     class="form-select mb-2"
                     aria-label="modalCategory"
                     v-model="tempProduct.category"
+                    @change="checkInputValue"
                   >
                     <option selected disabled>請選擇分類</option>
                     <option value="募款專案">募款專案</option>
@@ -122,6 +124,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入單位"
                     v-model="tempProduct.unit"
+                    @change="checkInputValue"
                   />
                 </span>
 
@@ -139,6 +142,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入原價"
                     v-model.number="tempProduct.origin_price"
+                    @change="checkInputValue"
                   >
                 </span>
 
@@ -156,6 +160,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入售價"
                     v-model.number="tempProduct.price"
+                    @change="checkInputValue"
                   >
                 </span>
 
@@ -172,6 +177,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
+                    @change="checkInputValue"
                   ></textarea>
                 </span>
 
@@ -188,6 +194,7 @@
                     class="form-control mb-2"
                     placeholder="請輸入說明內容"
                     v-model="tempProduct.content"
+                    @change="checkInputValue"
                   ></textarea>
                 </span>
 
@@ -230,16 +237,19 @@
         <div class="modal-footer">
           <button
             type="button"
+            class="btn btn-outline-brown"
+            data-bs-dismiss="modal"
+          >
+            關閉
+          </button>
+          <button
+            type="button"
             class="btn btn-warning text-brown-500"
+            :disabled="newBtnStatus"
             @click="$emit('modalUpdateProduct', tempProduct)"
           >
             {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
-          <button
-            type="button"
-            class="btn btn-outline-brown"
-            data-bs-dismiss="modal"
-          >關閉</button>
         </div>
 
       </main>
@@ -253,10 +263,11 @@ import RanderImgs from '@/components/DashboarRenderImgs.vue';
 
 export default {
   name: 'DashboarProductModal',
-  props: ['modalProduct', 'modalIsNew'],
+  props: ['modalProduct', 'modalIsNew', 'modalBtnStatus'],
   data() {
     return {
       modal: '',
+      newBtnStatus: Boolean, // true 禁用; false 啟用
       tempProduct: {},
       isShow: false,
     };
@@ -267,6 +278,9 @@ export default {
       if (!this.tempProduct.imagesUrl) {
         this.tempProduct.imagesUrl = [];
       }
+    },
+    modalBtnStatus() {
+      this.newBtnStatus = this.modalBtnStatus;
     },
   },
   components: { RanderImgs },
@@ -282,6 +296,30 @@ export default {
     updateImgs(newMainImg, newImgs) {
       this.tempProduct.imageUrl = newMainImg;
       this.tempProduct.imagesUrl = newImgs;
+    },
+    checkInputValue() { // 驗證欄位是否為空
+      const {
+        title, category, unit, price,
+      } = this.tempProduct;
+
+      if (
+        title === undefined
+        || category === undefined
+        || unit === undefined
+        || price === undefined
+      ) {
+        this.newBtnStatus = true;
+      } else if (
+        title === ''
+        || category === ''
+        || unit === ''
+        || this.tempProduct.imageUrl === ''
+        || price === ''
+      ) {
+        this.newBtnStatus = true;
+      } else {
+        this.newBtnStatus = false;
+      }
     },
   },
   mounted() {
