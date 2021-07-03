@@ -77,7 +77,8 @@
                     for="modalName"
                     class="form-label p-1 m-0"
                   >
-                    品名<span class="text-danger fw-bold">*</span></label>
+                    品名<span class="text-danger fw-bold">*</span>
+                  </label>
                   <input
                     type="text"
                     id="modalName"
@@ -94,7 +95,8 @@
                     for="modalCategory"
                     class="form-label p-1 m-0"
                   >
-                    產品分類<span class="text-danger fw-bold">*</span></label>
+                    產品分類<span class="text-danger fw-bold">*</span>
+                  </label>
                   <select
                     id="modalCategory"
                     class="form-select mb-2"
@@ -116,7 +118,8 @@
                     for="modalUnit"
                     class="form-label p-1 m-0"
                   >
-                    單位<span class="text-danger fw-bold">*</span></label>
+                    單位<span class="text-danger fw-bold">*</span>
+                  </label>
                   <input
                     type="text"
                     id="modalUnit"
@@ -133,7 +136,8 @@
                     for="modalOriginPrice"
                     class="form-label p-1 m-0"
                   >
-                    原價<span class="text-danger fw-bold">*</span></label>
+                    原價<span class="text-danger fw-bold">*</span>
+                  </label>
                   <input
                     type="number"
                     id="modalOriginPrice"
@@ -151,7 +155,8 @@
                     for="modalPrice"
                     class="form-label p-1 m-0"
                   >
-                    售價<span class="text-danger fw-bold">*</span></label>
+                    售價<span class="text-danger fw-bold">*</span>
+                  </label>
                   <input
                     type="number"
                     id="modalPrice"
@@ -296,25 +301,29 @@ export default {
     updateImgs(newMainImg, newImgs) {
       this.tempProduct.imageUrl = newMainImg;
       this.tempProduct.imagesUrl = newImgs;
+      this.checkInputValue();
     },
     checkInputValue() { // 驗證欄位是否為空
       const {
-        title, category, unit, price,
+        title, category, unit, price, imageUrl,
       } = this.tempProduct;
 
       if (
         title === undefined
         || category === undefined
         || unit === undefined
+        || this.tempProduct.origin_price === undefined
         || price === undefined
+        || imageUrl === undefined
       ) {
         this.newBtnStatus = true;
       } else if (
         title === ''
         || category === ''
         || unit === ''
-        || this.tempProduct.imageUrl === ''
+        || this.tempProduct.origin_price === undefined
         || price === ''
+        || imageUrl === ''
       ) {
         this.newBtnStatus = true;
       } else {
