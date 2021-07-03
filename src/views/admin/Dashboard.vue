@@ -113,11 +113,15 @@ export default {
           } else {
             this.loginStatus = false;
             swalFn(res.data.message, 'warning', 3000, '即將於 3 秒後引導至登入畫面');
-            setTimeout(() => { this.$router.push('/login'); }, 3000);
+            setTimeout(() => {
+              document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
+              this.$router.push('/login');
+            }, 3000);
           }
         })
         .catch((err) => {
           console.dir('(失敗-後台)帳號認證', err);
+          document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
           this.$router.push('/login');
         });
     },
@@ -128,13 +132,15 @@ export default {
       this.$http.post(url)
         .then((res) => {
           if (res.data.success) {
+            document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
             this.$router.push('/login');
           } else {
-            console.log('(錯誤-後台)登出', res);
+            console.di('(錯誤-後台)登出', res);
           }
         })
         .catch((err) => {
-          console.dir('(失敗-後台)登出', err);
+          console.log('(失敗-後台)登出');
+          console.dir(err);
         });
     },
   },

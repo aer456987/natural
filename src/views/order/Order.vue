@@ -153,7 +153,7 @@
                 as="select"
                 name="寄送方式"
                 id="orderDelivery"
-                class="form-control"
+                class="form-select"
                 :class="{ 'is-invalid': errors['寄送方式'] }"
                 rules="required"
                 v-model="userDatas.user.delivery"
@@ -202,7 +202,7 @@
                 as="select"
                 name="付款方式"
                 id="orderPayment"
-                class="form-control"
+                class="form-select"
                 :class="{ 'is-invalid': errors['付款方式'] }"
                 rules="required"
                 v-model="userDatas.user.payment"
@@ -237,10 +237,6 @@
                 :class="{ 'is-invalid': errors['備註'] }"
                 v-model="userDatas.message"
               ></Field>
-              <error-message
-                name="備註"
-                class="invalid-feedback mb-1"
-              ></error-message>
 
               <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
             </Form>

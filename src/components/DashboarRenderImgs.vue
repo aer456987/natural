@@ -9,7 +9,7 @@
         for="modalImg"
         class="form-label p-1 m-0"
       >
-        主要圖片<span class="text-danger fw-bold">*</span>
+        主要圖片
       </label>
       <input
         type="text"
