@@ -206,7 +206,6 @@ export default {
         || Number.isNaN(this.tempCouponData.due_date)
       ) {
         this.newBtnStatus = true;
-        console.log('1.沒有值un');
       } else if (
         title === ''
         || code === ''
@@ -214,10 +213,8 @@ export default {
         || Number.isNaN(this.tempCouponData.due_date)
       ) {
         this.newBtnStatus = true;
-        console.log('2.沒有值');
       } else {
         this.newBtnStatus = false;
-        console.log('3.有值');
       }
     },
   },
