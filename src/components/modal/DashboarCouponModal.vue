@@ -29,7 +29,10 @@
           v-if="tempCouponData"
           class="modal-body"
         >
-          <form class="row">
+          <form
+            class="row"
+            @change="checkInputValue"
+          >
             <span class="col-12">
               <label
                 for="modalTitle"
@@ -126,17 +129,18 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-warning text-brown-500"
-            @click="$emit('modalUpdateCoupon', tempCouponData)"
-          >
-            {{ modalIsNew ? '確定新增' : '儲存變更' }}
-          </button>
-          <button
-            type="button"
             class="btn btn-outline-brown"
             data-bs-dismiss="modal"
           >
             關閉
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning text-brown-500"
+            :disabled="newBtnStatus"
+            @click="$emit('modalUpdateCoupon', tempCouponData)"
+          >
+            {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
         </div>
       </main>
@@ -157,12 +161,13 @@ export default {
   data() {
     return {
       couponModal: '',
+      newBtnStatus: Boolean, // true 禁用; false 啟用
       tempCouponData: {},
       isNewCoupon: true,
       tempDueDate: Number,
     };
   },
-  props: ['modalCoupon', 'modalIsNew'],
+  props: ['modalCoupon', 'modalIsNew', 'modalBtnStatus'],
   watch: {
     modalCoupon() {
       this.tempCouponData = this.modalCoupon;
@@ -177,6 +182,9 @@ export default {
       const newDate = Math.floor(new Date(this.tempDueDate) / 1000);
       this.tempCouponData.due_date = newDate;
     },
+    modalBtnStatus() {
+      this.newBtnStatus = this.modalBtnStatus;
+    },
   },
   emits: ['modalUpdateCoupon'],
   methods: {
@@ -185,6 +193,32 @@ export default {
     },
     hideCouponModal() {
       this.couponModal.hide();
+    },
+    checkInputValue() { // 驗證欄位是否為空
+      const {
+        title, code, percent,
+      } = this.tempCouponData;
+
+      if (
+        title === undefined
+        || code === undefined
+        || percent === undefined
+        || Number.isNaN(this.tempCouponData.due_date)
+      ) {
+        this.newBtnStatus = true;
+        console.log('1.沒有值un');
+      } else if (
+        title === ''
+        || code === ''
+        || percent === ''
+        || Number.isNaN(this.tempCouponData.due_date)
+      ) {
+        this.newBtnStatus = true;
+        console.log('2.沒有值');
+      } else {
+        this.newBtnStatus = false;
+        console.log('3.有值');
+      }
     },
   },
   mounted() {

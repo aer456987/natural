@@ -70,7 +70,10 @@
               class="col-12"
               :class="{ 'd-none' : isShow }"
             >
-              <form class="row">
+              <form
+                class="row"
+                @change="checkInputValue"
+              >
 
                 <span class="col-12">
                   <label
@@ -86,7 +89,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入品名"
                     v-model="tempProduct.title"
-                    @change="checkInputValue"
                   />
                 </span>
 
@@ -102,7 +104,6 @@
                     class="form-select mb-2"
                     aria-label="modalCategory"
                     v-model="tempProduct.category"
-                    @change="checkInputValue"
                   >
                     <option selected disabled>請選擇分類</option>
                     <option value="募款專案">募款專案</option>
@@ -127,7 +128,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入單位"
                     v-model="tempProduct.unit"
-                    @change="checkInputValue"
                   />
                 </span>
 
@@ -146,7 +146,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入原價"
                     v-model.number="tempProduct.origin_price"
-                    @change="checkInputValue"
                   >
                 </span>
 
@@ -165,7 +164,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入售價"
                     v-model.number="tempProduct.price"
-                    @change="checkInputValue"
                   >
                 </span>
 
@@ -182,7 +180,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
-                    @change="checkInputValue"
                   ></textarea>
                 </span>
 
@@ -199,7 +196,6 @@
                     class="form-control mb-2"
                     placeholder="請輸入說明內容"
                     v-model="tempProduct.content"
-                    @change="checkInputValue"
                   ></textarea>
                 </span>
 

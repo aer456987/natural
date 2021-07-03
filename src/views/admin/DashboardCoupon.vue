@@ -120,6 +120,7 @@ export default {
   data() {
     return {
       loadingStatus: false,
+      btnStatus: Boolean, // true 禁用; false 啟用
       couponSearch: '',
       couponPagination: {},
       couponDatas: [],
@@ -157,12 +158,14 @@ export default {
     opanCouponModal(isNew, coupon) { // 打開 Modal
       if (isNew) {
         this.isNew = true;
+        this.btnStatus = true;
         this.updataCouponData = {
           due_date: Math.floor(Date.now() / 1000),
           is_enabled: 0,
         };
       } else {
         this.isNew = false;
+        this.btnStatus = false;
         this.updataCouponData = JSON.parse(JSON.stringify(coupon));
       }
       this.$refs.couponModal.openCouponModal();
