@@ -6,6 +6,11 @@ const routes = [
     component: () => import('../views/Front.vue'),
     children: [
       {
+        path: '/about',
+        name: '關於我們',
+        component: () => import('../views/About.vue'),
+      },
+      {
         path: 'products',
         name: '線上商城',
         component: () => import('../views/Products.vue'),

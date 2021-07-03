@@ -53,7 +53,7 @@
 
     <!-- 數字 -->
     <section class="container py-6">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-around">
 
         <template
           v-for="platform in platformData"

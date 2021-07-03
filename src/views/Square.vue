@@ -30,7 +30,7 @@
         <ul class="navbar-nav fs-5 text-center">
           <li class="nav-item scale">
             <router-link
-              to="/home"
+              to="/about"
               class="nav-link"
             >關於我們</router-link>
           </li>
