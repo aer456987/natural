@@ -65,38 +65,27 @@
           </div>
 
           <div class="row">
+
             <div
               class="col-12"
               :class="{ 'd-none' : isShow }"
             >
-              <Form
-                v-slot="{ errors }"
-                class="row"
-                @change="checkUserDatas"
-              >
+              <form class="row">
 
                 <span class="col-12">
                   <label
                     for="modalName"
                     class="form-label p-1 m-0"
                   >
-                    品名<span class="text-danger fw-bold">*</span>
-                  </label>
-
-                  <Field
+                    品名<span class="text-danger fw-bold">*</span></label>
+                  <input
                     type="text"
-                    name="品名"
                     id="modalName"
-                    placeholder="請輸入品名"
-                    class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['品名'] }"
-                    rules="required"
-                    v-model="tempProduct.title"
-                  ></Field>
-                  <error-message
                     name="品名"
-                    class="invalid-feedback mb-1"
-                  ></error-message>
+                    class="form-control mb-2"
+                    placeholder="請輸入品名"
+                    v-model="tempProduct.title"
+                  />
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -104,30 +93,20 @@
                     for="modalCategory"
                     class="form-label p-1 m-0"
                   >
-                    產品分類<span class="text-danger fw-bold">*</span>
-                  </label>
-
-                  <Field
-                    as="select"
-                    name="分類"
+                    產品分類<span class="text-danger fw-bold">*</span></label>
+                  <select
                     id="modalCategory"
-                    placeholder="請選擇分類"
                     class="form-select mb-2"
-                    :class="{ 'is-invalid': errors['分類'] }"
-                    rules="required"
+                    aria-label="modalCategory"
                     v-model="tempProduct.category"
                   >
-                    <option value="請選擇分類" selected disabled>請選擇分類</option>
+                    <option selected disabled>請選擇分類</option>
                     <option value="募款專案">募款專案</option>
                     <option value="公益活動">公益活動</option>
                     <option value="講座">講座</option>
                     <option value="有機食品">有機食品</option>
                     <option value="周邊商品">周邊商品</option>
-                  </Field>
-                  <error-message
-                    name="分類"
-                    class="invalid-feedback mb-1"
-                  ></error-message>
+                  </select>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -135,23 +114,15 @@
                     for="modalUnit"
                     class="form-label p-1 m-0"
                   >
-                    單位<span class="text-danger fw-bold">*</span>
-                  </label>
-
-                  <Field
+                    單位<span class="text-danger fw-bold">*</span></label>
+                  <input
                     type="text"
-                    name="單位"
                     id="modalUnit"
-                    placeholder="請輸入單位"
-                    class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['單位'] }"
-                    rules="required"
-                    v-model="tempProduct.unit"
-                  ></Field>
-                  <error-message
                     name="單位"
-                    class="invalid-feedback mb-1"
-                  ></error-message>
+                    class="form-control mb-2"
+                    placeholder="請輸入單位"
+                    v-model="tempProduct.unit"
+                  />
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -159,24 +130,16 @@
                     for="modalOriginPrice"
                     class="form-label p-1 m-0"
                   >
-                    原價<span class="text-danger fw-bold">*</span>
-                  </label>
-
-                  <Field
+                    原價<span class="text-danger fw-bold">*</span></label>
+                  <input
                     type="number"
+                    id="modalOriginPrice"
                     min="1"
                     name="原價"
-                    id="modalOriginPrice"
-                    placeholder="請輸入原價"
                     class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['原價'] }"
-                    rules="required|numeric"
+                    placeholder="請輸入原價"
                     v-model.number="tempProduct.origin_price"
-                  ></Field>
-                  <error-message
-                    name="原價"
-                    class="invalid-feedback mb-1"
-                  ></error-message>
+                  >
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -184,24 +147,16 @@
                     for="modalPrice"
                     class="form-label p-1 m-0"
                   >
-                    售價<span class="text-danger fw-bold">*</span>
-                  </label>
-
-                  <Field
+                    售價<span class="text-danger fw-bold">*</span></label>
+                  <input
                     type="number"
+                    id="modalPrice"
                     min="1"
                     name="售價"
-                    id="modalPrice"
-                    placeholder="請輸入售價"
                     class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['售價'] }"
-                    rules="required|numeric"
+                    placeholder="請輸入售價"
                     v-model.number="tempProduct.price"
-                  ></Field>
-                  <error-message
-                    name="售價"
-                    class="invalid-feedback mb-1"
-                  ></error-message>
+                  >
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -211,17 +166,13 @@
                   >
                     產品描述
                   </label>
-
-                  <Field
-                    as="textarea"
-                    rows="5"
-                    name="產品描述"
+                  <textarea
                     id="modalDescription"
-                    placeholder="請輸入產品描述"
+                    rows="5"
                     class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['產品描述'] }"
+                    placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
-                  ></Field>
+                  ></textarea>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -231,24 +182,20 @@
                   >
                     說明內容
                   </label>
-
-                  <Field
-                    as="textarea"
-                    rows="5"
-                    name="說明內容"
+                  <textarea
                     id="modalContent"
-                    placeholder="請輸入說明內容"
+                    rows="5"
                     class="form-control mb-2"
-                    :class="{ 'is-invalid': errors['說明內容'] }"
+                    placeholder="請輸入說明內容"
                     v-model="tempProduct.content"
-                  ></Field>
+                  ></textarea>
                 </span>
 
                 <p class="text-danger text-end fw-bold">
                   * 為必填項目
                 </p>
 
-              </Form>
+              </form>
             </div>
 
             <div
@@ -283,19 +230,16 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-brown"
-            data-bs-dismiss="modal"
-          >
-            關閉
-          </button>
-          <button
-            type="button"
             class="btn btn-warning text-brown-500"
-            :disabled="btnStatus"
             @click="$emit('modalUpdateProduct', tempProduct)"
           >
             {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
+          <button
+            type="button"
+            class="btn btn-outline-brown"
+            data-bs-dismiss="modal"
+          >關閉</button>
         </div>
 
       </main>
@@ -314,7 +258,6 @@ export default {
     return {
       modal: '',
       tempProduct: {},
-      btnStatus: true, // true 禁用; false 啟用
       isShow: false,
     };
   },
@@ -336,30 +279,9 @@ export default {
     hideModal() {
       this.modal.hide();
     },
-    updateImgs(newMainImg, newImgs) { // 將 RanderImgs 回傳的資料儲存起來
+    updateImgs(newMainImg, newImgs) {
       this.tempProduct.imageUrl = newMainImg;
       this.tempProduct.imagesUrl = newImgs;
-    },
-    checkUserDatas() { // 驗證欄位是否為空
-      // console.log(this.tempProduct);
-      const {
-        category, price, title, unit,
-      } = this.tempProduct;
-      console.log(category, this.tempProduct.origin_price, price, title, unit);
-
-      if (
-        title === undefined
-        || category === '請選擇分類'
-        || unit === undefined
-        || this.tempProduct.origin_price === undefined
-        || price === undefined
-      ) {
-        this.btnStatus = true;
-      } else {
-        this.btnStatus = false;
-      }
-
-      console.log(this.btnStatus);
     },
   },
   mounted() {
