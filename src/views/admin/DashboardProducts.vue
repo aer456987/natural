@@ -102,9 +102,6 @@
           <td data-title="描述">
             {{ product.description }}
           </td>
-          <!-- <td data-title="說明">
-            {{ product.content }}
-          </td> -->
 
           <td data-title="原價">
             {{ $filters.currency(product.origin_price) }}
@@ -157,8 +154,8 @@
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
-import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/DashboarPagination.vue';
+import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboar/DashboarPagination.vue';
 import ProductModal from '@/components/modal/DashboarProductModal.vue';
 
 export default {

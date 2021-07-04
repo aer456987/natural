@@ -16,7 +16,7 @@
           </li>
           <li class="breadcrumb-item">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="link-secondary"
             >購物車</router-link>
           </li>
@@ -244,7 +244,7 @@
           <!-- 返回購物車/送出訂單 -->
           <div class="col-12 d-flex justify-content-between mb-5">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="btn btn_outline_green px-3 py-1"
             > ◁ 返回購物車 </router-link>
 
@@ -291,7 +291,7 @@ export default {
             this.carts = res.data.data;
 
             if (this.carts.carts.length < 1) {
-              this.$router.push('/square/cart');
+              this.$router.push('/cart');
             }
             this.filterFundraising();
             this.loadingStatus = false;
@@ -332,7 +332,7 @@ export default {
       })
         .then((res) => {
           if (res.data.success) {
-            this.$router.push(`/square/order/${res.data.orderId}`);
+            this.$router.push(`/order/${res.data.orderId}`);
           } else {
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;

@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import UpdateFile from '@/components/UpdateFile.vue';
+import UpdateFile from '@/components/dashboar/DashboarUpdateFile.vue';
 
 export default {
   name: 'DashboarRenderImgs',

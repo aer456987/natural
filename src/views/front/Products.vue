@@ -24,7 +24,9 @@
                 <router-link
                   to="/home"
                   class="link-secondary"
-                >首頁</router-link>
+                >
+                  首頁
+                </router-link>
               </li>
               <li
                 class="breadcrumb-item active"

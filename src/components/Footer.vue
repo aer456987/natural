@@ -3,38 +3,90 @@
     class="p-3 text-center"
     :class="colors.backgroundColor"
   >
-    <div class="row">
-      .col*6*
-    </div>
-    <span>
-      客服電話：(02)2308264 / (02)8650610
-      服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00
-      住址：台北市信義區林口街38巷109號6樓
-    </span>
+    <template
+      v-if="moreMsg"
+    >
+      <div class="row align-items-center">
+        <nav class="nav-item mb-3">
+
+          <ul class="d-flex justify-content-center fs-5 list-unstyled m-0">
+            | <li class="scale">
+              <router-link
+                to="/home"
+                class="nav-link fs-6 px-2 text-secondary"
+              >
+                首頁
+              </router-link>
+            </li> |
+
+            <li class="scale">
+              <router-link
+                to="/about"
+                class="nav-link fs-6 px-2 text-secondary"
+              >
+                關於我們
+              </router-link>
+            </li> |
+
+            <li class="scale">
+              <router-link
+                to="/products"
+                class="nav-link fs-6 px-2 text-secondary"
+              >
+                線上商城
+              </router-link>
+            </li> |
+
+            <li class="scale">
+              <router-link
+                to="/QAndA"
+                class="nav-link fs-6 px-2 text-secondary"
+              >
+                常見問題
+              </router-link>
+            </li> |
+
+          </ul>
+        </nav>
+
+        <p
+          class="mb-3"
+          :class="colors.color"
+        >
+          住址：台北市信義區林口街38巷109號6樓 <br>
+          客服電話：(02)2308264 / (02)8650610 <br>
+          服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00 <br>
+        </p>
+
+      </div>
+    </template>
     <span
       class="d-block fs-4 mb-1"
       :class="colors.color"
     >
       <Font-awesome-icon
         :icon="['fab', 'facebook-square']"
-        class="mx-1 pointer_no_hover"
+        class="mx-1 pointer_no_hover scale"
         title="facabook 粉絲團"
       />
 
       <Font-awesome-icon
         :icon="['fab', 'instagram-square']"
-        class="mx-1 pointer_no_hover"
+        class="mx-1 pointer_no_hover scale"
         title="Instagram"
       />
       <Font-awesome-icon
         :icon="['fab', 'line']"
-        class="mx-1 pointer_no_hover"
+        class="mx-1 pointer_no_hover scale"
         title="@line 官方"
       />
-      <i
-        class="bi bi-github mx-1 pointer_no_hover"
+
+      <i class="fab fa-github-square"></i>
+      <Font-awesome-icon
+        :icon="['fab', 'github-square']"
+        class="mx-1 pointer_no_hover scale"
         title="github"
-      ></i>
+      />
     </span>
     <small
       class="container mx-auto my-0"
@@ -48,7 +100,7 @@
 <script>
 export default {
   name: 'Footer',
-  props: ['textColor', 'bgColor'],
+  props: ['textColor', 'bgColor', 'moreMsg'],
   data() {
     return {
       colors: {

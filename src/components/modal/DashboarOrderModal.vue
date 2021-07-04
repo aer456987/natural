@@ -325,14 +325,18 @@
         <div class="modal-footer">
           <button
             type="button"
-            @click="$emit('modalUpdateOrderPaid', tempOrder)"
-            class="btn btn-warning text-brown-500"
-          >變更訂單狀態</button>
-          <button
-            type="button"
             class="btn btn-outline-brown"
             data-bs-dismiss="modal"
-          >關閉</button>
+          >
+            關閉
+          </button>
+          <button
+            type="button"
+            @click="$emit('modalUpdateOrderPaid', tempOrder)"
+            class="btn btn-warning text-brown-500"
+          >
+            變更訂單狀態
+          </button>
         </div>
       </main>
     </section>

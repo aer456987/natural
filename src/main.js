@@ -8,12 +8,14 @@ import {
 import { localize, setLocale } from '@vee-validate/i18n'; // 多國語言載入
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCrow, faSearchPlus } from '@fortawesome/free-solid-svg-icons'; // Font Awesome icons
-import { faFacebookSquare, faLine, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import {
+  faFacebookSquare, faLine, faInstagramSquare, faGithubSquare,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'; // Font Awesome icons
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
-import Loading from '@/components/Loading.vue'; // Loading元件
+import Loading from '@/components/loading/Loading.vue'; // Loading元件
 import 'bootstrap'; // bootstrap icon
 import App from './App.vue';
 import router from './router';
@@ -31,7 +33,14 @@ configure({
 });
 setLocale('zh_TW');
 
-library.add(faCrow, faSearchPlus, faFacebookSquare, faLine, faInstagramSquare);
+library.add(
+  faCrow,
+  faSearchPlus,
+  faFacebookSquare,
+  faLine,
+  faInstagramSquare,
+  faGithubSquare,
+);
 
 const app = createApp(App);
 

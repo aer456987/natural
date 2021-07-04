@@ -13,7 +13,7 @@
         Natural
       </router-link>
 
-      <section class="col-md-6 col-xl-5 col-xxl-3 p-5 bg-white rounded-1 shadow">
+      <section class="col-md-6 col-xl-5 col-xxl-4 p-5 bg-white rounded-1 shadow">
         <h2 class="text-center fw-bold my-2">後台登入</h2>
 
         <div class="mb-2">

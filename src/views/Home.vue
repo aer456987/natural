@@ -3,6 +3,7 @@
     class="transition-duration_1"
     :class="navbarClass"
   ></HomeNavBar>
+
   <header class="position-relative">
     <h1 class="position-absolute top-50 start-50 translate-middle
       z-index-2 text-center fw-bold text-light text-shadow"
@@ -233,18 +234,22 @@
     </section>
   </main>
 
-  <Footer></Footer>
+  <Footer
+    :textColor="'text-secondary'"
+    :bgColor="'bg-primary'"
+    :moreMsg="true"
+  ></Footer>
 </template>
 
 <script>
-import HomeNavBar from '@/components/home/HomeNavBar.vue';
+import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
 import Footer from '@/components/Footer.vue';
 import HerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import ProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
 import NaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
-import Arrow from '@/components/Arrow.vue';
+import Arrow from '@/components/home/Arrow.vue';
 
 export default {
   name: 'Home',

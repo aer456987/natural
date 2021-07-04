@@ -1,8 +1,8 @@
 <template>
-<!-- 導覽列 -->
+  <!-- 首頁導覽列 -->
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-2
-    position-fixed z-index-3 w-100"
+      position-fixed z-index-3 w-100"
     :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
@@ -37,13 +37,17 @@
             <router-link
               to="/about"
               class="nav-link"
-            >關於我們</router-link>
+            >
+              關於我們
+            </router-link>
           </li>
           <li class="nav-item scale">
             <router-link
               to="/products"
               class="nav-link"
-            >線上商城</router-link>
+            >
+              線上商城
+            </router-link>
           </li>
           <li class="nav-item scale">
             <span class="nav-link">
@@ -52,14 +56,16 @@
           </li>
           <li class="nav-item scale">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="nav-link"
             >
               <i class="bi bi-cart-fill position-relative">
                 <span
                   class="cart_num"
                   v-if="cartsLength > 0"
-                >{{ cartsLength || newLength }}</span>
+                >
+                  {{ cartsLength || newLength }}
+                </span>
               </i>
             </router-link>
           </li>
@@ -102,11 +108,6 @@ export default {
           console.log('(失敗-全域)取得購物車數量 err:');
           console.dir(err);
         });
-    },
-    addBackground() {
-      console.dir('增加背景');
-      // 'bg-dark-rgba-100'
-      // this.navbarClass = 'py-3';
     },
   },
   mounted() {

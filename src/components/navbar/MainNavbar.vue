@@ -1,4 +1,5 @@
 <template>
+  <!-- 主要導覽列 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2">
     <div class="container-fluid">
       <router-link
@@ -31,13 +32,17 @@
             <router-link
               to="/about"
               class="nav-link"
-            >關於我們</router-link>
+            >
+              關於我們
+            </router-link>
           </li>
           <li class="nav-item scale">
             <router-link
               to="/products"
               class="nav-link"
-            >線上商城</router-link>
+            >
+              線上商城
+            </router-link>
           </li>
           <li class="nav-item scale">
             <span class="nav-link">
@@ -46,14 +51,16 @@
           </li>
           <li class="nav-item scale">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="nav-link"
             >
               <i class="bi bi-cart-fill position-relative">
                 <span
                   class="cart_num"
                   v-if="cartsLength > 0"
-                >{{ cartsLength || newLength }}</span>
+                >
+                  {{ cartsLength || newLength }}
+                </span>
               </i>
             </router-link>
           </li>
@@ -61,27 +68,19 @@
       </div>
     </div>
   </nav>
-
-  <router-view></router-view>
-  <Footer
-    :textColor="'text-secondary'"
-    :bgColor="'bg-primary'"
-  ></Footer>
 </template>
 
 <script>
 import bus from '@/methods/bus';
-import Footer from '@/components/Footer.vue';
 
 export default {
-  name: 'Front',
+  name: 'MainNavbar',
   data() {
     return {
       cartsLength: 0,
       newLength: 0,
     };
   },
-  components: { Footer },
   methods: {
     updateCartLength() { // 取得購物車數量
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

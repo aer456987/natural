@@ -16,7 +16,7 @@
           </li>
           <li class="breadcrumb-item">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="link-secondary"
             >購物車</router-link>
           </li>
@@ -209,7 +209,7 @@
 
             <router-link
               v-else
-              to="/square/orderPaid"
+              to="/orderPaid"
               class="btn btn_main px-3 py-1"
               @click="goPay"
             >我要付款</router-link>
@@ -275,7 +275,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.loadingStatus = false;
-            this.$router.push('/square/orderPaid');
+            this.$router.push('/orderPaid');
           } else {
             console.log('(錯誤-前台)訂單付款 res:', res.data);
             this.loadingStatus = false;

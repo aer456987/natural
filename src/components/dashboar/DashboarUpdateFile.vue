@@ -28,6 +28,7 @@
 import { swalFn } from '@/methods/swal';
 
 export default {
+  name: 'DashboarUpdateFile',
   data() {
     return {
       isValue: false,

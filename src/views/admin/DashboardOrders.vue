@@ -179,8 +179,8 @@
 
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
-import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/DashboarPagination.vue';
+import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboar/DashboarPagination.vue';
 import OrderModal from '@/components/modal/DashboarOrderModal.vue';
 
 export default {

@@ -260,7 +260,7 @@
 
 <script>
 import Modal from 'bootstrap/js/dist/modal';
-import RanderImgs from '@/components/DashboarRenderImgs.vue';
+import RanderImgs from '@/components/dashboar/DashboarRenderImgs.vue';
 
 export default {
   name: 'DashboarProductModal',

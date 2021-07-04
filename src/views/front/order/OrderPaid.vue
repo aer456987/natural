@@ -15,7 +15,7 @@
           </li>
           <li class="breadcrumb-item">
             <router-link
-              to="/square/cart"
+              to="/cart"
               class="link-secondary"
             >購物車</router-link>
           </li>

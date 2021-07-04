@@ -111,8 +111,8 @@
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
-import DashboarLoading from '@/components/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/DashboarPagination.vue';
+import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboar/DashboarPagination.vue';
 import CouponModal from '@/components/modal/DashboarCouponModal.vue';
 
 export default {

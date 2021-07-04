@@ -171,19 +171,25 @@
             <router-link
               to="/products"
               class="btn btn_outline_green px-3 py-1"
-            > ◁ 繼續購物 </router-link>
+            >
+              ◁ 繼續購物
+            </router-link>
 
             <button
               type="button"
               class="btn btn-outline-danger px-3 py-1"
               @click="delCart('all')"
-            > 清空購物車 </button>
+            >
+              清空購物車
+            </button>
 
             <router-link
-              to="/square/order"
+              to="/order"
               class="btn btn_main px-3 py-1"
               :class="{ 'disabled' : btnStatus }"
-            > 填寫訂單 ▷ </router-link>
+            >
+              填寫訂單 ▷
+            </router-link>
           </div>
         </main>
       </div>
