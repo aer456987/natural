@@ -1,13 +1,14 @@
 <template>
 <!-- 導覽列 -->
   <nav
-    class="navbar navbar-expand-lg navbar-dark px-2
+    class="navbar navbar-expand-lg navbar-dark z-index-3 px-2
     position-fixed z-index-3 w-100"
+    :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
       <router-link
         to="/home"
-        class="nav-link logo h3 mb-0 p-0 logo_home"
+        class="logo_home h3 mb-0 p-0"
       >
         <Font-awesome-icon
           icon="crow"
@@ -23,6 +24,7 @@
         aria-controls="navbarToggler"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        @click="isClassChange = !isClassChange"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,7 +57,7 @@
             >
               <i class="bi bi-cart-fill position-relative">
                 <span
-                  class="cart_num bg-danger text-white border-0"
+                  class="cart_num"
                   v-if="cartsLength > 0"
                 >{{ cartsLength || newLength }}</span>
               </i>
@@ -76,6 +78,8 @@ export default {
     return {
       cartsLength: 0,
       newLength: 0,
+      isClassChange: false,
+      // newClass: 'bg-dark-rgba-100',
     };
   },
   methods: {
@@ -98,6 +102,11 @@ export default {
           console.log('(失敗-全域)取得購物車數量 err:');
           console.dir(err);
         });
+    },
+    addBackground() {
+      console.dir('增加背景');
+      // 'bg-dark-rgba-100'
+      // this.navbarClass = 'py-3';
     },
   },
   mounted() {

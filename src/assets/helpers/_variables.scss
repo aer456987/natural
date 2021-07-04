@@ -67,8 +67,8 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       #09694C !default;    // $blue 1D7E63 09694C 
-$secondary:     #D5D83C !default;    // $gray-600 F8DF8F D5D83C
+$primary:       #225243 !default;    // $blue 1D7E63 #09694C #05412f
+$secondary:     #D5D83C !default;    // $gray-600 F8DF8F D5D83C #eec170
 $success:       #1D7E63 !default;    // $green
 $info:          $cyan !default;
 $warning:       #F3C95F !default;    // $yellow
@@ -77,13 +77,13 @@ $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
 $brown:         #926E60 !default;
 $brown-500:     #4C2F28 !default;
-$custom-green:     #50B29B !default;
+$custom-green:  #50B29B !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary":    $primary,// $primary, 1D7E63, 09694C
-  "primary-100":rgba(#09694C, .1),
+  "primary"     :$primary,// $primary, 1D7E63, 09694C
+  "primary-100" :rgba(#09694C, .1),
   "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
   "info":       $info,
@@ -96,6 +96,10 @@ $theme-colors: (
   "brown-500":  $brown-500,
   "gray":       $gray-500,
   "gray-100":   $gray-100,
+  "primary-rgba-900":   rgba($primary, .9),
+  "blue-600":   #0472e6,
+  "pink":       #e83e59,
+  "green":      #07b53b,
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -980,8 +984,8 @@ $navbar-dark-color:                 $white !default;   // rgba($white, .55)
 $navbar-dark-hover-color:           $secondary !default;   // rgba($white, .75)
 $navbar-dark-active-color:          $white !default;
 $navbar-dark-disabled-color:        rgba($white, .25) !default;
-$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$secondary}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default; 
-$navbar-dark-toggler-border-color:  rgba($secondary, .5)  !default;  // rgba($white, .1)
+$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$white}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default; 
+$navbar-dark-toggler-border-color:  rgba($white, .5)  !default;  // rgba($white, .1)
 
 $navbar-light-color:                rgba($black, .55) !default;
 $navbar-light-hover-color:          rgba($black, .7) !default;

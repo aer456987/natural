@@ -41,9 +41,11 @@
 </template>
 
 <style lang="scss">
-$blob_cyan: #D5D83C; // #0fe0f5;
-$blob_cyan_dark: #777918;
-$blob_dark: #09694C; // #222;
+$blob_cyan: #1D7E63; // #0fe0f5;
+$blob_change: #D5D83C;
+$blob_light: white;
+$blob_dark: #D5D83C;
+// $blob_dark: #09694C; // #222;
 $borderW: 6px;
 
 *, *:before, *:after {
@@ -51,7 +53,7 @@ $borderW: 6px;
   padding: 0;
   box-sizing: border-box;
 }
-$openSans: 'Open Sans', Helvetica, Arial, sans-serif;
+
 .buttons {
   text-align: center;
 }
@@ -59,12 +61,12 @@ $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
 .blob-btn {
   $numOfBlobs: 4;
   position: relative;
+  border: none;
   text-align: center;
   text-transform: uppercase;
   font-size: 16px;
-  font-weight: bold;
-  border: none;
-  color: $blob_cyan_dark;
+  font-weight: 900;
+  color: $blob_cyan;
   background-color: transparent; // transparent
   outline: none;
   cursor: pointer;
@@ -87,20 +89,24 @@ $openSans: 'Open Sans', Helvetica, Arial, sans-serif;
     position: absolute;
     width: 100%;
     height: 100%;
-    left: 20px;
-    top: $borderW*1.5;
-    border: solid 1px rgba($blob_cyan_dark, .3); // $borderW
+    top: -9px;
+    left: -15px;
+    border: solid 1px rgba($blob_change, .5); // $borderW
     border-radius: 4px;
+    background: rgba($blob_dark, .1);
     transition: all 0.3s 0.2s;
     z-index: -2;
   }
 
   &:hover {
-    color: $blob_dark;
+    color: $blob_light;
+    background-color: $blob_change;
 
     &:after {
-      left: 0;
-      top: 0;
+      top: $borderW*1.5;
+      left: 15px;
+      border: rgba($blob_cyan, .5);
+      background: rgba($blob_cyan, .2);
       transition: all 0.3s;
     }
   }

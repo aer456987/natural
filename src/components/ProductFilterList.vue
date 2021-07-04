@@ -6,7 +6,7 @@
   <form
     class="btn-group p-0"
     role="group"
-    aria-label="Basic radio toggle button group"
+    aria-label="分類選單"
     ref="select"
   >
 

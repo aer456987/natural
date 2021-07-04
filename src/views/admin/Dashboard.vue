@@ -62,11 +62,10 @@
   <!-- 主要頁面 -->
   <router-view></router-view>
   <!-- 頁尾 -->
-  <footer class="p-3 bg-brown">
-    <p class="container text-center mx-auto my-0">
-      作業使用，無商業行為
-    </p>
-  </footer>
+  <Footer
+    :bgColor="'bg-brown'"
+    :textColor="'text-dark'"
+  ></Footer>
 </template>
 
 <style lang="sass">
@@ -94,6 +93,7 @@ table
 
 <script>
 import { swalFn } from '@/methods/swal';
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'Dashboard',
@@ -102,6 +102,7 @@ export default {
       loginStatus: false,
     };
   },
+  components: { Footer },
   methods: {
     checkLogin() { // axios check 確認登入狀態
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;

@@ -6,24 +6,10 @@
     :products="products"
     @filter-list-methods="filterListMethods"
   ></ProductFilterList>
-  <header class="header position-relative">
-    <span
-      class=""
-    >
-      <h1
-      class="title_style position-absolute top-50 start-50 translate-middle
-        fw-bold px-2 py-2 px-md-5 py-md-4"
-      >
-        線上商城
-      </h1>
-    </span>
-
-    <img
-      class="img-fluid w-100 shadow"
-      src="../assets/imgs/productBackImg.jpg"
-      alt="首圖"
-    />
-  </header>
+  <HeaderImg
+    :header-title="headerData.title"
+    :header-imgUrl="headerData.imgUrl"
+  ></HeaderImg>
   <section class="container pageContent">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
@@ -66,7 +52,6 @@
           />
         </span>
       </div>
-      <!-- <h1 class="pb-5 text-center fw-bold py-3 m-0">線上商城</h1> -->
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">
@@ -81,6 +66,7 @@
 <script>
 import ProductCard from '@/components/ProductCard.vue';
 import ProductFilterList from '@/components/ProductFilterList.vue';
+import HeaderImg from '@/components/HeaderBackgroundImg.vue';
 
 export default {
   name: 'Products',
@@ -91,6 +77,10 @@ export default {
       search: '', // 搜尋
       tempProducts: [],
       products: [],
+      headerData: {
+        title: '線上商城',
+        imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625383909848.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=I9j4wMF6Ju2sDD%2Bt5cyertLtgbUPb79pLuHjlhHmilogicWyAs70SOUZjs2iJ8m5U8CzCWPV2AHhgK%2FEHrHfbvOLPTb3HMRNjffgTCe%2BCHtZJNefxWz3P4X520ruiMmQXK8iRyainm9NKjEM9nWPIbnJ28utF95W%2F%2Fc292KtCnSHJATO3cNUXfzZMgKAMIztyXl9RJwLIb9%2BkP77JcJVmFKjv6hwhmfH1bKXFAy%2BuG2mhzbYI3eU%2BGJiIEMXJTdFZjgUrxewVd1QlkUCy4PvNBMU3CsYi6dLJ2vwo45lPiqP8f%2BmYvFCOoHJ7I5hzL7KSgZBor3Lhrr1rdgwlf64rA%3D%3D',
+      },
     };
   },
   computed: {
@@ -109,7 +99,11 @@ export default {
       return newfilterData;
     },
   },
-  components: { ProductCard, ProductFilterList },
+  components: {
+    ProductCard,
+    ProductFilterList,
+    HeaderImg,
+  },
   methods: {
     getProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;

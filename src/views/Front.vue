@@ -63,7 +63,10 @@
   </nav>
 
   <router-view></router-view>
-  <Footer></Footer>
+  <Footer
+    :textColor="'text-secondary'"
+    :bgColor="'bg-primary'"
+  ></Footer>
 </template>
 
 <script>

@@ -10,6 +10,7 @@
 $base: 0.6rem;
 
 .chevron {
+  position: relative;
   width: $base * 3.5;
   height: $base * 0.8;
   opacity: 0;
@@ -30,7 +31,7 @@ $base: 0.6rem;
   content: '';
   position: absolute;
   top: 0;
-  height: 100%;
+  height: 120%;
   width: 50%;
   background: rgba(white, .6);
 }
