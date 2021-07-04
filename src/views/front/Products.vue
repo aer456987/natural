@@ -6,36 +6,18 @@
     :products="products"
     @filter-list-methods="filterListMethods"
   ></ProductFilterList>
+
   <HeaderImg
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl"
   ></HeaderImg>
+
   <section class="container pageContent">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
         <span class="col-6">
-          <nav
-            style="--bs-breadcrumb-divider: '>'"
-            aria-label="breadcrumb"
-          >
-            <ol class="breadcrumb m-0">
-              <li class="breadcrumb-item">
-                <router-link
-                  to="/home"
-                  class="link-secondary"
-                >
-                  首頁
-                </router-link>
-              </li>
-              <li
-                class="breadcrumb-item active"
-                aria-current="page"
-              >
-                線上商城
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
         </span>
         <span class="col-6 col-md-4 col-lg-3
           position-relative">
@@ -66,9 +48,10 @@
 </template>
 
 <script>
-import ProductCard from '@/components/ProductCard.vue';
-import ProductFilterList from '@/components/ProductFilterList.vue';
 import HeaderImg from '@/components/HeaderBackgroundImg.vue';
+import ProductCard from '@/components/ProductCard.vue';
+import Breadcrumb from '@/components/Breadcrumb.vue';
+import ProductFilterList from '@/components/ProductFilterList.vue';
 
 export default {
   name: 'Products',
@@ -82,6 +65,15 @@ export default {
       headerData: {
         title: '線上商城',
         imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625383909848.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=I9j4wMF6Ju2sDD%2Bt5cyertLtgbUPb79pLuHjlhHmilogicWyAs70SOUZjs2iJ8m5U8CzCWPV2AHhgK%2FEHrHfbvOLPTb3HMRNjffgTCe%2BCHtZJNefxWz3P4X520ruiMmQXK8iRyainm9NKjEM9nWPIbnJ28utF95W%2F%2Fc292KtCnSHJATO3cNUXfzZMgKAMIztyXl9RJwLIb9%2BkP77JcJVmFKjv6hwhmfH1bKXFAy%2BuG2mhzbYI3eU%2BGJiIEMXJTdFZjgUrxewVd1QlkUCy4PvNBMU3CsYi6dLJ2vwo45lPiqP8f%2BmYvFCOoHJ7I5hzL7KSgZBor3Lhrr1rdgwlf64rA%3D%3D',
+      },
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '首頁',
+            url: '/home',
+          },
+        ],
+        purpose: '線上商城', // 目前頁面
       },
     };
   },
@@ -102,9 +94,10 @@ export default {
     },
   },
   components: {
-    ProductCard,
-    ProductFilterList,
     HeaderImg,
+    ProductFilterList,
+    Breadcrumb,
+    ProductCard,
   },
   methods: {
     getProducts() { // 取得全部商品

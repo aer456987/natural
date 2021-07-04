@@ -1,4 +1,5 @@
 <template>
+  <!-- 產品分類輪播 -->
   <!-- <swiper
     :slidesPerView="2"
     :spaceBetween="10"

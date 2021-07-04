@@ -8,25 +8,7 @@
       <!-- 麵包屑&搜尋 -->
       <div class="row">
         <span class="col-6">
-          <nav
-            style="--bs-breadcrumb-divider: '>'"
-            aria-label="breadcrumb"
-          >
-            <ol class="breadcrumb m-0">
-              <li class="breadcrumb-item">
-                <router-link
-                  to="/home"
-                  class="link-secondary"
-                >首頁</router-link>
-              </li>
-              <li
-                class="breadcrumb-item active"
-                aria-current="page"
-              >
-                線上商城
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
         </span>
       </div>
 
@@ -120,6 +102,7 @@
 
 <script>
 import HeaderImg from '@/components/HeaderBackgroundImg.vue';
+import Breadcrumb from '@/components/Breadcrumb.vue';
 
 export default {
   name: 'About',
@@ -128,6 +111,15 @@ export default {
       headerData: {
         title: '關於我們',
         imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625381277465.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Qr1h3nGOQfMXPX6xtyHsiq9Q6u8FKLZ2YyqwO7RdiLAflXUKcKiE9xXz%2FY2ZTXYxURAfTC8mobCxm04%2BFL%2BTbE1Xwi0ZHW1n1X37w46ptwZwa9qV6ODquLd8%2Fizo2k12gJFotUph7vY79LO5vXFOzz1aA%2FcLSSuDikv%2B9RfJUAcMA0ShO%2FJ70d0sBSY7tWcgOfZOe8%2Fc0MHN9RhJ4ZFppqiVXOqiiR7r9tV4V0air8vsNxJyQMyM0sOHHEqTAyKf%2Fc55QlE6Yg%2Bs19VLInoE4yxJEWT0RNvRNNMRYaqSz4qsshVZK0r2k%2BDFNzSmmfxM%2FDmJ3gLaGUmVxURWvKEPHQ%3D%3D',
+      },
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '首頁',
+            url: '/home',
+          },
+        ],
+        purpose: '關於我們', // 目前頁面
       },
       pageTextContent: [
         {
@@ -181,6 +173,7 @@ export default {
   },
   components: {
     HeaderImg,
+    Breadcrumb,
   },
 };
 </script>

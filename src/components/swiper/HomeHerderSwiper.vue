@@ -1,4 +1,5 @@
 <template>
+  <!-- 頁首大圖輪播 -->
   <swiper
     :centeredSlides="true"
     :loop="true"

@@ -1,4 +1,5 @@
 <template>
+  <!-- 引言用圖 -->
   <section class="row m-0 rounded-1 overflow-hidden">
     <template
       v-for="item in naturalThreatImgs"
@@ -78,16 +79,6 @@ export default {
           text: '外來種入侵',
           img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625127388125.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=TgxsXewMCVxhphqDz2qry8NzJjU3I0CWXko0vWSmL%2FEeU9oe3%2BaAFlMp5GF0O82SjFYByUzKldixsijxSbaVu%2BUxw5%2B%2BecewJBluPl88Y%2BbHZHdTSBvWo9x4g6MBzZ2Wh8enT8MrcyGyAPU9jQ%2FjZPTNLQfGHoM0Rct8OEfzR6cbZ%2BMCgx%2Bgx%2FhRzCBCqSSH%2B3z9yl3b5ZCOoPROpZaDgiJbUQFH5riNVGs6tidXkeW5S79v0zp0HKiH14C0f%2F89uTKNBxpPY2tYvM1wuTC9zqPwOjqENZWm%2FUKKKlv5hTCuGolsZA%2BZcIuVfUwRpLkhbchPGBSel4uvbdE84wa48A%3D%3D',
         },
-        // {
-        //   id: 3,
-        //   text: '流浪貓狗侵略',
-        //   img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624809241290.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J%2FlPCMGLNe80ezqK6b60xxZZXtCioV9kiTC1SDcP3fNSQJprQPFpcQU2wpcy9dsZe1Xl7TdM7VxENM5WBApYKhyZos20d9fdgpNJ%2BfO3qBlADa8AoN1ehU4Gmomp4GzmZ6I0zSwav%2BSgTbEDHeijq%2BtkQYWyUrlY%2B%2FcF9uB%2B9spcPbjPnNyod8aA8nsQbQtTV8s8LgGcRGXAdQr6VurtmdimoHnAwZ79jLf1A7jcZIMCCIUbucmbc4NKe6Rc1eZWMMBY6BNR6qcO8YXyj%2B6AlhEjEZ4s1sZRSn9nb%2FghAW6YnEhWFV2qTxVQD6YxTeBBqaXpPSVoRt7B83LEyan0ng%3D%3D',
-        // },
-        // {
-        //   id: 4,
-        //   text: '惡意放生',
-        //   img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624809241290.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=J%2FlPCMGLNe80ezqK6b60xxZZXtCioV9kiTC1SDcP3fNSQJprQPFpcQU2wpcy9dsZe1Xl7TdM7VxENM5WBApYKhyZos20d9fdgpNJ%2BfO3qBlADa8AoN1ehU4Gmomp4GzmZ6I0zSwav%2BSgTbEDHeijq%2BtkQYWyUrlY%2B%2FcF9uB%2B9spcPbjPnNyod8aA8nsQbQtTV8s8LgGcRGXAdQr6VurtmdimoHnAwZ79jLf1A7jcZIMCCIUbucmbc4NKe6Rc1eZWMMBY6BNR6qcO8YXyj%2B6AlhEjEZ4s1sZRSn9nb%2FghAW6YnEhWFV2qTxVQD6YxTeBBqaXpPSVoRt7B83LEyan0ng%3D%3D',
-        // },
         {
           id: 5,
           text: '海洋汙染',

@@ -2,32 +2,13 @@
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent">
     <section class="py-4">
+
       <!-- 麵包屑&搜尋 -->
-      <nav
-        style="--bs-breadcrumb-divider: '>'"
-        aria-label="breadcrumb"
-      >
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item">
-            <router-link
-              to="/products"
-              class="link-secondary"
-            >線上商城</router-link>
-          </li>
-          <li class="breadcrumb-item">
-            <router-link
-              to="/cart"
-              class="link-secondary"
-            >購物車</router-link>
-          </li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-          >訂單確認</li>
-        </ol>
-      </nav>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
+
       <!-- 訂單確認 & 付款 -->
       <h1 class="text-center fw-bold mb-4">訂單成立</h1>
       <section class="container">
@@ -35,7 +16,9 @@
           <!-- 訂單明細 -->
           <main class="col-md-12 col-lg-9">
             <section class="px-5 py-5 mb-5 rounded shadow bg-white">
-              <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
+              <h3 class="h5 text-center fw-bold mt-3">
+                訂單編號
+              </h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3">
                 {{ order.id }}
               </p>
@@ -222,8 +205,9 @@
 </template>
 
 <script>
-import Progress from '@/components/CartProgress.vue';
 import { swalFn } from '@/methods/swal';
+import Breadcrumb from '@/components/Breadcrumb.vue';
+import Progress from '@/components/CartProgress.vue';
 
 export default {
   name: 'OrderCheck',
@@ -232,7 +216,7 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true, // true 禁用; false 啟用
-      progressNum: 66,
+      progressNum: 66, // 進度條
       order: { // 單一訂單
         id: '',
         data: {
@@ -241,9 +225,22 @@ export default {
           total: Number,
         },
       },
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '線上商城',
+            url: '/products',
+          },
+          {
+            title: '購物車',
+            url: '/cart',
+          },
+        ],
+        purpose: '訂單確認', // 目前頁面
+      },
     };
   },
-  components: { Progress },
+  components: { Progress, Breadcrumb },
   methods: {
     getOrder(id) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order/${id}`;

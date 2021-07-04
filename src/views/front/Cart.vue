@@ -3,25 +3,11 @@
   <section class="container pageContent">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <nav
-        style="--bs-breadcrumb-divider: '>'"
-        aria-label="breadcrumb"
-      >
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item">
-            <router-link
-              to="/products"
-              class="link-secondary"
-            >線上商城</router-link>
-          </li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-          >購物車</li>
-        </ol>
-      </nav>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
+
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">購物車</h1>
       <div class="container">
@@ -206,6 +192,7 @@
 
 <script>
 import { swalFn } from '@/methods/swal';
+import Breadcrumb from '@/components/Breadcrumb.vue';
 import Progress from '@/components/CartProgress.vue';
 
 export default {
@@ -214,15 +201,24 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true,
-      progressNum: 0,
+      progressNum: 0, // 進度條
       carts: {},
-      couponNum: {
+      couponNum: { // 優惠券
         code: 'Y2021M03YIP',
       },
-      isDiscount: false,
+      isDiscount: false, // 是否已使用折扣
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '線上商城',
+            url: '/products',
+          },
+        ],
+        purpose: '購物車', // 目前頁面
+      },
     };
   },
-  components: { Progress },
+  components: { Progress, Breadcrumb },
   methods: {
     getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

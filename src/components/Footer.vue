@@ -1,4 +1,5 @@
 <template>
+  <!-- 頁尾 -->
   <footer
     class="p-3 text-center"
     :class="colors.backgroundColor"

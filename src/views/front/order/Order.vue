@@ -2,30 +2,10 @@
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent">
     <section class="py-4">
+
       <!-- 麵包屑&搜尋 -->
-      <nav
-        style="--bs-breadcrumb-divider: '>'"
-        aria-label="breadcrumb"
-      >
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item">
-            <router-link
-              to="/products"
-              class="link-secondary"
-            >線上商城</router-link>
-          </li>
-          <li class="breadcrumb-item">
-            <router-link
-              to="/cart"
-              class="link-secondary"
-            >購物車</router-link>
-          </li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-          >填寫訂單資料</li>
-        </ol>
-      </nav>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
@@ -261,8 +241,9 @@
 </template>
 
 <script>
-import Progress from '@/components/CartProgress.vue';
 import { swalFn } from '@/methods/swal';
+import Breadcrumb from '@/components/Breadcrumb.vue';
+import Progress from '@/components/CartProgress.vue';
 
 export default {
   name: 'Order',
@@ -270,15 +251,28 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true, // true 禁用; false 啟用
-      progressNum: 33,
+      progressNum: 33, // 進度條
       carts: {},
       userDatas: { // 未送訂單: 訂單資料
         user: {},
       },
       isFundraising: true,
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '線上商城',
+            url: '/products',
+          },
+          {
+            title: '購物車',
+            url: '/cart',
+          },
+        ],
+        purpose: '填寫訂單資料', // 目前頁面
+      },
     };
   },
-  components: { Progress },
+  components: { Progress, Breadcrumb },
   methods: {
     getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

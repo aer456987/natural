@@ -1,4 +1,5 @@
 <template>
+  <!-- 數字跳轉效果 -->
   <span
     ref="number"
     :id="countId"

@@ -1,32 +1,13 @@
 <template>
   <section class="container pageContent">
     <section class="py-4">
+
       <!-- 麵包屑&搜尋 -->
-      <nav
-        style="--bs-breadcrumb-divider: '>'"
-        aria-label="breadcrumb"
-      >
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item">
-            <router-link
-              to="/products"
-              class="link-secondary"
-            >線上商城</router-link>
-          </li>
-          <li class="breadcrumb-item">
-            <router-link
-              to="/cart"
-              class="link-secondary"
-            >購物車</router-link>
-          </li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-          >訂單確認</li>
-        </ol>
-      </nav>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
+
       <!-- 感謝信 -->
       <h1 class="pb-5 text-center fw-bold">付款成功</h1>
       <section class="container">
@@ -57,16 +38,30 @@
 
 <script>
 import { swalFn } from '@/methods/swal';
+import Breadcrumb from '@/components/Breadcrumb.vue';
 import Progress from '@/components/CartProgress.vue';
 
 export default {
   name: 'OrderPaid',
   data() {
     return {
-      progressNum: 100,
+      progressNum: 100, // 進度條
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '線上商城',
+            url: '/products',
+          },
+          {
+            title: '購物車',
+            url: '/cart',
+          },
+        ],
+        purpose: '付款完成', // 目前頁面
+      },
     };
   },
-  components: { Progress },
+  components: { Progress, Breadcrumb },
   created() {
     swalFn('已完成付款', 'success');
   },

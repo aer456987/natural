@@ -1,5 +1,5 @@
 <template>
-  <!-- 商品 Modal -->
+  <!-- 優惠券 Modal -->
   <section
     class="modal fade m-0"
     id="productModal"
