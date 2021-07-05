@@ -51,7 +51,12 @@
           <span class="border">刪除</span>
         </li>
       </ul>
-      <button class="btn btn-primary">按鈕</button>
+      <router-link
+        to="/cart"
+        class="nav-link btn btn_main"
+      >
+        按鈕123
+      </router-link>
     </div>
   </div>
 
