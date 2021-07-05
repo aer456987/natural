@@ -153,15 +153,14 @@ body{
   }
 }
 
-// 購物車數量
-.cart_num{
+// 最愛收藏數量&購物車數量 共同設定
+.num_icon{
   position: absolute;
-  top: -8px;
-  left: 10px;
   width: 26px;
   height: 26px;
+  top: -8px;
+  left: 10px;
   border-radius: 100%;
-  // border: solid 2px $primary;
   font-family: 'Vibur';
   font-size: 5px;
   font-weight: bold;
@@ -179,6 +178,35 @@ body{
   &:hover{
     color: $primary;
   }
+}
+
+// 我的最愛按鈕(全商品
+.favorite_icon_background{
+  position: absolute;
+  top: 0;
+  right: 10px;
+  border-radius: 0 0 10px 10px;
+  background-color: $white;
+}
+
+.favorite_icon {
+  padding: 12px;
+  color: rgba($danger, .2);
+  transform: scale(.9);
+  transition-duration: .3s;
+  cursor: pointer;
+
+  &:hover{
+    color: $danger;
+    transform: scale(1.1);
+    transition-duration: .3s;
+    cursor: pointer;
+  }
+}
+
+.btn-check:checked + .favorite_icon{
+  transform: scale(1.1);
+  color: $danger;
 }
 
 // 主要按鈕

@@ -39,8 +39,5 @@ export default {
   props: ['breadcrumbData'],
   // previous: {}, 上一個(多個)
   // purpose: {}, 目前頁面
-  created() {
-    console.log('breadcrumbData', this.breadcrumbData);
-  },
 };
 </script>

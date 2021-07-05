@@ -123,12 +123,14 @@
                   type="button"
                   class="btn btn_main py-1 w-100"
                   @click="addCart"
-                >加入購物車</button>
+                >
+                  加入購物車
+                </button>
               </div>
 
-              <span class="col-2 px-2 btn text-end">
-                <i class="bi bi-heart-fill btn_red"></i>
-              </span>
+              <div class="col-2 p-0 text-end">
+                <FavoriteIcon :idData="productId"></FavoriteIcon>
+              </div>
             </div>
             <p class="text-danger">
               <span v-if="tempProduct.category === '募款專案'">
@@ -158,9 +160,10 @@
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import { swalFn } from '@/methods/swal';
+import FavoriteIcon from '@/components/Favorite.vue';
 
 export default {
   name: 'Product',
@@ -187,7 +190,10 @@ export default {
       },
     };
   },
-  components: { Breadcrumb },
+  components: {
+    Breadcrumb,
+    FavoriteIcon,
+  },
   methods: {
     getProduct() { // 取得單筆資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/product/${this.productId}`;

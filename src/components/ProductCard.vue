@@ -22,6 +22,13 @@
           />
         </div>
       </router-link>
+      <span class="favorite_icon_background shadow-sm">
+        <FavoriteIcon
+          ref="favorit"
+          :idData="product"
+          @add-favorite-fn="addFavoriteItem"
+        ></FavoriteIcon>
+      </span>
 
       <div
         class="row card-body bg-white rounded-bottom px-2 py-3 m-0
@@ -53,6 +60,7 @@
 
 <script>
 import bus from '@/methods/bus';
+import FavoriteIcon from '@/components/Favorite.vue';
 import { swalFn } from '@/methods/swal';
 
 export default {
@@ -66,8 +74,10 @@ export default {
         qty: 1,
       },
       cartsLength: Number,
+      myFavorits: this.$refs.favorit.getFavorits() || [],
     };
   },
+  components: { FavoriteIcon },
   methods: {
     addCart(data) { // 加入購物車
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
@@ -117,6 +127,16 @@ export default {
           console.log('(失敗-cart)取得購物車數量 err:');
           console.dir(err);
         });
+    },
+    addFavoriteItem(idData) { // 加入最愛
+      // indexOf? / includes ?
+      if (this.myFavorits.includes(idData)) {
+        this.myFavorits.splice(this.myFavorits.indexOf(idData), 1);
+      } else {
+        this.myFavorits.push(idData);
+      }
+      this.$refs.favorit.saveFavorit(this.myFavorits);
+      console.log('資料', this.$refs.favorit.getFavorits());
     },
   },
 };

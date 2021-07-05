@@ -43,7 +43,9 @@
         <button
           class="btn btn-brown"
           @click="openModal(true)"
-        >新增產品</button>
+        >
+          新增產品
+        </button>
 
         <button
           type="button"
