@@ -172,7 +172,6 @@ export default {
         this.isNew = false;
         this.btnStatus = false;
         this.updataCouponData = JSON.parse(JSON.stringify(coupon));
-        this.$refs.couponModal.resetForm();
       }
       this.$refs.couponModal.openCouponModal();
     },
