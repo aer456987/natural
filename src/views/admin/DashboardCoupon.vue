@@ -104,6 +104,7 @@
       ref="couponModal"
       :modal-coupon="updataCouponData"
       :modal-isNew ="isNew"
+      :modal-btn-status="btnStatus"
       @modal-update-coupon="updateCoupon"
     ></CouponModal>
   </section>
@@ -121,10 +122,10 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: Boolean, // true 禁用; false 啟用
-      couponSearch: '',
-      couponPagination: {},
+      couponSearch: '', // 搜尋功能
+      couponPagination: {}, // 分頁
       couponDatas: [],
-      isNew: Boolean,
+      isNew: Boolean, // modal新增/修改
       updataCouponData: {},
     };
   },
@@ -159,6 +160,7 @@ export default {
       if (isNew) {
         this.isNew = true;
         this.btnStatus = true;
+        this.$refs.couponModal.resetForm();
         this.updataCouponData = {
           title: '',
           code: '',
@@ -170,6 +172,7 @@ export default {
         this.isNew = false;
         this.btnStatus = false;
         this.updataCouponData = JSON.parse(JSON.stringify(coupon));
+        this.$refs.couponModal.resetForm();
       }
       this.$refs.couponModal.openCouponModal();
     },
@@ -236,6 +239,7 @@ export default {
   },
   mounted() {
     this.getCoupons();
+    this.$refs.couponModal.resetForm();
   },
 };
 </script>

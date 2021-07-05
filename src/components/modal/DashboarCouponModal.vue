@@ -31,6 +31,7 @@
         >
 
           <Form
+            ref="couponForm"
             v-slot="{ errors }"
             class="row"
             @change="checkInputValue"
@@ -92,7 +93,7 @@
 
               <Field
                 type="number"
-                min='1'
+                value='1'
                 name="折扣 % 數"
                 placeholder="請輸入折扣 % 數"
                 id="modalPercent"
@@ -216,6 +217,9 @@ export default {
     },
     hideCouponModal() {
       this.couponModal.hide();
+    },
+    resetForm() {
+      this.$refs.couponForm.resetForm();
     },
     checkInputValue() { // 驗證欄位是否為空
       const { title, code, percent } = this.tempCouponData;
