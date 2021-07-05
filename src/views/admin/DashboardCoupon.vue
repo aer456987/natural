@@ -160,6 +160,9 @@ export default {
         this.isNew = true;
         this.btnStatus = true;
         this.updataCouponData = {
+          title: '',
+          code: '',
+          percent: 0,
           due_date: Math.floor(Date.now() / 1000),
           is_enabled: 0,
         };

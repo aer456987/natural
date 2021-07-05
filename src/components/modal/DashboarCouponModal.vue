@@ -218,10 +218,7 @@ export default {
       this.couponModal.hide();
     },
     checkInputValue() { // 驗證欄位是否為空
-      const {
-        title, code, percent,
-      } = this.tempCouponData;
-
+      const { title, code, percent } = this.tempCouponData;
       if (
         title === undefined
         || code === undefined
