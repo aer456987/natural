@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/functions";
-@import "@/assets/helpers/variables";
+@import "./helpers/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap";
 @import '~bootstrap-icons/font/bootstrap-icons.css';
@@ -7,13 +7,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap');
 
-@import "@/assets/helpers/swalStyle.scss";
-@import "@/assets/helpers/swiperStyle.scss";
+@import "./helpers/swalStyle.scss";
+@import "./helpers/swiperStyle.scss";
 
-@import "@/assets/custom/generalSettingStyle.scss";
-@import "@/assets/custom/productCardStyle.scss";
-@import "@/assets/custom/logosStyle.scss";
-@import "@/assets/custom/buttonsStyle.scss";
-@import "@/assets/custom/iconsStyle.scss";
-@import "@/assets/custom/progressStyle.scss";
-@import "@/assets/custom/homeAnimation.scss";
+@import "./custom/generalSettingStyle.scss";
+@import "./custom/productCardStyle.scss";
+@import "./custom/logosStyle.scss";
+@import "./custom/buttonsStyle.scss";
+@import "./custom/iconsStyle.scss";
+@import "./custom/progressStyle.scss";
+
+@import "./animation/homeAnimation.scss";
