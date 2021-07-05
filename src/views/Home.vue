@@ -2,7 +2,9 @@
   <HomeNavBar
     class="transition-duration_1"
     :class="navbarClass"
+    @open-offcanvas="openFavoritesOffcanvas"
   ></HomeNavBar>
+  <Offcanvas ref="likeOffcanvas"></Offcanvas>
 
   <header class="position-relative">
     <h1 class="position-absolute top-50 start-50 translate-middle
@@ -243,6 +245,7 @@
 
 <script>
 import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
+import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 import Footer from '@/components/Footer.vue';
 import HerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import ProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
@@ -286,6 +289,7 @@ export default {
   },
   components: {
     HomeNavBar,
+    Offcanvas,
     Footer,
     HerderSwiper,
     ProductSwiper,
@@ -295,7 +299,7 @@ export default {
     Arrow,
   },
   methods: {
-    changeNavbarStyle() {
+    changeNavbarStyle() { // nsvbar 滾動改變
       const windowY = window.scrollY;
       const main = document.querySelector('#main');
 
@@ -305,10 +309,14 @@ export default {
         this.navbarClass = 'py-3';
       }
     },
+    openFavoritesOffcanvas() { // 打開最愛收藏側藍
+      this.$refs.likeOffcanvas.openOffcanvas();
+    },
   },
   mounted() {
     // this.navbarClass = ['bg-dark-rgba-100', 'py-3'];
     window.addEventListener('scroll', this.changeNavbarStyle);
+    this.$refs.likeOffcanvas.openOffcanvas();
   },
   unmounted() { // 離開頁面後移除監聽事件
     window.removeEventListener('scroll', this.changeNavbarStyle);

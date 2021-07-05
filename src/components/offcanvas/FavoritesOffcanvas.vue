@@ -19,7 +19,39 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      ...
+      <ul class="list-style ">
+        <li>
+          <span class="border">圖片</span>
+          <span class="border">名稱</span>
+          <span class="border">數量</span>
+          <span class="border">刪除</span>
+        </li>
+        <li>
+          <span class="border">圖片</span>
+          <span class="border">名稱</span>
+          <span class="border">數量</span>
+          <span class="border">刪除</span>
+        </li>
+        <li>
+          <span class="border">圖片</span>
+          <span class="border">名稱</span>
+          <span class="border">數量</span>
+          <span class="border">刪除</span>
+        </li>
+        <li>
+          <span class="border">圖片</span>
+          <span class="border">名稱</span>
+          <span class="border">數量</span>
+          <span class="border">刪除</span>
+        </li>
+        <li>
+          <span class="border">圖片</span>
+          <span class="border">名稱</span>
+          <span class="border">數量</span>
+          <span class="border">刪除</span>
+        </li>
+      </ul>
+      <button class="btn btn-primary">按鈕</button>
     </div>
   </div>
 

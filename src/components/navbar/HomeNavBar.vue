@@ -3,7 +3,7 @@
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-2
       position-fixed z-index-3 w-100"
-    :class="{ 'bg-primary-rgba-900': isClassChange }"
+    :cxlass="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
       <router-link
@@ -52,7 +52,7 @@
           <li class="nav-item scale">
             <a
               class="nav-link pointer_no_hover"
-              @click="openFavoritesOffcanvas"
+              @click="$emit('openOffcanvas')"
             >
               <i class="bi bi-heart-fill position-relative">
                 <span
@@ -83,13 +83,10 @@
       </div>
     </div>
   </nav>
-
-  <Offcanvas ref="likeOffcanvas"></Offcanvas>
 </template>
 
 <script>
 import bus from '@/methods/bus';
-import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 
 export default {
   name: 'HomeNavBar',
@@ -98,10 +95,9 @@ export default {
       cartsLength: 0,
       newLength: 0,
       isClassChange: false,
-      // newClass: 'bg-dark-rgba-100',
     };
   },
-  components: { Offcanvas },
+  emits: ['openOffcanvas'],
   methods: {
     updateCartLength() { // 取得購物車數量
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
@@ -122,9 +118,6 @@ export default {
           console.log('(失敗-全域)取得購物車數量 err:');
           console.dir(err);
         });
-    },
-    openFavoritesOffcanvas() { // 打開最愛收藏側藍
-      this.$refs.likeOffcanvas.openOffcanvas();
     },
   },
   mounted() {
