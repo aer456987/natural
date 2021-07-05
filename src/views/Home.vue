@@ -7,16 +7,19 @@
   <Offcanvas ref="likeOffcanvas"></Offcanvas>
 
   <header class="position-relative">
-    <h1 class="position-absolute top-50 start-50 translate-middle
-      z-index-2 text-center fw-bold text-light text-shadow"
-    >
-      <p class="h3 mb-3">
-        有個聲音正在向你求救，<br>
-        但你卻看不到它們。
-      </p>
-      你，<br>
-      聽見它們的聲音了嗎？
-    </h1>
+    <span class="position-absolute top-50 start-50 translate-middle
+      z-index-2 text-center fw-bold text-light text-shadow
+      ">
+        <p class="h3 mb-3 fade_animetion">
+          有個聲音正在向你求救，<br>
+          但你卻看不到它們。
+        </p>
+
+        <h1 class="fade_animetion_slow">
+          你，<br>
+          聽見它們的聲音了嗎？
+        </h1>
+    </span>
     <Arrow class="arrow_style z-index-2"
     ></Arrow>
     <HerderSwiper></HerderSwiper>

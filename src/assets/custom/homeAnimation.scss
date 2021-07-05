@@ -1,0 +1,39 @@
+.fade_animetion{
+  animation: fadeAni 8s infinite;
+  animation-timing-function: steps(100);
+}
+
+.fade_animetion_slow{
+  animation: fadeAni 14s infinite;
+  animation-timing-function: steps(100);
+}
+
+@keyframes fadeAni {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.translateYTop{
+  animation: translateYTop 2s 1;
+  animation-timing-function: steps(100);
+}
+
+@keyframes translateYTop {
+  0% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animation_delay{
+  animation-delay: .5s;
+}
