@@ -136,8 +136,8 @@ export default {
       } else {
         this.myFavorits.push(idData);
       }
-      this.$refs.favorit.saveFavorit(this.myFavorits);
-      console.log('資料', this.$refs.favorit.getFavorits());
+      // this.$refs.favorit.saveFavorit(this.myFavorits);
+      // console.log('資料', this.$refs.favorit.getFavorits());
     },
   },
 };

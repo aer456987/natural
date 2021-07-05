@@ -19,43 +19,76 @@
       ></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-style ">
-        <li>
-          <span class="border">圖片</span>
-          <span class="border">名稱</span>
-          <span class="border">數量</span>
-          <span class="border">刪除</span>
+      <ul class="list-unstyled px-1">
+        <li class="row justify-content-between align-items-center
+          mb-2 pb-2 border-bottom"
+        >
+          <span class="col-2 p-0">
+            <img
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624872039637.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bdpK7FIATrJpeNeHxkM52DN9pxMfHmC2nwUECqgtJoKYKfyf%2FyXmhgHCVpcYyTF9DxPTsvQokVSP58vkHOsxvD3aP37d%2FiXyKZDxlfJDH8dKH5aQbJuDcX1jkVJf9%2FxY0CClLMByX6pWhwZp%2FA7Hklne8m%2BOsNtmexJOe14tymtAWwpmvSTqq7rkmCva4A0FMmS0fuSGG5CasWVIzNxhyc9I7Pqi6Vk3kvPl0xjU2biNFmMfkpgSpkbTdnB4lvBvOn0v3r0kslHgm%2BDpdwqBvSIRRG%2F8bm5WyJsPf8h2v0tMwwQ9%2Bol%2BeB9QhWiNCp8rvszh56FF%2BzwegVN8wVYNXQ%3D%3D"
+              alt="圖片"
+              class="w-100"
+            >
+          </span>
+          <span class="col-6 px-2">
+            山林保育講座(台灣山林) <br>
+            價格
+          </span>
+          <span class="col-2 p-0 text-center">
+            <FavoriteIcon
+              ref="favorit"
+              class="p-1"
+              :idData="product"
+              @add-favorite-fn="addFavoriteItem"
+            ></FavoriteIcon>
+          </span>
+          <span class="col-2">
+            <span
+              class="btn btn_outline_green fs-4"
+            >
+              <!-- @click="addCart(product.id)" -->
+              <i class="bi bi-cart-plus-fill"></i>
+            </span>
+          </span>
         </li>
-        <li>
-          <span class="border">圖片</span>
-          <span class="border">名稱</span>
-          <span class="border">數量</span>
-          <span class="border">刪除</span>
-        </li>
-        <li>
-          <span class="border">圖片</span>
-          <span class="border">名稱</span>
-          <span class="border">數量</span>
-          <span class="border">刪除</span>
-        </li>
-        <li>
-          <span class="border">圖片</span>
-          <span class="border">名稱</span>
-          <span class="border">數量</span>
-          <span class="border">刪除</span>
-        </li>
-        <li>
-          <span class="border">圖片</span>
-          <span class="border">名稱</span>
-          <span class="border">數量</span>
-          <span class="border">刪除</span>
+
+        <li class="row justify-content-between align-items-center
+          mb-2 pb-2 border-bottom"
+        >
+          <span class="col-2 p-0">
+            <img
+              src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624872039637.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bdpK7FIATrJpeNeHxkM52DN9pxMfHmC2nwUECqgtJoKYKfyf%2FyXmhgHCVpcYyTF9DxPTsvQokVSP58vkHOsxvD3aP37d%2FiXyKZDxlfJDH8dKH5aQbJuDcX1jkVJf9%2FxY0CClLMByX6pWhwZp%2FA7Hklne8m%2BOsNtmexJOe14tymtAWwpmvSTqq7rkmCva4A0FMmS0fuSGG5CasWVIzNxhyc9I7Pqi6Vk3kvPl0xjU2biNFmMfkpgSpkbTdnB4lvBvOn0v3r0kslHgm%2BDpdwqBvSIRRG%2F8bm5WyJsPf8h2v0tMwwQ9%2Bol%2BeB9QhWiNCp8rvszh56FF%2BzwegVN8wVYNXQ%3D%3D"
+              alt="圖片"
+              class="w-100"
+            >
+          </span>
+          <span class="col-6 px-2">
+            山林保育講座(台灣山林) <br>
+            價格
+          </span>
+          <span class="col-2 p-0 text-center">
+            <FavoriteIcon
+              ref="favorit"
+              class="p-1"
+              :idData="product"
+              @add-favorite-fn="addFavoriteItem"
+            ></FavoriteIcon>
+          </span>
+          <span class="col-2">
+            <span
+              class="btn btn_outline_green fs-4"
+            >
+              <!-- @click="addCart(product.id)" -->
+              <i class="bi bi-cart-plus-fill"></i>
+            </span>
+          </span>
         </li>
       </ul>
       <router-link
         to="/cart"
         class="nav-link btn btn_main"
       >
-        按鈕123
+        按鈕
       </router-link>
     </div>
   </div>
@@ -64,20 +97,26 @@
 
 <script>
 import Offcanvas from 'bootstrap/js/dist/offcanvas';
+import FavoriteIcon from '@/components/Favorite.vue';
 
 export default {
   name: 'FavoritesOffcanvas.vue',
   data() {
     return {
       offcanvas: '',
+      product: 'id',
     };
   },
+  components: { FavoriteIcon },
   methods: {
     openOffcanvas() {
       this.offcanvas.show();
     },
     hideOffcanvas() {
       this.offcanvas.hide();
+    },
+    addFavoriteItem() {
+      console.log('切換最愛收藏');
     },
   },
   mounted() {

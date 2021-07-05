@@ -316,7 +316,6 @@ export default {
   mounted() {
     // this.navbarClass = ['bg-dark-rgba-100', 'py-3'];
     window.addEventListener('scroll', this.changeNavbarStyle);
-    this.$refs.likeOffcanvas.openOffcanvas();
   },
   unmounted() { // 離開頁面後移除監聽事件
     window.removeEventListener('scroll', this.changeNavbarStyle);
