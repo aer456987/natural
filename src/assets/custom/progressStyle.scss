@@ -1,0 +1,24 @@
+// 訂單進度條
+.progress_style{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 40px;
+  background: $secondary;
+  transform: scale(1);
+  i{
+    color: $white;
+    font-size: 20px;
+  }
+}
+.progress_active{
+  width: 50px;
+  height: 50px;
+  padding: 8px 13px;
+  line-height: 30px;
+  background: $primary;
+  i{
+    font-size: 22px;
+  }
+}

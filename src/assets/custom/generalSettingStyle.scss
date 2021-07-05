@@ -1,0 +1,90 @@
+*{
+  letter-spacing: 2.5px;
+}
+
+body{
+  font-family: 'Noto Sans HK', sans-serif;
+  background: $gray-100;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+// 放大1.2倍
+.scale{
+  transform: scale(1);
+  transition-duration: .5s;
+}
+.scale:hover{
+  transform: scale(1.2);
+  transition-duration: .5s;
+}
+
+// 點擊游標
+.pointer{
+  cursor: pointer;
+  transition-duration: .3s;
+  &:hover{
+    box-shadow: 0 0 8px 2px $gray-500;
+    transition-duration: .3s;
+  }
+}
+.pointer_no_hover{
+  cursor: pointer;
+}
+
+// 圖層
+.z-index-2{
+  z-index: 2;
+}
+.z-index-3{
+  z-index: 3;
+}
+
+// 文字陰影
+.text-shadow{
+  text-shadow: 0 0 10px $dark;
+}
+
+// 動畫轉換速度
+.transition-duration_1{
+  transition-duration: .5s;
+}
+
+// 透明度
+.opacity_1{
+  opacity: .5;
+}
+
+// 寬度
+.width_xl{
+  width: 1500px !important;
+}
+
+// 高度
+// 產品頁面 多圖
+.img_view{
+  height: 514px;
+}
+
+.height_xl{
+  height: 450px !important;
+}
+.height_md{
+  max-height: 300px !important;
+}
+.height_sm{
+  max-height: 120px !important;
+}
+
+// 首頁最大高度
+.max_height_lg{
+  max-height: 900px;
+}
+
+// 置中
+.set_in{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

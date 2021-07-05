@@ -1,0 +1,30 @@
+// logo
+.logo{
+  font-family: 'Vibur';
+  color: rgba($secondary, .8);
+  
+  &:hover{
+    color: $secondary;
+  }
+}
+
+.logo_brown{
+  font-family: 'Vibur';
+  color: $brown-500;
+  &:hover{
+    color: $warning;
+  }
+  &:focus{
+    color: $warning;
+  }
+}
+
+.logo_home{
+  font-family: 'Vibur';
+  color: white;
+  transition-duration: .3s;
+  &:hover, &:focus{
+    color: rgba($secondary, .7);
+    transition-duration: .3s;
+  }
+}

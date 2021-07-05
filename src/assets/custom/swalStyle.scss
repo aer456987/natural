@@ -1,0 +1,40 @@
+// 彈跳視窗
+.swal-modal{
+  width: auto;
+  padding: 50px 60px;
+}
+
+.swal-title{
+  color: $primary;
+}
+
+.swal-text{
+  max-width: none;
+}
+
+.swal-button{
+  font-size: 16px;
+}
+
+.swal-icon:first-child{
+  margin: 20px auto;
+}
+.swal-icon--success__ring {
+  border-color: rgba($custom-green, .2);
+}
+.swal-icon--success__line{
+  background-color: $custom-green;
+}
+.swal-icon--success{
+  border-color: $custom-green;
+}
+
+.swal-icon--warning__body{
+  height: 38px;
+  top: 15px;
+}
+
+.swal-icon--warning__dot{
+  bottom: -13px;
+  margin-left: -3px;
+}

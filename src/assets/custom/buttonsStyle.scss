@@ -1,0 +1,50 @@
+// 主要按鈕
+.btn_main{
+  padding: 8px;
+  color: white;
+  background: $primary;
+  &:hover{
+    color: white;
+    background: $secondary;
+  }
+}
+
+// 我的最愛 & 購物車按鈕 & 購物車數量 +/-
+.btn_red, .btn_light_green{
+  font-size: 26px;
+  transform: scale(1);
+  transition-duration: .5s;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.2);
+    transition-duration: .5s;
+  }
+}
+
+// 加入購物車按鈕
+.btn_outline_green{
+  border: solid 1px $secondary;
+  color: $secondary;
+  &:hover{
+    color: $brown-500;
+    background: $secondary;
+  }
+}
+
+.btn_red{
+  color: rgba($red, .3);
+  &:hover{
+    color: $red;
+  }
+}
+
+// 購物車 +/-
+.btn_light_green{
+  padding: 0px 10px;
+  color: $secondary;
+  background: $white; // transparent
+  z-index: 1;
+  &:hover{
+    color: $primary;
+  }
+}

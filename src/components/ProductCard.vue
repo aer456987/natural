@@ -74,7 +74,8 @@ export default {
         qty: 1,
       },
       cartsLength: Number,
-      myFavorits: this.$refs.favorit.getFavorits() || [],
+      myFavorits: [],
+      // this.$refs.favorit.getFavorits() ||
     };
   },
   components: { FavoriteIcon },

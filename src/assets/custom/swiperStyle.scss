@@ -1,0 +1,44 @@
+@import '~swiper/swiper.scss';
+@import "~swiper/components/effect-coverflow/effect-coverflow.min.css";
+@import "~swiper/components/pagination/pagination.min.css";
+
+// 首頁產品列 Swiper
+.productSwiper_title{
+  width: 100%;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(-50%);
+  padding: 10px;
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 0 0 20px $dark;
+  color: $white;
+  background: rgba($white, .3);
+  transition-duration: .5s;
+  opacity: 1;
+}
+
+.productSwiper_text{
+  height: 0;
+  color: $dark;
+  transform: translateY(20px);
+  transition-duration: .5s;
+  opacity: 0;
+}
+
+.productSwiper_content:hover{
+  .productSwiper_title{
+    padding-top: 50%;
+    padding-bottom: 45%;
+    text-shadow: rgba($dark, 1);
+    background: rgba($white, .7);
+    transition-duration: .5s;
+  }
+
+  .productSwiper_text{
+    transform: translateY(0);
+    transition-delay: .5s;
+    transition-duration: .5s;
+    opacity: 1;
+  }
+}
