@@ -1,39 +1,13 @@
-<template class="pageContent">
+<template>
   <Loading :status="loadingStatus"></Loading>
   <section class="bg-white">
-    <section class="container">
+    <section class="container pageContent py-4">
+
       <!-- 麵包屑&搜尋 -->
-      <nav
-        style="--bs-breadcrumb-divider: '>'"
-        aria-label="breadcrumb"
-        class="py-4"
-      >
-        <ol class="breadcrumb m-0">
-          <li class="breadcrumb-item">
-            <router-link
-              to="/home"
-              class="link-secondary"
-            >首頁</router-link>
-          </li>
-          <li class="breadcrumb-item">
-            <router-link
-              to="/products"
-              class="link-secondary"
-            >
-              線上商城
-            </router-link>
-          </li>
-          <li
-            class="breadcrumb-item active"
-            aria-current="page"
-          >
-            {{ tempProduct.title }}
-          </li>
-        </ol>
-      </nav>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
       <!-- 主要頁面 -->
-      <section class="row mb-1 pb-5 align-items-center">
+      <section class="row mb-1 pt-3 pb-5 align-items-center">
         <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5">
           <img
@@ -184,8 +158,9 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
+import Breadcrumb from '@/components/Breadcrumb.vue';
+import { swalFn } from '@/methods/swal';
 
 export default {
   name: 'Product',
@@ -196,9 +171,23 @@ export default {
       productImg: '',
       tempProduct: {},
       qty: Number,
-      cartsLength: Number,
+      cartsLength: Number, // 購物車長度
+      breadcrumbData: { // 麵包屑
+        previous: [ // 上一個(多個)
+          {
+            title: '首頁',
+            url: '/home',
+          },
+          {
+            title: '線上商城',
+            url: '/products',
+          },
+        ],
+        purpose: '', // 目前頁面
+      },
     };
   },
+  components: { Breadcrumb },
   methods: {
     getProduct() { // 取得單筆資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/product/${this.productId}`;
@@ -209,6 +198,7 @@ export default {
           if (res.data.success) {
             this.tempProduct = res.data.product;
             this.productImg = this.tempProduct.imageUrl;
+            this.breadcrumbData.purpose = this.tempProduct.title;
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-前台)取得單一商品 res:', res);
