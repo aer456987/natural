@@ -29,7 +29,9 @@
           v-if="tempCouponData"
           class="modal-body"
         >
-          <form
+
+          <Form
+            v-slot="{ errors }"
             class="row"
             @change="checkInputValue"
           >
@@ -40,14 +42,20 @@
               >
                 優惠券名稱<span class="text-danger fw-bold">*</span>
               </label>
-              <input
+              <Field
                 type="text"
-                id="modalTitle"
                 name="優惠券名稱"
-                class="form-control mb-2"
                 placeholder="請輸入優惠券名稱"
+                id="modalTitle"
+                class="form-control mb-2"
+                :class="{ 'is-invalid': errors['優惠券名稱'] }"
+                rules="required"
                 v-model="tempCouponData.title"
-              >
+              ></Field>
+              <error-message
+                name="優惠券名稱"
+                class="invalid-feedback mb-1"
+              ></error-message>
             </span>
 
             <span class="col-12">
@@ -57,14 +65,21 @@
               >
                 優惠碼<span class="text-danger fw-bold">*</span>
               </label>
-              <input
+
+              <Field
                 type="text"
-                id="modalCode"
                 name="優惠碼"
-                class="form-control mb-2"
                 placeholder="請輸入優惠碼"
+                id="modalCode"
+                class="form-control mb-2"
+                :class="{ 'is-invalid': errors['優惠碼'] }"
+                rules="required"
                 v-model="tempCouponData.code"
-              >
+              ></Field>
+              <error-message
+                name="優惠碼"
+                class="invalid-feedback mb-1"
+              ></error-message>
             </span>
 
             <span class="col-12">
@@ -74,15 +89,22 @@
               >
                 折扣 % 數<span class="text-danger fw-bold">*</span>
               </label>
-              <input
+
+              <Field
                 type="number"
-                id="modalPercent"
                 min='1'
                 name="折扣 % 數"
-                class="form-control mb-2"
                 placeholder="請輸入折扣 % 數"
+                id="modalPercent"
+                class="form-control"
+                :class="{ 'is-invalid': errors['折扣 % 數'] }"
+                rules="required|numeric"
                 v-model.number="tempCouponData.percent"
-              >
+              ></Field>
+              <error-message
+                name="折扣 % 數"
+                class="invalid-feedback mb-1"
+              ></error-message>
             </span>
 
             <span class="col-12">
@@ -124,7 +146,8 @@
               * 為必填項目
             </span>
 
-          </form>
+          </Form>
+
         </section>
         <div class="modal-footer">
           <button
