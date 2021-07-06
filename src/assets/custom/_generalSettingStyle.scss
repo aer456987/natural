@@ -83,8 +83,11 @@ body{
 
 // 置中
 .set_in{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include moveUp;
+  transition-duration: 3s;
+}
+
+.move_up_start{
+  @include moveUp(55%);
+  transition-duration: 3s;
 }

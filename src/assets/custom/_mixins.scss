@@ -1,0 +1,12 @@
+@mixin moveUp($top: 50%) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// animetion 動畫
+@mixin animetion_init($animetionName, $seconds, $infinite) {
+  animation: $animetionName $seconds $infinite;
+  animation-timing-function: steps(100);
+}

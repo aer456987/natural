@@ -1,11 +1,9 @@
 .fade_animetion{
-  animation: fadeAni 8s infinite;
-  animation-timing-function: steps(100);
+  @include animetion_init(fadeAni, 10s, infinite);
 }
 
 .fade_animetion_slow{
-  animation: fadeAni 14s infinite;
-  animation-timing-function: steps(100);
+  @include animetion_init(fadeAni, 14s, infinite);
 }
 
 @keyframes fadeAni {

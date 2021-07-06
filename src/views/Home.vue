@@ -1,24 +1,25 @@
 <template>
   <HomeNavBar
     class="transition-duration_1"
-    :class="navbarClass"
+    :class="classStyle.navbarClass"
     @open-offcanvas="openFavoritesOffcanvas"
   ></HomeNavBar>
   <Offcanvas ref="likeOffcanvas"></Offcanvas>
 
   <header class="position-relative">
-    <span class="position-absolute top-50 start-50 translate-middle
-      z-index-2 text-center fw-bold text-light text-shadow
-      ">
-        <p class="h3 mb-3 fade_animetion">
-          有個聲音正在向你求救，<br>
-          但你卻看不到它們。
-        </p>
+    <span
+      class="headerTitleStyle z-index-2
+        text-center text-light text-shadow"
+    >
+      <p class="headerTitleStyle_text fade_animetion">
+        有個聲音正在向你求救，<br>
+        但你卻看不到它們。
+      </p>
 
-        <h1 class="fade_animetion_slow">
-          你，<br>
-          聽見它們的聲音了嗎？
-        </h1>
+      <h1 class="headerTitleStyle_title fw-bold fade_animetion_slow">
+        你，<br>
+        聽見它們的聲音了嗎？
+      </h1>
     </span>
     <Arrow class="arrow_style z-index-2"
     ></Arrow>
@@ -246,6 +247,13 @@
   ></Footer>
 </template>
 
+<style lang="sass">
+@import '../assets/allStyle';
+@import "../assets/animation/homeAnimation";
+@import "../assets/custom/homeRWDStyle";
+
+</style>
+
 <script>
 import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
 import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
@@ -287,7 +295,9 @@ export default {
           text: '合作廠商',
         },
       ],
-      navbarClass: 'py-3',
+      classStyle: {
+        navbarClass: ['py-sm-1', 'py-md-3'],
+      },
     };
   },
   components: {
@@ -305,11 +315,12 @@ export default {
     changeNavbarStyle() { // nsvbar 滾動改變
       const windowY = window.scrollY;
       const main = document.querySelector('#main');
+      console.log(windowY);
 
       if (windowY > main.offsetTop - 120) {
-        this.navbarClass = ['bg-primary', 'py-1'];
+        this.classStyle.navbarClass = ['bg-primary', 'py-1'];
       } else {
-        this.navbarClass = 'py-3';
+        this.classStyle.navbarClass = ['py-sm-1', 'py-md-3'];
       }
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側藍

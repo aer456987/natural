@@ -1,0 +1,42 @@
+// 每個頁面的主頁範圍
+.pageContent{
+  min-height: 800px;
+}
+
+// 標題風格
+.title_style{
+  border-radius: 8px;
+  text-shadow: 0 0 20px rgba($dark, .3);
+  background: rgba($white, .4);
+}
+
+// 自訂連結
+.custom_secondary_link{
+  padding: 8px;
+  color: $secondary;
+  transition-duration: .3s;
+  &:hover{
+    color: $primary;
+  }
+}
+
+// 購物車表格
+.table_style{
+  max-width: 900px;
+  margin: 0px auto;
+}
+
+tbody{
+  th, td{
+    vertical-align: middle;
+  }
+}
+
+// 箭頭
+.arrow_style{
+  position: absolute;
+  height: 10%;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -3,7 +3,7 @@
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-2
       position-fixed z-index-3 w-100"
-    :cxlass="{ 'bg-primary-rgba-900': isClassChange }"
+    :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
       <router-link
