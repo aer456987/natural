@@ -57,9 +57,9 @@
               <i class="bi bi-heart-fill position-relative">
                 <span
                   class="num_icon"
-                  v-if="cartsLength > 0"
+                  v-if="favoritsLength > 0"
                 >
-                  {{ cartsLength || newLength }}
+                  {{ favoritsLength || newfavoritsLength }}
                 </span>
               </i>
             </a>
@@ -122,9 +122,14 @@ export default {
           console.dir(err);
         });
     },
+    updateFavoritsLength() { // 取得最愛收藏數量
+      this.favoritsLength = this.homeFavoritsList.length;
+      this.newfavoritsLength = this.homeFavoritsList.length;
+    },
   },
   mounted() {
     this.updateCartLength();
+    this.updateFavoritsLength();
     // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;

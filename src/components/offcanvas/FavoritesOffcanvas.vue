@@ -20,13 +20,13 @@
               >
                 清空收藏
               </button>
-              <button
+              <!-- <button
                 type="button"
                 class="btn btn-outline-dark btn-sm mx-1"
                 @click="renderFavorite"
               >
                 刷新
-              </button>
+              </button> -->
             </span>
           </h3>
         </div>
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="offcanvas-body">
-      <template v-if="offcanvasFavoritsList.length > 1">
+      <template v-if="offcanvasFavoritsList.length > 0">
         <ul class="list-unstyled px-1 mb-5">
           <template
             v-for="favoritItme in newFavoritsData"
@@ -55,8 +55,8 @@
                 <FavoriteIcon
                   ref="favoritIcon"
                   :idData="favoritItme.id"
-                  @favorite-fn="delFavoriteItem"
                 ></FavoriteIcon>
+                  <!-- @favorite-fn="delFavoriteItem" -->
               </span>
               <span class="col-1 p-0">
                 <img
@@ -155,54 +155,43 @@ export default {
       this.renderFavorite();
     },
   },
+  emits: ['resetFn'],
   methods: {
     openOffcanvas(data) {
       this.offcanvasFavoritsList = data;
-      console.log(this.offcanvasFavoritsList);
-      this.renderFavorite();
       this.offcanvas.show();
     },
     hideOffcanvas() {
+      this.resetFn();
       this.offcanvas.hide();
     },
     getProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
-      // this.loadingStatus = true;
+
       this.$http
         .get(url)
         .then((res) => {
           if (res.data.success) {
             this.offcanvasProducts = res.data.products;
             this.renderFavorite();
-            // this.loadingStatus = false;
-            console.log(this.offcanvasProducts);
           } else {
             console.log('(錯誤-側欄)取得全部商品資料 res:', res);
-            // this.loadingStatus = false;
           }
         })
         .catch((err) => {
           console.log('(失敗-側欄)取得全部商品資料 res:');
           console.dir(err);
-          // this.loadingStatus = false;
         });
     },
     renderFavorite() {
       this.newFavoritsData = [];
+
       this.offcanvasProducts.forEach((item, i) => {
         if (this.offcanvasFavoritsList.includes(item.id)) {
           this.offcanvasProducts[i].qty = 1;
           this.newFavoritsData.push(item);
-          console.log(this.newFavoritsData);
         }
       });
-    },
-    delFavoriteItem(idData) { // 加入最愛
-      console.log('側欄', idData);
-      this.offcanvasFavoritsList.splice(this.offcanvasFavoritsList.indexOf(idData), 1);
-      this.$refs.favoritIcon.saveFavorit(this.offcanvasFavoritsList);
-      console.log('刪除重複', this.offcanvasFavoritsList);
-      this.renderFavorite();
     },
     allDelFavorite() { // 刪除全部最愛
       this.$refs.favoritIcon.saveFavorit([]);

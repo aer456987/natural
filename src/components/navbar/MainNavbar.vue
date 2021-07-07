@@ -48,14 +48,14 @@
             <li class="nav-item scale">
               <a
                 class="nav-link pointer_no_hover"
-                @click="openFavoritesOffcanvas(mainNavbarFavoritsList)"
+                @click="openFavoritesOffcanvas()"
               >
                 <i class="bi bi-heart-fill position-relative">
                   <span
                     class="num_icon"
-                    v-if="cartsLength > 0"
+                    v-if="favoritsLength > 0"
                   >
-                    {{ cartsLength || newLength }}
+                    {{ favoritsLength || newfavoritsLength }}
                   </span>
                 </i>
               </a>
@@ -96,7 +96,7 @@ export default {
     return {
       cartsLength: 0,
       newLength: 0,
-      mainNavbarFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      mainFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
       favoritsLength: 0,
       newfavoritsLength: 0,
     };
@@ -123,12 +123,18 @@ export default {
           console.dir(err);
         });
     },
-    openFavoritesOffcanvas(data) { // 打開最愛收藏側欄
+    updateFavoritsLength() { // 取得最愛收藏數量
+      this.favoritsLength = this.mainFavoritsList.length;
+      this.newfavoritsLength = this.mainFavoritsList.length;
+    },
+    openFavoritesOffcanvas() { // 打開最愛收藏側欄
+      const data = JSON.parse(localStorage.getItem('favoritData')) || [];
       this.$refs.likeOffcanvas.openOffcanvas(data);
     },
   },
   mounted() {
     this.updateCartLength();
+    this.updateFavoritsLength();
     // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;

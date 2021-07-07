@@ -26,7 +26,6 @@
         <FavoriteIcon
           ref="favorit"
           :id-data="product.id"
-          @favorite-fn="addFavoriteItem"
         ></FavoriteIcon>
       </span>
 
@@ -74,7 +73,6 @@ export default {
         qty: 1,
       },
       cartsLength: Number,
-      myFavorits: JSON.parse(localStorage.getItem('favoritData')) || [],
     };
   },
   components: { FavoriteIcon },
@@ -128,17 +126,8 @@ export default {
           console.dir(err);
         });
     },
-    addFavoriteItem(idData) { // 加入最愛
-      console.log('idData', idData);
-      if (this.myFavorits.includes(idData)) {
-        this.myFavorits.splice(this.myFavorits.indexOf(idData), 1);
-        this.$refs.favorit.saveFavorit(this.myFavorits);
-        console.log('刪除重複', this.myFavorits);
-      } else {
-        this.myFavorits.push(idData);
-        this.$refs.favorit.saveFavorit(this.myFavorits);
-        console.log('增加成功', this.myFavorits);
-      }
+    addFavoriteItem(data) { // 加入最愛
+      this.$refs.favorit.addFavoriteItem(data);
     },
   },
 };

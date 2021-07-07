@@ -10,27 +10,28 @@
   <label
     :for="idData"
     class="favorite_icon"
-    @click="$emit('favoriteFn', idData)"
+    @click="addFavoriteItem"
   >
     <i class="bi bi-heart-fill fs-4"></i>
   </label>
 </template>
 
 <script>
+import bus from '@/methods/bus';
+
 export default {
   name: 'Favorite',
   props: ['idData'],
-  emits: ['favoriteFn'],
+  // emits: ['favoriteFn'],
   data() {
     return {
       isFavorite: false,
       favoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      newfavoritsList: [],
     };
   },
   watch: {
     idData() { // 資料狀態改變後，在確認一次最愛清單
-      console.log('資料改變後的最愛', this.idData, this.favoritsList);
-      console.log(this.favoritsList.includes(this.idData));
       this.isFavorite = this.favoritsList.includes(this.idData);
     },
   },
@@ -39,10 +40,24 @@ export default {
       const data = JSON.stringify(item);
       localStorage.setItem('favoritData', data);
     },
+    updateFavoritsNum() {
+      const newNum = JSON.parse(localStorage.getItem('favoritData'));
+      bus.emit('favorits-number', newNum.length);
+    },
+    addFavoriteItem() { // 加入最愛
+      this.favoritsList = JSON.parse(localStorage.getItem('favoritData'));
+      if (this.favoritsList.includes(this.idData)) {
+        this.favoritsList.splice(this.favoritsList.indexOf(this.idData), 1);
+        this.saveFavorit(this.favoritsList);
+        this.updateFavoritsNum();
+      } else {
+        this.favoritsList.push(this.idData);
+        this.saveFavorit(this.favoritsList);
+        this.updateFavoritsNum();
+      }
+    },
   },
   mounted() {
-    console.log('渲染時後的最愛', this.idData, this.favoritsList);
-    console.log(this.favoritsList.includes(this.idData));
     this.isFavorite = this.favoritsList.includes(this.idData);
   },
 };

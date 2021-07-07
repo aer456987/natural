@@ -132,7 +132,6 @@
                 <FavoriteIcon
                   ref="productFavorit"
                   :id-data="productId"
-                  @favorite-fn="addFavoriteItem"
                 ></FavoriteIcon>
               </div>
             </div>
@@ -285,18 +284,6 @@ export default {
           console.log('(失敗-單品)取得購物車數量 err:');
           console.dir(err);
         });
-    },
-    addFavoriteItem(idData) { // 加入最愛
-      console.log('單商品', idData);
-      if (this.producFtavoritList.includes(idData)) {
-        this.producFtavoritList.splice(this.producFtavoritList.indexOf(idData), 1);
-        this.$refs.productFavorit.saveFavorit(this.producFtavoritList);
-        console.log('刪除重複', this.producFtavoritList);
-      } else {
-        this.producFtavoritList.push(idData);
-        this.$refs.productFavorit.saveFavorit(this.producFtavoritList);
-        console.log('增加成功', this.producFtavoritList);
-      }
     },
     changeImg(img) { // 切換圖片
       this.productImg = img;

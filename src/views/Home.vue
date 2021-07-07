@@ -503,19 +503,13 @@ export default {
     changeNavbarStyle() { // 滾動追蹤
       const windowY = window.scrollY;
       const main = document.querySelector('#main');
-      console.log(windowY, 'main:', main.offsetTop);
+      // console.log(windowY, 'main:', main.offsetTop);
 
       if (windowY > main.offsetTop - 120) {
         this.classStyle.navbarClass = ['bg-primary', 'py-1'];
       } else {
         this.classStyle.navbarClass = ['py-sm-1', 'py-md-3'];
       }
-
-      // if (windowY > main.offsetTop - 120) {
-      //   this.classStyle.navbarClass = ['bg-primary', 'py-1'];
-      // } else {
-      //   this.classStyle.navbarClass = ['py-sm-1', 'py-md-3', 'bg_transparent'];
-      // }
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側藍
       this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritsList);
