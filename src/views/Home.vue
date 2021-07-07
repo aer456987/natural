@@ -485,6 +485,7 @@ export default {
       classStyle: {
         navbarClass: ['py-sm-1', 'py-md-3'],
       },
+      homeFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
     };
   },
   components: {
@@ -517,7 +518,7 @@ export default {
       // }
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側藍
-      this.$refs.likeOffcanvas.openOffcanvas();
+      this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritsList);
     },
   },
   mounted() {

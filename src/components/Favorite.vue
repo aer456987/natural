@@ -2,15 +2,15 @@
   <!-- 按鈕-我的最愛 -->
   <input
     type="checkbox"
-    :id="idData.id"
+    :id="idData"
     class="btn-check"
     autocomplete="off"
     :checked="isFavorite"
   >
   <label
-    :for="idData.id"
+    :for="idData"
     class="favorite_icon"
-    @click="$emit('addFavoriteFn', idData.id)"
+    @click="$emit('favoriteFn', idData)"
   >
     <i class="bi bi-heart-fill fs-4"></i>
   </label>
@@ -20,7 +20,7 @@
 export default {
   name: 'Favorite',
   props: ['idData'],
-  emits: ['addFavoriteFn'],
+  emits: ['favoriteFn'],
   data() {
     return {
       isFavorite: false,
@@ -29,9 +29,9 @@ export default {
   },
   watch: {
     idData() { // 資料狀態改變後，在確認一次最愛清單
-      console.log('資料改變後的最愛', this.idData.id, this.favoritsList);
-      console.log(this.favoritsList.includes(this.idData.id));
-      this.isFavorite = this.favoritsList.includes(this.idData.id);
+      console.log('資料改變後的最愛', this.idData, this.favoritsList);
+      console.log(this.favoritsList.includes(this.idData));
+      this.isFavorite = this.favoritsList.includes(this.idData);
     },
   },
   methods: {
@@ -41,9 +41,9 @@ export default {
     },
   },
   mounted() {
-    console.log('渲染時後的最愛', this.idData.id, this.favoritsList);
-    console.log(this.favoritsList.includes(this.idData.id));
-    this.isFavorite = this.favoritsList.includes(this.idData.id);
+    console.log('渲染時後的最愛', this.idData, this.favoritsList);
+    console.log(this.favoritsList.includes(this.idData));
+    this.isFavorite = this.favoritsList.includes(this.idData);
   },
 };
 </script>

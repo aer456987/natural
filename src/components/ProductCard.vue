@@ -5,7 +5,6 @@
     class="col-sm-6 col-lg-4 col-xl-3 my-2 custom_card_style"
     v-for="product in cartProductData"
     :key="product.id"
-    :favoritsId="product.id"
   >
 
     <div class="card text-dark border-0 shadow-sm">
@@ -26,8 +25,8 @@
       <span class="favorite_icon_background shadow-sm">
         <FavoriteIcon
           ref="favorit"
-          :id-data="product"
-          @add-favorite-fn="addFavoriteItem"
+          :id-data="product.id"
+          @favorite-fn="addFavoriteItem"
         ></FavoriteIcon>
       </span>
 
@@ -76,7 +75,6 @@ export default {
       },
       cartsLength: Number,
       myFavorits: JSON.parse(localStorage.getItem('favoritData')) || [],
-      favoritsId: '',
     };
   },
   components: { FavoriteIcon },
@@ -131,6 +129,7 @@ export default {
         });
     },
     addFavoriteItem(idData) { // 加入最愛
+      console.log('idData', idData);
       if (this.myFavorits.includes(idData)) {
         this.myFavorits.splice(this.myFavorits.indexOf(idData), 1);
         this.$refs.favorit.saveFavorit(this.myFavorits);

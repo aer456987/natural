@@ -131,8 +131,8 @@
               <div class="col-2 p-0 text-end">
                 <FavoriteIcon
                   ref="productFavorit"
-                  :id-data="tempProduct"
-                  @add-favorite-fn="addFavoriteItem"
+                  :id-data="productId"
+                  @favorite-fn="addFavoriteItem"
                 ></FavoriteIcon>
               </div>
             </div>
@@ -141,7 +141,7 @@
                 募款專案依專案內容不同，金額將全數捐至專案相關之機構。
               </span>
               <span v-else>
-                活動及產品收益將提撥 10% 至環境保育或野生動物救助之相關機構。
+                活動及產品收益將捐至環境保育或野生動物救助之相關機構。
               </span>
             </p>
           </div>
@@ -192,7 +192,7 @@ export default {
         ],
         purpose: '', // 目前頁面
       },
-      favoritList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      producFtavoritList: JSON.parse(localStorage.getItem('favoritData')) || [],
     };
   },
   components: {
@@ -288,14 +288,14 @@ export default {
     },
     addFavoriteItem(idData) { // 加入最愛
       console.log('單商品', idData);
-      if (this.favoritList.includes(idData)) {
-        this.favoritList.splice(this.favoritList.indexOf(idData), 1);
-        this.$refs.productFavorit.saveFavorit(this.favoritList);
-        console.log('刪除重複', this.favoritList);
+      if (this.producFtavoritList.includes(idData)) {
+        this.producFtavoritList.splice(this.producFtavoritList.indexOf(idData), 1);
+        this.$refs.productFavorit.saveFavorit(this.producFtavoritList);
+        console.log('刪除重複', this.producFtavoritList);
       } else {
-        this.favoritList.push(idData);
-        this.$refs.productFavorit.saveFavorit(this.favoritList);
-        console.log('增加成功', this.favoritList);
+        this.producFtavoritList.push(idData);
+        this.$refs.productFavorit.saveFavorit(this.producFtavoritList);
+        console.log('增加成功', this.producFtavoritList);
       }
     },
     changeImg(img) { // 切換圖片

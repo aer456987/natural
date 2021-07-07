@@ -52,7 +52,7 @@
           <li class="nav-item scale">
             <a
               class="nav-link pointer_no_hover"
-              @click="$emit('openOffcanvas')"
+              @click="$emit('openOffcanvas', homeFavoritsList)"
             >
               <i class="bi bi-heart-fill position-relative">
                 <span

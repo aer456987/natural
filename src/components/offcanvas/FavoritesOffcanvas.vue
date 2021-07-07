@@ -8,94 +8,110 @@
     ref="offcanvas"
   >
     <div class="offcanvas-header">
-      <h3 class="fs-5">
-        最愛收藏
-      </h3>
-      <button
-        type="button"
-        class="btn-close text-reset"
-        data-bs-dismiss="offcanvas"
-        aria-label="Close"
-      ></button>
+      <div class="row align-items-center w-100">
+        <div class="col-10">
+          <h3 class="fs-5">
+            最愛收藏
+            <span>
+              <button
+                type="button"
+                to="/cart"
+                class="btn btn-outline-danger py-0 px-1"
+                @click="allDelFavorite"
+              >
+                清空收藏
+              </button>
+            </span>
+          </h3>
+        </div>
+        <div class="col-2 text-end">
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-unstyled px-1">
-        <li class="row justify-content-between align-items-center
-          mb-2 pb-2 border-bottom"
+      <ul class="list-unstyled px-1 mb-5">
+        <template
+          v-for="(favoritItme) in newFavoritsData"
+          :key="favoritItme.id"
         >
-          <span class="col-2 p-0">
-            <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624872039637.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bdpK7FIATrJpeNeHxkM52DN9pxMfHmC2nwUECqgtJoKYKfyf%2FyXmhgHCVpcYyTF9DxPTsvQokVSP58vkHOsxvD3aP37d%2FiXyKZDxlfJDH8dKH5aQbJuDcX1jkVJf9%2FxY0CClLMByX6pWhwZp%2FA7Hklne8m%2BOsNtmexJOe14tymtAWwpmvSTqq7rkmCva4A0FMmS0fuSGG5CasWVIzNxhyc9I7Pqi6Vk3kvPl0xjU2biNFmMfkpgSpkbTdnB4lvBvOn0v3r0kslHgm%2BDpdwqBvSIRRG%2F8bm5WyJsPf8h2v0tMwwQ9%2Bol%2BeB9QhWiNCp8rvszh56FF%2BzwegVN8wVYNXQ%3D%3D"
-              alt="圖片"
-              class="w-100"
-            >
-          </span>
-          <span class="col-6 px-2">
-            山林保育講座(台灣山林) <br>
-            價格
-          </span>
-          <span class="col-2 p-0 text-center">
-            <FavoriteIcon
-              ref="favorit"
-              class="p-1"
-              :idData="product"
-              @add-favorite-fn="addFavoriteItem"
-            ></FavoriteIcon>
-          </span>
-          <span class="col-2">
-            <span
-              class="btn btn_outline_green fs-4"
-            >
-              <!-- @click="addCart(product.id)" -->
-              <i class="bi bi-cart-plus-fill"></i>
-            </span>
-          </span>
-        </li>
 
-        <li class="row justify-content-between align-items-center
-          mb-2 pb-2 border-bottom"
-        >
-          <span class="col-2 p-0">
-            <img
-              src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1624872039637.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=bdpK7FIATrJpeNeHxkM52DN9pxMfHmC2nwUECqgtJoKYKfyf%2FyXmhgHCVpcYyTF9DxPTsvQokVSP58vkHOsxvD3aP37d%2FiXyKZDxlfJDH8dKH5aQbJuDcX1jkVJf9%2FxY0CClLMByX6pWhwZp%2FA7Hklne8m%2BOsNtmexJOe14tymtAWwpmvSTqq7rkmCva4A0FMmS0fuSGG5CasWVIzNxhyc9I7Pqi6Vk3kvPl0xjU2biNFmMfkpgSpkbTdnB4lvBvOn0v3r0kslHgm%2BDpdwqBvSIRRG%2F8bm5WyJsPf8h2v0tMwwQ9%2Bol%2BeB9QhWiNCp8rvszh56FF%2BzwegVN8wVYNXQ%3D%3D"
-              alt="圖片"
-              class="w-100"
-            >
-          </span>
-          <span class="col-6 px-2">
-            山林保育講座(台灣山林) <br>
-            價格
-          </span>
-          <span class="col-2 p-0 text-center">
-            <FavoriteIcon
-              ref="favorit"
-              class="p-1"
-              :idData="product"
-              @add-favorite-fn="addFavoriteItem"
-            ></FavoriteIcon>
-          </span>
-          <span class="col-2">
-            <span
-              class="btn btn_outline_green fs-4"
-            >
-              <!-- @click="addCart(product.id)" -->
-              <i class="bi bi-cart-plus-fill"></i>
+          <li class="row justify-content-between align-items-center
+            mb-2 pb-2 border-bottom"
+          >
+            <span class="col-2 p-0">
+              <img
+                :src="favoritItme.imageUrl"
+                alt="圖片"
+                class="w-100"
+              >
             </span>
-          </span>
-        </li>
+            <span class="col-4 px-2">
+              {{ favoritItme.title }} <br>
+              ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
+            </span>
+            <span class="col-2 px-0">
+              <input
+                ref="numValue"
+                type="number"
+                min="1"
+                class="form-control w-100 text-center
+                  py-1 text-center"
+                v-model.number="favoritItme.qty"
+              >
+            </span>
+            <span class="col-1 p-0 text-center">
+              <FavoriteIcon
+                ref="favoritIcon"
+                :idData="favoritItme.id"
+                @favorite-fn="delFavoriteItem"
+              ></FavoriteIcon>
+            </span>
+            <span class="col-2">
+              <span
+                class="btn btn_outline_green fs-4"
+                @click="addCart(favoritItme.id, favoritItme.qty)"
+              >
+                <i class="bi bi-cart-plus-fill"></i>
+              </span>
+            </span>
+          </li>
+
+        </template>
       </ul>
-      <router-link
-        to="/cart"
-        class="nav-link btn btn_main"
-      >
-        按鈕
-      </router-link>
+
+      <div class="row flex-row-reverse">
+        <div class="col-12 col-md-6">
+          <router-link
+            to="/cart"
+            class="btn btn_main w-100 mb-2"
+          >
+            我要結帳
+          </router-link>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <router-link
+            to="/products"
+            class="btn btn-outline-secondary w-100 mb-2"
+          >
+            繼續選購
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
+import bus from '@/methods/bus';
 import Offcanvas from 'bootstrap/js/dist/offcanvas';
 import FavoriteIcon from '@/components/Favorite.vue';
 
@@ -103,26 +119,151 @@ export default {
   name: 'FavoritesOffcanvas.vue',
   data() {
     return {
-      offcanvas: '',
-      product: 'id',
-      myFavoritslist: [],
+      offcanvas: '', // 元件註冊位置
+      offcanvasProducts: [], // 所有產品
+      offcanvasFavoritsList: [], // 最愛清單內容
+      newFavoritsData: [], // (渲染用)篩選後的最愛清單資料
     };
   },
   components: { FavoriteIcon },
+  watch: {
+    offcanvasFavoritsList() {
+      this.renderFavorite();
+    },
+  },
   methods: {
-    openOffcanvas() {
+    openOffcanvas(data) {
+      this.offcanvasFavoritsList = data;
+      console.log(this.offcanvasFavoritsList);
+      this.renderFavorite();
       this.offcanvas.show();
     },
     hideOffcanvas() {
       this.offcanvas.hide();
     },
-    addFavoriteItem() {
-      console.log('切換最愛收藏');
+    getProducts() { // 取得全部商品
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
+      // this.loadingStatus = true;
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            this.offcanvasProducts = res.data.products;
+            this.renderFavorite();
+            // this.loadingStatus = false;
+            console.log(this.offcanvasProducts);
+          } else {
+            console.log('(錯誤-側欄)取得全部商品資料 res:', res);
+            // this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-側欄)取得全部商品資料 res:');
+          console.dir(err);
+          // this.loadingStatus = false;
+        });
     },
+    renderFavorite() {
+      this.newFavoritsData = [];
+      this.offcanvasProducts.forEach((item, i) => {
+        if (this.offcanvasFavoritsList.includes(item.id)) {
+          this.offcanvasProducts[i].qty = 1;
+          this.newFavoritsData.push(item);
+          console.log(this.newFavoritsData);
+        }
+      });
+    },
+    delFavoriteItem(idData) { // 加入最愛
+      console.log('側欄', idData);
+      this.offcanvasFavoritsList.splice(this.offcanvasFavoritsList.indexOf(idData), 1);
+      this.$refs.favoritIcon.saveFavorit(this.offcanvasFavoritsList);
+      console.log('刪除重複', this.offcanvasFavoritsList);
+      this.renderFavorite();
+    },
+    allDelFavorite() { // 刪除全部最愛
+      this.$refs.favoritIcon.saveFavorit([]);
+      this.offcanvasFavoritsList = [];
+      this.newFavoritsData = [];
+    },
+    addCart(id, num = 1) { // 加入購物車
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      const cartData = {
+        data: {
+          product_id: id,
+          qty: num,
+        },
+      };
+      this.loadingStatus = true;
+
+      this.$http
+        .post(url, cartData)
+        .then((res) => {
+          if (res.data.success) {
+            swalFn(res.data.message, 'success');
+            this.productQty = 1;
+            this.updateCartLength();
+            this.loadingStatus = false;
+          } else {
+            swalFn(res.data.message, 'error');
+            this.productQty = 1;
+            this.loadingStatus = false;
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-前台)加入購物車 err:');
+          console.dir(err);
+          this.productQty = 1;
+          this.loadingStatus = false;
+        });
+    },
+    updateCartLength() { // 取得購物車數量
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            let totleQty = 0;
+            this.cartsLength = res.data.data.carts.forEach((item) => {
+              totleQty += item.qty;
+            });
+            this.cartsLength = totleQty;
+            bus.emit('cart-number', this.cartsLength);
+          } else {
+            console.log('(錯誤-側欄)取得購物車數量 res:', res);
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-側欄)取得購物車數量 err:');
+          console.dir(err);
+        });
+    },
+    // updateFavoritLength() { // 取得我的最愛數量
+    //   const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+
+    //   this.$http
+    //     .get(url)
+    //     .then((res) => {
+    //       if (res.data.success) {
+    //         let totleQty = 0;
+    //         this.cartsLength = res.data.data.carts.forEach((item) => {
+    //           totleQty += item.qty;
+    //         });
+    //         this.cartsLength = totleQty;
+    //         bus.emit('cart-number', this.cartsLength);
+    //       } else {
+    //         console.log('(錯誤-側欄)取得購物車數量 res:', res);
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       console.log('(失敗-側欄)取得購物車數量 err:');
+    //       console.dir(err);
+    //     });
+    // },
   },
   mounted() {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas);
-    // console.log('側欄資訊', JSON.parse(localStorage.getItem('favoritData')));
+    this.getProducts();
   },
 };
 </script>
