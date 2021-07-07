@@ -3,11 +3,11 @@
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl"
   ></HeaderImg>
-  <section class="container pageContent px-4">
+  <section class="container pageContent px-3 px-sm-1 px-md-4">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row">
-        <span class="col-6">
+        <span class="col-8">
           <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
         </span>
       </div>

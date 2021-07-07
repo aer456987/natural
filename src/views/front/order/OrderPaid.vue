@@ -26,8 +26,10 @@
               </p>
               <router-link
                 to="/products"
-                class="btn btn-outline-secondary px-3 py-1 my-2"
-              >返回線上商城</router-link>
+                class="btn btn-outline-custom-primary px-3 py-1 my-2"
+              >
+                返回線上商城
+              </router-link>
             </main>
           </section>
         </section>

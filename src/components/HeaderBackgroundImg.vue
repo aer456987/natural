@@ -3,8 +3,9 @@
   <header class="header position-relative">
     <span>
       <h1
-      class="title_style position-absolute top-50 start-50 translate-middle
-        fw-bold px-2 py-2 px-md-5 py-md-4"
+      class="title_style
+        position-absolute top-50 start-50 translate-middle
+        fw-bold px-4 py-2 px-md-5 py-md-4"
       >
         {{ headerTitle }}
       </h1>

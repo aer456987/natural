@@ -5,36 +5,20 @@
     <div class="row justify-content-between pb-2">
 
       <div class="col-md-6 col-lg-6 pb-1">
-        <div class="row">
-          <!-- <span class="col-4">
-            <select
-              class="form-select"
-              v-model="orderSelect"
-            >
-              <option value="選擇付款狀態" selected disabled>選擇付款狀態</option>
-              <option value="全部">全部</option>
-              <option value="true">已付款</option>
-              <option value="false">未付款</option>
-            </select>
-          </span> -->
-
-          <span class="col-5">
-            <span class=" input-group">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="請輸入訂單編號"
-                aria-label="search"
-                aria-describedby="basic-addon1"
-                v-model="orderSearch"
-              />
-              <i
-                class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
-                @click="clearSearch"
-              ></i>
-            </span>
-          </span>
-        </div>
+        <span class=" input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="請輸入訂單編號"
+            aria-label="search"
+            aria-describedby="basic-addon1"
+            v-model="orderSearch"
+          />
+          <i
+            class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+            @click="clearSearch"
+          ></i>
+        </span>
       </div>
 
       <div class="col-lg-6 text-end pb-1">
@@ -197,20 +181,6 @@ export default {
   },
   computed: {
     filterOrder() { // 渲染資料
-      // let newFilterData = [];
-
-      // if (this.orderSelect === '選擇付款狀態' || this.orderSelect === '全部') {
-      //   newFilterData = this.orders;
-      // } else {
-      //   const newType = Boolean(this.orderSelect);
-      //   console.log(this.orderSelect, !newType);
-      //   // newFilterData = this.orders.forEach((item) => item);
-      //   newFilterData = this.orders.filter((item) => item.is_consignment.match(newType));
-      // }
-      // if (this.orderSearch.length > 0) {
-      //   newFilterData = this.orders.filter((item) => item.id.match(this.orderSearch));
-      // }
-
       return this.orders.filter((item) => item.id.match(this.orderSearch));
     },
   },
@@ -303,7 +273,6 @@ export default {
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
-      // this.orderSelect = '選擇付款狀態';
       this.clearSearch();
       this.getOrders();
     },
@@ -312,7 +281,6 @@ export default {
     },
   },
   mounted() {
-    // this.orderSelect = '選擇付款狀態';
     this.getOrders();
   },
 };

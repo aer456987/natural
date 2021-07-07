@@ -1,13 +1,13 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="bg-white">
-    <section class="container pageContent py-4">
+    <section class="container py-4">
 
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
       <!-- 主要頁面 -->
-      <section class="row mb-1 pt-3 pb-5 align-items-center">
+      <section class="row mb-1 pt-3 pb-1 pb-lg-3 align-items-center">
         <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5">
           <img

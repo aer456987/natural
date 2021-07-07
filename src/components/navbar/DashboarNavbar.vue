@@ -53,10 +53,10 @@
                 訂單管理
               </router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-flex justify-content-center">
               <button
                 type="buttom"
-                class="nav-link btn fs-5 border-0 shadow-none"
+                class="nav-link btn fs-5 shadow-none"
                 @click="logout"
               >
                 登出

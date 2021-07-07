@@ -1,6 +1,6 @@
 <template>
   <DashboarLoading :status="loadingStatus"></DashboarLoading>
-  <section class="container pageContent py-5">
+  <section class="container pageContent py-5 overflow-hidden">
     <h1 class="text-center fw-bold m-0 pb-5">優惠券管理</h1>
     <div class="row justify-content-between pb-2">
       <span class="col-md-5 col-lg-3 pb-1">
@@ -36,64 +36,66 @@
       </span>
     </div>
 
-    <table
-      class="table table-hover rounded overflow-hidden shadow-sm
-        text-break text-center"
-    >
-      <thead class="table-dark align-middle">
-        <tr>
-          <td>優惠券名稱</td>
-          <td>優惠碼</td>
-          <td>折扣 % 數</td>
-          <td>到期日</td>
-          <td>狀態</td>
-          <td>操作</td>
-          <td>刪除</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="coupon in filterCoupon"
-          :key="coupon.id"
-        >
-          <td data-title="優惠券名稱">
-            {{ coupon.title }}
-          </td>
-          <td data-title="優惠碼">
-            {{ coupon.code }}
-          </td>
-          <td data-title="折扣 % 數">
-            {{ coupon.percent }}%
-          </td>
-          <td data-title="到期日">
-            {{ $filters.date(coupon.due_date) }}
-          </td>
-          <td
-            data-title="狀態"
-            :class="{
-              'text-warning' : coupon.is_enabled,
-              'text-gray' : !coupon.is_enabled,
-            }"
+    <div class="table-responsiv">
+      <table
+        class="table table-hover rounded overflow-hidden shadow-sm
+          text-break text-center"
+      >
+        <thead class="table-dark align-middle">
+          <tr>
+            <td>優惠券名稱</td>
+            <td>優惠碼</td>
+            <td>折扣 % 數</td>
+            <td>到期日</td>
+            <td>狀態</td>
+            <td>操作</td>
+            <td>刪除</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="coupon in filterCoupon"
+            :key="coupon.id"
           >
-            {{ coupon.is_enabled ? '已啟用' : '未啟用' }}
-          </td>
-          <td data-title="操作">
-            <button
-              class="btn btn-outline-brown px-2 py-1"
-              @click="opanCouponModal(false, coupon)"
+            <td data-title="優惠券名稱">
+              {{ coupon.title }}
+            </td>
+            <td data-title="優惠碼">
+              {{ coupon.code }}
+            </td>
+            <td data-title="折扣 % 數">
+              {{ coupon.percent }}%
+            </td>
+            <td data-title="到期日">
+              {{ $filters.date(coupon.due_date) }}
+            </td>
+            <td
+              data-title="狀態"
+              :class="{
+                'text-warning' : coupon.is_enabled,
+                'text-gray' : !coupon.is_enabled,
+              }"
             >
-              修改
-            </button>
+              {{ coupon.is_enabled ? '已啟用' : '未啟用' }}
+            </td>
+            <td data-title="操作">
+              <button
+                class="btn btn-outline-brown px-2 py-1"
+                @click="opanCouponModal(false, coupon)"
+              >
+                修改
+              </button>
+            </td>
+            <td data-title="刪除">
+            <i
+              class="bi bi-trash-fill btn btn-outline-danger"
+              @click="delCouponSwalFn(coupon, 'one')"
+            ></i>
           </td>
-          <td data-title="刪除">
-          <i
-            class="bi bi-trash-fill btn btn-outline-danger"
-            @click="delCouponSwalFn(coupon, 'one')"
-          ></i>
-        </td>
-        </tr>
-      </tbody>
-    </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <Pagination
       :pagination-page="couponPagination"

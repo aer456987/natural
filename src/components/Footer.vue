@@ -7,7 +7,7 @@
     <template
       v-if="moreMsg"
     >
-      <div class="row align-items-center">
+      <small class="row align-items-center">
         <nav class="nav-item mb-3">
 
           <ul class="d-flex justify-content-center fs-5 list-unstyled m-0">
@@ -59,7 +59,7 @@
           服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00 <br>
         </p>
 
-      </div>
+      </small>
     </template>
     <span
       class="d-block fs-4 mb-1"

@@ -1,6 +1,6 @@
 <template>
   <DashboarLoading :status="loadingStatus"></DashboarLoading>
-  <section class="container pageContent py-5">
+  <section class="container pageContent py-5 overflow-hidden">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
     <div class="row justify-content-between pb-2">
       <div class="col-md-8 col-lg-6 pb-1">
@@ -56,87 +56,89 @@
       </div>
     </div>
 
-    <table
-      class="table table-hover text-center text-break
-        rounded overflow-hidden shadow-sm"
-    >
-      <thead class="table-dark align-middle">
-        <tr>
-          <td width="10%">分類</td>
-          <td width="8%">圖片</td>
-          <td width="15%">產品ID</td>
-          <td width="13%">品名</td>
-          <td width="13%">描述</td>
-          <!-- <td width="12%">說明</td> -->
-          <td width="8%">原價</td>
-          <td width="8%">售價</td>
-          <td width="8%">狀態</td>
-          <td width="8%">操作</td>
-          <td width="8%">刪除</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="product in filterProducts"
-          :key="product.id"
-        >
-
-          <td data-title="分類">
-            {{ product.category }}
-          </td>
-
-          <td data-title="圖片">
-            <img
-              class="w-100"
-              :src="product.imageUrl"
-              alt="product.title"
-            />
-          </td>
-
-          <td data-title="產品ID">
-            {{ product.id }}
-          </td>
-
-          <td data-title="品名">
-            {{ product.title }}
-          </td>
-
-          <td data-title="描述">
-            {{ product.description }}
-          </td>
-
-          <td data-title="原價">
-            {{ $filters.currency(product.origin_price) }}
-          </td>
-
-          <td data-title="售價">
-            {{ $filters.currency(product.price) }}
-          </td>
-
-          <td
-            data-title="狀態"
-            :class="{ 'text-gray' : !product.is_enabled }"
+    <div class="table-responsive">
+      <table
+        class="table table-hover text-center text-break
+          rounded overflow-hidden shadow-sm"
+      >
+        <thead class="table-dark align-middle">
+          <tr>
+            <td width="10%">分類</td>
+            <td width="8%">圖片</td>
+            <td width="15%">產品ID</td>
+            <td width="13%">品名</td>
+            <td width="13%">描述</td>
+            <!-- <td width="12%">說明</td> -->
+            <td width="8%">原價</td>
+            <td width="8%">售價</td>
+            <td width="8%">狀態</td>
+            <td width="8%">操作</td>
+            <td width="8%">刪除</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="product in filterProducts"
+            :key="product.id"
           >
-            {{ product.is_enabled ? '上架' : '未上架' }}
-          </td>
 
-          <td data-title="操作">
-            <button
-              class="btn btn-outline-brown px-2 py-1"
-              @click="openModal(false, product)"
-            >修改</button>
-          </td>
+            <td data-title="分類">
+              {{ product.category }}
+            </td>
 
-          <td data-title="刪除">
-            <i
-              class="bi bi-trash-fill btn btn-outline-danger"
-              @click="delProductFn(product)"
-            ></i>
-          </td>
+            <td data-title="圖片">
+              <img
+                class="w-100"
+                :src="product.imageUrl"
+                alt="product.title"
+              />
+            </td>
 
-        </tr>
-      </tbody>
-    </table>
+            <td data-title="產品ID">
+              {{ product.id }}
+            </td>
+
+            <td data-title="品名">
+              {{ product.title }}
+            </td>
+
+            <td data-title="描述">
+              {{ product.description }}
+            </td>
+
+            <td data-title="原價">
+              {{ $filters.currency(product.origin_price) }}
+            </td>
+
+            <td data-title="售價">
+              {{ $filters.currency(product.price) }}
+            </td>
+
+            <td
+              data-title="狀態"
+              :class="{ 'text-gray' : !product.is_enabled }"
+            >
+              {{ product.is_enabled ? '上架' : '未上架' }}
+            </td>
+
+            <td data-title="操作">
+              <button
+                class="btn btn-outline-brown px-2 py-1"
+                @click="openModal(false, product)"
+              >修改</button>
+            </td>
+
+            <td data-title="刪除">
+              <i
+                class="bi bi-trash-fill btn btn-outline-danger"
+                @click="delProductFn(product)"
+              ></i>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <Pagination
       :pagination-page="productPagination"

@@ -25,7 +25,7 @@
     <HerderSwiper></HerderSwiper>
   </header>
 
-  <main id="main" class="bg-white">
+  <main id="main" class="bg-white overflow-hidden">
     <!-- 圖片 -->
     <div class="container py-5 py-lg-6">
       <h1
@@ -51,9 +51,9 @@
     </div>
 
     <!-- 介紹 -->
-    <section class="py-6 text-center bg-gray-100">
+    <section class="text-center bg-gray-100 py-5 py-lg-6">
       <h2
-        class="fw-bold mb-2 px-2"
+        class="fw-bold mb-0 mb-md-2 px-2"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         data-aos-delay="200"
@@ -94,15 +94,15 @@
     </section>
 
     <!-- 數字 -->
-    <section class="container py-6">
-      <div class="d-flex justify-content-around">
+    <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
+      <div class="row justify-content-around">
 
         <template
           v-for="platform in platformData"
           :key="platform.id"
         >
           <span
-            class="text-center"
+            class="col-6 col-xl-3 px-0 text-center mb-2"
             data-aos="zoom-in-down"
             data-aos-anchor-placement="center-bottom"
             data-aos-duration="1500"
@@ -121,295 +121,22 @@
     </section>
 
     <!-- 商品分類 -->
-    <section class="pb-6">
+    <section class="pt-2 pb-5 pb-lg-6">
       <ProductSwiper class="py-2"></ProductSwiper>
     </section>
 
     <!-- 資訊 -->
-    <section class="container py-6">
-      <div
-        class="row align-items-center"
-      >
-
-        <div class="col-md-6 p-0">
-          <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625143011345.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=U9wi1nt158KKq8UGJXGtT6eyWLIlPvUmWtDuBbEB9IvFSpVYqDCcf%2FNe6BS%2F234VL%2Bv0bkXTikcfncnPPbVYIgI9vezAvYuyyZ4f27CVNEtDrDHNTK4Un3IqiVLgiBwVjlUaUFMLC%2F%2BtWU4oH4%2F5Up1D6BUAELMkZAOfKd3m1e3%2FcW%2F31mH4TgWB6umTUS4NPG6O5d6yH4pc98d%2Bxb%2BR665Qbfsa7yPUL1AYNJG03TpERJVOsoyS4pL%2BPFWU5WNc1jy6QnPPaJWNd1HoPRR4NZzyi%2FkNqnoDJBU49vLNWYB%2F8cTsf1YtANHYtNrjNesgT65VeeHRHXKRQY1S4ky%2B6w%3D%3D"
-            alt="介紹圖片_01"
-            class="w-100 rounded-1 shadow"
-            data-aos="flip-right"
-            data-aos-easing="ease-in-quart"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
-          >
-        </div>
-
-        <div class="col-md-6">
-          <div class="row flex-column align-items-center py-3">
-            <span class="col-10 col-md-9 p-0 pb-1">
-              <h3
-                class="fw-bold mt-1 mb-2"
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="700"
-                data-aos-duration="700"
-              >
-                活動資訊豐富
-              </h3>
-              <p
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="900"
-                data-aos-duration="700"
-              >
-                不定時發布各縣市政府、企業以及民間團體所舉辦的環境保
-                育活動、教育講座、募款資訊，更新速度快，活動資訊清晰。
-              </p>
-              <p
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1000"
-                data-aos-duration="700"
-              >
-                目前已舉辦過包含淨灘、淨山、淨溪、植樹等 2500 場公益活
-                動， 2000 場關於台灣環境保育、野生動物保育的講座。
-              </p>
-            </span>
-
-            <span
-              class="col-10 col-md-4 p-0 my-1"
-              data-aos="fade"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-duration="1000"
-            >
-              <router-link to="/products">
-                <HomeButton buttom-text="了解更多"></HomeButton>
-              </router-link>
-            </span>
-          </div>
-        </div>
-
-        <div class="col-md-6 p-0 d-md-none">
-          <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625140781955.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WHgXTmo8B4Rr3Abc9IweXvoHAKD3XvcbYz2%2FOxfIUAB1upfJT3ZzBg%2BsTMuW8kmrue%2BG08KH9Qg7%2FfqoRPfES9d4zj07wHw%2BB6ftngiA4ay1jkBTsBoFCvNB41JRgEZVR%2FBliSPVmhE6h7Bu%2BijnFf2Rvg5NuEZ5ZjJoKujpItnBYHg2bLNRu%2B7tl1qD%2FK%2F6JAXk4fHYKmih3Aa1vWQikl3pVe1EF3ndqpxeI8NPELiBbVZhpXor3zJbwPcbrLTsIGJTecZo3i1S7MiLCyPVG0wrbIc4ojBgtIxDEnYwoYijqh08Gg39i%2F5Z%2FdcE6zP0p%2B7%2BgetxU4NmfZeQW4caTg%3D%3D"
-            alt="介紹圖片_02"
-            class="w-100 rounded-1 shadow"
-            data-aos="flip-right"
-            data-aos-easing="ease-in-quart"
-            data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
-          >
-        </div>
-
-        <div class="col-md-6">
-          <div class="row flex-column align-items-center py-3 text-end">
-            <span class="col-10 col-md-9 p-0 pb-1">
-              <h3
-                class="fw-bold mt-1 mb-2"
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="700"
-                data-aos-duration="700"
-              >
-                民眾參加度踴躍
-              </h3>
-              <p
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="900"
-                data-aos-duration="700"
-              >
-                Natural 平台成立至今，每天都有近 500
-                人透過平台預約環境保育活動、參與募資或是購買有機商品。
-              </p>
-              <p
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1000"
-                data-aos-duration="700"
-              >
-                每場環保活動、教育演講幾乎場場額滿，不限參加者年齡，
-                透過 Natural 平台的購買機制，大人、小孩皆可輕鬆使用。
-              </p>
-            </span>
-
-            <span
-              class="col-10 col-md-4 p-0 my-1"
-              data-aos="fade"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-duration="1000"
-            >
-              <router-link to="/products">
-                <HomeButton buttom-text="我要參加"></HomeButton>
-              </router-link>
-            </span>
-          </div>
-        </div>
-        <div class="col-md-6 p-0 d-none d-md-block">
-          <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625140781955.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WHgXTmo8B4Rr3Abc9IweXvoHAKD3XvcbYz2%2FOxfIUAB1upfJT3ZzBg%2BsTMuW8kmrue%2BG08KH9Qg7%2FfqoRPfES9d4zj07wHw%2BB6ftngiA4ay1jkBTsBoFCvNB41JRgEZVR%2FBliSPVmhE6h7Bu%2BijnFf2Rvg5NuEZ5ZjJoKujpItnBYHg2bLNRu%2B7tl1qD%2FK%2F6JAXk4fHYKmih3Aa1vWQikl3pVe1EF3ndqpxeI8NPELiBbVZhpXor3zJbwPcbrLTsIGJTecZo3i1S7MiLCyPVG0wrbIc4ojBgtIxDEnYwoYijqh08Gg39i%2F5Z%2FdcE6zP0p%2B7%2BgetxU4NmfZeQW4caTg%3D%3D"
-            alt="介紹圖片_02"
-            class="w-100 rounded-1 shadow"
-            data-aos="flip-right"
-            data-aos-easing="ease-in-quart"
-            data-aos-anchor-placement="center-bottom"
-            data-aos-duration="1000"
-          >
-        </div>
-
-        <div class="col-md-6 p-0 d-none d-md-block">
-          <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625140781955.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=WHgXTmo8B4Rr3Abc9IweXvoHAKD3XvcbYz2%2FOxfIUAB1upfJT3ZzBg%2BsTMuW8kmrue%2BG08KH9Qg7%2FfqoRPfES9d4zj07wHw%2BB6ftngiA4ay1jkBTsBoFCvNB41JRgEZVR%2FBliSPVmhE6h7Bu%2BijnFf2Rvg5NuEZ5ZjJoKujpItnBYHg2bLNRu%2B7tl1qD%2FK%2F6JAXk4fHYKmih3Aa1vWQikl3pVe1EF3ndqpxeI8NPELiBbVZhpXor3zJbwPcbrLTsIGJTecZo3i1S7MiLCyPVG0wrbIc4ojBgtIxDEnYwoYijqh08Gg39i%2F5Z%2FdcE6zP0p%2B7%2BgetxU4NmfZeQW4caTg%3D%3D"
-            alt="介紹圖片_02"
-            class="w-100 rounded-1 shadow"
-            data-aos="flip-right"
-            data-aos-easing="ease-in-quart"
-            data-aos-anchor-placement="center-bottom"
-            data-aos-duration="1000"
-          >
-        </div>
-        <div class="col-md-6">
-          <div class="row flex-column align-items-center py-3 text-start">
-            <span class="col-10 col-md-9 p-0 pb-1">
-              <h3
-                class="fw-bold mt-1 mb-2"
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="700"
-                data-aos-duration="700"
-              >
-                募資專案
-              </h3>
-              <p
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="900"
-                data-aos-duration="700"
-              >
-                ..
-              </p>
-              <p
-                data-aos="fade-left"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1000"
-                data-aos-duration="700"
-              >
-                ..
-              </p>
-            </span>
-
-            <span
-              class="col-10 col-md-4 p-0 my-1"
-              data-aos="fade"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-duration="1000"
-            >
-              <router-link to="/products">
-                <HomeButton buttom-text="我想捐款"></HomeButton>
-              </router-link>
-            </span>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="row flex-column align-items-center py-3 text-end">
-            <span class="col-10 col-md-9 p-0 pb-1">
-              <h3
-                class="fw-bold mt-1 mb-2"
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="700"
-                data-aos-duration="700"
-              >
-                產品種類多樣
-              </h3>
-              <p
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="900"
-                data-aos-duration="700"
-              >
-                Natural 平台現有 310 家合作的有機農家、廠商，所有的合作
-                商家皆有獲得政府認證之有機食品標章。
-              </p>
-              <p
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-delay="1000"
-                data-aos-duration="700"
-              >
-                依照季節的不同推出不同的當季新鮮蔬果，
-                另外 Natural 平台也有販售線下主打的環保用品，因應政府
-                減塑政策，為環境盡一份心力。
-              </p>
-            </span>
-
-            <span
-              class="col-10 col-md-4 p-0 my-1"
-              data-aos="fade"
-              data-aos-offset="300"
-              data-aos-easing="ease-in-sine"
-              data-aos-anchor-placement="top-bottom"
-              data-aos-delay="1500"
-              data-aos-duration="1000"
-            >
-              <router-link to="/products">
-                <HomeButton buttom-text="前往採購"></HomeButton>
-              </router-link>
-            </span>
-          </div>
-        </div>
-        <div class="col-md-6 p-0">
-          <img
-            src="https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625204826199.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=OmHfhon8icfC6aLt8qVeHwKzwAWnxlejs5EO4uL8ylmPMEkZkaz9ilkDd36eNIkva9IddJAwQS1DlDrTAOLRMVzQhSMDUVnSwuteHvbsYrg6QV6t%2FRTwOb4xYEgzzWz4i1AFFUab%2Bt4QPAXrCf5H3XdwaRLOjg2j69adm85QQyQw3lY3XX55pWvn7Nuv%2BgKmhpg7yGqcqXa4lxP3XcR1lmEsAYWwv2%2FmsgenOs0%2BGPihP9vsJlNV6m3hLUUbeQjronMZ0qz5AWx2fpaL1U%2F%2FyMWMAZY4nyI5i9r%2FTv%2B2rZ8mpXl5YI%2BhDdNfJwWsRWbXYGCQ1Xl6mWAaX1Can99cJQ%3D%3D"
-            alt="介紹圖片_03"
-            class="w-100 rounded-1 shadow"
-            data-aos="flip-right"
-            data-aos-easing="ease-in-quart"
-            data-aos-anchor-placement="center-bottom"
-            data-aos-duration="1000"
-          >
-        </div>
-      </div>
+    <section class="container py-5 py-lg-6">
+      <HomeMessages></HomeMessages>
     </section>
 
     <!-- 訂閱 -->
-    <section class="py-5 text-center bg-gray-100">
-      <p class="fs-4 mb-3 px-2">訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！</p>
+    <section class="px-2 py-5 text-center bg-gray-100">
+      <p class="fs-4 mb-3 px-2">
+        訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！
+      </p>
       <div class="row justify-content-center">
-        <div class="col-10 col-md-7 col-lg-6 col-xl-4">
+        <div class="col-11 col-md-7 col-lg-6 col-xl-4">
           <div class="input-group">
             <input
               type="text"
@@ -420,7 +147,7 @@
               class="btn btn_main py-1 px-4"
               type="button"
             >
-            訂閱
+              訂閱
             </button>
           </div>
         </div>
@@ -438,7 +165,6 @@
 <style lang="sass">
 @import '../assets/allStyle';
 @import "../assets/custom/homeRWDStyle";
-
 </style>
 
 <script>
@@ -448,6 +174,7 @@ import Footer from '@/components/Footer.vue';
 import HerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import ProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
 import NaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
+import HomeMessages from '@/components/home/HomeMessages.vue';
 import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
 import Arrow from '@/components/home/Arrow.vue';
@@ -495,6 +222,7 @@ export default {
     HerderSwiper,
     ProductSwiper,
     NaturalThreatCard,
+    HomeMessages,
     CountTo,
     HomeButton,
     Arrow,

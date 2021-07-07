@@ -24,8 +24,10 @@
               </p>
 
               <!-- 訂購人資訊 -->
-              <h3 class="h5 text-center fw-bold mt-3 mb-2">訂購人資訊</h3>
-              <table class="table table-borderless mb-5">
+              <h3 class="h5 text-center fw-bold mt-3 mb-2">
+                訂購人資訊
+              </h3>
+              <table class="table table-borderless mb-5 text-break">
                 <tbody>
                   <tr>
                     <th

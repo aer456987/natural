@@ -14,7 +14,7 @@
         <main class="row px-lg-0 px-xl-5 position-relative">
 
           <div
-            class="col-12 table_style bg-white mb-5 p-5 text-center rounded-3 shadow"
+            class="col-12 table_style bg-white mb-5 py-5 px-2 px-md-5 text-center rounded-3 shadow"
           >
 
             <div
@@ -40,20 +40,25 @@
                       width="30%"
                       scope="col"
                       class="py-3 fs-5"
-                      colspan="2"
-                    >商品資訊</td>
+                    >
+                      商品資訊
+                    </td>
                     <td
-                      width="23%"
+                      width="45%"
                       scope="col"
                       class="py-3 fs-5"
-                    >數量</td>
+                    >
+                      數量
+                    </td>
                     <td
-                      width="22%"
+                      width="20%"
                       scope="col"
                       class="py-3 fs-5"
-                    >金額</td>
+                    >
+                      金額
+                    </td>
                     <td
-                      width="10%"
+                      width="5%"
                       scope="col"
                       class="py-3 fs-5"
                     ></td>
@@ -64,17 +69,19 @@
                     v-for="item in carts.carts"
                     :key="item.id"
                   >
-                    <td class="cart_img">
-                      <img
-                        class="w-100 "
-                        :src="item.product.imageUrl"
-                        alt="預覽"
-                      />
+                    <td class="d-flex align-items-center border">
+                      <span class="d-none d-md-block">
+                        <img
+                          class="width_sm w-100  d-none d-md-block"
+                          :src="item.product.imageUrl"
+                          alt="預覽"
+                        />
+                      </span>
+                      <p class="m-0 px-1 px-md-2 text-start">
+                        {{ item.product.title }}
+                      </p>
                     </td>
-                    <td scope="row">
-                      {{ item.product.title }}
-                    </td>
-                    <td>
+                    <td class="border">
                       <div class="d-flex justify-content-center">
                         <div
                           class="input-group"
@@ -84,7 +91,7 @@
                             class="btn_light_green px-2"
                             @click="putCart('reduce', item)"
                           > - </span>
-                          <div class="form-control text-center border">
+                          <div class="form-control text-center border p-1">
                             {{ item.qty }}
                           </div>
                           <div
@@ -94,10 +101,10 @@
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <td class="border">
                       NT ${{ $filters.currency(item.final_total) }}
                     </td>
-                    <td>
+                    <td class="border">
                       <i
                         class="bi bi-x-lg btn_red"
                         @click="delCart('one', item)"
@@ -114,7 +121,7 @@
                   </small>
                   <small
                     v-if="isDiscount"
-                    class="d-block text-da"
+                    class="d-block"
                   >
                     - 使用優惠折扣NT ${{ $filters.currency(carts.total - carts.final_total) }}
                   </small>
@@ -124,7 +131,7 @@
                     總金額NT {{ $filters.currency(carts.final_total) }}
                   </p>
                 </span>
-                <span class="col-md-6 col-lg-5">
+                <span class="col-10 col-md-6 col-lg-5">
 
                   <span class="input-group input-group-sm">
                     <input
@@ -152,18 +159,18 @@
           <!-- 繼續購物/清空購物車 -->
           <div
             v-if="!btnStatus"
-            class="col-12 d-flex justify-content-between mb-5"
+            class="d-flex justify-content-between mb-5"
           >
             <router-link
               to="/products"
-              class="btn btn-outline-custom-primary px-3 py-1"
+              class="btn btn-outline-custom-primary px-1 px-sm-2 px-md-3 py-1"
             >
               ◁ 繼續購物
             </router-link>
 
             <button
               type="button"
-              class="btn btn-outline-danger px-3 py-1"
+              class="btn btn-outline-danger px-1 px-sm-2 px-md-3 py-1"
               @click="delCart('all')"
             >
               清空購物車
@@ -171,7 +178,7 @@
 
             <router-link
               to="/order"
-              class="btn btn_main px-3 py-1"
+              class="btn btn_main px-1 px-sm-2 px-md-3 py-1"
               :class="{ 'disabled' : btnStatus }"
             >
               填寫訂單 ▷

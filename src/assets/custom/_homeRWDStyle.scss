@@ -46,6 +46,10 @@
   .arrow_style{
     @include custom_position_bottom(-5%, 32%, .5);
   }
+
+  .title_style{
+    font-size: 24px;
+  }
 }
 
 @media(max-width: 414px){
@@ -59,6 +63,10 @@
 
   .arrow_style{
     @include custom_position_bottom(-20%, 60%, .3);
+  }
+
+  footer{
+    font-size: 14px;
   }
 }
 
