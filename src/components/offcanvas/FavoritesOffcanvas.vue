@@ -20,13 +20,6 @@
               >
                 清空收藏
               </button>
-              <!-- <button
-                type="button"
-                class="btn btn-outline-dark btn-sm mx-1"
-                @click="renderFavorite"
-              >
-                刷新
-              </button> -->
             </span>
           </h3>
         </div>
@@ -162,7 +155,6 @@ export default {
       this.offcanvas.show();
     },
     hideOffcanvas() {
-      this.resetFn();
       this.offcanvas.hide();
     },
     getProducts() { // 取得全部商品
@@ -183,7 +175,7 @@ export default {
           console.dir(err);
         });
     },
-    renderFavorite() {
+    renderFavorite() { // 渲染資料
       this.newFavoritsData = [];
 
       this.offcanvasProducts.forEach((item, i) => {
@@ -255,6 +247,10 @@ export default {
   mounted() {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas);
     this.getProducts();
+
+    bus.on('favorits-list', (item) => {
+      this.offcanvasFavoritsList = item;
+    });
   },
 };
 </script>

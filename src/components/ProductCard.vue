@@ -126,9 +126,6 @@ export default {
           console.dir(err);
         });
     },
-    addFavoriteItem(data) { // 加入最愛
-      this.$refs.favorit.addFavoriteItem(data);
-    },
   },
 };
 </script>

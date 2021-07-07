@@ -40,7 +40,7 @@ export default {
       const data = JSON.stringify(item);
       localStorage.setItem('favoritData', data);
     },
-    updateFavoritsNum() {
+    updateFavoritsNum() { // 更新最愛數量
       const newNum = JSON.parse(localStorage.getItem('favoritData'));
       bus.emit('favorits-number', newNum.length);
     },
@@ -50,6 +50,7 @@ export default {
         this.favoritsList.splice(this.favoritsList.indexOf(this.idData), 1);
         this.saveFavorit(this.favoritsList);
         this.updateFavoritsNum();
+        bus.emit('favorits-list', JSON.parse(localStorage.getItem('favoritData')));
       } else {
         this.favoritsList.push(this.idData);
         this.saveFavorit(this.favoritsList);
