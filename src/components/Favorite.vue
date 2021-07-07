@@ -5,6 +5,7 @@
     :id="idData.id"
     class="btn-check"
     autocomplete="off"
+    :checked="isFavorite"
   >
   <label
     :for="idData.id"
@@ -20,14 +21,29 @@ export default {
   name: 'Favorite',
   props: ['idData'],
   emits: ['addFavoriteFn'],
+  data() {
+    return {
+      isFavorite: false,
+      favoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+    };
+  },
+  watch: {
+    idData() { // 資料狀態改變後，在確認一次最愛清單
+      console.log('資料改變後的最愛', this.idData.id, this.favoritsList);
+      console.log(this.favoritsList.includes(this.idData.id));
+      this.isFavorite = this.favoritsList.includes(this.idData.id);
+    },
+  },
   methods: {
-    saveFavorit(item) {
+    saveFavorit(item) { // 存入最愛
       const data = JSON.stringify(item);
       localStorage.setItem('favoritData', data);
     },
-    getFavorits() {
-      return JSON.parse(localStorage.getItem('favoritData'));
-    },
+  },
+  mounted() {
+    console.log('渲染時後的最愛', this.idData.id, this.favoritsList);
+    console.log(this.favoritsList.includes(this.idData.id));
+    this.isFavorite = this.favoritsList.includes(this.idData.id);
   },
 };
 </script>

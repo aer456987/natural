@@ -5,6 +5,7 @@
     class="col-sm-6 col-lg-4 col-xl-3 my-2 custom_card_style"
     v-for="product in cartProductData"
     :key="product.id"
+    :favoritsId="product.id"
   >
 
     <div class="card text-dark border-0 shadow-sm">
@@ -25,7 +26,7 @@
       <span class="favorite_icon_background shadow-sm">
         <FavoriteIcon
           ref="favorit"
-          :idData="product"
+          :id-data="product"
           @add-favorite-fn="addFavoriteItem"
         ></FavoriteIcon>
       </span>
@@ -74,8 +75,8 @@ export default {
         qty: 1,
       },
       cartsLength: Number,
-      myFavorits: [],
-      // this.$refs.favorit.getFavorits() ||
+      myFavorits: JSON.parse(localStorage.getItem('favoritData')) || [],
+      favoritsId: '',
     };
   },
   components: { FavoriteIcon },
@@ -130,14 +131,15 @@ export default {
         });
     },
     addFavoriteItem(idData) { // 加入最愛
-      // indexOf? / includes ?
       if (this.myFavorits.includes(idData)) {
         this.myFavorits.splice(this.myFavorits.indexOf(idData), 1);
+        this.$refs.favorit.saveFavorit(this.myFavorits);
+        console.log('刪除重複', this.myFavorits);
       } else {
         this.myFavorits.push(idData);
+        this.$refs.favorit.saveFavorit(this.myFavorits);
+        console.log('增加成功', this.myFavorits);
       }
-      // this.$refs.favorit.saveFavorit(this.myFavorits);
-      // console.log('資料', this.$refs.favorit.getFavorits());
     },
   },
 };

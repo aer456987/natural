@@ -105,6 +105,7 @@ export default {
     return {
       offcanvas: '',
       product: 'id',
+      myFavoritslist: [],
     };
   },
   components: { FavoriteIcon },
@@ -121,6 +122,7 @@ export default {
   },
   mounted() {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas);
+    // console.log('側欄資訊', JSON.parse(localStorage.getItem('favoritData')));
   },
 };
 </script>

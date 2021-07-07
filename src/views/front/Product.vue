@@ -129,7 +129,11 @@
               </div>
 
               <div class="col-2 p-0 text-end">
-                <FavoriteIcon :idData="productId"></FavoriteIcon>
+                <FavoriteIcon
+                  ref="productFavorit"
+                  :id-data="tempProduct"
+                  @add-favorite-fn="addFavoriteItem"
+                ></FavoriteIcon>
               </div>
             </div>
             <p class="text-danger">
@@ -188,6 +192,7 @@ export default {
         ],
         purpose: '', // 目前頁面
       },
+      favoritList: JSON.parse(localStorage.getItem('favoritData')) || [],
     };
   },
   components: {
@@ -281,11 +286,23 @@ export default {
           console.dir(err);
         });
     },
+    addFavoriteItem(idData) { // 加入最愛
+      console.log('單商品', idData);
+      if (this.favoritList.includes(idData)) {
+        this.favoritList.splice(this.favoritList.indexOf(idData), 1);
+        this.$refs.productFavorit.saveFavorit(this.favoritList);
+        console.log('刪除重複', this.favoritList);
+      } else {
+        this.favoritList.push(idData);
+        this.$refs.productFavorit.saveFavorit(this.favoritList);
+        console.log('增加成功', this.favoritList);
+      }
+    },
     changeImg(img) { // 切換圖片
       this.productImg = img;
     },
   },
-  created() {
+  mounted() {
     this.productId = this.$route.params.id;
     this.getProduct(this.productId);
     this.qty = 1;
