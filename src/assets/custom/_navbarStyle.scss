@@ -1,0 +1,86 @@
+.logo_home, .logo, .logo_brown{
+  font-family: 'Vibur';
+  font-size: 24px;
+  transition-duration: .3s;
+
+  &:hover{
+    transition-duration: .3s;
+  }
+}
+
+// 首圖logo
+.logo_home{
+  color: $white;
+
+  &:hover, &:focus{
+    color: rgba($secondary, .7);
+  }
+}
+
+// 前台 logo
+.logo{
+  color: rgba($secondary, .8);
+
+  &:hover{
+    color: $secondary;
+  }
+}
+
+.logo_brown{
+  color: $brown-500;
+
+  &:hover, &:focus{
+    color: $warning;
+  }
+}
+
+.navbar_text{
+  font-size: 20px
+}
+
+// icons 數字
+// 最愛收藏數量&購物車數量 共同設定
+.num_icon{
+  @include custom_position_setIn(-10px, 12px, 0, 0);
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  font-family: 'Vibur';
+  font-size: 5px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 26px;
+  color: $white;
+  background: $danger;
+}
+
+
+
+
+
+// RWD - media
+// @media(max-width: 992px){
+  
+// }
+
+@media(max-width: 768px){
+  .logo_home, .logo, .logo_brown, .navbar_text{
+    font-size: 16px;
+  }
+
+  .navbar-dark .navbar-toggler {
+    padding: 1px 7px;
+  }
+  .navbar-dark .navbar-toggler-icon {
+    transform: scale(.9);
+  }
+}
+
+@media(max-width: 414px){
+  .navbar-dark .navbar-toggler {
+    padding: 1px 3px;
+  }
+  .navbar-dark .navbar-toggler-icon {
+    transform: scale(.7);
+  }
+}

@@ -4,6 +4,7 @@
 
 body{
   font-family: 'Noto Sans HK', sans-serif;
+  width: 100%;
   background: $gray-100;
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -83,11 +84,35 @@ body{
 
 // 置中
 .set_in{
-  @include moveUp;
+  @include custom_position_setIn;
   transition-duration: 3s;
 }
 
 .move_up_start{
-  @include moveUp(55%);
+  @include custom_position_setIn(55%);
   transition-duration: 3s;
+}
+
+// 文字設定
+// .textStyle_rwd_1{
+  // 40px
+// }
+
+// RWD - media
+@media(max-width: 992px){
+  .textStyle_rwd_1{
+    font-size: 32px;
+  }
+}
+
+@media(max-width: 768px){
+  .textStyle_rwd_1{
+    font-size: 24px;
+  }
+}
+
+@media(max-width: 414px){
+  .textStyle_rwd_1{
+    font-size: 16px;
+  }
 }

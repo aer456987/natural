@@ -48,14 +48,14 @@ export default {
      */
     delay: {
       type: Number,
-      default: 0,
+      default: 5000,
     },
     /**
      * @description 渐变时长
      */
     duration: {
       type: Number,
-      default: 1,
+      default: 10,
     },
     /**
      * @description 是否使用变速效果

@@ -70,7 +70,9 @@
               class="col-12"
               :class="{ 'd-none' : isShow }"
             >
-              <form
+              <Form
+                ref="productForm"
+                v-slot="{ errors }"
                 class="row"
                 @change="checkInputValue"
               >
@@ -82,14 +84,20 @@
                   >
                     品名<span class="text-danger fw-bold">*</span>
                   </label>
-                  <input
+                  <Field
                     type="text"
-                    id="modalName"
                     name="品名"
-                    class="form-control mb-2"
                     placeholder="請輸入品名"
+                    id="modalName"
+                    class="form-control mb-2"
+                    :class="{ 'is-invalid': errors['品名'] }"
+                    rules="required"
                     v-model="tempProduct.title"
-                  />
+                  ></Field>
+                  <error-message
+                    name="品名"
+                    class="invalid-feedback mb-1"
+                  ></error-message>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -99,19 +107,26 @@
                   >
                     產品分類<span class="text-danger fw-bold">*</span>
                   </label>
-                  <select
+                  <Field
+                    as="select"
+                    name="產品分類"
                     id="modalCategory"
                     class="form-select mb-2"
-                    aria-label="modalCategory"
+                    :class="{ 'is-invalid': errors['產品分類'] }"
+                    rules="required"
                     v-model="tempProduct.category"
                   >
-                    <option selected disabled>請選擇分類</option>
+                    <option value="" selected disabled>請選擇分類</option>
                     <option value="募款專案">募款專案</option>
                     <option value="公益活動">公益活動</option>
                     <option value="講座">講座</option>
                     <option value="有機食品">有機食品</option>
                     <option value="周邊商品">周邊商品</option>
-                  </select>
+                  </Field>
+                  <error-message
+                    name="產品分類"
+                    class="invalid-feedback mb-1"
+                  ></error-message>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -121,14 +136,20 @@
                   >
                     單位<span class="text-danger fw-bold">*</span>
                   </label>
-                  <input
+                  <Field
                     type="text"
-                    id="modalUnit"
                     name="單位"
-                    class="form-control mb-2"
                     placeholder="請輸入單位"
+                    id="modalUnit"
+                    class="form-control mb-2"
+                    :class="{ 'is-invalid': errors['單位'] }"
+                    rules="required"
                     v-model="tempProduct.unit"
-                  />
+                  ></Field>
+                  <error-message
+                    name="單位"
+                    class="invalid-feedback mb-1"
+                  ></error-message>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -138,15 +159,20 @@
                   >
                     原價<span class="text-danger fw-bold">*</span>
                   </label>
-                  <input
+                  <Field
                     type="number"
-                    id="modalOriginPrice"
                     min="1"
                     name="原價"
+                    id="modalOriginPrice"
                     class="form-control mb-2"
-                    placeholder="請輸入原價"
+                    :class="{ 'is-invalid': errors['原價'] }"
+                    rules="required|numeric"
                     v-model.number="tempProduct.origin_price"
-                  >
+                  ></Field>
+                  <error-message
+                    name="原價"
+                    class="invalid-feedback mb-1"
+                  ></error-message>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -156,15 +182,20 @@
                   >
                     售價<span class="text-danger fw-bold">*</span>
                   </label>
-                  <input
+                  <Field
                     type="number"
-                    id="modalPrice"
                     min="1"
                     name="售價"
+                    id="modalPrice"
                     class="form-control mb-2"
-                    placeholder="請輸入售價"
+                    :class="{ 'is-invalid': errors['售價'] }"
+                    rules="required|numeric"
                     v-model.number="tempProduct.price"
-                  >
+                  ></Field>
+                  <error-message
+                    name="售價"
+                    class="invalid-feedback mb-1"
+                  ></error-message>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -203,7 +234,7 @@
                   * 為必填項目
                 </p>
 
-              </form>
+              </Form>
             </div>
 
             <div
@@ -211,6 +242,7 @@
               :class="{ 'd-none' : !isShow }"
             >
               <RanderImgs
+                ref="renderImg"
                 :product-main-img="tempProduct.imageUrl"
                 :product-imgs="tempProduct.imagesUrl"
                 @updata-img-datas="updateImgs"
@@ -259,6 +291,7 @@
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
 import RanderImgs from '@/components/dashboar/DashboarRenderImgs.vue';
 
@@ -269,7 +302,14 @@ export default {
     return {
       modal: '',
       newBtnStatus: Boolean, // true 禁用; false 啟用
-      tempProduct: {},
+      tempProduct: {
+        title: '',
+        category: '',
+        unit: '',
+        origin_price: 1,
+        price: 1,
+        imageUrl: '',
+      },
       isShow: false,
     };
   },
@@ -294,6 +334,10 @@ export default {
     hideModal() {
       this.modal.hide();
     },
+    resetForm() { // 重製表單驗證
+      this.$refs.productForm.resetForm();
+      this.$refs.renderImg.resetForm();
+    },
     updateImgs(newMainImg, newImgs) {
       this.tempProduct.imageUrl = newMainImg;
       this.tempProduct.imagesUrl = newImgs;
@@ -305,20 +349,20 @@ export default {
       } = this.tempProduct;
 
       if (
-        title === undefined
-        || category === undefined
-        || unit === undefined
-        || this.tempProduct.origin_price === undefined
-        || price === undefined
-        || imageUrl === undefined
+        this.tempProduct.origin_price === 0
+        || price === 0
       ) {
-        this.newBtnStatus = true;
-      } else if (
+        swalFn('價格不可小於 1', 'error');
+      }
+
+      if (
         title === ''
         || category === ''
         || unit === ''
-        || this.tempProduct.origin_price === undefined
+        || this.tempProduct.origin_price === ''
+        || this.tempProduct.origin_price === 0
         || price === ''
+        || price === 0
         || imageUrl === ''
       ) {
         this.newBtnStatus = true;

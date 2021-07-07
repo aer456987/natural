@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { swalFn, delSwalFn } from '@/methods/swal'; // , delSwalFn
+import { swalFn, delSwalFn } from '@/methods/swal';
 import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
 import Pagination from '@/components/dashboar/DashboarPagination.vue';
 import CouponModal from '@/components/modal/DashboarCouponModal.vue';
@@ -164,7 +164,7 @@ export default {
         this.updataCouponData = {
           title: '',
           code: '',
-          percent: 0,
+          percent: 1,
           due_date: Math.floor(Date.now() / 1000),
           is_enabled: 0,
         };

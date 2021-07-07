@@ -1,8 +1,18 @@
-@mixin moveUp($top: 50%) {
+@mixin custom_position_setIn(
+  $topValue: 50%, $leftValue: 50%, $transX: -50%, $transY: -50%,
+) {
   position: absolute;
-  top: $top;
+  top: $topValue;
+  left: $leftValue;
+  transform: translate($transX, $transY);
+}
+
+@mixin custom_position_bottom($bottomValue, $heightValue: auto, $scaleValue: 1) {
+  position: absolute;
+  height: $heightValue;
+  bottom: $bottomValue;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0) scale($scaleValue);
 }
 
 // animetion 動畫

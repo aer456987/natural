@@ -17,9 +17,15 @@ import VueAxios from 'vue-axios';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 import Loading from '@/components/loading/Loading.vue'; // Loading元件
 import 'bootstrap'; // bootstrap icon
+import AOS from 'aos'; // AOS 頁面滾動套件
+import 'aos/dist/aos.css'; // AOS 頁面滾動套件-CSS
 import App from './App.vue';
 import router from './router';
 import { date, currency } from './methods/filters';
+
+AOS.init({
+  once: true,
+});
 
 defineRule('required', required);
 defineRule('email', email);
@@ -51,6 +57,7 @@ app.config.globalProperties.$filters = {
 
 app.use(router);
 app.use(VueAxios, axios);
+app.use(AOS);
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);

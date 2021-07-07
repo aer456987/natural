@@ -1,7 +1,11 @@
+.animation_delay{
+  animation-delay: .5s;
+}
+
+// 呼吸燈效果
 .fade_animetion{
   @include animetion_init(fadeAni, 10s, infinite);
 }
-
 .fade_animetion_slow{
   @include animetion_init(fadeAni, 14s, infinite);
 }
@@ -18,20 +22,39 @@
   }
 }
 
-.translateYTop{
-  animation: translateYTop 2s 1;
-  animation-timing-function: steps(100);
+// 彈跳效果(快速)
+@keyframes bounce {
+	0% {
+		transform: translateY(0%);
+	}
+
+  25% {
+    transform: translateY(-6%);
+  }
+
+  40% {
+    transform: translateY(-3%);
+  }
+
+	100% {
+		transform: translateY(0%);
+	}
 }
 
-@keyframes translateYTop {
-  0% {
-    transform: translateY(20%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
+.bounce_animetion_slow{
+  @include animetion_init(bounceSlow, 2s, infinite);
 }
+// 彈跳效果(慢)
+@keyframes bounceSlow {
+	0% {
+		transform: translateY(0%);
+	}
 
-.animation_delay{
-  animation-delay: .5s;
+  50% {
+    transform: translateY(10%);
+  }
+
+	100% {
+		transform: translateY(0%);
+	}
 }

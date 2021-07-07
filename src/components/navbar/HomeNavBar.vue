@@ -1,14 +1,14 @@
 <template>
   <!-- 首頁導覽列 -->
   <nav
-    class="navbar navbar-expand-lg navbar-dark z-index-3 px-2
+    class="navbar navbar-expand-lg navbar-dark z-index-3 px-sm-1 px-md-2
       position-fixed z-index-3 w-100"
     :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
       <router-link
         to="/home"
-        class="logo_home h3 mb-0 p-0"
+        class=" logo_home mb-0 p-0"
       >
         <Font-awesome-icon
           icon="crow"
@@ -32,7 +32,7 @@
         id="navbarToggler"
         class="collapse navbar-collapse flex justify-content-end"
       >
-        <ul class="navbar-nav fs-5 text-center">
+        <ul class="navbar-nav navbar_text text-center">
           <li class="nav-item scale">
             <router-link
               to="/about"

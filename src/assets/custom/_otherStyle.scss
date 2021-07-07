@@ -32,11 +32,19 @@ tbody{
   }
 }
 
-// 箭頭
-.arrow_style{
-  position: absolute;
-  height: 10%;
-  bottom: 0px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+// loading
+.loadingImg{
+  position: fixed;
+  width: 110%;
+  height: 200%;
+  top: 0;
+  left: 0;
+  background: rgba(white, .8);
+  z-index: 2000;
+  img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

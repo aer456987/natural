@@ -274,7 +274,15 @@ export default {
       if (isNew) {
         this.isNew = true;
         this.btnStatus = true;
-        this.tempProduct = { category: '請選擇分類' };
+        this.$refs.productModal.resetForm();
+        this.tempProduct = {
+          title: '',
+          category: '',
+          unit: '',
+          origin_price: 1,
+          price: 1,
+          imageUrl: '',
+        };
       } else {
         this.isNew = false;
         this.btnStatus = false;

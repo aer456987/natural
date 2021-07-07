@@ -93,9 +93,8 @@
 
               <Field
                 type="number"
-                value='1'
+                min='1'
                 name="折扣 % 數"
-                placeholder="請輸入折扣 % 數"
                 id="modalPercent"
                 class="form-control"
                 :class="{ 'is-invalid': errors['折扣 % 數'] }"
@@ -178,6 +177,7 @@
 </style>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
 
 export default {
@@ -186,7 +186,13 @@ export default {
     return {
       couponModal: '',
       newBtnStatus: Boolean, // true 禁用; false 啟用
-      tempCouponData: {},
+      tempCouponData: {
+        title: '',
+        code: '',
+        percent: 1,
+        due_date: Math.floor(Date.now() / 1000),
+        is_enabled: 1,
+      },
       isNewCoupon: true,
       tempDueDate: Number,
     };
@@ -218,22 +224,21 @@ export default {
     hideCouponModal() {
       this.couponModal.hide();
     },
-    resetForm() {
+    resetForm() { // 重製表單驗證
       this.$refs.couponForm.resetForm();
     },
     checkInputValue() { // 驗證欄位是否為空
       const { title, code, percent } = this.tempCouponData;
+
+      if (this.tempCouponData.percent === 0) {
+        swalFn('折扣數不可小於 1', 'error');
+      }
+
       if (
-        title === undefined
-        || code === undefined
-        || percent === undefined
-        || Number.isNaN(this.tempCouponData.due_date)
-      ) {
-        this.newBtnStatus = true;
-      } else if (
         title === ''
         || code === ''
         || percent === ''
+        || percent === 0
         || Number.isNaN(this.tempCouponData.due_date)
       ) {
         this.newBtnStatus = true;

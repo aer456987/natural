@@ -1,40 +1,5 @@
 <template>
   <!-- 產品分類輪播 -->
-  <!-- <swiper
-    :slidesPerView="2"
-    :spaceBetween="10"
-    :centeredSlides="true"
-    :loop="true"
-    :FadeEffect="true"
-    :autoplay='
-      {
-        "delay": 10000,
-        "disableOnInteraction": false,
-      }'
-      :pagination='{
-        "dynamicBullets": true,
-      }'
-    :breakpoints='{
-      "640": {
-        "slidesPerView": 2,
-        "spaceBetween": 10,
-      },
-      "768": {
-        "slidesPerView": 4,
-        "spaceBetween": 10,
-      },
-      "1024": {
-        "slidesPerView": 5,
-        "spaceBetween": 10,
-      },
-      "1200": {
-        "slidesPerView": 5,
-        "spaceBetween": 10,
-      },
-    }'
-    class="mySwiper"
-  > -->
-
   <swiper
     :slidesPerView="2"
     :spaceBetween="10"
@@ -72,6 +37,10 @@
       },
     }'
     class="mySwiper"
+    data-aos="zoom-in-down"
+    data-aos-anchor-placement="center-bottom"
+    data-aos-delay="500"
+    data-aos-duration="1000"
   >
     <template
       v-for="headerImg in headerImgs"
