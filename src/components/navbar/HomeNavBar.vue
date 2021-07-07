@@ -95,6 +95,9 @@ export default {
       cartsLength: 0,
       newLength: 0,
       isClassChange: false,
+      homeFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      favoritsLength: 0,
+      newfavoritsLength: 0,
     };
   },
   emits: ['openOffcanvas'],
@@ -122,9 +125,16 @@ export default {
   },
   mounted() {
     this.updateCartLength();
+    // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
       this.newLength = num;
+    });
+
+    // 更新最愛收藏數量
+    bus.on('favorits-number', (num) => {
+      this.favoritsLength = num;
+      this.newfavoritsLength = num;
     });
   },
 };

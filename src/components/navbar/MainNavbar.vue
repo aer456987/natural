@@ -48,7 +48,7 @@
             <li class="nav-item scale">
               <a
                 class="nav-link pointer_no_hover"
-                @click="openFavoritesOffcanvas"
+                @click="openFavoritesOffcanvas(mainNavbarFavoritsList)"
               >
                 <i class="bi bi-heart-fill position-relative">
                   <span
@@ -81,7 +81,9 @@
     </nav>
   </div>
 
-  <Offcanvas ref="likeOffcanvas"></Offcanvas>
+  <Offcanvas
+    ref="likeOffcanvas"
+  ></Offcanvas>
 </template>
 
 <script>
@@ -94,6 +96,9 @@ export default {
     return {
       cartsLength: 0,
       newLength: 0,
+      mainNavbarFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      favoritsLength: 0,
+      newfavoritsLength: 0,
     };
   },
   components: { Offcanvas },
@@ -118,15 +123,22 @@ export default {
           console.dir(err);
         });
     },
-    openFavoritesOffcanvas() { // 打開最愛收藏側藍
-      this.$refs.likeOffcanvas.openOffcanvas();
+    openFavoritesOffcanvas(data) { // 打開最愛收藏側欄
+      this.$refs.likeOffcanvas.openOffcanvas(data);
     },
   },
   mounted() {
     this.updateCartLength();
+    // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
       this.newLength = num;
+    });
+
+    // 更新最愛收藏數量
+    bus.on('favorits-number', (num) => {
+      this.favoritsLength = num;
+      this.newfavoritsLength = num;
     });
   },
 };
