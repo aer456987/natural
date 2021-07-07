@@ -93,7 +93,7 @@
                 id="orderTel"
                 class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
-                rules="required|numeric|min:8"
+                rules="required|numeric|min:10"
                 v-model="userDatas.user.tel"
               ></Field>
               <error-message
@@ -123,32 +123,34 @@
               ></error-message>
 
               <!-- 寄送方式 -->
-              <label
-                for="orderDelivery"
-                class="form-label mt-3 mb-1"
-              >
-                寄送方式<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                as="select"
-                name="寄送方式"
-                id="orderDelivery"
-                class="form-select"
-                :class="{ 'is-invalid': errors['寄送方式'] }"
-                rules="required"
-                v-model="userDatas.user.delivery"
-              >
-                <option value="" selected disabled>選擇寄送方式</option>
-                <option value="宅配">宅配</option>
-                <option value="全家超取">全家</option>
-                <option value="7-11 超取">7-11</option>
-                <option value="萊爾富超取">萊爾富</option>
-                <option value="OK 超取">OK 超取</option>
-              </Field>
-              <error-message
-                name="寄送方式"
-                class="invalid-feedback mb-1"
-              ></error-message>
+              <template v-if="isSend">
+                <label
+                  for="orderDelivery"
+                  class="form-label mt-3 mb-1"
+                >
+                  寄送方式<span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  as="select"
+                  name="寄送方式"
+                  id="orderDelivery"
+                  class="form-select"
+                  :class="{ 'is-invalid': errors['寄送方式'] }"
+                  rules="required"
+                  v-model="userDatas.user.delivery"
+                >
+                  <option value="" selected disabled>選擇寄送方式</option>
+                  <option value="宅配">宅配</option>
+                  <option value="全家超取">全家</option>
+                  <option value="7-11 超取">7-11</option>
+                  <option value="萊爾富超取">萊爾富</option>
+                  <option value="OK 超取">OK 超取</option>
+                </Field>
+                <error-message
+                  name="寄送方式"
+                  class="invalid-feedback mb-1"
+                ></error-message>
+              </template>
 
               <!-- 收件地址 -->
               <label
@@ -165,6 +167,7 @@
                 :class="{ 'is-invalid': errors['地址'] }"
                 rules="required"
                 v-model="userDatas.user.address"
+                :readonly="!isSend"
               ></Field>
               <error-message
                 name="地址"
@@ -225,14 +228,18 @@
           <div class="col-12 d-flex justify-content-between mb-5">
             <router-link
               to="/cart"
-              class="btn btn_outline_green px-3 py-1"
-            > ◁ 返回購物車 </router-link>
+              class="btn btn-outline-custom-primary px-3 py-1"
+            >
+              ◁ 返回購物車
+            </router-link>
 
             <button
               class="btn btn_main px-3 py-1"
               :disabled="btnStatus"
               @click="postOrder"
-            > 送出訂單 ▷ </button>
+            >
+            送出訂單 ▷
+            </button>
           </div>
         </section>
       </section>
@@ -256,7 +263,9 @@ export default {
       userDatas: { // 未送訂單: 訂單資料
         user: {},
       },
-      isFundraising: true,
+      isFundraising: true, // 特定付款選項不能用
+      isSend: true, // 需要寄送
+      isAll: true,
       breadcrumbData: { // 麵包屑
         previous: [ // 上一個(多個)
           {
@@ -270,6 +279,7 @@ export default {
         ],
         purpose: '填寫訂單資料', // 目前頁面
       },
+      tempData: [],
     };
   },
   components: { Progress, Breadcrumb },
@@ -301,17 +311,38 @@ export default {
         });
     },
     filterFundraising() {
+      this.tempData = this.carts.carts.filter(
+        (item) => item.product.category === '講座' || item.product.category === '募款專案',
+      );
+      console.log(this.tempData);
+
       this.carts.carts.forEach((item) => {
-        if (item.product.category === '募款專案') {
+        if (this.tempData.includes(item)) {
           this.isFundraising = false;
+          this.isSend = true;
         }
       });
+
+      if (this.tempData.length === this.carts.carts.length) {
+        this.isFundraising = false;
+        this.isSend = false;
+        this.userDatas.user.delivery = '單純參加講座或捐款無需填寫';
+        this.userDatas.user.address = '單純參加講座或捐款無需填寫';
+      } else {
+        this.isFundraising = true;
+        this.isSend = true;
+      }
     },
     checkUserDatas() { // 驗證是否為空訂單
       const {
         name, email, tel, address,
       } = this.userDatas.user;
-      if (name === '' || email === '' || tel === '' || address === '') {
+      if (
+        name === ''
+        || email === ''
+        || tel === ''
+        || address === ''
+      ) {
         this.btnStatus = true;
       } else {
         this.btnStatus = false;

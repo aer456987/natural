@@ -78,6 +78,7 @@ $dark:          $gray-900 !default;
 $brown:         #926E60 !default;
 $brown-500:     #4C2F28 !default;
 $custom-green:  #50B29B !default;
+$custom-primary:   #1d7e63 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -100,6 +101,7 @@ $theme-colors: (
   "blue-600":   #0472e6,
   "pink":       #e83e59,
   "green":      #07b53b,
+  "custom-primary":   #1d7e63,
 ) !default;
 // scss-docs-end theme-colors-map
 

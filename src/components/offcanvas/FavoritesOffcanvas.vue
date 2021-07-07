@@ -52,14 +52,14 @@
                   @favorite-fn="delFavoriteItem"
                 ></FavoriteIcon>
               </span>
-              <span class="col-2 p-0">
+              <span class="col-1 p-0">
                 <img
                   :src="favoritItme.imageUrl"
                   alt="圖片"
                   class="w-100"
                 >
               </span>
-              <span class="col-4 py-0 px-1">
+              <span class="col-5 py-0 px-1">
                 {{ favoritItme.title }} <br>
                 ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
               </span>
@@ -99,7 +99,7 @@
           <div class="col-12 col-md-6">
             <router-link
               to="/products"
-              class="btn btn-outline-secondary w-100 mb-2"
+              class="btn btn-outline-custom-primary w-100 mb-2"
             >
               繼續選購
             </router-link>

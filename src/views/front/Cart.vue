@@ -156,7 +156,7 @@
           >
             <router-link
               to="/products"
-              class="btn btn_outline_green px-3 py-1"
+              class="btn btn-outline-custom-primary px-3 py-1"
             >
               ◁ 繼續購物
             </router-link>

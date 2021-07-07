@@ -2,7 +2,7 @@
 .btn_main{
   padding: 8px;
   color: white;
-  background: $primary;
+  background: $custom-primary;
   &:hover{
     color: white;
     background: $secondary;
@@ -45,6 +45,6 @@
   background: $white; // transparent
   z-index: 1;
   &:hover{
-    color: $primary;
+    color: $custom-primary;
   }
 }
