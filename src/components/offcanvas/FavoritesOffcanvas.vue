@@ -35,75 +35,93 @@
       </div>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-unstyled px-1 mb-5">
-        <template
-          v-for="(favoritItme) in newFavoritsData"
-          :key="favoritItme.id"
-        >
-
-          <li class="row justify-content-between align-items-center
-            mb-2 pb-2 border-bottom"
+      <template v-if="offcanvasFavoritsList.length > 1">
+        <ul class="list-unstyled px-1 mb-5">
+          <template
+            v-for="favoritItme in newFavoritsData"
+            :key="favoritItme.id"
           >
-            <span class="col-2 p-0">
-              <img
-                :src="favoritItme.imageUrl"
-                alt="圖片"
-                class="w-100"
-              >
-            </span>
-            <span class="col-4 px-2">
-              {{ favoritItme.title }} <br>
-              ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
-            </span>
-            <span class="col-2 px-0">
-              <input
-                ref="numValue"
-                type="number"
-                min="1"
-                class="form-control w-100 text-center
-                  py-1 text-center"
-                v-model.number="favoritItme.qty"
-              >
-            </span>
-            <span class="col-1 p-0 text-center">
-              <FavoriteIcon
-                ref="favoritIcon"
-                :idData="favoritItme.id"
-                @favorite-fn="delFavoriteItem"
-              ></FavoriteIcon>
-            </span>
-            <span class="col-2">
-              <span
-                class="btn btn_outline_green fs-4"
-                @click="addCart(favoritItme.id, favoritItme.qty)"
-              >
-                <i class="bi bi-cart-plus-fill"></i>
+
+            <li class="row justify-content-between align-items-center
+              mb-2 pb-2 border-bottom"
+            >
+              <span class="col-1 p-0 text-center">
+                <FavoriteIcon
+                  ref="favoritIcon"
+                  :idData="favoritItme.id"
+                  @favorite-fn="delFavoriteItem"
+                ></FavoriteIcon>
               </span>
-            </span>
+              <span class="col-2 p-0">
+                <img
+                  :src="favoritItme.imageUrl"
+                  alt="圖片"
+                  class="w-100"
+                >
+              </span>
+              <span class="col-4 py-0 px-1">
+                {{ favoritItme.title }} <br>
+                ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
+              </span>
+              <span class="col-2 px-0">
+                <input
+                  ref="numValue"
+                  type="number"
+                  min="1"
+                  class="form-control w-100 text-center
+                    py-1 text-center"
+                  v-model.number="favoritItme.qty"
+                >
+              </span>
+              <span class="col-2">
+                <span
+                  class="btn btn_outline_green fs-4"
+                  @click="addCart(favoritItme.id, favoritItme.qty)"
+                >
+                  <i class="bi bi-cart-plus-fill"></i>
+                </span>
+              </span>
+            </li>
+
+          </template>
+        </ul>
+
+        <div class="row flex-row-reverse">
+          <div class="col-12 col-md-6">
+            <router-link
+              to="/cart"
+              class="btn btn_main w-100 mb-2"
+            >
+              我要結帳
+            </router-link>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <router-link
+              to="/products"
+              class="btn btn-outline-secondary w-100 mb-2"
+            >
+              繼續選購
+            </router-link>
+          </div>
+        </div>
+      </template>
+
+      <template v-else>
+        <ul class="list-unstyled px-1 mb-5">
+          <li class="text-center">
+            <p class="mb-3 fs-5">
+              還沒有將喜歡的商品加入收藏嗎？
+            </p>
+            <router-link
+              to="/products"
+              class="btn btn_main w-100 mb-2"
+            >
+              趕快去選購
+            </router-link>
           </li>
-
-        </template>
-      </ul>
-
-      <div class="row flex-row-reverse">
-        <div class="col-12 col-md-6">
-          <router-link
-            to="/cart"
-            class="btn btn_main w-100 mb-2"
-          >
-            我要結帳
-          </router-link>
-        </div>
-
-        <div class="col-12 col-md-6">
-          <router-link
-            to="/products"
-            class="btn btn-outline-secondary w-100 mb-2"
-          >
-            繼續選購
-          </router-link>
-        </div>
-      </div>
+        </ul>
+      </template>
     </div>
   </div>
 
