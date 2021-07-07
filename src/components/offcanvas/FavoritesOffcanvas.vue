@@ -15,11 +15,17 @@
             <span>
               <button
                 type="button"
-                to="/cart"
-                class="btn btn-outline-danger py-0 px-1"
+                class="btn btn-outline-danger btn-sm"
                 @click="allDelFavorite"
               >
                 清空收藏
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-dark btn-sm mx-1"
+                @click="renderFavorite"
+              >
+                刷新
               </button>
             </span>
           </h3>
@@ -256,28 +262,6 @@ export default {
           console.dir(err);
         });
     },
-    // updateFavoritLength() { // 取得我的最愛數量
-    //   const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
-
-    //   this.$http
-    //     .get(url)
-    //     .then((res) => {
-    //       if (res.data.success) {
-    //         let totleQty = 0;
-    //         this.cartsLength = res.data.data.carts.forEach((item) => {
-    //           totleQty += item.qty;
-    //         });
-    //         this.cartsLength = totleQty;
-    //         bus.emit('cart-number', this.cartsLength);
-    //       } else {
-    //         console.log('(錯誤-側欄)取得購物車數量 res:', res);
-    //       }
-    //     })
-    //     .catch((err) => {
-    //       console.log('(失敗-側欄)取得購物車數量 err:');
-    //       console.dir(err);
-    //     });
-    // },
   },
   mounted() {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas);
