@@ -32,6 +32,10 @@
   .arrow_style{
     @include custom_position_bottom(21%, 0%, .8);
   }
+
+  .textStyle_rwd_1{
+    font-size: 32px;
+  }
 }
 
 @media(max-width: 768px){
@@ -40,6 +44,10 @@
     font-size: 16px; 
   }
   .headerTitleStyle_title{
+    font-size: 24px;
+  }
+
+  .textStyle_rwd_1{
     font-size: 24px;
   }
 
@@ -65,7 +73,28 @@
     @include custom_position_bottom(-20%, 60%, .3);
   }
 
+  .title_style{
+    font-size: 16px;
+  }
+
+  .textStyle_rwd_1{
+    font-size: 16px;
+  }
+
+  .filter_text{
+    font-size: 14px;
+  }
+
+  .offcanvas{
+    max-width: 90%;
+  }
+
+  .offcanvas_text{
+    font-size: 14px;
+  }
+
   footer{
     font-size: 14px;
   }
+  
 }

@@ -306,7 +306,7 @@
 
 <style lang="sass">
 @import '@/assets/allStyle';
-@import "@/assets/custom/_homeRWDStyle.scss";
+@import "@/assets/custom/_rwdStyle.scss";
 </style>
 
 <script>

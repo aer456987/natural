@@ -1,14 +1,14 @@
 <template>
   <!-- 我的最愛側欄ㄋ -->
   <div
-    class="offcanvas offcanvas-end shadow-lg"
+    class="offcanvas offcanvas-end shadow-lg overflow-x px-0 m-0"
     data-bs-scroll="true"
     data-bs-backdrop="true"
     tabindex="-1"
     ref="offcanvas"
   >
     <div class="offcanvas-header">
-      <div class="row align-items-center w-100">
+      <div class="row align-items-center">
         <div class="col-10">
           <h3 class="fs-5">
             最愛收藏
@@ -41,28 +41,27 @@
             :key="favoritItme.id"
           >
 
-            <li class="row justify-content-between align-items-center
+            <li class="row justify-content-center align-items-center
               mb-2 pb-2 border-bottom"
             >
-              <span class="col-1 p-0 text-center">
+              <span class="col-2 col-sm-1 p-0 border">
                 <FavoriteIcon
                   ref="favoritIcon"
                   :idData="favoritItme.id"
                 ></FavoriteIcon>
-                  <!-- @favorite-fn="delFavoriteItem" -->
               </span>
-              <span class="col-1 p-0">
+              <span class="col-1 p-0 d-none d-sm-block">
                 <img
                   :src="favoritItme.imageUrl"
                   alt="圖片"
                   class="w-100"
                 >
               </span>
-              <span class="col-5 py-0 px-1">
+              <span class="col-5 offcanvas_text border py-0 px-1">
                 {{ favoritItme.title }} <br>
                 ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
               </span>
-              <span class="col-2 px-0">
+              <span class="col-3 border px-1">
                 <input
                   ref="numValue"
                   type="number"
@@ -72,7 +71,7 @@
                   v-model.number="favoritItme.qty"
                 >
               </span>
-              <span class="col-2">
+              <span class="col-2 p-0 border">
                 <span
                   class="btn btn_outline_green fs-4"
                   @click="addCart(favoritItme.id, favoritItme.qty)"

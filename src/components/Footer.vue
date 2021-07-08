@@ -10,42 +10,42 @@
       <small class="row align-items-center">
         <nav class="nav-item mb-3">
 
-          <ul class="d-flex justify-content-center fs-5 list-unstyled m-0">
-            | <li class="scale">
+          <ul class="row justify-content-center list-unstyled m-0">
+            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
                 to="/home"
-                class="nav-link fs-6 px-2 text-secondary"
+                class="nav-link px-2 text-secondary"
               >
                 首頁
               </router-link>
-            </li> |
+            </li>
 
-            <li class="scale">
+            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
                 to="/about"
-                class="nav-link fs-6 px-2 text-secondary"
+                class="nav-link px-2 text-secondary"
               >
                 關於我們
               </router-link>
-            </li> |
+            </li>
 
-            <li class="scale">
+            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
                 to="/products"
-                class="nav-link fs-6 px-2 text-secondary"
+                class="nav-link px-2 text-secondary"
               >
                 線上商城
               </router-link>
-            </li> |
+            </li>
 
-            <li class="scale">
+            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
                 to="/QAndA"
-                class="nav-link fs-6 px-2 text-secondary"
+                class="nav-link px-2 text-secondary"
               >
                 常見問題
               </router-link>
-            </li> |
+            </li>
 
           </ul>
         </nav>
@@ -93,7 +93,7 @@
       class="container mx-auto my-0"
       :class="colors.color"
     >
-      Copyright © 2021 ToriHa | 個人作業使用，無商業行為
+      Copyright © 2021 ToriHa 個人作業使用，無商業行為
     </small>
   </footer>
 </template>

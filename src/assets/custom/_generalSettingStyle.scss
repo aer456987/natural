@@ -1,5 +1,6 @@
 *{
   letter-spacing: 2.5px;
+  box-sizing: border-box;
 }
 
 body{
@@ -96,23 +97,4 @@ body{
 .move_up_start{
   @include custom_position_setIn(55%);
   transition-duration: 3s;
-}
-
-// RWD - media
-@media(max-width: 992px){
-  .textStyle_rwd_1{
-    font-size: 32px;
-  }
-}
-
-@media(max-width: 768px){
-  .textStyle_rwd_1{
-    font-size: 24px;
-  }
-}
-
-@media(max-width: 414px){
-  .textStyle_rwd_1{
-    font-size: 16px;
-  }
 }

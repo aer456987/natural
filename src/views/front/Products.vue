@@ -16,10 +16,10 @@
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
-        <span class="col-6">
+        <span class="col-12 col-md-8 mb-1">
           <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
         </span>
-        <span class="col-6 col-md-4 col-lg-3
+        <span class="col-12 col-md-4 col-lg-3 mb-1
           position-relative">
           <i
             class="bi bi-x-lg

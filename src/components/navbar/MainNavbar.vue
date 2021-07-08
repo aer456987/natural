@@ -1,7 +1,7 @@
 <template>
   <!-- 主要導覽列 -->
   <div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2 w-100">
       <div class="container-fluid">
         <router-link
           to="/home"

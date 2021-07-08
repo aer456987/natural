@@ -21,7 +21,7 @@
           checked
         />
         <label
-          class="btn btn-outline-primary py-1 border-0 rounded-0"
+          class="btn btn-outline-primary filter_text py-1 border-0 rounded-0"
           for="all"
         >
           全部商品
@@ -38,7 +38,7 @@
           @change="$emit('filterListMethods', productSelect)"
         />
         <label
-          class="btn btn-outline-primary py-1 border-0"
+          class="btn btn-outline-primary filter_text py-1 border-0"
           for="fundraise"
         >
           募款專案
@@ -55,7 +55,7 @@
           @change="$emit('filterListMethods', productSelect)"
         />
         <label
-          class="btn btn-outline-primary py-1 border-0"
+          class="btn btn-outline-primary filter_text py-1 border-0"
           for="charitableActivities"
         >
           公益活動
@@ -72,7 +72,7 @@
           @change="$emit('filterListMethods', productSelect)"
         />
         <label
-          class="btn btn-outline-primary py-1 border-0"
+          class="btn btn-outline-primary filter_text py-1 border-0"
           for="lecture"
         >
           講座
@@ -89,7 +89,7 @@
           @change="$emit('filterListMethods', productSelect)"
         />
         <label
-          class="btn btn-outline-primary py-1 border-0"
+          class="btn btn-outline-primary filter_text py-1 border-0"
           for="organicFood"
         >
           有機食品
@@ -106,7 +106,7 @@
           @change="$emit('filterListMethods', productSelect)"
         />
         <label
-          class="btn btn-outline-primary py-1 border-0 rounded-0"
+          class="btn btn-outline-primary filter_text py-1 border-0 rounded-0"
           for="merchandise"
         >
           周邊商品

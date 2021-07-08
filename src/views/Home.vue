@@ -164,7 +164,7 @@
 
 <style lang="sass">
 @import '../assets/allStyle';
-@import "../assets/custom/homeRWDStyle";
+@import "../assets/custom/rwdStyle";
 </style>
 
 <script>
