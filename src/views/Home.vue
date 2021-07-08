@@ -135,7 +135,6 @@
       <p class="fs-4 mb-3 px-2">
         訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！
       </p>
-      {{ subscriptionEmail }}
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-6 col-xl-4">
           <Form
