@@ -85,7 +85,7 @@
                         {{ item.product.title }}
                       </p>
                     </td>
-                    <td class="border">
+                    <td>
                       <div class="d-flex justify-content-center">
                         <div
                           class="input-group"
@@ -105,10 +105,10 @@
                         </div>
                       </div>
                     </td>
-                    <td class="border">
+                    <td>
                       NT ${{ $filters.currency(item.final_total) }}
                     </td>
-                    <td class="border">
+                    <td>
                       <i
                         class="bi bi-x-lg btn_red fs-6"
                         @click="delCart('one', item)"

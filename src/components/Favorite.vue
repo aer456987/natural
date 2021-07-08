@@ -43,8 +43,10 @@ export default {
       bus.emit('favorits-number', num.length);
     },
     addFavoriteItem() { // 加入最愛
-      this.favoritsList = JSON.parse(localStorage.getItem('favoritData'));
-      if (this.favoritsList.includes(this.idData)) {
+      this.favoritsList = JSON.parse(localStorage.getItem('favoritData')) || [];
+      const favorStatus = this.favoritsList.includes(this.idData);
+
+      if (favorStatus) {
         this.favoritsList.splice(this.favoritsList.indexOf(this.idData), 1);
         this.saveFavorit(this.favoritsList);
         this.updateFavoritsNum(this.favoritsList);
