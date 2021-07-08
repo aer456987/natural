@@ -73,7 +73,7 @@
                     v-for="item in carts.carts"
                     :key="item.id"
                   >
-                    <td class="d-flex align-items-center border">
+                    <td class="d-flex align-items-center">
                       <span class="d-none d-md-block">
                         <img
                           class="width_sm w-100  d-none d-md-block"
@@ -95,7 +95,7 @@
                             class="btn_light_green px-1 px-md-2"
                             @click="putCart('reduce', item)"
                           > - </span>
-                          <div class="form-control text-center border px-0 p-md-1">
+                          <div class="form-control text-center px-0 p-md-1">
                             {{ item.qty }}
                           </div>
                           <div
