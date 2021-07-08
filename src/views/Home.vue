@@ -135,21 +135,40 @@
       <p class="fs-4 mb-3 px-2">
         訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！
       </p>
+      {{ subscriptionEmail }}
       <div class="row justify-content-center">
-        <div class="col-11 col-md-7 col-lg-6 col-xl-4">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control py-1 px-2"
-              placeholder="請留下您的Email，由我們主動通知您！"
-              aria-label="請留下您的Email，由我們主動通知您！">
-            <button
-              class="btn btn_main py-1 px-4"
-              type="button"
-            >
-              訂閱
-            </button>
-          </div>
+        <div class="col-md-7 col-lg-6 col-xl-4">
+          <Form
+            ref="subscriptionForm"
+            v-slot="{ errors }"
+            class="px-3"
+            @change="checkEmailValue"
+          >
+            <div class="input-group">
+              <Field
+                type="email"
+                name="Email"
+                placeholder="留下您的Email，讓我們主動通知您！"
+                id="subscriptionEmail"
+                class="form-control py-1 px-2"
+                :class="{ 'is-invalid': errors['Email'] }"
+                rules="email"
+                v-model="subscriptionEmail"
+              ></Field>
+              <button
+                type="button"
+                class="btn btn_main py-1 px-4"
+                :class="{ 'disabled' : btnStatus }"
+                @click="goSubscription"
+              >
+                訂閱
+              </button>
+              <error-message
+                name="Email"
+                class="invalid-feedback mb-1"
+              ></error-message>
+            </div>
+          </Form>
         </div>
       </div>
     </section>
@@ -168,6 +187,7 @@
 </style>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
 import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 import Footer from '@/components/Footer.vue';
@@ -213,6 +233,8 @@ export default {
         navbarClass: ['py-sm-1', 'py-md-3'],
       },
       homeFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      subscriptionEmail: '',
+      btnStatus: true,
     };
   },
   components: {
@@ -241,6 +263,22 @@ export default {
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側藍
       this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritsList);
+    },
+    checkEmailValue() { // 確認訂閱輸入欄是否為空
+      if (this.subscriptionEmail === '') {
+        this.btnStatus = true;
+      } else {
+        this.btnStatus = false;
+      }
+    },
+    goSubscription() {
+      this.subscriptionEmail = '';
+      this.btnStatus = true;
+      this.resetForm();
+      swalFn('訂閱成功', 'success');
+    },
+    resetForm() { // 重製表單驗證
+      this.$refs.subscriptionForm.resetForm();
     },
   },
   mounted() {
