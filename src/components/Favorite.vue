@@ -59,6 +59,7 @@ export default {
     },
   },
   mounted() {
+    this.favoritsList = JSON.parse(localStorage.getItem('favoritData')) || [];
     this.isFavorite = this.favoritsList.includes(this.idData);
   },
 };

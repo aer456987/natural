@@ -8,6 +8,7 @@ body{
   background: $gray-100;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  user-select: none;
 }
 
 // 放大1.2倍
@@ -96,11 +97,6 @@ body{
   @include custom_position_setIn(55%);
   transition-duration: 3s;
 }
-
-// 文字設定
-// .textStyle_rwd_1{
-  // 40px
-// }
 
 // RWD - media
 @media(max-width: 992px){
