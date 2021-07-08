@@ -41,16 +41,16 @@ export default {
       localStorage.setItem('favoritData', data);
     },
     updateFavoritsNum() { // 更新最愛數量
-      const newNum = JSON.parse(localStorage.getItem('favoritData'));
+      const newNum = JSON.parse(localStorage.getItem('favoritData')) || [];
       bus.emit('favorits-number', newNum.length);
     },
     addFavoriteItem() { // 加入最愛
-      this.favoritsList = JSON.parse(localStorage.getItem('favoritData'));
+      this.favoritsList = JSON.parse(localStorage.getItem('favoritData')) || [];
       if (this.favoritsList.includes(this.idData)) {
         this.favoritsList.splice(this.favoritsList.indexOf(this.idData), 1);
         this.saveFavorit(this.favoritsList);
         this.updateFavoritsNum();
-        bus.emit('favorits-list', JSON.parse(localStorage.getItem('favoritData')));
+        bus.emit('favorits-list', JSON.parse(localStorage.getItem('favoritData')) || []);
       } else {
         this.favoritsList.push(this.idData);
         this.saveFavorit(this.favoritsList);
