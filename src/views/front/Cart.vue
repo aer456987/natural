@@ -74,17 +74,19 @@
                     :key="item.id"
                   >
                     <td class="text-start">
-                      <div class="d-none d-md-block p-0">
-                        <img
-                          class="width_sm w-100"
-                          :src="item.product.imageUrl"
-                          alt="預覽"
-                        />
-                      </div>
-                      <div>
-                        <p class="m-0 px-0 px-sm-1 text-start">
-                          {{ item.product.title }}
-                        </p>
+                      <div class="row align-items-center">
+                        <span class="col-4 d-none d-md-inline">
+                          <img
+                            class="width_sm"
+                            :src="item.product.imageUrl"
+                            alt="預覽"
+                          />
+                        </span>
+                        <span class="col-md-8 px-sm-1">
+                          <p class="m-0">
+                            {{ item.product.title }}
+                          </p>
+                        </span>
                       </div>
                     </td>
                     <td>
