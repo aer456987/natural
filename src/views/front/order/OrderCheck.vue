@@ -15,11 +15,12 @@
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
           <main class="col-md-12 col-lg-9">
-            <section class="px-5 py-5 mb-5 rounded shadow bg-white">
+            <section class="px-3 px-md-5 py-5 mb-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">
                 訂單編號
               </h3>
-              <p class="text-center text-danger fw-bold mb-4 pb-3">
+              <p class="text-center text-danger
+                textStyle_rwd_2 fw-bold mb-4 pb-3">
                 {{ order.id }}
               </p>
 
@@ -27,18 +28,20 @@
               <h3 class="h5 text-center fw-bold mt-3 mb-2">
                 訂購人資訊
               </h3>
-              <table class="table table-borderless mb-5 text-break">
+              <table class="table table-borderless cart_table_style
+                mb-5 text-break"
+              >
                 <tbody>
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       姓名
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.name }}
@@ -48,13 +51,13 @@
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       聯絡電話
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.tel }}
@@ -64,13 +67,13 @@
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       Email
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.email }}
@@ -80,13 +83,13 @@
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       寄送方式
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.delivery }}
@@ -96,13 +99,13 @@
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       寄送地址
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.address }}
@@ -112,13 +115,13 @@
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       付款方式
                     </th>
                     <td
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="70%"
                     >
                       {{ order.data.user.payment }}
@@ -130,26 +133,28 @@
 
               <!-- 商品項目 -->
               <h3 class="h5 text-center fw-bold mt-3 mb-2">商品項目</h3>
-              <table class="table table-borderless mb-5 text-center text-break">
+              <table class="table table-borderless cart_table_style
+                mb-5 text-center text-break"
+              >
                 <thead>
                   <tr>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       品名
                     </th>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       數量
                     </th>
                     <th
                       scope="row"
-                      class="px-3 border"
+                      class="px-2 px-md-3 border"
                       width="30%"
                     >
                       金額
@@ -167,10 +172,10 @@
                     >
                       {{ item.product.title }}
                     </td>
-                    <td class="px-3 border">
+                    <td class="px-2 px-md-3 border">
                       {{ item.qty }} {{ item.product.unit }}
                     </td>
-                    <td class="px-3 border">
+                    <td class="px-2 px-md-3 border">
                       NT ${{ $filters.currency(item.total) }}
                     </td>
                   </tr>
@@ -183,7 +188,7 @@
           </main>
 
           <!-- 我要付款 -->
-          <div class="col-12 d-flex justify-content-center mb-5">
+          <div class="col-12 d-flex justify-content-center mb-2 mb-md-5">
             <router-link
               v-if="order.data.user.payment === '貨到付款'"
               to="/products"
@@ -197,7 +202,9 @@
               to="/orderPaid"
               class="btn btn_main px-3 py-1"
               @click="goPay"
-            >我要付款</router-link>
+            >
+              我要付款
+            </router-link>
 
           </div>
         </section>

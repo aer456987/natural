@@ -19,9 +19,11 @@
           <!-- 購物明細 -->
           <div class="col-xl-5 col-lg-6">
             <div
-              class="table_style w-100 p-5 mb-5 rounded bg-white shadow-sm">
-              <h5 class="text-center mb-4">購物明細</h5>
-              <table class="table text-center mb-5">
+              class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
+              <h2 class="text-center mb-4 fs-5">
+                購物明細
+              </h2>
+              <table class="table cart_table_style text-center mb-5">
                 <thead>
                   <tr>
                     <td scope="col">商品資訊</td>
@@ -225,16 +227,18 @@
             </Form>
           </main>
           <!-- 返回購物車/送出訂單 -->
-          <div class="col-12 d-flex justify-content-between mb-5">
+          <div class="col-12 d-flex justify-content-between mb-2 mb-md-5">
             <router-link
               to="/cart"
-              class="btn btn-outline-custom-primary px-3 py-1"
+              class="btn btn-outline-custom-primary btn_style
+                px-1 px-sm-2 px-md-3 py-1"
             >
               ◁ 返回購物車
             </router-link>
 
             <button
-              class="btn btn_main px-3 py-1"
+              class="btn btn_main btn_style
+                px-1 px-sm-2 px-md-3 py-1"
               :disabled="btnStatus"
               @click="postOrder"
             >

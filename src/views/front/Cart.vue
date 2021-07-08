@@ -9,12 +9,16 @@
       <Progress :progress-value="progressNum"></Progress>
 
       <!-- 購物車 -->
-      <h1 class="text-center fw-bold mb-4">購物車</h1>
+      <h1 class="text-center fw-bold mb-4">
+        購物車
+      </h1>
       <div class="container">
         <main class="row px-lg-0 px-xl-5 position-relative">
 
           <div
-            class="col-12 table_style bg-white mb-5 py-5 px-2 px-md-5 text-center rounded-3 shadow"
+            class="col-12 table_style bg-white
+              mb-5 py-5 px-2 px-md-5
+              text-center rounded-3 shadow"
           >
 
             <div
@@ -33,38 +37,38 @@
             </div>
 
             <template v-else>
-              <table class="table position-relative">
+              <table class="table cart_table_style position-relative">
                 <thead>
                   <tr>
                     <td
                       width="30%"
                       scope="col"
-                      class="py-3 fs-5"
+                      class="py-3"
                     >
                       商品資訊
                     </td>
                     <td
                       width="45%"
                       scope="col"
-                      class="py-3 fs-5"
+                      class="py-3"
                     >
                       數量
                     </td>
                     <td
                       width="20%"
                       scope="col"
-                      class="py-3 fs-5"
+                      class="py-3"
                     >
                       金額
                     </td>
                     <td
                       width="5%"
                       scope="col"
-                      class="py-3 fs-5"
+                      class="py-3"
                     ></td>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
                   <tr
                     v-for="item in carts.carts"
                     :key="item.id"
@@ -88,14 +92,14 @@
                           style="max-width: 180px"
                         >
                           <span
-                            class="btn_light_green px-2"
+                            class="btn_light_green px-1 px-md-2"
                             @click="putCart('reduce', item)"
                           > - </span>
-                          <div class="form-control text-center border p-1">
+                          <div class="form-control text-center border px-0 p-md-1">
                             {{ item.qty }}
                           </div>
                           <div
-                            class="btn_light_green px-2"
+                            class="btn_light_green px-1 px-md-2"
                             @click="putCart('add', item)"
                           > + </div>
                         </div>
@@ -106,7 +110,7 @@
                     </td>
                     <td class="border">
                       <i
-                        class="bi bi-x-lg btn_red"
+                        class="bi bi-x-lg btn_red fs-6"
                         @click="delCart('one', item)"
                       ></i>
                     </td>
@@ -159,26 +163,29 @@
           <!-- 繼續購物/清空購物車 -->
           <div
             v-if="!btnStatus"
-            class="d-flex justify-content-between mb-5"
+            class="d-flex justify-content-between mb-2 mb-md-5"
           >
             <router-link
               to="/products"
-              class="btn btn-outline-custom-primary px-1 px-sm-2 px-md-3 py-1"
+              class="btn btn-outline-custom-primary btn_style
+                px-1 px-sm-2 px-md-3 py-1"
             >
               ◁ 繼續購物
             </router-link>
 
             <button
               type="button"
-              class="btn btn-outline-danger px-1 px-sm-2 px-md-3 py-1"
+              class="btn btn-outline-danger btn_style
+                px-1 px-sm-2 px-md-3 py-1"
               @click="delCart('all')"
             >
-              清空購物車
+              清空
             </button>
 
             <router-link
               to="/order"
-              class="btn btn_main px-1 px-sm-2 px-md-3 py-1"
+              class="btn btn_main btn_style
+                px-1 px-sm-2 px-md-3 py-1"
               :class="{ 'disabled' : btnStatus }"
             >
               填寫訂單 ▷

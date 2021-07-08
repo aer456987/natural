@@ -14,8 +14,8 @@
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
           <section class="col-md-12 col-lg-9">
-            <main class="px-5 py-5 mb-5 rounded
-              shadow text-center bg-white">
+            <main class="px-3 px-md-5 py-5 mb-5 rounded
+              shadow text-center bg-white textStyle_rwd_2">
               <h5 class="fw-bold mt-2 mb-4">感謝您的訂購！</h5>
               <p>您訂購的商品將在近期安排出貨，請留意簡訊通知或配送人員的電話。</p>
               <p>

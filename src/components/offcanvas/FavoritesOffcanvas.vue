@@ -57,7 +57,7 @@
                   class="w-100"
                 >
               </span>
-              <span class="col-5 offcanvas_text py-0 px-1">
+              <span class="col-5 textStyle_rwd_2 py-0 px-1">
                 {{ favoritItme.title }} <br>
                 ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
               </span>
