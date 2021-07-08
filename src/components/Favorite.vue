@@ -27,7 +27,6 @@ export default {
     return {
       isFavorite: false,
       favoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
-      newfavoritsList: [],
     };
   },
   watch: {
@@ -41,7 +40,6 @@ export default {
       localStorage.setItem('favoritData', data);
     },
     updateFavoritsNum(num) { // 更新最愛數量
-      // const newNum = JSON.parse(localStorage.getItem('favoritData'));
       bus.emit('favorits-number', num.length);
     },
     addFavoriteItem() { // 加入最愛
@@ -54,7 +52,7 @@ export default {
       } else {
         this.favoritsList.push(this.idData);
         this.saveFavorit(this.favoritsList);
-        this.updateFavoritsNum();
+        this.updateFavoritsNum(this.favoritsList);
       }
     },
   },
