@@ -41,14 +41,14 @@
                 <thead>
                   <tr>
                     <td
-                      width="30%"
+                      width="40%"
                       scope="col"
                       class="py-3"
                     >
                       商品資訊
                     </td>
                     <td
-                      width="45%"
+                      width="35%"
                       scope="col"
                       class="py-3"
                     >
@@ -73,17 +73,19 @@
                     v-for="item in carts.carts"
                     :key="item.id"
                   >
-                    <td class="d-flex align-items-center">
-                      <span class="d-none d-md-block">
+                    <td class="text-start">
+                      <div class="d-none d-md-block p-0">
                         <img
-                          class="width_sm w-100  d-none d-md-block"
+                          class="width_sm w-100"
                           :src="item.product.imageUrl"
                           alt="預覽"
                         />
-                      </span>
-                      <p class="m-0 px-1 px-md-2 text-start">
-                        {{ item.product.title }}
-                      </p>
+                      </div>
+                      <div>
+                        <p class="m-0 px-0 px-sm-1 text-start">
+                          {{ item.product.title }}
+                        </p>
+                      </div>
                     </td>
                     <td>
                       <div class="d-flex justify-content-center">
@@ -92,14 +94,14 @@
                           style="max-width: 180px"
                         >
                           <span
-                            class="btn_light_green px-1 px-md-2"
+                            class="btn_light_green px-0 px-sm-1 px-md-2"
                             @click="putCart('reduce', item)"
                           > - </span>
-                          <div class="form-control text-center px-0 p-md-1">
+                          <div class="form-control text-center px-0 p-md-1 textStyle_rwd_2">
                             {{ item.qty }}
                           </div>
                           <div
-                            class="btn_light_green px-1 px-md-2"
+                            class="btn_light_green px-0 px-sm-1 px-md-2"
                             @click="putCart('add', item)"
                           > + </div>
                         </div>
