@@ -189,6 +189,7 @@ export default {
       this.$refs.favoritIcon.saveFavorit([]);
       this.offcanvasFavoritsList = [];
       this.newFavoritsData = [];
+      bus.emit('favorits-number', this.newFavoritsData.length);
     },
     addCart(id, num = 1) { // 加入購物車
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
