@@ -210,6 +210,7 @@
 
 <script>
 import { swalFn } from '@/methods/swal';
+import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import Progress from '@/components/CartProgress.vue';
 
@@ -287,6 +288,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(`${productName} ${res.data.message}`, 'success');
+            this.updateCartLength();
             this.getCarts();
           } else {
             swalFn(res.data.message, 'error');
@@ -328,6 +330,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
+            this.updateCartLength();
             this.getCarts();
           } else {
             swalFn(res.data.message, 'error');
@@ -361,6 +364,27 @@ export default {
           console.log('(失敗-前台)套用優惠券 err:');
           console.dir(err);
           this.loadingStatus = false;
+        });
+    },
+    updateCartLength() { // 取得購物車數量
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            let totleQty = 0;
+            this.cartsLength = res.data.data.carts.forEach((item) => {
+              totleQty += item.qty;
+            });
+            this.cartsLength = totleQty;
+            bus.emit('cart-number', this.cartsLength);
+          } else {
+            console.log('(錯誤-購物車)取得購物車數量 res:', res);
+          }
+        })
+        .catch((err) => {
+          console.log('(失敗-購物車)取得購物車數量 err:');
+          console.dir(err);
         });
     },
   },

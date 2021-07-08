@@ -1,5 +1,6 @@
 <template>
   <!-- 我的最愛側欄ㄋ -->
+  <Loading :status="loadingStatus"></Loading>
   <div
     class="offcanvas offcanvas-end shadow-lg overflow-x px-0 m-0"
     data-bs-scroll="true"
@@ -135,6 +136,7 @@ export default {
   name: 'FavoritesOffcanvas.vue',
   data() {
     return {
+      loadingStatus: false,
       offcanvas: '', // 元件註冊位置
       offcanvasProducts: [], // 所有產品
       offcanvasFavoritsList: [], // 最愛清單內容
@@ -158,7 +160,6 @@ export default {
     },
     getProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
-
       this.$http
         .get(url)
         .then((res) => {
@@ -192,13 +193,13 @@ export default {
     },
     addCart(id, num = 1) { // 加入購物車
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+      this.loadingStatus = true;
       const cartData = {
         data: {
           product_id: id,
           qty: num,
         },
       };
-      this.loadingStatus = true;
 
       this.$http
         .post(url, cartData)
@@ -215,7 +216,7 @@ export default {
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)加入購物車 err:');
+          console.log('(失敗-測欄)加入購物車 err:');
           console.dir(err);
           this.productQty = 1;
           this.loadingStatus = false;
@@ -223,7 +224,6 @@ export default {
     },
     updateCartLength() { // 取得購物車數量
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
-
       this.$http
         .get(url)
         .then((res) => {

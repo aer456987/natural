@@ -26,9 +26,9 @@
               <table class="table cart_table_style text-center mb-5">
                 <thead>
                   <tr>
-                    <td scope="col">商品資訊</td>
-                    <td scope="col">數量</td>
-                    <td scope="col">金額</td>
+                    <td scope="col" width="35%">商品資訊</td>
+                    <td scope="col" width="40%">數量</td>
+                    <td scope="col" width="25%">金額</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
                 </tbody>
               </table>
 
-              <p class="h5 text-center">
+              <p class="fs-5 mb-2 text-center">
                 總金額NT ${{ $filters.currency(carts.final_total) }}
               </p>
             </div>
@@ -318,7 +318,6 @@ export default {
       this.tempData = this.carts.carts.filter(
         (item) => item.product.category === '講座' || item.product.category === '募款專案',
       );
-      console.log(this.tempData);
 
       this.carts.carts.forEach((item) => {
         if (this.tempData.includes(item)) {
