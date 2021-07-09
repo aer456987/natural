@@ -95,13 +95,13 @@
 
     <!-- 數字 -->
     <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
-      <div class="row justify-content-around">
+      <ul class="row justify-content-around list-unstyled">
 
         <template
           v-for="platform in platformData"
           :key="platform.id"
         >
-          <span
+          <li
             class="col-6 col-xl-3 px-0 text-center mb-2"
             data-aos="zoom-in-down"
             data-aos-anchor-placement="center-bottom"
@@ -115,9 +115,9 @@
               <span class="fs-4">/{{ platform.unit }}</span>
             </h3>
             <p class="m-0">{{ platform.text }}</p>
-          </span>
+          </li>
         </template>
-      </div>
+      </ul>
     </section>
 
     <!-- 商品分類 -->

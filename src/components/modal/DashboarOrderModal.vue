@@ -292,7 +292,8 @@
                         ${{ $filters.currency(item.product.price) }}
                       </td>
                       <td>
-                        {{ item.coupon.percent ? item.coupon.percent + '%' : '無' }}
+                        456
+                        <!-- {{ item.coupon.percent ? item.coupon.percent + '%' : '無' }} -->
                       </td>
                       <td>
                         $ {{ $filters.currency(item.final_total) }}

@@ -14,13 +14,13 @@
 
       <div class="row py-3">
         <div class="col-12 col-lg-7">
-          <div class="row">
+          <ul class="row list-unstyled">
 
             <template
               v-for="(pageText, key) in pageTextContent"
               :key="`關於內文_${key}`"
             >
-              <div class="col-12 pe-2 py-3 text-break">
+              <li class="col-12 pe-2 py-3 text-break">
                 <h2 class="fw-bold pb-1">
                   {{ pageText.title }}
                 </h2>
@@ -31,30 +31,30 @@
                   :alt="`${pageText.title}_圖片${key}`"
                   class="d-block d-lg-none w-100 rounded-1"
                 >
-              </div>
+              </li>
             </template>
 
-          </div>
+          </ul>
         </div>
 
-        <div class="col-5 d-none d-lg-block">
-          <aside class="row py-3">
+        <aside class="col-5 d-none d-lg-block">
+          <ul class="row list-unstyled py-3">
 
             <template
               v-for="(asideImg, key) in pageTextContent"
               :key="`側欄圖片_${key}`"
             >
-              <div class="col-12 py-1">
+              <li class="col-12 py-1">
                 <img
                   :src="asideImg.img"
                   :alt="asideImg.title"
                   class="w-100 rounded-1"
                 >
-              </div>
+              </li>
             </template>
 
-          </aside>
-        </div>
+          </ul>
+        </aside>
       </div>
 
       <div class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2">

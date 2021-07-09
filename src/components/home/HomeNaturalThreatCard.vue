@@ -1,11 +1,11 @@
 <template>
   <!-- 引言用圖 -->
-  <section class="row m-0">
+  <ul class="row m-0 list-unstyled">
     <template
       v-for="item in naturalThreatImgs"
       :key="item.img"
     >
-      <div
+      <li
         class="col-6 col-sm-6 col-md-3 p-0
           setIn_style overflow-hidden"
         data-aos="zoom-in-up"
@@ -24,9 +24,9 @@
         <p class="setIn_style_text transition-duration_1">
           {{ item.text }}
         </p>
-      </div>
+      </li>
     </template>
-  </section>
+  </ul>
 </template>
 
 <style lang="scss">
