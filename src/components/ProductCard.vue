@@ -24,7 +24,6 @@
       </router-link>
       <span class="favorite_icon_background shadow-sm">
         <FavoriteIcon
-          ref="favorit"
           :id-data="product.id"
         ></FavoriteIcon>
       </span>

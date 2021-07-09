@@ -18,6 +18,7 @@
                 type="button"
                 class="btn btn-outline-danger btn-sm"
                 @click="allDelFavorite"
+                :disabled="newFavoritsData.length<1"
               >
                 清空收藏
               </button>
@@ -184,6 +185,7 @@ export default {
           this.newFavoritsData.push(item);
         }
       });
+      bus.emit('favorits-btn-status');
     },
     allDelFavorite() { // 刪除全部最愛
       this.$refs.favoritIcon.saveFavorit([]);

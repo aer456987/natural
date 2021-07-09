@@ -121,7 +121,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    filterListMethods(filterTxt) {
+    filterListMethods(filterTxt) { // 篩選列表
       this.select = filterTxt;
     },
     clearSearch() { // 清除搜尋
