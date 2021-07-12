@@ -1,5 +1,5 @@
 <template>
-  <section class="container py-5">
+  <section class="container py-5 user_select_none">
 
     <div class="position-relative text-gray mb-2">
       <i class="bi bi-tree fs-3"></i>

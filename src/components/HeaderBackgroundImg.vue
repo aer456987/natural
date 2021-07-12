@@ -1,6 +1,6 @@
 <template>
   <!-- 每頁banner -->
-  <header class="header position-relative">
+  <header class="header position-relative user_select_none">
     <span>
       <h1
       class="title_style

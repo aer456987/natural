@@ -1,7 +1,7 @@
 <template>
   <!-- 頁尾 -->
   <footer
-    class="p-3 text-center"
+    class="user_select_none p-3 text-center"
     :class="colors.backgroundColor"
   >
     <template

@@ -4,7 +4,7 @@
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
 
-      <div class="col-md-6 col-lg-6 pb-1">
+      <div class="col-md-6 col-lg-5 col-xl-4 pb-1">
         <span class=" input-group">
           <input
             type="text"
@@ -21,7 +21,7 @@
         </span>
       </div>
 
-      <div class="col-lg-6 text-end pb-1">
+      <div class="col-md-6 text-end pb-1">
         <button
           class="btn btn-outline-danger"
           @click="delAllOrderSwalFn('all')"
@@ -149,6 +149,7 @@
     </div>
 
     <Pagination
+      :pagination-isShow="isPaginationShow"
       :pagination-page="ordersPagination"
       @get-data="getOrders"
     ></Pagination>
@@ -172,12 +173,25 @@ export default {
   data() {
     return {
       loadingStatus: false, // Loading 狀態
-      // orderSelect: '', // 選單
       orderSearch: '', // 搜尋
       ordersPagination: {}, // 分頁
       orders: [], // 原始資料
       tempOrderData: {}, // 存放新增 & 修改資料
+      isPaginationShow: true, // 分頁狀態
     };
+  },
+  watch: {
+    orderSearch() {
+      if (this.orderSearch !== '') {
+        if (this.filterOrder.length > 9) {
+          this.isPaginationShow = true;
+        } else {
+          this.isPaginationShow = false;
+        }
+      } else if (this.orderSearch === '') {
+        this.isPaginationShow = true;
+      }
+    },
   },
   computed: {
     filterOrder() { // 渲染資料
@@ -195,6 +209,9 @@ export default {
           if (res.data.success) {
             this.orders = res.data.orders;
             this.ordersPagination = res.data.pagination;
+            if (this.ordersPagination.total_pages > 1) {
+              this.isPaginationShow = true;
+            }
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-後台)取得訂單 res', res);

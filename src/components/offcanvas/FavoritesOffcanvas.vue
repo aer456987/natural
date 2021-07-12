@@ -2,7 +2,8 @@
   <!-- 我的最愛側欄ㄋ -->
   <Loading :status="loadingStatus"></Loading>
   <div
-    class="offcanvas offcanvas-end shadow-lg overflow-x px-0 m-0"
+    class="offcanvas offcanvas-end user_select_none
+      shadow-lg overflow-x px-0 m-0"
     data-bs-scroll="true"
     data-bs-backdrop="true"
     tabindex="-1"

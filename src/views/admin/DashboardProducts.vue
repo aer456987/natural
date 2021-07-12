@@ -68,7 +68,6 @@
             <td width="15%">產品ID</td>
             <td width="13%">品名</td>
             <td width="13%">描述</td>
-            <!-- <td width="12%">說明</td> -->
             <td width="8%">原價</td>
             <td width="8%">售價</td>
             <td width="8%">狀態</td>
@@ -141,6 +140,7 @@
     </div>
 
     <Pagination
+      :pagination-isShow="isPaginationShow"
       :pagination-page="productPagination"
       @get-data="getProducts"
     ></Pagination>
@@ -174,7 +174,33 @@ export default {
       products: [], // 原始資料
       tempProduct: {}, // 存放新增 & 修改資料
       isNew: Boolean, // 判斷 madal 是否為新
+      isPaginationShow: true, // 分頁狀態
     };
+  },
+  watch: {
+    productSelect() {
+      this.productSearch = '';
+      if (this.productSelect !== '全部商品') {
+        if (this.filterProducts.length > 9) {
+          this.isPaginationShow = true;
+        } else {
+          this.isPaginationShow = false;
+        }
+      } else if (this.productSelect === '全部商品' && this.productSearch === '') {
+        this.isPaginationShow = true;
+      }
+    },
+    productSearch() {
+      if (this.productSearch !== '') {
+        if (this.filterProducts.length > 9) {
+          this.isPaginationShow = true;
+        } else {
+          this.isPaginationShow = false;
+        }
+      } else if (this.productSelect === '全部商品' && this.productSearch === '') {
+        this.isPaginationShow = true;
+      }
+    },
   },
   computed: {
     filterProducts() { // 渲染資料
@@ -185,7 +211,7 @@ export default {
       } else {
         newFilterData = this.products.filter((item) => item.category.match(this.productSelect));
       }
-      if (this.productSearch.length > 0) {
+      if (this.productSearch !== '') {
         newFilterData = this.products.filter((item) => item.title.match(this.productSearch));
       }
 
@@ -203,8 +229,12 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            this.productPagination = res.data.pagination;
             this.products = res.data.products;
+            this.productPagination = res.data.pagination;
+            if (this.productPagination.total_pages > 1) {
+              this.isPaginationShow = true;
+            }
+
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-後台)取得產品 res', res);

@@ -1,6 +1,6 @@
 <template>
   <!-- 分頁 -->
-  <div>
+  <div v-if="paginationIsShow">
     <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center pt-2">
         <li
@@ -46,10 +46,11 @@
 <script>
 export default {
   name: 'DashboarPagination',
-  props: ['paginationPage'],
+  props: ['paginationPage', 'paginationIsShow'],
   data() {
     return {
       pagesData: {},
+      show: true,
     };
   },
   watch: {
@@ -59,7 +60,5 @@ export default {
       },
     },
   },
-  methods: {},
-  created() {},
 };
 </script>

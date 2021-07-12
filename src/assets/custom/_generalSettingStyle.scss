@@ -9,6 +9,9 @@ body{
   background: $gray-100;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+.user_select_none{
   user-select: none;
 }
 

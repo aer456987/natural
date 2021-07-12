@@ -3,12 +3,12 @@
   <section class="container pageContent py-5 overflow-hidden">
     <h1 class="text-center fw-bold m-0 pb-5">優惠券管理</h1>
     <div class="row justify-content-between pb-2">
-      <span class="col-md-5 col-lg-3 pb-1">
+      <span class="col-md-6 col-lg-4 col-xl-3 pb-1">
         <span class="input-group">
           <input
             type="text"
             class="form-control"
-            placeholder="請輸入優惠券名稱"
+            placeholder="請輸入優惠碼"
             aria-label="search"
             aria-describedby="basic-addon1"
             v-model="couponSearch"
@@ -20,7 +20,7 @@
         </span>
       </span>
 
-      <span class="col-lg-6 text-end pb-1">
+      <span class="col-md-6 text-end pb-1">
         <button
           class="btn btn-brown"
           @click="opanCouponModal(true)"
@@ -98,6 +98,7 @@
     </div>
 
     <Pagination
+      :pagination-isShow="isPaginationShow"
       :pagination-page="couponPagination"
       @get-data="getCoupons"
     ></Pagination>
@@ -129,11 +130,25 @@ export default {
       couponDatas: [],
       isNew: Boolean, // modal新增/修改
       updataCouponData: {},
+      isPaginationShow: true, // 分頁狀態
     };
+  },
+  watch: {
+    couponSearch() {
+      if (this.couponSearch !== '') {
+        if (this.filterCoupon.length > 9) {
+          this.isPaginationShow = true;
+        } else {
+          this.isPaginationShow = false;
+        }
+      } else if (this.couponSearch === '') {
+        this.isPaginationShow = true;
+      }
+    },
   },
   computed: {
     filterCoupon() {
-      return this.couponDatas.filter((item) => item.title.match(this.couponSearch));
+      return this.couponDatas.filter((item) => item.code.match(this.couponSearch));
     },
   },
   components: { DashboarLoading, Pagination, CouponModal },
@@ -147,6 +162,9 @@ export default {
           if (res.data.success) {
             this.couponDatas = res.data.coupons;
             this.couponPagination = res.data.pagination;
+            if (this.couponPagination.total_pages > 1) {
+              this.isPaginationShow = true;
+            }
             this.loadingStatus = false;
           } else {
             console.log('(錯誤-後台)取得優惠券 res', res);

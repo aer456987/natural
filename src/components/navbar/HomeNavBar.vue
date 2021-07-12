@@ -2,7 +2,7 @@
   <!-- 首頁導覽列 -->
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-sm-1 px-md-2
-      position-fixed z-index-3 w-100"
+      position-fixed z-index-3 w-100 user_select_none"
     :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">

@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
-  <section class="p-5 bg-primary min-vh-100 mx-auto">
+  <section class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
       <router-link
         to="/"

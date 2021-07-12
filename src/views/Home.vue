@@ -6,7 +6,7 @@
   ></HomeNavBar>
   <Offcanvas ref="likeOffcanvas"></Offcanvas>
 
-  <header class="position-relative">
+  <header class="position-relative user_select_none">
     <span
       class="headerTitleStyle z-index-2
         text-center text-light text-shadow"
@@ -25,7 +25,7 @@
     <HerderSwiper></HerderSwiper>
   </header>
 
-  <main id="main" class="bg-white overflow-hidden">
+  <main id="main" class="bg-white overflow-hidden user_select_none">
     <!-- 圖片 -->
     <div class="container py-5 py-lg-6">
       <h1
@@ -53,7 +53,7 @@
     <!-- 介紹 -->
     <section class="text-center bg-gray-100 py-5 py-lg-6">
       <h2
-        class="fw-bold mb-0 mb-md-2 px-2"
+        class="textStyle_rwd_1 fw-bold mb-0 mb-md-2 px-2"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         data-aos-delay="200"
