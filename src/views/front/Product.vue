@@ -16,9 +16,9 @@
             :alt="tempProduct.title"
           />
           <!-- 多圖: 橫 -->
-          <div class="col-12 flex-nowrap d-xxl-none py-1 overflow-auto">
+          <div class="col-12 flex-nowrap py-1 overflow-auto">
             <div class="row flex-nowrap m-0">
-              <div class="col-2 pe-1">
+              <div class="col-3 pe-1">
                 <img
                   class="w-100 rounded pointer"
                   :src="tempProduct.imageUrl"
@@ -43,7 +43,7 @@
           </div>
         </div>
         <!-- 多圖: 直 -->
-        <div class="col-1 d-none d-xxl-block img_view p-1 overflow-auto">
+        <!-- <div class="col-1 d-none d-xxl-block img_view p-1 overflow-auto">
           <img
             class="w-100 mb-2 p-0 rounded-1 pointer"
             :src="tempProduct.imageUrl"
@@ -61,11 +61,11 @@
               @click="changeImg(img)"
             />
           </template>
-        </div>
+        </div> -->
 
         <!-- 商品介紹 -->
         <div class="col-lg-6 col-xl-7 col-xxl-6 py-2 ps-xl-3 ps-xxl-4">
-          <h1 class="mb-3">
+          <h1 class="h2 fw-bold mb-3">
             {{ tempProduct.title }}
           </h1>
 
@@ -157,6 +157,7 @@
           講座說明
         </h2>
       </template>
+
       <template v-else-if="tempProduct.category==='募款專案'">
         <h2 class="pb-2 fw-bold text-primary">
           募款專案說明
@@ -168,7 +169,7 @@
         </h2>
       </template>
       <div class="row justify-content-center">
-        <span class="col-11 col-md-9 col-xl-6">
+        <span class="col-11 col-md-10 col-xl-6">
           <p v-html="tempProduct.content"></p>
         </span>
       </div>
