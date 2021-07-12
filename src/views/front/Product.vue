@@ -1,6 +1,7 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
-  <section class="bg-white user_select_none">
+  <!-- user_select_none -->
+  <section class="bg-white">
     <section class="container py-4">
 
       <!-- 麵包屑&搜尋 -->
@@ -9,7 +10,7 @@
       <!-- 主要頁面 -->
       <section class="row mb-1 pt-3 pb-1 pb-lg-3">
         <!-- 主圖 -->
-        <div class="col-lg-6 col-xl-5">
+        <div class="col-6">
           <img
             class="rounded-2 w-100"
             :src="productImg"
@@ -18,7 +19,7 @@
           <!-- 多圖: 橫 -->
           <div class="col-12 flex-nowrap py-1 overflow-auto">
             <div class="row flex-nowrap m-0">
-              <div class="col-3 pe-1">
+              <div class="col-2 pe-1">
                 <img
                   class="w-100 rounded pointer"
                   :src="tempProduct.imageUrl"
@@ -42,26 +43,6 @@
             </div>
           </div>
         </div>
-        <!-- 多圖: 直 -->
-        <!-- <div class="col-1 d-none d-xxl-block img_view p-1 overflow-auto">
-          <img
-            class="w-100 mb-2 p-0 rounded-1 pointer"
-            :src="tempProduct.imageUrl"
-            :alt="tempProduct.title"
-            @click="changeImg(tempProduct.imageUrl)"
-          />
-          <template
-            v-for="(img, key) in tempProduct.imagesUrl"
-            :key="`附圖_${key}`"
-          >
-            <img
-              class="w-100 mb-2 p-0 rounded-1 pointer"
-              :src="img"
-              :alt="`附圖_${key}`"
-              @click="changeImg(img)"
-            />
-          </template>
-        </div> -->
 
         <!-- 商品介紹 -->
         <div class="col-lg-6 col-xl-7 col-xxl-6 py-2 ps-xl-3 ps-xxl-4">
@@ -137,7 +118,9 @@
             </div>
             <p class="text-danger">
               <span v-if="tempProduct.category === '募款專案'">
-                募款專案依專案內容不同，金額將全數捐至專案相關之機構。
+                募款專案依專案內容不同，金額將全數捐至專案相關之機構。<br>
+                ※注意：所有募款專案皆以個人名義進行捐款，非 Natural 平台掛名。<br>
+                捐款收據上的捐款人為訂購者本人，如發現名稱有錯請盡速聯絡客服修正。
               </span>
               <span v-else>
                 活動及產品收益將捐至環境保育或野生動物救助之相關機構。
@@ -150,26 +133,27 @@
   </section>
 
   <!-- 商品說明 -->
-  <section class="row py-5 m-0 user_select_none">
-    <section class="col-10 my-2 py-5 container text-center bg-white">
+  <!-- user_select_none -->
+  <section class="row py-5 m-0">
+    <section class="col-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
-        <h2 class="pb-2 fw-bold text-primary">
+        <h2 class="pb-4 text-center fw-bold text-primary">
           講座說明
         </h2>
       </template>
 
       <template v-else-if="tempProduct.category==='募款專案'">
-        <h2 class="pb-2 fw-bold text-primary">
+        <h2 class="pb-4 text-center fw-bold text-primary">
           募款專案說明
         </h2>
       </template>
       <template v-else>
-        <h2 class="pb-2 fw-bold text-primary">
+        <h2 class="pb-4 text-center fw-bold text-primary">
           商品說明
         </h2>
       </template>
       <div class="row justify-content-center">
-        <span class="col-11 col-md-10 col-xl-6">
+        <span class="col-9">
           <p v-html="tempProduct.content"></p>
         </span>
       </div>
