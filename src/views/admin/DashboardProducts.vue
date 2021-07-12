@@ -67,8 +67,7 @@
             <td width="8%">圖片</td>
             <td width="15%">產品ID</td>
             <td width="13%">品名</td>
-            <td width="13%">描述</td>
-            <td width="8%">原價</td>
+            <td width="21%">描述</td>
             <td width="8%">售價</td>
             <td width="8%">狀態</td>
             <td width="8%">操作</td>
@@ -101,12 +100,8 @@
               {{ product.title }}
             </td>
 
-            <td data-title="描述">
+            <td ata-title="描述">
               {{ product.description }}
-            </td>
-
-            <td data-title="原價">
-              {{ $filters.currency(product.origin_price) }}
             </td>
 
             <td data-title="售價">
