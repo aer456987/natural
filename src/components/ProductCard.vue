@@ -36,12 +36,12 @@
           class="col-9 p-0 text-dark border-0"
           :to="`/product/${product.id}`"
         >
-          <h1 class="h4 m-0 text-truncate">
+          <h1 class="h5 fw-bold m-0 mb-1 text-truncate">
             {{ product.title }} <br>
-            <span class="h6 fst-italic">
-              ${{ $filters.currency(product.price) }}
-            </span>
           </h1>
+          <p class="h6 mb-0 fst-italic">
+            ${{ $filters.currency(product.price) }}
+          </p>
         </router-link>
         <span class="col-3 p-0 d-flex justify-content-end">
           <span

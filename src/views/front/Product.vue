@@ -152,9 +152,23 @@
   <!-- 商品說明 -->
   <section class="row py-5 m-0 user_select_none">
     <section class="col-10 my-2 py-5 container text-center bg-white">
-      <h2 class="pb-2 fw-bold text-primary">商品說明</h2>
+      <template v-if="tempProduct.category==='講座'">
+        <h2 class="pb-2 fw-bold text-primary">
+          講座說明
+        </h2>
+      </template>
+      <template v-else-if="tempProduct.category==='募款專案'">
+        <h2 class="pb-2 fw-bold text-primary">
+          募款專案說明
+        </h2>
+      </template>
+      <template v-else>
+        <h2 class="pb-2 fw-bold text-primary">
+          商品說明
+        </h2>
+      </template>
       <div class="row justify-content-center">
-        <span class="col-11 col-md-9 col-lg-7">
+        <span class="col-11 col-md-9 col-xl-6">
           <p v-html="tempProduct.content"></p>
         </span>
       </div>

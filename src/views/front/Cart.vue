@@ -201,13 +201,6 @@
   </section>
 </template>
 
-<style lang="sass">
-.cart_img
-  width: 70px
-  height: 70px
-  overflow: hidden
-</style>
-
 <script>
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
@@ -390,6 +383,7 @@ export default {
   },
   mounted() {
     this.getCarts();
+    this.isDiscount = false;
   },
 };
 </script>
