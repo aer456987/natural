@@ -138,7 +138,7 @@
     <section class="col-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
         <h2 class="pb-4 text-center fw-bold text-primary">
-          講座說明
+          講座內容說明
         </h2>
       </template>
 
@@ -147,6 +147,13 @@
           募款專案說明
         </h2>
       </template>
+
+      <template v-else-if="tempProduct.category==='公益活動'">
+        <h2 class="pb-4 text-center fw-bold text-primary">
+          活動說明
+        </h2>
+      </template>
+
       <template v-else>
         <h2 class="pb-4 text-center fw-bold text-primary">
           商品說明
