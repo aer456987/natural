@@ -7,7 +7,7 @@
   >
     <div class="container-fluid">
       <router-link
-        to="/home"
+        to="/"
         class=" logo_home mb-0 p-0"
       >
         <Font-awesome-icon

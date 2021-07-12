@@ -116,7 +116,7 @@ export default {
         previous: [ // 上一個(多個)
           {
             title: '首頁',
-            url: '/home',
+            url: '/',
           },
         ],
         purpose: '關於我們', // 目前頁面

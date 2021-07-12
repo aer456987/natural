@@ -70,7 +70,7 @@ export default {
         previous: [ // 上一個(多個)
           {
             title: '首頁',
-            url: '/home',
+            url: '/',
           },
         ],
         purpose: '線上商城', // 目前頁面

@@ -13,7 +13,7 @@
           <ul class="row justify-content-center list-unstyled m-0">
             <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
-                to="/home"
+                to="/"
                 class="nav-link px-2 text-secondary"
               >
                 首頁

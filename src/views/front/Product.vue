@@ -182,7 +182,7 @@ export default {
         previous: [ // 上一個(多個)
           {
             title: '首頁',
-            url: '/home',
+            url: '/',
           },
           {
             title: '線上商城',

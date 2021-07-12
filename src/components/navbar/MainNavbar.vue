@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2 w-100">
       <div class="container-fluid">
         <router-link
-          to="/home"
+          to="/"
           class="nav-link logo h3 mb-0 p-0"
         >
           <Font-awesome-icon
