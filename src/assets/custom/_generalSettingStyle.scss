@@ -86,6 +86,14 @@ body{
 .height_sm{
   max-height: 120px !important;
 }
+.text_clamp_1{
+  height: 48px !important;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  white-space: normal;
+  -webkit-line-clamp: 2; //行數
+  -webkit-box-orient: vertical;
+}
 
 // 首頁最大高度
 .max_height_lg{

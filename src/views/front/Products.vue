@@ -12,8 +12,7 @@
     :header-imgUrl="headerData.imgUrl"
   ></HeaderImg>
 
-  <!-- user_select_none -->
-  <section class="container pageContent">
+  <section class="container pageContent user_select_none">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">

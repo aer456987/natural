@@ -1,7 +1,6 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
-  <!-- user_select_none -->
-  <section class="bg-white">
+  <section class="bg-white user_select_none">
     <section class="container py-4">
 
       <!-- 麵包屑&搜尋 -->
@@ -10,7 +9,7 @@
       <!-- 主要頁面 -->
       <section class="row mb-1 pt-3 pb-1 pb-lg-3">
         <!-- 主圖 -->
-        <div class="col-6">
+        <div class="col-lg-6 col-xl-5 col-xxl-6">
           <img
             class="rounded-2 w-100"
             :src="productImg"
@@ -19,15 +18,6 @@
           <!-- 多圖: 橫 -->
           <div class="col-12 flex-nowrap py-1 overflow-auto">
             <div class="row flex-nowrap m-0">
-              <div class="col-2 pe-1">
-                <img
-                  class="w-100 rounded pointer"
-                  :src="tempProduct.imageUrl"
-                  :alt="tempProduct.title"
-                  @click="changeImg(tempProduct.imageUrl)"
-                />
-              </div>
-
               <div
                 class="col-2 pe-1"
                 v-for="(img, key) in tempProduct.imagesUrl"
@@ -133,9 +123,8 @@
   </section>
 
   <!-- 商品說明 -->
-  <!-- user_select_none -->
-  <section class="row py-5 m-0">
-    <section class="col-8 my-2 py-5 container bg-white">
+  <section class="row py-5 m-0 user_select_none">
+    <section class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
         <h2 class="pb-4 text-center fw-bold text-primary">
           講座內容說明
@@ -160,7 +149,7 @@
         </h2>
       </template>
       <div class="row justify-content-center">
-        <span class="col-9">
+        <span class="col-10 col-xl-9">
           <p v-html="tempProduct.content"></p>
         </span>
       </div>
@@ -214,6 +203,8 @@ export default {
           if (res.data.success) {
             this.tempProduct = res.data.product;
             this.productImg = this.tempProduct.imageUrl;
+            const [tempProduct] = this.tempProduct.imagesUrl;
+            this.productImg = tempProduct;
             this.breadcrumbData.purpose = this.tempProduct.title;
             this.loadingStatus = false;
           } else {
