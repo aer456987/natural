@@ -93,12 +93,13 @@
 
               <Field
                 type="number"
-                min='1'
+                min="1"
+                max="99"
                 name="折扣 % 數"
                 id="modalPercent"
                 class="form-control"
                 :class="{ 'is-invalid': errors['折扣 % 數'] }"
-                rules="required|numeric"
+                rules="required|numeric|numeric"
                 v-model.number="tempCouponData.percent"
               ></Field>
               <error-message

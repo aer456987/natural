@@ -92,6 +92,7 @@
             <router-link
               to="/cart"
               class="btn btn_main w-100 mb-2"
+              @click="hideOffcanvas"
             >
               我要結帳
             </router-link>
@@ -101,6 +102,7 @@
             <router-link
               to="/products"
               class="btn btn-outline-custom-primary w-100 mb-2"
+              @click="hideOffcanvas"
             >
               繼續選購
             </router-link>
@@ -117,6 +119,7 @@
             <router-link
               to="/products"
               class="btn btn_main w-100 mb-2"
+              @click="hideOffcanvas"
             >
               趕快去選購
             </router-link>

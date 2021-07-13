@@ -40,10 +40,10 @@
 
             <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
               <router-link
-                to="/QAndA"
+                to="/cart"
                 class="nav-link px-2 text-secondary"
               >
-                常見問題
+                購物車
               </router-link>
             </li>
 
