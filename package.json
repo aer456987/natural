@@ -57,7 +57,9 @@
       "plugin:vue/vue3-essential",
       "@vue/airbnb"
     ],
-    "parserOptions": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
     "rules": {}
   },
   "browserslist": [
