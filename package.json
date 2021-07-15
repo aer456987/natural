@@ -58,9 +58,7 @@
       "@vue/airbnb"
     ],
     "parserOptions": {},
-    "rules": {
-      "no-console":"off"
-    }
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
