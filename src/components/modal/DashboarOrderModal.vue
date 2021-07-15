@@ -270,7 +270,7 @@
                     scope="row"
                     class="py-1"
                   >
-                    折扣
+                    折扣後價格
                   </th>
 
                   <th
@@ -292,7 +292,7 @@
                         ${{ $filters.currency(item.product.price) }}
                       </td>
                       <td>
-                        {{ item?.coupon?.percent ? item.coupon.percent + '%' : '無' }}
+                        $ {{ $filters.currency(item.final_total) }}
                       </td>
                       <td>
                         $ {{ $filters.currency(item.final_total) }}
