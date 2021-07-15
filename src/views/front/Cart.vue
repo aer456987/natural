@@ -253,13 +253,12 @@ export default {
 
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)取得購物車全部資料 res:', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)取得購物車全部資料 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -289,8 +288,6 @@ export default {
           }
         })
         .catch((err) => {
-          console.log('(失敗-前台)刪除購物車 err:');
-          console.dir(err);
           swalFn(err.data.message, 'error');
           this.loadingStatus = false;
         });
@@ -330,9 +327,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)修改購物車 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -353,9 +349,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)套用優惠券 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -372,12 +367,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            console.log('(錯誤-購物車)取得購物車數量 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-購物車)取得購物車數量 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
   },

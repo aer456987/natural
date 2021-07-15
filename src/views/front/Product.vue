@@ -208,13 +208,12 @@ export default {
             this.breadcrumbData.purpose = this.tempProduct.title;
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)取得單一商品 res:', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)取得單一商品 res:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -253,9 +252,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)加入購物車 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.qty = 1;
           this.loadingStatus = false;
         });
@@ -274,12 +272,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            console.log('(錯誤-單品)取得購物車數量 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-單品)取得購物車數量 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
     changeImg(img) { // 切換圖片

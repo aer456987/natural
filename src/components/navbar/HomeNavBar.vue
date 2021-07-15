@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 
 export default {
@@ -114,12 +115,11 @@ export default {
             });
             this.cartsLength = totleQty;
           } else {
-            console.log('(錯誤-全域)取得購物車數量 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-全域)取得購物車數量 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
     updateFavoritsLength() { // 取得最愛收藏數量

@@ -167,12 +167,12 @@ export default {
             }
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-後台)取得優惠券 res', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)取得優惠券 err', err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -219,8 +219,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)修改優惠券 err', err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -238,8 +238,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)刪除優惠券 err', err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },

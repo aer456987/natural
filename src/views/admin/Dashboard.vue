@@ -64,8 +64,8 @@ export default {
             }, 3000);
           }
         })
-        .catch((err) => {
-          console.dir('(失敗-後台)帳號認證', err);
+        .catch(() => {
+          swalFn('認證錯誤', 'error');
           document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
           this.$router.push('/login');
         });
@@ -80,12 +80,11 @@ export default {
             document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
             this.$router.push('/login');
           } else {
-            console.di('(錯誤-後台)登出', res);
+            swalFn('登出失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)登出');
-          console.dir(err);
+        .catch(() => {
+          swalFn('登出失敗', 'error');
         });
     },
   },

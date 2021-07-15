@@ -252,7 +252,6 @@ export default {
     changeNavbarStyle() { // 滾動追蹤
       const windowY = window.scrollY;
       const main = document.querySelector('#main');
-      // console.log(windowY, 'main:', main.offsetTop);
 
       if (windowY > main.offsetTop - 120) {
         this.classStyle.navbarClass = ['bg-primary', 'py-1'];

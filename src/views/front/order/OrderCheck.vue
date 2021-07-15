@@ -263,13 +263,12 @@ export default {
             this.order.data.total = res.data.order.total;
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)取得單筆訂單 res:', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)取得單筆訂單 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -283,13 +282,12 @@ export default {
             this.loadingStatus = false;
             this.$router.push('/orderPaid');
           } else {
-            console.log('(錯誤-前台)訂單付款 res:', res.data);
+            swalFn('付款失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)訂單付款 err');
-          console.dir(err);
+        .catch(() => {
+          swalFn('付款失敗', 'error');
           this.loadingStatus = false;
         });
     },

@@ -98,9 +98,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-card)加入購物車 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -118,12 +117,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            console.log('(錯誤-cart)取得購物車數量 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-cart)取得購物車數量 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
   },

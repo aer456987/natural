@@ -122,9 +122,8 @@ export default {
           const { token, expired } = res.data;
           document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
         })
-        .catch((err) => {
-          console.log('(失敗)登入 res:');
-          console.dir(err);
+        .catch(() => {
+          this.msg = '登入失敗，請稍後再試';
           this.loadingStatus = false;
         });
     },

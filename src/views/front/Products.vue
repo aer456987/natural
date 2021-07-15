@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
 import HeaderImg from '@/components/HeaderBackgroundImg.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import Breadcrumb from '@/components/Breadcrumb.vue';
@@ -111,13 +112,12 @@ export default {
             this.products = res.data.products;
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)取得全部商品資料 res:', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)取得全部商品資料 res:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },

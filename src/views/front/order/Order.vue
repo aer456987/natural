@@ -304,13 +304,12 @@ export default {
             this.filterFundraising();
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-前台)取得購物車全部資料 res:', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)取得購物車全部資料 res:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -366,9 +365,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-前台)送出訂單 err');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },

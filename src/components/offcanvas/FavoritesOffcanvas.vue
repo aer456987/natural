@@ -172,12 +172,11 @@ export default {
             this.offcanvasProducts = res.data.products;
             this.renderFavorite();
           } else {
-            console.log('(錯誤-側欄)取得全部商品資料 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-側欄)取得全部商品資料 res:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
     renderFavorite() { // 渲染資料
@@ -221,9 +220,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-測欄)加入購物車 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.productQty = 1;
           this.loadingStatus = false;
         });
@@ -241,12 +239,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            console.log('(錯誤-側欄)取得購物車數量 res:', res);
+            swalFn('資料取得失敗', 'error');
           }
         })
-        .catch((err) => {
-          console.log('(失敗-側欄)取得購物車數量 err:');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
         });
     },
   },

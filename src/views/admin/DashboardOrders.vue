@@ -214,13 +214,12 @@ export default {
             }
             this.loadingStatus = false;
           } else {
-            console.log('(錯誤-後台)取得訂單 res', res);
+            swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)取得訂單 err');
-          console.dir(err);
+        .catch(() => {
+          swalFn('資料取得失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -244,9 +243,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)刪除訂單 err');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },
@@ -278,9 +276,8 @@ export default {
             this.loadingStatus = false;
           }
         })
-        .catch((err) => {
-          console.log('(失敗-後台)修改訂單 err');
-          console.dir(err);
+        .catch(() => {
+          swalFn('操作失敗', 'error');
           this.loadingStatus = false;
         });
     },

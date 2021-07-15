@@ -57,8 +57,8 @@ export default {
             swalFn(res.data.message, 'error');
           }
         })
-        .catch((err) => {
-          console.log('(錯誤-後台)上傳檔案 err', err);
+        .catch(() => {
+          swalFn('上傳失敗', 'error');
           this.isUpload = false;
         });
     },
