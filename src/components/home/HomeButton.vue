@@ -136,7 +136,7 @@ $blob_dark: red;
     border-radius: 100%;
     background: $blob_secondary;
     transform: translate3d(0, 100%, 0) scale(1.7);
-    transition: transform 0.45s;
+    transition: transform 0.25s;
 
     @supports(filter: url('#goo')) {
       transform: translate3d(0, 120%, 0) scale(2);
