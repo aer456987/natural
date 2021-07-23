@@ -2,7 +2,7 @@
   <Loading :status="loadingStatus"></Loading>
   <!-- 篩選列表 -->
   <ProductFilterList
-    class="sticky-top user_select_none"
+    class="sticky-top user_select_none shadow"
     :products="products"
     @filter-list-methods="filterListMethods"
   ></ProductFilterList>

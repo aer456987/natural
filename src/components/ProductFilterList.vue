@@ -1,7 +1,7 @@
 <template>
   <!-- 商品頁篩選 -->
   <div>
-    <nav class="row text-center bg-secondary m-0 shadow">
+    <nav class="row text-center bg-secondary m-0">
       <form
         class="btn-group p-0"
         role="group"
