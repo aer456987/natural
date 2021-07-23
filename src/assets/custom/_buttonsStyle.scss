@@ -13,12 +13,8 @@
 .btn_red, .btn_light_green{
   font-size: 26px;
   transform: scale(1);
-  transition-duration: .3s;
+  transition-duration: .5s;
   cursor: pointer;
-  &:hover{
-    transform: scale(1.2);
-    transition-duration: .3s;
-  }
 }
 
 // 加入購物車按鈕
@@ -32,7 +28,10 @@
 }
 
 .btn_red{
+  padding: 5px;
+  border-radius: 4px;
   color: rgba($red, .3);
+
   &:hover{
     color: $red;
   }
@@ -45,7 +44,8 @@
   background: $white; // transparent
   z-index: 1;
   &:hover{
-    // color: $secondary;
-    background: rgba($secondary, .5);
+    color: $secondary;
+    transform: scale(1.2);
+    transition-duration: .5s;
   }
 }

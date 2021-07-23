@@ -25,7 +25,7 @@
               v-if="btnStatus"
               class="row justify-content-center py-4"
             >
-              <span class="col-12 col-md-5">
+              <div class="col-12 col-md-5">
                 <h3 class="mb-3">購物車內沒有商品</h3>
                 <router-link
                   to="/products"
@@ -33,7 +33,7 @@
                 >
                   前往選購
                 </router-link>
-              </span>
+              </div>
             </div>
 
             <template v-else>
@@ -75,18 +75,18 @@
                   >
                     <td class="text-start">
                       <div class="row align-items-center">
-                        <span class="col-4 d-none d-md-inline">
+                        <div class="col-4 d-none d-md-inline">
                           <img
                             class="width_sm"
                             :src="item.product.imageUrl"
                             alt="預覽"
                           />
-                        </span>
-                        <span class="col-md-8 px-sm-1">
+                        </div>
+                        <div class="col-md-8 px-sm-1">
                           <p class="m-0">
                             {{ item.product.title }}
                           </p>
-                        </span>
+                        </div>
                       </div>
                     </td>
                     <td>
@@ -96,16 +96,16 @@
                           style="max-width: 180px"
                         >
                           <span
-                            class="btn_light_green px-0 px-sm-1 px-md-2"
+                            class="btn_light_green px-0 px-sm-1 px-md-1"
                             @click="putCart('reduce', item)"
                           > - </span>
                           <div class="form-control text-center px-0 p-md-1 textStyle_rwd_2">
                             {{ item.qty }}
                           </div>
-                          <div
-                            class="btn_light_green px-0 px-sm-1 px-md-2"
+                          <span
+                            class="btn_light_green px-0 px-sm-1 px-md-1"
                             @click="putCart('add', item)"
-                          > + </div>
+                          > + </span>
                         </div>
                       </div>
                     </td>
@@ -114,7 +114,7 @@
                     </td>
                     <td>
                       <i
-                        class="bi bi-x-lg btn_red fs-6"
+                        class="bi bi-x-lg btn_red fs-5"
                         @click="delCart('one', item)"
                       ></i>
                     </td>
@@ -123,7 +123,7 @@
               </table>
 
               <div class="row justify-content-end">
-                <span class="col-12 text-end mb-1">
+                <div class="col-12 text-end mb-1">
                   <small class="d-block text-gray">
                     商品金額NT ${{ $filters.currency(carts.total) }}
                   </small>
@@ -133,15 +133,15 @@
                   >
                     - 使用優惠折扣NT ${{ $filters.currency(carts.total - carts.final_total) }}
                   </small>
-                </span>
-                <span class="col-12 mb-3">
+                </div>
+                <div class="col-12 mb-3">
                   <p class="h5 text-end text-danger">
                     總金額NT {{ $filters.currency(carts.final_total) }}
                   </p>
-                </span>
-                <span class="col-10 col-md-6 col-lg-5">
+                </div>
 
-                  <span class="input-group input-group-sm">
+                <div class="col-10 col-md-6 col-lg-5">
+                  <div class="input-group input-group-sm">
                     <input
                       type="text"
                       class="form-control"
@@ -157,9 +157,9 @@
                     >
                       套用優惠券
                     </button>
-                  </span>
+                  </div>
+                </div>
 
-                </span>
               </div>
             </template>
           </div>

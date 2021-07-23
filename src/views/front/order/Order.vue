@@ -17,7 +17,7 @@
             position-relative justify-content-center align-items-center"
           >
           <!-- 購物明細 -->
-          <div class="col-xl-5 col-lg-6">
+          <div class="col-lg-6">
             <div
               class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
               <h2 class="text-center mb-4 fs-5">
@@ -26,9 +26,9 @@
               <table class="table cart_table_style text-center mb-5">
                 <thead>
                   <tr>
-                    <td scope="col" width="35%">商品資訊</td>
-                    <td scope="col" width="40%">數量</td>
-                    <td scope="col" width="25%">金額</td>
+                    <td scope="col" width="45%">商品資訊</td>
+                    <td scope="col" width="15%">數量</td>
+                    <td scope="col" width="40%">金額</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,7 @@
                     v-for="item in carts.carts"
                     :key="item.id"
                   >
-                    <td scope="row">
+                    <td scope="row" class="text-start">
                       {{ item.product.title }}
                     </td>
                     <td>
@@ -77,10 +77,10 @@
                 rules="required"
                 v-model="userDatas.user.name"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="姓名"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
 
               <!-- 聯絡電話 -->
               <label
@@ -98,10 +98,10 @@
                 rules="required|numeric|min:10"
                 v-model="userDatas.user.tel"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="電話"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
 
               <!-- Email -->
               <label
@@ -119,10 +119,10 @@
                 rules="required|email"
                 v-model="userDatas.user.email"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="Email"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
 
               <!-- 寄送方式 -->
               <template v-if="isSend">
@@ -148,10 +148,10 @@
                   <option value="萊爾富超取">萊爾富</option>
                   <option value="OK 超取">OK 超取</option>
                 </Field>
-                <error-message
+                <ErrorMessage
                   name="寄送方式"
                   class="invalid-feedback mb-1"
-                ></error-message>
+                ></ErrorMessage>
               </template>
 
               <!-- 收件地址 -->
@@ -171,10 +171,10 @@
                 v-model="userDatas.user.address"
                 :readonly="!isSend"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="地址"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
 
               <!-- 付款方式 -->
               <label
@@ -202,10 +202,10 @@
                 </option>
                 <option value="ATM 匯款">ATM 匯款</option>
               </Field>
-              <error-message
+              <ErrorMessage
                 name="付款方式"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
 
               <!-- 備註 -->
               <label

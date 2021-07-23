@@ -55,7 +55,7 @@
               ${{ $filters.currency(tempProduct.origin_price) }} / {{ tempProduct.unit }}
             </span>
 
-            <p class="h3 fw-bold mb-2">
+            <p class="h3 mb-2">
               售價
               ${{ $filters.currency(tempProduct.price)}} / {{ tempProduct.unit }}
             </p>
