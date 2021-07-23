@@ -39,7 +39,7 @@
     class="mySwiper"
     data-aos="zoom-in-down"
     data-aos-anchor-placement="center-bottom"
-    data-aos-delay="500"
+    data-aos-delay="100"
     data-aos-duration="1000"
   >
     <template

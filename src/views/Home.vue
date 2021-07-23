@@ -32,8 +32,8 @@
         class="textStyle_rwd_1 fw-bold text-center mb-1"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        data-aos-delay="300"
-        data-aos-duration="1500"
+        data-aos-delay="200"
+        data-aos-duration="1000"
       >
         自然，不該被視作理所當然。
       </h1>
@@ -41,8 +41,8 @@
         class="text-center mb-4 mb-lg-5"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        data-aos-delay="500"
-        data-aos-duration="1500"
+        data-aos-delay="400"
+        data-aos-duration="1000"
       >
         它們不會說話，卻默默承受著我們造成的業果。
       </p>
@@ -56,8 +56,8 @@
         class="textStyle_rwd_1 fw-bold mb-0 mb-md-2 px-2"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
-        data-aos-delay="200"
-        data-aos-duration="1500"
+        data-aos-delay="100"
+        data-aos-duration="1000"
       >
         這一秒，大自然的生命也在逐漸凋零
       </h2>
@@ -66,8 +66,8 @@
           class="col-10 col-md-7 col-lg-5"
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
-          data-aos-delay="500"
-          data-aos-duration="1500"
+          data-aos-delay="200"
+          data-aos-duration="1000"
         >
           <p>
             環境議題一直都是不斷被提起，卻又容易被忽視的問題，
@@ -83,8 +83,8 @@
           class="col-10 col-sm-4 col-lg-3 col-xl-3 col-xxl-2"
           data-aos="fade"
           data-aos-anchor-placement="center-bottom"
-          data-aos-delay="1500"
-          data-aos-duration="1500"
+          data-aos-delay="300"
+          data-aos-duration="1000"
         >
           <router-link to="/products">
             <HomeButton buttom-text="來去看看有些什麼"></HomeButton>
@@ -93,7 +93,7 @@
       </div>
     </section>
 
-    <!-- 數字 -->
+    <!-- 網頁人氣 -->
     <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
       <ul class="row justify-content-around list-unstyled">
 
@@ -105,7 +105,7 @@
             class="col-6 col-xl-3 px-0 text-center mb-2"
             data-aos="zoom-in-down"
             data-aos-anchor-placement="center-bottom"
-            data-aos-duration="1500"
+            data-aos-duration="1000"
           >
             <h3 class="fs-7 fw-bold">
               <CountTo
@@ -179,11 +179,6 @@
     :moreMsg="true"
   ></Footer>
 </template>
-
-<style lang="sass">
-@import '../assets/allStyle';
-@import "../assets/custom/rwdStyle";
-</style>
 
 <script>
 import { swalFn } from '@/methods/swal';

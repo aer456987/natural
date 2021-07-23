@@ -114,11 +114,11 @@ export default {
             });
             this.cartsLength = totleQty;
           } else {
-            swalFn('資料取得失敗', 'error');
+            swalFn('購物車資料取得失敗', 'error');
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          swalFn('購物車資料取得失敗', 'error');
         });
     },
     updateFavoritsLength() { // 取得最愛收藏數量

@@ -24,8 +24,7 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="700"
-            data-aos-duration="700"
+            data-aos-duration="1000"
           >
             活動資訊豐富
           </h3>
@@ -34,8 +33,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="900"
-            data-aos-duration="700"
+            data-aos-delay="50"
+            data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
             不定時發布各縣市政府、企業以及民間團體所舉辦的環境保
@@ -46,8 +45,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1000"
-            data-aos-duration="700"
+            data-aos-delay="100"
+            data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             目前已舉辦過包含淨灘、淨山、淨溪、植樹等 2500 場公益活
@@ -61,8 +60,8 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="1500"
-          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-duration="1200"
         >
           <router-link to="/products">
             <HomeButton buttom-text="了解更多"></HomeButton>
@@ -94,8 +93,7 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="700"
-            data-aos-duration="700"
+            data-aos-duration="1000"
           >
             民眾參加度踴躍
           </h3>
@@ -104,8 +102,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="900"
-            data-aos-duration="700"
+            data-aos-delay="50"
+            data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
             Natural 平台成立至今，每天都有近 500
@@ -116,8 +114,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1000"
-            data-aos-duration="700"
+            data-aos-delay="100"
+            data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             每場環保活動、教育演講幾乎場場額滿，不限參加者年齡，
@@ -131,8 +129,8 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="1500"
-          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-duration="1200"
         >
           <router-link to="/products">
             <HomeButton buttom-text="我要參加"></HomeButton>
@@ -174,8 +172,7 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="700"
-            data-aos-duration="700"
+            data-aos-duration="1000"
           >
             募資專案
           </h3>
@@ -184,8 +181,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="900"
-            data-aos-duration="700"
+            data-aos-delay="50"
+            data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
             Natural 平台整合了各縣市大大小小的公益組織募款資訊，
@@ -196,8 +193,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1000"
-            data-aos-duration="700"
+            data-aos-delay="100"
+            data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             除了能增加曝光率，民眾也能更方便的透過 Natural 平台找到自己喜歡的機構，
@@ -211,8 +208,8 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="1500"
-          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-duration="1200"
         >
           <router-link to="/products">
             <HomeButton buttom-text="我想捐款"></HomeButton>
@@ -243,8 +240,7 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="700"
-            data-aos-duration="700"
+            data-aos-duration="1000"
           >
             產品種類多樣
           </h3>
@@ -253,8 +249,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="900"
-            data-aos-duration="700"
+            data-aos-delay="50"
+            data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
             Natural 平台現有 310 家合作的有機農家、廠商，所有的合作
@@ -265,8 +261,8 @@
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
             data-aos-anchor-placement="top-bottom"
-            data-aos-delay="1000"
-            data-aos-duration="700"
+            data-aos-delay="100"
+            data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             依照季節的不同推出不同的當季新鮮蔬果，
@@ -281,8 +277,8 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="1500"
-          data-aos-duration="1000"
+          data-aos-delay="200"
+          data-aos-duration="1200"
         >
           <router-link to="/products">
             <HomeButton buttom-text="前往採購"></HomeButton>

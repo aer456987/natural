@@ -10,7 +10,7 @@
           setIn_style overflow-hidden"
         data-aos="zoom-in-up"
         data-aos-anchor-placement="center-bottom"
-        data-aos-delay="900"
+        data-aos-delay="500"
         data-aos-duration="1000"
       >
         <p class="setIn_style_title fw-bold transition-duration_1">

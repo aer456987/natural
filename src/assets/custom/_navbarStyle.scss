@@ -41,14 +41,12 @@
 // icons 數字
 // 最愛收藏數量&購物車數量 共同設定
 .num_icon{
-  @include custom_position_setIn(-10px, 12px, 0, 0);
-  width: 26px;
-  height: 26px;
+  @include custom_position_setIn(-9px, 12px, 0, 0);
+  width: 27px;
+  height: 27px;
   border-radius: 100%;
-  font-family: 'Vibur';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
-  text-align: center;
   line-height: 26px;
   color: $white;
   background: $danger;
