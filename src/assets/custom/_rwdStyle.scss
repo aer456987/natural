@@ -13,12 +13,12 @@
 .opacity_scale_hide{
   opacity: 0;
   transform: scale(0.1);
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 .opacity_scale_show{
   opacity: 1;
   transform: scale(1);
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 
 // 箭頭

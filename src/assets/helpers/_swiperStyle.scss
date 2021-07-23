@@ -14,7 +14,7 @@
   text-shadow: 0 0 20px $dark;
   color: $white;
   background: rgba($white, .3);
-  transition-duration: .5s;
+  transition-duration: .3s;
   opacity: 1;
 }
 
@@ -22,7 +22,7 @@
   height: 0;
   color: $dark;
   transform: translateY(20px);
-  transition-duration: .5s;
+  transition-duration: .3s;
   opacity: 0;
 }
 
@@ -32,13 +32,13 @@
     padding-bottom: 45%;
     text-shadow: rgba($dark, 1);
     background: rgba($white, .7);
-    transition-duration: .5s;
+    transition-duration: .3s;
   }
 
   .productSwiper_text{
     transform: translateY(0);
     transition-delay: .5s;
-    transition-duration: .5s;
+    transition-duration: .3s;
     opacity: 1;
   }
 }

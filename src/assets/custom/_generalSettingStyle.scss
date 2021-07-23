@@ -19,11 +19,11 @@ body{
 // 放大1.2倍
 .scale{
   transform: scale(1);
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 .scale:hover{
   transform: scale(1.2);
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 
 // 點擊游標
@@ -54,7 +54,7 @@ body{
 
 // 動畫轉換速度
 .transition-duration_1{
-  transition-duration: .5s;
+  transition-duration: .3s;
 }
 
 // 透明度

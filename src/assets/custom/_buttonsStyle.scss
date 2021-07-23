@@ -13,11 +13,11 @@
 .btn_red, .btn_light_green{
   font-size: 26px;
   transform: scale(1);
-  transition-duration: .5s;
+  transition-duration: .3s;
   cursor: pointer;
   &:hover{
     transform: scale(1.2);
-    transition-duration: .5s;
+    transition-duration: .3s;
   }
 }
 
@@ -41,10 +41,11 @@
 // 購物車 +/-
 .btn_light_green{
   padding: 0px 10px;
-  color: $secondary;
+  color: $custom-primary;
   background: $white; // transparent
   z-index: 1;
   &:hover{
-    color: $custom-primary;
+    // color: $secondary;
+    background: rgba($secondary, .5);
   }
 }

@@ -5,7 +5,7 @@
   background: $black;
 
   .more_msg, img{
-    transition-duration: .5s;
+    transition-duration: .3s;
   }
   .more_msg{
     opacity: 0;
@@ -26,7 +26,7 @@
 .custom_card_style:hover{
   cursor: pointer;
   .more_msg, img{
-    transition-duration: .5s;
+    transition-duration: .3s;
   }
   .more_msg{
     opacity: .8;
