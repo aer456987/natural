@@ -44,7 +44,7 @@
   background: $white; // transparent
   z-index: 1;
   &:hover{
-    color: $secondary;
+    color: darken($secondary, 5);
     transform: scale(1.2);
     transition-duration: .5s;
   }
