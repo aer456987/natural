@@ -42,6 +42,13 @@
   </svg>
 </template>
 
+<script>
+export default {
+  name: 'HomeButton',
+  props: ['buttomText'],
+};
+</script>
+
 <style lang="scss">
 $blob_primary: #1d7e63; // #0fe0f5; #589985
 $blob_secondary: #d5d83c;
@@ -159,10 +166,3 @@ $blob_dark: red;
   }
 }
 </style>
-
-<script>
-export default {
-  name: 'HomeButton',
-  props: ['buttomText'],
-};
-</script>

@@ -7,6 +7,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: 'Arrow',
+};
+</script>
+
 <style lang="scss">
   $base: 0.6rem;
 
@@ -66,9 +72,3 @@
     }
   }
 </style>
-
-<script>
-export default {
-  name: 'Arrow',
-};
-</script>

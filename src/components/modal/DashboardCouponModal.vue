@@ -172,11 +172,6 @@
   </section>
 </template>
 
-<style lang="sass">
-.coupon_width
-  max-width: 600px
-</style>
-
 <script>
 import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
@@ -252,3 +247,8 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+.coupon_width
+  max-width: 600px
+</style>

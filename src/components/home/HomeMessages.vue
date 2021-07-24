@@ -300,11 +300,6 @@
   </ul>
 </template>
 
-<style lang="sass">
-@import '@/assets/allStyle';
-@import "@/assets/custom/_rwdStyle.scss";
-</style>
-
 <script>
 import HomeButton from '@/components/home/HomeButton.vue';
 
