@@ -97,7 +97,7 @@
                 max="99"
                 name="折扣 % 數"
                 id="modalPercent"
-                class="form-control"
+                class="form-control mb-2"
                 :class="{ 'is-invalid': errors['折扣 % 數'] }"
                 rules="required|numeric|numeric"
                 v-model.number="tempCouponData.percent"
@@ -153,7 +153,7 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-brown"
+            class="btn btn-outline-brown-500"
             data-bs-dismiss="modal"
           >
             關閉

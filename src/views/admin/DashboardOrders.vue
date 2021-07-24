@@ -15,7 +15,7 @@
             v-model="orderSearch"
           />
           <i
-            class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+            class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
             @click="clearSearch"
           ></i>
         </span>
@@ -31,7 +31,7 @@
 
         <button
           type="button"
-          class="btn btn-outline-brown btn-sm fs-5 ms-1"
+          class="btn btn-outline-brown-500 btn-sm fs-5 ms-1"
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
@@ -69,7 +69,7 @@
 
             <td
               data-title="訂單編號"
-              class="text-warning"
+              class="text-warning-dark"
             >
               {{ order.id }}
             </td>
@@ -108,13 +108,12 @@
             </td>
 
             <td data-title="處理進度">
-                <!-- v-if="order.is_paid" -->
               <span
                 v-if="order.user.payment ==='貨到付款' || order.is_paid"
                 class="m-0"
                 :class="{
-                  'text-warning' : order.is_consignment,
-                  'text-success' : !order.is_consignment,
+                  'text-warning-dark' : order.is_consignment,
+                  'text-danger' : !order.is_consignment,
                 }"
               >
                 {{ order.is_consignment ? '已出貨' : '處理中' }}
@@ -129,7 +128,7 @@
 
             <td data-title="操作">
               <button
-                class="btn btn-outline-brown px-2 py-1"
+                class="btn btn-outline-brown-500 px-2 py-1"
                 @click="openOrderModal(order)"
               >
                 更多

@@ -76,7 +76,7 @@ $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-900 !default;
 $brown:         #926E60 !default;
-$brown-500:     #4C2F28 !default;
+$brown-500:     #4a1a06 !default; // #4C2F28 #612811
 $custom-green:  #50B29B !default;
 $custom-primary:   #1d7e63 !default;
 // scss-docs-end theme-color-variables
@@ -89,6 +89,7 @@ $theme-colors: (
   "success":    $success,
   "info":       $info,
   "warning":    $warning,
+  "warning-dark":    #9a6e00,
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark,
@@ -1070,19 +1071,19 @@ $pagination-bg:                     $white !default;
 $pagination-border-width:           $border-width !default;
 $pagination-border-radius:          $border-radius !default;
 $pagination-margin-start:           -$pagination-border-width !default;
-$pagination-border-color:           rgba($brown, .5) !default; // $gray-300
+$pagination-border-color:           rgba($brown-500, .5) !default; // $gray-300
 
 $pagination-focus-color:            $white !default; // $link-hover-color
-$pagination-focus-bg:               $brown !default; // $gray-200
+$pagination-focus-bg:               $brown-500 !default; // $gray-200
 $pagination-focus-box-shadow:       0 0 0 2px rgba($brown, .5) !default; // $input-btn-focus-box-shadow
 $pagination-focus-outline:          0 !default;
 
 $pagination-hover-color:            $white !default; // $link-hover-color
-$pagination-hover-bg:               $brown !default; // $gray-200
+$pagination-hover-bg:               $brown-500 !default; // $gray-200
 $pagination-hover-border-color:     $gray-300 !default;
 
 $pagination-active-color:           $white !default; // $component-active-color
-$pagination-active-bg:              $brown !default; // $component-active-bg
+$pagination-active-bg:              $brown-500 !default; // $component-active-bg
 $pagination-active-border-color:    $pagination-active-bg !default;
 
 $pagination-disabled-color:         $gray-300 !default; // $gray-600

@@ -13,7 +13,9 @@
           <h5
             class="modal-title"
             id="orderModalLabel"
-          >修改訂單</h5>
+          >
+            修改訂單
+          </h5>
           <button
             type="button"
             class="btn-close"
@@ -25,7 +27,9 @@
           <div class="row">
 
             <div class="col-12">
-              <h1 class="h4 text-center my-2">訂購人資訊</h1>
+              <h1 class="h4 text-center my-2">
+                訂購人資訊
+              </h1>
               <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
@@ -177,7 +181,7 @@
                       <span
                         class="form-check"
                         :class="{
-                        'text-warning' : tempOrder.is_paid,
+                        'text-warning-dark' : tempOrder.is_paid,
                         'text-gray' : !tempOrder.is_paid
                       }"
                       >
@@ -222,8 +226,8 @@
                         v-if="orderStatus"
                         class="m-0"
                         :class="{
-                          'text-warning' : tempOrder.is_consignment,
-                          'text-success' : !tempOrder.is_consignment,
+                          'text-warning-dark' : tempOrder.is_consignment,
+                          'text-danger' : !tempOrder.is_consignment,
                         }"
                       >
                         {{ tempOrder.is_consignment ? '已出貨' : '處理中' }}
@@ -325,7 +329,7 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-brown"
+            class="btn btn-outline-brown-500"
             data-bs-dismiss="modal"
           >
             關閉

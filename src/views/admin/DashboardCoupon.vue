@@ -14,7 +14,7 @@
             v-model="couponSearch"
           />
           <i
-            class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+            class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
             @click="clearSearch"
           ></i>
         </span>
@@ -22,14 +22,14 @@
 
       <span class="col-md-6 text-end pb-1">
         <button
-          class="btn btn-brown"
+          class="btn btn-brown-500"
           @click="opanCouponModal(true)"
         >
           新增優惠券
         </button>
         <button
           type="button"
-          class="btn btn-outline-brown btn-sm ms-1 fs-5"
+          class="btn btn-outline-brown-500 btn-sm ms-1 fs-5"
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
@@ -72,7 +72,7 @@
             <td
               data-title="狀態"
               :class="{
-                'text-warning' : coupon.is_enabled,
+                'text-warning-dark' : coupon.is_enabled,
                 'text-gray' : !coupon.is_enabled,
               }"
             >
@@ -80,7 +80,7 @@
             </td>
             <td data-title="操作">
               <button
-                class="btn btn-outline-brown px-2 py-1"
+                class="btn btn-outline-brown-500 px-2 py-1"
                 @click="opanCouponModal(false, coupon)"
               >
                 修改

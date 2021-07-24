@@ -42,7 +42,7 @@
               @click="isShow=false"
             >
             <label
-              class="btn btn-outline-brown"
+              class="btn btn-outline-brown-500"
               for="productMessage"
             >
               編輯資訊
@@ -57,7 +57,7 @@
               @click="isShow=true"
             >
             <label
-              class="btn btn-outline-brown"
+              class="btn btn-outline-brown-500"
               for="productImg"
             >
               編輯圖片
@@ -270,7 +270,7 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-outline-brown"
+            class="btn btn-outline-brown-500"
             data-bs-dismiss="modal"
           >
             關閉

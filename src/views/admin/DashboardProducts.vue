@@ -31,7 +31,7 @@
                 v-model="productSearch"
               />
               <i
-                class="bi bi-x-lg fs-6 btn btn-outline-brown input-group-text"
+                class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
                 @click="clearSearch"
               ></i>
             </span>
@@ -41,7 +41,7 @@
       </div>
       <div class="col-md-4 col-lg-6 text-end pb-1">
         <button
-          class="btn btn-brown"
+          class="btn btn-brown-500  "
           @click="openModal(true)"
         >
           新增產品
@@ -49,7 +49,7 @@
 
         <button
           type="button"
-          class="btn btn-outline-brown btn-sm fs-5 ms-1"
+          class="btn btn-outline-brown-500 btn-sm fs-5 ms-1"
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
@@ -110,16 +110,21 @@
 
             <td
               data-title="狀態"
-              :class="{ 'text-gray' : !product.is_enabled }"
+              :class="{
+                'text-warning-dark' : product.is_enabled,
+                'text-gray' : !product.is_enabled,
+              }"
             >
               {{ product.is_enabled ? '上架' : '未上架' }}
             </td>
 
             <td data-title="操作">
               <button
-                class="btn btn-outline-brown px-2 py-1"
+                class="btn btn-outline-brown-500 px-2 py-1"
                 @click="openModal(false, product)"
-              >修改</button>
+              >
+                修改
+              </button>
             </td>
 
             <td data-title="刪除">
