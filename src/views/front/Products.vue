@@ -122,6 +122,7 @@ export default {
         });
     },
     filterListMethods(filterTxt) { // 篩選列表
+      this.search = '';
       this.select = filterTxt;
     },
     clearSearch() { // 清除搜尋
