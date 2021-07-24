@@ -15,7 +15,7 @@
           <li class="breadcrumb-item">
             <router-link
               :to="item.url"
-              class="link-secondary"
+              class="link-success"
             >
               {{ item.title }}
             </router-link>
