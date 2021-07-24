@@ -50,11 +50,6 @@ library.add(
 
 const app = createApp(App);
 
-// 將 filters.js 的方法解構出來並加入 globalProperties
-app.config.globalProperties.$filters = {
-  date, currency,
-};
-
 app.use(router);
 app.use(VueAxios, axios);
 app.use(AOS);
@@ -64,5 +59,9 @@ app.component('ErrorMessage', ErrorMessage);
 app.component('Font-awesome-icon', FontAwesomeIcon);
 app.component('Loading', Loading);
 app.config.productionTip = false;
+// 將 filters.js 的方法解構出來並加入 globalProperties
+app.config.globalProperties.$filters = {
+  date, currency,
+};
 
 app.mount('#app');
