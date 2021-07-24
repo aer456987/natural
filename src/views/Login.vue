@@ -17,7 +17,10 @@
         <h2 class="text-center fw-bold my-2">後台登入</h2>
 
         <div class="mb-2">
-          <Form v-slot="{ errors }">
+          <Form
+            v-slot="{ errors }"
+            @submit="login"
+          >
             <label
               for="orderEmail"
               class="form-label mt-3 mb-1"
@@ -56,17 +59,16 @@
               name="密碼"
               class="invalid-feedback mb-1"
             ></ErrorMessage>
+
+            <p class="text-danger text-center my-3">{{ msg }}</p>
+
+            <button
+              type="submit"
+              class="btn btn_main w-100 mt-1 mb-1"
+            >
+              登入
+            </button>
           </Form>
-
-          <p class="text-danger text-center my-3">{{ msg }}</p>
-
-          <button
-            type="submit"
-            class="btn btn_main w-100 mt-1 mb-1"
-            @click="login"
-          >
-            登入
-          </button>
 
           <span class="d-flex justify-content-center align-items-center">
             <router-link
