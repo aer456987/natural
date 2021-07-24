@@ -26,8 +26,8 @@
               <table class="table cart_table_style text-center mb-5">
                 <thead>
                   <tr>
-                    <td scope="col" width="45%">商品資訊</td>
-                    <td scope="col" width="15%">數量</td>
+                    <td scope="col" width="40%">商品資訊</td>
+                    <td scope="col" width="20%">數量</td>
                     <td scope="col" width="40%">金額</td>
                   </tr>
                 </thead>
