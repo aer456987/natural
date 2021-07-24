@@ -49,7 +49,6 @@
             <td width="20%">訂單編號</td>
             <td width="15%">訂購人</td>
             <td width="17%">Email</td>
-            <!-- <td width="25%">訂單內容</td> -->
             <td width="8%">總金額</td>
             <td width="8%">付款狀態</td>
             <td width="8%">處理進度</td>
@@ -67,11 +66,7 @@
               {{ $filters.date(order.create_at) }}
             </td>
 
-            <td
-              data-title="訂單編號"
-              class=""
-            >
-              <!-- text-warning-dark -->
+            <td data-title="訂單編號">
               {{ order.id }}
             </td>
 
@@ -82,19 +77,6 @@
             <td data-title="Email">
               {{ order.user.email }}
             </td>
-
-            <!-- <td
-              data-title="訂單內容"
-              class="text-start"
-            >
-              <p
-                v-for="item in order.products"
-                :key="item.id"
-                class="m-0"
-              >
-                {{ `${item.product.title} x ${item.qty}${item.product.unit}` }}
-              </p>
-            </td> -->
 
             <td data-title="總金額">
               $ {{ $filters.currency(order.total) }}
