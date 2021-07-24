@@ -8,6 +8,15 @@
   }
 }
 
+.logo_login{
+  font-family: 'Vibur';
+  transition-duration: .3s;
+
+  &:hover{
+    transition-duration: .3s;
+  }
+}
+
 // 首圖logo
 .logo_home{
   color: $white;
@@ -26,11 +35,21 @@
   }
 }
 
+// 後台 logo
 .logo_brown{
   color: $brown-500;
 
   &:hover, &:focus{
     color: $warning;
+  }
+}
+
+// 登入 logo
+.logo_login{
+  color: rgba($secondary, .8);
+
+  &:hover{
+    color: $secondary;
   }
 }
 

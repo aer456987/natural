@@ -4,7 +4,7 @@
     <section class="row justify-content-center">
       <router-link
         to="/"
-        class="nav-link logo h1 my-4 pb-0 text-center"
+        class="nav-link logo_login h1 my-4 pb-0 text-center"
       >
         <Font-awesome-icon
           icon="crow"
@@ -71,14 +71,14 @@
           <span class="d-flex justify-content-center align-items-center">
             <router-link
               to="/"
-              class="custom_secondary_link"
+              class="custom_success_link"
             >
               返回首頁
             </router-link>
             |
             <router-link
               to="/login"
-              class="custom_secondary_link"
+              class="custom_success_link"
             >
               忘記密碼?
             </router-link>

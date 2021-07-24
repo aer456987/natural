@@ -17,12 +17,12 @@
 }
 
 // 自訂連結
-.custom_secondary_link{
+.custom_success_link{
   padding: 8px;
-  color: $secondary;
-  transition-duration: .3s;
+  color: $success;
+  transition-duration: .2s;
   &:hover{
-    color: $primary;
+    color: $secondary;
   }
 }
 
