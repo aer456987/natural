@@ -105,7 +105,8 @@
                   class="custom_success_link"
                 >
                   (02)2308264
-                </a> /
+                </a>
+                /
                 <a
                   href="tel:+886-2-2308264"
                   class="custom_success_link"

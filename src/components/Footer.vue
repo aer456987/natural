@@ -65,7 +65,8 @@
                 class="scale"
               >
                 (02)2308264
-              </a> /
+              </a>
+              /
               <a
                 href="tel:+886-2-2308264"
                 :class="colors.color"
