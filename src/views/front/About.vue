@@ -57,34 +57,67 @@
         </aside>
       </div>
 
-      <div class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2">
+      <section class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2">
         <div class="col-12 text-center mb-2">
-          <h2 class="fw-bold">聯絡我們</h2>
-          <p>
-            <span class="fs-2">
-              <Font-awesome-icon
-                :icon="['fab', 'facebook-square']"
-                class="mx-1 text-blue-600 pointer_no_hover"
-                title="facabook 粉絲團"
-              />
-
-              <Font-awesome-icon
-                :icon="['fab', 'instagram-square']"
-                class="mx-1 text-pink pointer_no_hover"
-                title="Instagram"
-              />
-              <Font-awesome-icon
-                :icon="['fab', 'line']"
-                class="mx-1 text-green pointer_no_hover"
-                title="@line 官方"
-              />
-            </span>
-          </p>
-          <p>
-            住址：台北市信義區林口街38巷109號6樓 <br>
-            客服電話：(02)2308264 / (02)8650610 <br>
-            服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00
-          </p>
+          <h2 class="fw-bold">
+            聯絡我們
+          </h2>
+          <ul class="d-flex justify-content-center fs-2 mb-1">
+            <li class="px-1">
+              <a href="#">
+                <Font-awesome-icon
+                  :icon="['fab', 'facebook-square']"
+                  class="mx-1 text-blue-600 transform_scale transition-duration_2"
+                  title="facabook 粉絲團"
+                />
+              </a>
+            </li>
+            <li class="px-1">
+              <a href="#">
+                <Font-awesome-icon
+                  :icon="['fab', 'instagram-square']"
+                  class="mx-1 text-pink transform_scale transition-duration_2"
+                  title="Instagram"
+                />
+              </a>
+            </li>
+            <li class="px-1">
+              <a href="#">
+                <Font-awesome-icon
+                  :icon="['fab', 'line']"
+                  class="mx-1 text-green transform_scale transition-duration_2"
+                  title="@line 官方"
+                />
+              </a>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p class="m-0">
+                住址：台北市信義區林口街38巷109號6樓
+              </p>
+            </li>
+            <li>
+              <p class="m-0">
+                客服電話：
+                <a
+                  href="tel:+886-2-2308264"
+                  class="custom_success_link"
+                >
+                  (02)2308264
+                </a> /
+                <a
+                  href="tel:+886-2-2308264"
+                  class="custom_success_link"
+                >
+                  (02)8650610
+                </a>
+              </p>
+            </li>
+            <li>
+              <p>服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00</p>
+            </li>
+          </ul>
         </div>
         <div class="col-12">
           <iframe
@@ -94,7 +127,7 @@
             class="height_xl border-0 w-100 h-100"
           ></iframe>
         </div>
-      </div>
+      </section>
     </main>
 
   </section>

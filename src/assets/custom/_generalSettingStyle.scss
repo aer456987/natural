@@ -11,6 +11,16 @@ body{
   scroll-behavior: smooth;
 }
 
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li{
+    padding: 0;
+    margin: 0;
+  }
+}
+
 // 頁面不可選取
 .user_select_none{
   user-select: none;
@@ -39,6 +49,14 @@ body{
   cursor: pointer;
 }
 
+// 放大效果
+.transform_scale{
+  transform: scale(1);
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
 // 圖層
 .z-index-2{
   z-index: 2;
@@ -55,6 +73,9 @@ body{
 // 動畫轉換速度
 .transition-duration_1{
   transition-duration: .3s;
+}
+.transition-duration_2{
+  transition-duration: .2s;
 }
 
 // 透明度
