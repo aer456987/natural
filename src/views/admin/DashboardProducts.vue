@@ -246,7 +246,8 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delProduct(action, id) { // 刪除商品
+    delProduct(variable) { // 刪除商品
+      const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
 
@@ -267,8 +268,7 @@ export default {
         });
     },
     delProductFn(data) { // 刪除提示視窗
-      const { title, id } = data;
-      delSwalFn(title, id, this.delProduct);
+      delSwalFn(data, this.delProduct);
     },
     updateProduct(item) { // 新增產品 & 修改產品
       this.loadingStatus = true;

@@ -224,7 +224,8 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCoupon(id) { // 刪除優惠券
+    delCoupon(variable) { // 刪除優惠券
+      const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${id}`;
       this.loadingStatus = true;
 
@@ -244,8 +245,7 @@ export default {
         });
     },
     delCouponSwalFn(data, action) { // 刪除單筆訂單的視窗
-      const { title, id } = data;
-      delSwalFn(title, id, this.delCoupon, action);
+      delSwalFn(data, this.delCoupon, action);
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');

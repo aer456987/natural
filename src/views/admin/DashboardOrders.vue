@@ -222,7 +222,9 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrder(action, id) { // 刪除單筆訂單
+    delOrder(variable) { // 刪除單筆訂單
+      const { action, id } = variable;
+
       let url = '';
       this.loadingStatus = true;
 
@@ -248,8 +250,7 @@ export default {
         });
     },
     delOrderSwalFn(data, action) { // 刪除單筆訂單的視窗
-      const { id } = data;
-      delSwalFn(id, id, this.delOrder, action);
+      delSwalFn(data, this.delOrder, action);
     },
     delAllOrderSwalFn(action) { // 刪除全部訂單的視窗(雙重確認)
       doubleCheckdelSwalFn(action, this.delOrder);

@@ -139,7 +139,7 @@
                 v-model="tempCouponData.is_enabled"
               >
               <label for="enabledStatus">
-                是否啟用<span class="text-danger fw-bold">*</span>
+                是否啟用
               </label>
             </span>
 
@@ -239,7 +239,6 @@ export default {
         title === ''
         || code === ''
         || percent === ''
-        || percent === 0
         || Number.isNaN(this.tempCouponData.due_date)
       ) {
         this.newBtnStatus = true;

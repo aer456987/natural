@@ -15,19 +15,31 @@ export function swalFn(title, icon, timer = 1500, text, button = false) {
 }
 
 // 刪除商品的確認視窗
-export function delSwalFn(title, id, methods, action) {
+export function delSwalFn(data, methods, action) {
+  const { title, id } = data;
+  let newTitle = title;
+
+  if (title === undefined) {
+    newTitle = id;
+  }
+
   const txt = {
-    title: `確定要刪除 [${title}] 嗎？`,
+    title: `確定要刪除 [${newTitle}] 嗎？`,
     icon: 'warning',
     text: '請注意，刪除後將無法復原！',
     buttons: ['取消', '確定刪除'],
     dangerMode: true,
   };
 
+  const variable = {
+    id,
+    action,
+  };
+
   swal(txt)
     .then((willDelete) => { // 針對選項執行不同動作
       if (willDelete) {
-        methods(action, id);
+        methods(variable);
       } else {
         swalFn('已取消操作', 'error');
       }
