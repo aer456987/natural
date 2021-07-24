@@ -71,6 +71,7 @@
               <Field
                 type="text"
                 name="姓名"
+                placeholder="請輸入收件人名稱"
                 id="orderName"
                 class="form-control"
                 :class="{ 'is-invalid': errors['姓名'] }"
@@ -92,6 +93,7 @@
               <Field
                 type="tel"
                 name="電話"
+                placeholder="請輸入手機號碼"
                 id="orderTel"
                 class="form-control"
                 :class="{ 'is-invalid': errors['電話'] }"
@@ -113,6 +115,7 @@
               <Field
                 type="email"
                 name="Email"
+                placeholder="請輸入Email"
                 id="orderEmail"
                 class="form-control"
                 :class="{ 'is-invalid': errors['Email'] }"
@@ -135,6 +138,7 @@
                 <Field
                   as="select"
                   name="寄送方式"
+                  placeholder="請輸入寄送方式"
                   id="orderDelivery"
                   class="form-select"
                   :class="{ 'is-invalid': errors['寄送方式'] }"
@@ -164,6 +168,7 @@
               <Field
                 type="text"
                 name="地址"
+                placeholder="宅配請輸入收件地址，超取請填寫門市名稱"
                 id="orderAddress"
                 class="form-control"
                 :class="{ 'is-invalid': errors['地址'] }"
@@ -186,6 +191,7 @@
               <Field
                 as="select"
                 name="付款方式"
+                placeholder="選擇付款方式"
                 id="orderPayment"
                 class="form-select"
                 :class="{ 'is-invalid': errors['付款方式'] }"
@@ -217,6 +223,8 @@
               <Field
                 as="textarea"
                 name="備註"
+                placeholder="如需指定捐款單位或商品種類，請務必填寫清楚( 例如: 我要指定捐款給 XX 機構；XX 商品請寄紅色 )"
+                rows="5"
                 id="orderMsg"
                 class="form-control"
                 :class="{ 'is-invalid': errors['備註'] }"
