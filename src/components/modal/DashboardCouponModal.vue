@@ -9,8 +9,8 @@
     data-bs-keyboard="false"
     ref="modal"
   >
-    <section class="modal-dialog modal-dialog-centered">
-      <main class="modal-content coupon_width mx-auto">
+    <section class="modal-dialog modal-dialog-centered coupon_width">
+      <main class="modal-content mx-auto">
         <div class="modal-header bg-warning text-brown-500">
           <h5
             class="modal-title"
@@ -41,7 +41,7 @@
                 for="modalTitle"
                 class="form-label p-1 m-0"
               >
-                優惠券名稱<span class="text-danger fw-bold">*</span>
+                優惠券名稱 <span class="text-danger fw-bold">*</span>
               </label>
               <Field
                 type="text"
@@ -53,10 +53,10 @@
                 rules="required"
                 v-model="tempCouponData.title"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="優惠券名稱"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </span>
 
             <span class="col-12">
@@ -77,10 +77,10 @@
                 rules="required"
                 v-model="tempCouponData.code"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="優惠碼"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </span>
 
             <span class="col-12">
@@ -102,10 +102,10 @@
                 rules="required|numeric|numeric"
                 v-model.number="tempCouponData.percent"
               ></Field>
-              <error-message
+              <ErrorMessage
                 name="折扣 % 數"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </span>
 
             <span class="col-12">

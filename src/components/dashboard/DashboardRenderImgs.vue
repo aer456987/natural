@@ -25,10 +25,10 @@
             rules="required"
             v-model="tempMainImg"
           ></Field>
-          <error-message
+          <ErrorMessage
             name="主要圖片網址"
             class="invalid-feedback mb-1"
-          ></error-message>
+          ></ErrorMessage>
           <img
             :src="tempMainImg"
             alt="主要圖片"
@@ -56,10 +56,10 @@
             rules="min:1"
             v-model="tempImgs[key]"
           ></Field>
-          <error-message
+          <ErrorMessage
             :name="`圖片網址_${key+1}`"
             class="invalid-feedback mb-1"
-          ></error-message>
+          ></ErrorMessage>
 
           <span class="position-relative">
             <i

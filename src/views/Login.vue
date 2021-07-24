@@ -32,10 +32,10 @@
               rules="required|email"
               v-model="userDatas.username"
             ></Field>
-            <error-message
+            <ErrorMessage
               name="Email"
               class="invalid-feedback mb-1"
-            ></error-message>
+            ></ErrorMessage>
 
             <!-- 密碼 -->
             <label
@@ -52,10 +52,10 @@
               rules="required"
               v-model="userDatas.password"
             ></Field>
-            <error-message
+            <ErrorMessage
               name="密碼"
               class="invalid-feedback mb-1"
-            ></error-message>
+            ></ErrorMessage>
           </Form>
 
           <p class="text-danger text-center my-3">{{ msg }}</p>

@@ -94,10 +94,10 @@
                     rules="required"
                     v-model="tempProduct.title"
                   ></Field>
-                  <error-message
+                  <ErrorMessage
                     name="品名"
                     class="invalid-feedback mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -123,10 +123,10 @@
                     <option value="有機食品">有機食品</option>
                     <option value="周邊商品">周邊商品</option>
                   </Field>
-                  <error-message
+                  <ErrorMessage
                     name="產品分類"
                     class="invalid-feedback mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -146,10 +146,10 @@
                     rules="required"
                     v-model="tempProduct.unit"
                   ></Field>
-                  <error-message
+                  <ErrorMessage
                     name="單位"
                     class="invalid-feedback mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -169,10 +169,10 @@
                     rules="required|numeric"
                     v-model.number="tempProduct.origin_price"
                   ></Field>
-                  <error-message
+                  <ErrorMessage
                     name="原價"
                     class="invalid-feedback mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </span>
 
                 <span class="col-12 col-md-6">
@@ -192,10 +192,10 @@
                     rules="required|numeric"
                     v-model.number="tempProduct.price"
                   ></Field>
-                  <error-message
+                  <ErrorMessage
                     name="售價"
                     class="invalid-feedback mb-1"
-                  ></error-message>
+                  ></ErrorMessage>
                 </span>
 
                 <span class="col-12 col-md-6">

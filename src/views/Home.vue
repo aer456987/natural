@@ -162,10 +162,10 @@
               >
                 訂閱
               </button>
-              <error-message
+              <ErrorMessage
                 name="Email"
                 class="invalid-feedback mb-1"
-              ></error-message>
+              ></ErrorMessage>
             </div>
           </Form>
         </div>
