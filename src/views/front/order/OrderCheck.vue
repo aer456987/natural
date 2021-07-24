@@ -141,14 +141,14 @@
                     <th
                       scope="row"
                       class="px-2 px-md-3 border"
-                      width="30%"
+                      width="40%"
                     >
                       品名
                     </th>
                     <th
                       scope="row"
                       class="px-2 px-md-3 border"
-                      width="30%"
+                      width="20%"
                     >
                       數量
                     </th>
@@ -168,7 +168,7 @@
                   <tr>
                     <td
                       scope="row"
-                      class="border"
+                      class="border ps-2 text-start"
                     >
                       {{ item.product.title }}
                     </td>
@@ -215,6 +215,7 @@
 
 <script>
 import { swalFn } from '@/methods/swal';
+import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import Progress from '@/components/CartProgress.vue';
 
@@ -261,6 +262,7 @@ export default {
             this.order.data.products = JSON.parse(JSON.stringify(res.data.order.products));
             this.order.data.user = JSON.parse(JSON.stringify(res.data.order.user));
             this.order.data.total = res.data.order.total;
+            this.updateCartLength();
             this.loadingStatus = false;
           } else {
             swalFn('資料取得失敗', 'error');
@@ -289,6 +291,22 @@ export default {
         .catch(() => {
           swalFn('付款失敗', 'error');
           this.loadingStatus = false;
+        });
+    },
+    updateCartLength() { // 取得購物車數量
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
+
+      this.$http
+        .get(url)
+        .then((res) => {
+          if (res.data.success) {
+            bus.emit('cart-number', res.data.data.carts.length);
+          } else {
+            swalFn('購物車資料取得失敗', 'error');
+          }
+        })
+        .catch(() => {
+          swalFn('購物車資料取得失敗', 'error');
         });
     },
   },
