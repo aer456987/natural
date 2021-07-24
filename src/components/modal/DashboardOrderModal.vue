@@ -7,7 +7,7 @@
     aria-hidden="true"
     ref="modal"
   >
-    <section class="modal-dialog modal-dialog-centered">
+    <section class="modal-dialog modal-dialog-centered width_xl">
       <main class="modal-content">
         <div class="modal-header bg-warning text-brown-500">
           <h5

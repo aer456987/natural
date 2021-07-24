@@ -9,8 +9,8 @@
     data-bs-keyboard="false"
     ref="modal"
   >
-    <section class="modal-dialog modal-dialog-centered">
-      <main class="modal-content width_xl">
+    <section class="modal-dialog modal-dialog-centered width_xl">
+      <main class="modal-content">
         <div class="modal-header bg-warning text-brown-500">
           <h5
             class="h5 modal-title"
