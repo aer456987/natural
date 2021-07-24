@@ -50,45 +50,97 @@
           </ul>
         </nav>
 
-        <p
-          class="mb-3"
-          :class="colors.color"
-        >
-          住址：台北市信義區林口街38巷109號6樓 <br>
-          客服電話：(02)2308264 / (02)8650610 <br>
-          服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00 <br>
-        </p>
+        <ul :class="colors.color">
+          <li>
+            <p class="m-0">
+              住址：台北市信義區林口街38巷109號6樓
+            </p>
+          </li>
+          <li>
+            <p class="m-0">
+              客服電話：
+              <a
+                href="tel:+886-2-2308264"
+                :class="colors.color"
+                class="scale"
+              >
+                (02)2308264
+              </a> /
+              <a
+                href="tel:+886-2-2308264"
+                :class="colors.color"
+                class="scale"
+              >
+                (02)8650610
+              </a>
+            </p>
+          </li>
+          <li>
+            <p>服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00</p>
+          </li>
+        </ul>
 
       </small>
     </template>
-    <span
-      class="d-block fs-4 mb-1"
-      :class="colors.color"
-    >
-      <Font-awesome-icon
-        :icon="['fab', 'facebook-square']"
-        class="mx-1 pointer_no_hover scale"
-        title="facabook 粉絲團"
-      />
 
-      <Font-awesome-icon
-        :icon="['fab', 'instagram-square']"
-        class="mx-1 pointer_no_hover scale"
-        title="Instagram"
-      />
-      <Font-awesome-icon
-        :icon="['fab', 'line']"
-        class="mx-1 pointer_no_hover scale"
-        title="@line 官方"
-      />
-
-      <i class="fab fa-github-square"></i>
-      <Font-awesome-icon
-        :icon="['fab', 'github-square']"
-        class="mx-1 pointer_no_hover scale"
-        title="github"
-      />
-    </span>
+    <ul class="d-flex justify-content-center fs-4 mb-1">
+      <li>
+        <a
+          href="#"
+          :class="colors.color"
+        >
+          <Font-awesome-icon
+            :icon="['fab', 'facebook-square']"
+            class="mx-1 pointer_no_hover scale"
+            title="facabook 粉絲團"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          :class="colors.color"
+        >
+          <Font-awesome-icon
+            :icon="['fab', 'instagram-square']"
+            class="mx-1 pointer_no_hover scale"
+            title="Instagram"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          :class="colors.color"
+        >
+          <Font-awesome-icon
+            :icon="['fab', 'line']"
+            class="mx-1 pointer_no_hover scale"
+            title="@line 官方"
+          />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          :class="colors.color"
+        >
+          <i class="fab fa-github-square"></i>
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          :class="colors.color"
+        >
+          <Font-awesome-icon
+            :icon="['fab', 'github-square']"
+            class="mx-1 pointer_no_hover scale"
+            title="github"
+          />
+        </a>
+      </li>
+    </ul>
     <small
       class="container mx-auto my-0"
       :class="colors.color"

@@ -67,7 +67,7 @@
               <a href="#">
                 <Font-awesome-icon
                   :icon="['fab', 'facebook-square']"
-                  class="mx-1 text-blue-600 transform_scale transition-duration_2"
+                  class="mx-1 text-blue-600 scale transition-duration_2"
                   title="facabook 粉絲團"
                 />
               </a>
@@ -76,7 +76,7 @@
               <a href="#">
                 <Font-awesome-icon
                   :icon="['fab', 'instagram-square']"
-                  class="mx-1 text-pink transform_scale transition-duration_2"
+                  class="mx-1 text-pink scale transition-duration_2"
                   title="Instagram"
                 />
               </a>
@@ -85,7 +85,7 @@
               <a href="#">
                 <Font-awesome-icon
                   :icon="['fab', 'line']"
-                  class="mx-1 text-green transform_scale transition-duration_2"
+                  class="mx-1 text-green scale transition-duration_2"
                   title="@line 官方"
                 />
               </a>
