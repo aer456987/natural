@@ -24,7 +24,9 @@
             <label
               for="orderEmail"
               class="form-label mt-3 mb-1"
-            >帳號</label>
+            >
+              帳號
+            </label>
             <Field
               type="email"
               name="Email"
@@ -44,7 +46,9 @@
             <label
               for="orderPs"
               class="form-label mt-3 mb-1"
-            >密碼</label>
+            >
+              密碼
+            </label>
             <Field
               type="password"
               name="密碼"
@@ -60,7 +64,9 @@
               class="invalid-feedback mb-1"
             ></ErrorMessage>
 
-            <p class="text-danger text-center my-3">{{ msg }}</p>
+            <p class="text-danger text-center my-3">
+              {{ msg }}
+            </p>
 
             <button
               type="submit"
