@@ -46,10 +46,10 @@
         <thead class="table-dark align-middle">
           <tr>
             <td width="10%">建立時間</td>
-            <td width="15%">訂單編號</td>
-            <td width="10%">訂購人</td>
-            <td width="12%">Email</td>
-            <td width="15%">訂單內容</td>
+            <td width="20%">訂單編號</td>
+            <td width="15%">訂購人</td>
+            <td width="17%">Email</td>
+            <!-- <td width="25%">訂單內容</td> -->
             <td width="8%">總金額</td>
             <td width="8%">付款狀態</td>
             <td width="8%">處理進度</td>
@@ -69,8 +69,9 @@
 
             <td
               data-title="訂單編號"
-              class="text-warning-dark"
+              class=""
             >
+              <!-- text-warning-dark -->
               {{ order.id }}
             </td>
 
@@ -82,7 +83,7 @@
               {{ order.user.email }}
             </td>
 
-            <td
+            <!-- <td
               data-title="訂單內容"
               class="text-start"
             >
@@ -93,7 +94,7 @@
               >
                 {{ `${item.product.title} x ${item.qty}${item.product.unit}` }}
               </p>
-            </td>
+            </td> -->
 
             <td data-title="總金額">
               $ {{ $filters.currency(order.total) }}

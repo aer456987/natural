@@ -65,10 +65,11 @@
           <tr>
             <td width="10%">分類</td>
             <td width="8%">圖片</td>
-            <td width="15%">產品ID</td>
-            <td width="13%">品名</td>
-            <td width="21%">描述</td>
-            <td width="8%">售價</td>
+            <td width="20%">產品ID</td>
+            <td width="20%">品名</td>
+            <!-- <td width="21%">描述</td> -->
+            <td width="9%">原價</td>
+            <td width="9%">售價</td>
             <td width="8%">狀態</td>
             <td width="8%">操作</td>
             <td width="8%">刪除</td>
@@ -100,12 +101,16 @@
               {{ product.title }}
             </td>
 
-            <td ata-title="描述">
+            <!-- <td ata-title="描述">
               {{ product.description }}
+            </td> -->
+
+            <td data-title="售價">
+              $ {{ $filters.currency(product.origin_price) }}
             </td>
 
             <td data-title="售價">
-              {{ $filters.currency(product.price) }}
+              $ {{ $filters.currency(product.price) }}
             </td>
 
             <td
