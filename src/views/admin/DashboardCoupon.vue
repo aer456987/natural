@@ -224,7 +224,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCoupon(action, id) { // 刪除優惠券
+    delCoupon(id) { // 刪除優惠券
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${id}`;
       this.loadingStatus = true;
 
