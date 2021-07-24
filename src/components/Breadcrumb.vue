@@ -15,7 +15,7 @@
           <li class="breadcrumb-item">
             <router-link
               :to="item.url"
-              class="link-success"
+              class="link-success-light"
             >
               {{ item.title }}
             </router-link>

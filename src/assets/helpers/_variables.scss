@@ -87,6 +87,7 @@ $theme-colors: (
   "primary-100" :rgba(#09694C, .1),
   "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
+  "success-light":    lighten(#06805f, 2),
   "info":       $info,
   "warning":    $warning,
   "warning-dark":    #9a6e00,

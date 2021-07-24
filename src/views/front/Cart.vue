@@ -152,7 +152,7 @@
                     />
                     <button
                       type="button"
-                      class="btn btn-outline-primary input-group-text"
+                      class="btn btn-outline-success input-group-text"
                       @click="useCoupon"
                     >
                       套用優惠券
