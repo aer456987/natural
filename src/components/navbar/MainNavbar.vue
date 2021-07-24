@@ -52,9 +52,9 @@
               <i class="bi bi-heart-fill position-relative">
                 <span
                   class="num_icon"
-                  v-if="favoritsLength > 0"
+                  v-if="favoritesLength > 0"
                 >
-                  {{ favoritsLength || newfavoritsLength }}
+                  {{ favoritesLength || newFavoritesLength }}
                 </span>
               </i>
             </a>
@@ -95,9 +95,9 @@ export default {
     return {
       cartsLength: 0,
       newLength: 0,
-      mainFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
-      favoritsLength: 0,
-      newfavoritsLength: 0,
+      mainFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      favoritesLength: 0,
+      newFavoritesLength: 0,
     };
   },
   components: { Offcanvas },
@@ -121,9 +121,9 @@ export default {
           swalFn('購物車資料取得失敗', 'error');
         });
     },
-    updateFavoritsLength() { // 取得最愛收藏數量
-      this.favoritsLength = this.mainFavoritsList.length;
-      this.newfavoritsLength = this.mainFavoritsList.length;
+    updateFavoritesLength() { // 取得最愛收藏數量
+      this.favoritesLength = this.mainFavoritesList.length;
+      this.newFavoritesLength = this.mainFavoritesList.length;
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側欄
       const data = JSON.parse(localStorage.getItem('favoritData')) || [];
@@ -132,7 +132,7 @@ export default {
   },
   mounted() {
     this.updateCartLength();
-    this.updateFavoritsLength();
+    this.updateFavoritesLength();
     // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
@@ -140,9 +140,9 @@ export default {
     });
 
     // 更新最愛收藏數量
-    bus.on('favorits-number', (num) => {
-      this.favoritsLength = num;
-      this.newfavoritsLength = num;
+    bus.on('favorites-number', (num) => {
+      this.favoritesLength = num;
+      this.newFavoritesLength = num;
     });
   },
 };

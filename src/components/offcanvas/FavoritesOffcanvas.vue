@@ -19,7 +19,7 @@
                 type="button"
                 class="btn btn-outline-danger btn-sm"
                 @click="allDelFavorite"
-                :disabled="newFavoritsData.length<1"
+                :disabled="newFavoritesData.length<1"
               >
                 清空收藏
               </button>
@@ -37,10 +37,10 @@
       </div>
     </div>
     <div class="offcanvas-body">
-      <template v-if="offcanvasFavoritsList.length > 0">
+      <template v-if="offcanvasFavoritesList.length > 0">
         <ul class="list-unstyled px-1 mb-5">
           <template
-            v-for="favoritItme in newFavoritsData"
+            v-for="favoritItme in newFavoritesData"
             :key="favoritItme.id"
           >
 
@@ -144,20 +144,20 @@ export default {
       loadingStatus: false,
       offcanvas: '', // 元件註冊位置
       offcanvasProducts: [], // 所有產品
-      offcanvasFavoritsList: [], // 最愛清單內容
-      newFavoritsData: [], // (渲染用)篩選後的最愛清單資料
+      offcanvasFavoritesList: [], // 最愛清單內容
+      newFavoritesData: [], // (渲染用)篩選後的最愛清單資料
     };
   },
   components: { FavoriteIcon },
   watch: {
-    offcanvasFavoritsList() {
+    offcanvasFavoritesList() {
       this.renderFavorite();
     },
   },
   emits: ['resetFn'],
   methods: {
     openOffcanvas(data) {
-      this.offcanvasFavoritsList = data;
+      this.offcanvasFavoritesList = data;
       this.offcanvas.show();
     },
     hideOffcanvas() {
@@ -180,21 +180,21 @@ export default {
         });
     },
     renderFavorite() { // 渲染資料
-      this.newFavoritsData = [];
+      this.newFavoritesData = [];
 
       this.offcanvasProducts.forEach((item, i) => {
-        if (this.offcanvasFavoritsList.includes(item.id)) {
+        if (this.offcanvasFavoritesList.includes(item.id)) {
           this.offcanvasProducts[i].qty = 1;
-          this.newFavoritsData.push(item);
+          this.newFavoritesData.push(item);
         }
       });
-      bus.emit('favorits-btn-status');
+      bus.emit('favorites-btn-status');
     },
     allDelFavorite() { // 刪除全部最愛
       this.$refs.favoritIcon.saveFavorit([]);
-      this.offcanvasFavoritsList = [];
-      this.newFavoritsData = [];
-      bus.emit('favorits-number', this.newFavoritsData.length);
+      this.offcanvasFavoritesList = [];
+      this.newFavoritesData = [];
+      bus.emit('favorites-number', this.newFavoritesData.length);
     },
     addCart(id, num = 1) { // 加入購物車
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
@@ -251,8 +251,8 @@ export default {
     this.offcanvas = new Offcanvas(this.$refs.offcanvas);
     this.getProducts();
 
-    bus.on('favorits-list', (item) => {
-      this.offcanvasFavoritsList = item;
+    bus.on('favorites-list', (item) => {
+      this.offcanvasFavoritesList = item;
     });
   },
 };

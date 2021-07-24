@@ -43,14 +43,14 @@ export default {
   data() {
     return {
       isFavorite: false,
-      favoritsList: [],
+      favoritesList: [],
     };
   },
   watch: {
     idData() { // 資料狀態改變後，在確認一次最愛清單
       this.isFavorite = this.checkFavorStatus();
     },
-    favoritsList() {
+    favoritesList() {
       this.isFavorite = this.checkFavorStatus();
     },
   },
@@ -60,10 +60,10 @@ export default {
       localStorage.setItem('favoritData', data);
     },
     getFavorites() { // 取得最愛清單
-      this.favoritsList = JSON.parse(localStorage.getItem('favoritData')) || [];
+      this.favoritesList = JSON.parse(localStorage.getItem('favoritData')) || [];
     },
-    updateFavoritsNum(num) { // 更新最愛數量
-      bus.emit('favorits-number', num.length);
+    updateFavoritesNum(num) { // 更新最愛數量
+      bus.emit('favorites-number', num.length);
     },
     addFavoriteItem() { // 加入最愛
       this.getFavorites();
@@ -71,27 +71,27 @@ export default {
 
       // 在列表裡就刪除，沒有就增加
       if (favorStatus) {
-        this.favoritsList.splice(this.favoritsList.indexOf(this.idData), 1);
-        this.saveFavorit(this.favoritsList);
-        this.updateFavoritsNum(this.favoritsList);
-        bus.emit('favorits-list', JSON.parse(localStorage.getItem('favoritData')));
+        this.favoritesList.splice(this.favoritesList.indexOf(this.idData), 1);
+        this.saveFavorit(this.favoritesList);
+        this.updateFavoritesNum(this.favoritesList);
+        bus.emit('favorites-list', JSON.parse(localStorage.getItem('favoriteData')));
         this.isFavorite = favorStatus;
       } else {
-        this.favoritsList.push(this.idData);
-        this.saveFavorit(this.favoritsList);
-        this.updateFavoritsNum(this.favoritsList);
+        this.favoritesList.push(this.idData);
+        this.saveFavorit(this.favoritesList);
+        this.updateFavoritesNum(this.favoritesList);
         this.isFavorite = favorStatus;
       }
     },
     checkFavorStatus() { // 確認最愛按鈕狀態
-      return this.favoritsList.includes(this.idData);
+      return this.favoritesList.includes(this.idData);
     },
   },
   mounted() {
     this.getFavorites();
     this.isFavorite = this.checkFavorStatus();
 
-    bus.on('favorits-btn-status', () => this.getFavorites());
+    bus.on('favorites-btn-status', () => this.getFavorites());
   },
 };
 </script>

@@ -52,14 +52,14 @@
           <li class="nav-item scale">
             <a
               class="nav-link pointer_no_hover"
-              @click="$emit('openOffcanvas', homeFavoritsList)"
+              @click="$emit('openOffcanvas', homeFavoritesList)"
             >
               <i class="bi bi-heart-fill position-relative">
                 <span
                   class="num_icon"
-                  v-if="favoritsLength > 0"
+                  v-if="favoritesLength > 0"
                 >
-                  {{ favoritsLength || newfavoritsLength }}
+                  {{ favoritesLength || newFavoritesLength }}
                 </span>
               </i>
             </a>
@@ -96,9 +96,9 @@ export default {
       cartsLength: 0,
       newLength: 0,
       isClassChange: false,
-      homeFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
-      favoritsLength: 0,
-      newfavoritsLength: 0,
+      homeFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      favoritesLength: 0,
+      newFavoritesLength: 0,
     };
   },
   emits: ['openOffcanvas'],
@@ -122,14 +122,14 @@ export default {
           swalFn('資料取得失敗', 'error');
         });
     },
-    updateFavoritsLength() { // 取得最愛收藏數量
-      this.favoritsLength = this.homeFavoritsList.length;
-      this.newfavoritsLength = this.homeFavoritsList.length;
+    updateFavoritesLength() { // 取得最愛收藏數量
+      this.favoritesLength = this.homeFavoritesList.length;
+      this.newFavoritesLength = this.homeFavoritesList.length;
     },
   },
   mounted() {
     this.updateCartLength();
-    this.updateFavoritsLength();
+    this.updateFavoritesLength();
     // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
@@ -137,9 +137,9 @@ export default {
     });
 
     // 更新最愛收藏數量
-    bus.on('favorits-number', (num) => {
-      this.favoritsLength = num;
-      this.newfavoritsLength = num;
+    bus.on('favorites-number', (num) => {
+      this.favoritesLength = num;
+      this.newFavoritesLength = num;
     });
   },
 };

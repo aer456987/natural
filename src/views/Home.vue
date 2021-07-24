@@ -226,7 +226,7 @@ export default {
       classStyle: {
         navbarClass: ['py-sm-1', 'py-md-3'],
       },
-      homeFavoritsList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      homeFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
       subscriptionEmail: '',
       btnStatus: true,
     };
@@ -255,7 +255,7 @@ export default {
       }
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側藍
-      this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritsList);
+      this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritesList);
     },
     checkEmailValue() { // 確認訂閱輸入欄是否為空
       if (this.subscriptionEmail === '') {

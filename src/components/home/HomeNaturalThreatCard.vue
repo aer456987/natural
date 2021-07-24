@@ -56,7 +56,24 @@
   vertical-align: bottom;
   background: rgba($dark, .6);
   overflow-y: auto;
+
+  // 捲軸本身，可以設定寬度
+  &::-webkit-scrollbar{
+    width: 5px;
+  }
+
+  // 捲軸可以拉的部分
+  &::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: rgba($white, .6);
+  }
+
+  // 捲軸空的地方，也可以說背景的顏色
+  &::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba($white, .5);
+  }
 }
+
 .natural_threat_card_title{
   margin-bottom: 12px;
   font-size: 24px;
@@ -75,32 +92,31 @@
   }
 
   .natural_threat_card_title{
-    font-size: 24px;
+    font-size: 22px;
   }
-  // .natural_threat_card_text{
-  //   font-size: 16px;
-  // }
 }
 
 @media(max-width: 767px){
   .natural_threat_card_content{
     height: auto;
   }
+  .natural_threat_card_title{
+    font-size: 20px;
+  }
 }
 
 @media(max-width: 414px){
   .natural_threat_card_content{
-    // @include custom_position_setIn
-    // height: 35%;
+    height: auto;
   }
-  .natural_threat_card_title{
-    font-size: 22px;
-  }
+//   .natural_threat_card_title{
+//     font-size: 20px;
+//   }
 }
 
 @media(max-width: 320px){
   .natural_threat_card_content{
-    height: 50%;
+    height: 70%;
   }
   .natural_threat_card_title{
     font-size: 16px;
