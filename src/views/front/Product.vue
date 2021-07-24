@@ -101,7 +101,7 @@
 
               <div class="col-2 p-0 text-end">
                 <FavoriteIcon
-                  ref="productFavorit"
+                  ref="productFavorite"
                   :id-data="productId"
                 ></FavoriteIcon>
               </div>
@@ -186,7 +186,6 @@ export default {
         ],
         purpose: '', // 目前頁面
       },
-      producFtavoritList: JSON.parse(localStorage.getItem('favoritData')) || [],
     };
   },
   components: {

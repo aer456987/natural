@@ -40,8 +40,8 @@
       <template v-if="offcanvasFavoritesList.length > 0">
         <ul class="list-unstyled px-1 mb-5">
           <template
-            v-for="favoritItme in newFavoritesData"
-            :key="favoritItme.id"
+            v-for="favoriteItme in newFavoritesData"
+            :key="favoriteItme.id"
           >
 
             <li class="row justify-content-center align-items-center
@@ -49,20 +49,20 @@
             >
               <span class="col-2 col-sm-1 p-0">
                 <FavoriteIcon
-                  ref="favoritIcon"
-                  :idData="favoritItme.id"
+                  ref="favoriteIcon"
+                  :idData="favoriteItme.id"
                 ></FavoriteIcon>
               </span>
               <span class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
                 <img
-                  :src="favoritItme.imageUrl"
+                  :src="favoriteItme.imageUrl"
                   alt="圖片"
                   class="w-100"
                 >
               </span>
               <span class="col-5 textStyle_rwd_2 py-0 px-1">
-                {{ favoritItme.title }} <br>
-                ${{ $filters.currency(favoritItme.price)}} / {{ favoritItme.unit }}
+                {{ favoriteItme.title }} <br>
+                ${{ $filters.currency(favoriteItme.price)}} / {{ favoriteItme.unit }}
               </span>
               <span class="col-3 col-sm-2 px-1">
                 <input
@@ -71,13 +71,13 @@
                   min="1"
                   class="form-control w-100 text-center
                     py-1 text-center"
-                  v-model.number="favoritItme.qty"
+                  v-model.number="favoriteItme.qty"
                 >
               </span>
               <span class="col-2 p-0 ps-sm-1">
                 <span
                   class="btn btn_outline_green fs-4"
-                  @click="addCart(favoritItme.id, favoritItme.qty)"
+                  @click="addCart(favoriteItme.id, favoriteItme.qty)"
                 >
                   <i class="bi bi-cart-plus-fill"></i>
                 </span>
@@ -191,7 +191,7 @@ export default {
       bus.emit('favorites-btn-status');
     },
     allDelFavorite() { // 刪除全部最愛
-      this.$refs.favoritIcon.saveFavorit([]);
+      this.$refs.favoriteIcon.saveFavorite([]);
       this.offcanvasFavoritesList = [];
       this.newFavoritesData = [];
       bus.emit('favorites-number', this.newFavoritesData.length);

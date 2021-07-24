@@ -96,7 +96,7 @@ export default {
       cartsLength: 0,
       newLength: 0,
       isClassChange: false,
-      homeFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      homeFavoritesList: JSON.parse(localStorage.getItem('favoriteData')) || [],
       favoritesLength: 0,
       newFavoritesLength: 0,
     };

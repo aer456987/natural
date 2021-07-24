@@ -226,7 +226,7 @@ export default {
       classStyle: {
         navbarClass: ['py-sm-1', 'py-md-3'],
       },
-      homeFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      homeFavoritesList: JSON.parse(localStorage.getItem('favoriteData')) || [],
       subscriptionEmail: '',
       btnStatus: true,
     };

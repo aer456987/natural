@@ -95,7 +95,7 @@ export default {
     return {
       cartsLength: 0,
       newLength: 0,
-      mainFavoritesList: JSON.parse(localStorage.getItem('favoritData')) || [],
+      mainFavoritesList: JSON.parse(localStorage.getItem('favoriteData')) || [],
       favoritesLength: 0,
       newFavoritesLength: 0,
     };
@@ -126,7 +126,7 @@ export default {
       this.newFavoritesLength = this.mainFavoritesList.length;
     },
     openFavoritesOffcanvas() { // 打開最愛收藏側欄
-      const data = JSON.parse(localStorage.getItem('favoritData')) || [];
+      const data = JSON.parse(localStorage.getItem('favoriteData')) || [];
       this.$refs.likeOffcanvas.openOffcanvas(data);
     },
   },

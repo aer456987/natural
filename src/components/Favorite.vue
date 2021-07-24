@@ -55,12 +55,12 @@ export default {
     },
   },
   methods: {
-    saveFavorit(item) { // 存入最愛
+    saveFavorite(item) { // 存入最愛
       const data = JSON.stringify(item);
-      localStorage.setItem('favoritData', data);
+      localStorage.setItem('favoriteData', data);
     },
     getFavorites() { // 取得最愛清單
-      this.favoritesList = JSON.parse(localStorage.getItem('favoritData')) || [];
+      this.favoritesList = JSON.parse(localStorage.getItem('favoriteData')) || [];
     },
     updateFavoritesNum(num) { // 更新最愛數量
       bus.emit('favorites-number', num.length);
@@ -72,13 +72,13 @@ export default {
       // 在列表裡就刪除，沒有就增加
       if (favorStatus) {
         this.favoritesList.splice(this.favoritesList.indexOf(this.idData), 1);
-        this.saveFavorit(this.favoritesList);
+        this.saveFavorite(this.favoritesList);
         this.updateFavoritesNum(this.favoritesList);
         bus.emit('favorites-list', JSON.parse(localStorage.getItem('favoriteData')));
         this.isFavorite = favorStatus;
       } else {
         this.favoritesList.push(this.idData);
-        this.saveFavorit(this.favoritesList);
+        this.saveFavorite(this.favoritesList);
         this.updateFavoritesNum(this.favoritesList);
         this.isFavorite = favorStatus;
       }
