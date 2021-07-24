@@ -102,10 +102,10 @@
 </template>
 
 <script>
-import UpdateFile from '@/components/dashboar/DashboarUpdateFile.vue';
+import UpdateFile from '@/components/dashboard/DashboardUpdateFile.vue';
 
 export default {
-  name: 'DashboarRenderImgs',
+  name: 'DashboardRenderImgs',
   data() {
     return {
       tempMainImg: '',

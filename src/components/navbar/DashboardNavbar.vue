@@ -71,7 +71,7 @@
 import { swalFn } from '@/methods/swal';
 
 export default {
-  name: 'DashboarNavbar',
+  name: 'DashboardNavbar',
   methods: {
     logout() { // 登出
       const url = `${process.env.VUE_APP_PATH}/logout`;

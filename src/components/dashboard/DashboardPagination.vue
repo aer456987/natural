@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: 'DashboarPagination',
+  name: 'DashboardPagination',
   props: ['paginationPage', 'paginationIsShow'],
   data() {
     return {

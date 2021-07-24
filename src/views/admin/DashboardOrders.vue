@@ -1,5 +1,5 @@
 <template>
-  <DashboarLoading :status="loadingStatus"></DashboarLoading>
+  <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <section class="container pageContent py-5 overflow-auto">
     <h1 class="text-center fw-bold m-0 pb-5">訂單管理</h1>
     <div class="row justify-content-between pb-2">
@@ -164,9 +164,9 @@
 
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
-import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboar/DashboarPagination.vue';
-import OrderModal from '@/components/modal/DashboarOrderModal.vue';
+import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboard/DashboardPagination.vue';
+import OrderModal from '@/components/modal/DashboardOrderModal.vue';
 
 export default {
   name: 'DashboardOrders',
@@ -198,7 +198,7 @@ export default {
       return this.orders.filter((item) => item.id.match(this.orderSearch));
     },
   },
-  components: { DashboarLoading, Pagination, OrderModal },
+  components: { DashboardLoading, Pagination, OrderModal },
   methods: {
     getOrders(page = 1) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;

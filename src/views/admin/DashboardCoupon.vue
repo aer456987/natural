@@ -1,5 +1,5 @@
 <template>
-  <DashboarLoading :status="loadingStatus"></DashboarLoading>
+  <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <section class="container pageContent py-5 overflow-hidden">
     <h1 class="text-center fw-bold m-0 pb-5">優惠券管理</h1>
     <div class="row justify-content-between pb-2">
@@ -115,9 +115,9 @@
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
-import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboar/DashboarPagination.vue';
-import CouponModal from '@/components/modal/DashboarCouponModal.vue';
+import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboard/DashboardPagination.vue';
+import CouponModal from '@/components/modal/DashboardCouponModal.vue';
 
 export default {
   name: 'DashboardCoupon',
@@ -151,7 +151,7 @@ export default {
       return this.couponDatas.filter((item) => item.code.match(this.couponSearch));
     },
   },
-  components: { DashboarLoading, Pagination, CouponModal },
+  components: { DashboardLoading, Pagination, CouponModal },
   methods: {
     getCoupons(page = 1) { // 取得優惠券
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;

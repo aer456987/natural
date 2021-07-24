@@ -1,6 +1,6 @@
 <template>
   <!-- 導覽列 -->
-  <DashboarNavbar></DashboarNavbar>
+  <DashboardNavbar></DashboardNavbar>
   <!-- 主要頁面 -->
   <router-view></router-view>
   <!-- 頁尾 -->
@@ -31,12 +31,11 @@ table
 
 @media (min-width: 576px)
   .modal-dialog
-    max-width: 800px
+    max-width: 800pxs
 </style>
-
 <script>
 import { swalFn } from '@/methods/swal';
-import DashboarNavbar from '@/components/navbar/DashboarNavbar.vue';
+import DashboardNavbar from '@/components/navbar/DashboardNavbar.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
@@ -46,7 +45,7 @@ export default {
       loginStatus: false,
     };
   },
-  components: { Footer, DashboarNavbar },
+  components: { Footer, DashboardNavbar },
   methods: {
     checkLogin() { // axios check 確認登入狀態
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;

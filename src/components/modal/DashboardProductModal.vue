@@ -293,10 +293,10 @@
 <script>
 import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
-import RanderImgs from '@/components/dashboar/DashboarRenderImgs.vue';
+import RanderImgs from '@/components/dashboard/DashboardRenderImgs.vue';
 
 export default {
-  name: 'DashboarProductModal',
+  name: 'DashboardProductModal',
   props: ['modalProduct', 'modalIsNew', 'modalBtnStatus'],
   data() {
     return {

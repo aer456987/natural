@@ -1,5 +1,5 @@
 <template>
-  <DashboarLoading :status="loadingStatus"></DashboarLoading>
+  <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <section class="container pageContent py-5 overflow-hidden">
     <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
     <div class="row justify-content-between pb-2">
@@ -153,9 +153,9 @@
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
-import DashboarLoading from '@/components/loading/DashboarLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboar/DashboarPagination.vue';
-import ProductModal from '@/components/modal/DashboarProductModal.vue';
+import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import Pagination from '@/components/dashboard/DashboardPagination.vue';
+import ProductModal from '@/components/modal/DashboardProductModal.vue';
 
 export default {
   name: 'DashboardProducts',
@@ -214,7 +214,7 @@ export default {
     },
   },
   components: {
-    DashboarLoading, Pagination, ProductModal,
+    DashboardLoading, Pagination, ProductModal,
   },
   methods: {
     getProducts(page = 1) { // 取得全部商品
