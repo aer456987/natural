@@ -6,17 +6,20 @@
       <span class="col-md-6 col-lg-4 col-xl-3 pb-1">
         <span class="input-group">
           <input
-            type="text"
+            type="search"
             class="form-control"
             placeholder="請輸入優惠碼"
             aria-label="search"
             aria-describedby="basic-addon1"
+            id="couponSearch"
             v-model="couponSearch"
           />
-          <i
-            class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
-            @click="clearSearch"
-          ></i>
+          <label
+            for="couponSearch"
+            class="input-group-text"
+          >
+            <i class="bi bi-search fs-6"></i>
+          </label>
         </span>
       </span>
 
@@ -251,9 +254,6 @@ export default {
       swalFn('正在重整資料', 'info');
       this.clearSearch();
       this.getCoupons();
-    },
-    clearSearch() { // 清除搜尋
-      this.couponSearch = '';
     },
   },
   mounted() {

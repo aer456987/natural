@@ -23,17 +23,20 @@
           <span class="col-6 col-lg-6 col-xl-5">
             <span class="input-group">
               <input
-                type="text"
+                type="search"
                 class="form-control"
                 placeholder="請輸入品名"
                 aria-label="search"
                 aria-describedby="basic-addon1"
+                id="productsSearch"
                 v-model="productSearch"
               />
-              <i
-                class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
-                @click="clearSearch"
-              ></i>
+              <label
+                for="productsSearch"
+                class="input-group-text"
+              >
+                <i class="bi bi-search fs-6"></i>
+              </label>
             </span>
           </span>
         </div>
@@ -324,9 +327,6 @@ export default {
       this.productSelect = '全部商品';
       this.clearSearch();
       this.getProducts();
-    },
-    clearSearch() { // 清除搜尋
-      this.productSearch = '';
     },
   },
   mounted() {

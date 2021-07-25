@@ -7,17 +7,20 @@
       <div class="col-md-6 col-lg-5 col-xl-4 pb-1">
         <span class=" input-group">
           <input
-            type="text"
+            type="search"
             class="form-control"
             placeholder="請輸入訂單編號"
             aria-label="search"
             aria-describedby="basic-addon1"
+            id="orderSearch"
             v-model="orderSearch"
           />
-          <i
-            class="bi bi-x-lg fs-6 btn btn-outline-brown-500 input-group-text"
-            @click="clearSearch"
-          ></i>
+          <label
+            for="orderSearch"
+            class="input-group-text"
+          >
+            <i class="bi bi-search fs-6"></i>
+          </label>
         </span>
       </div>
 
@@ -272,9 +275,6 @@ export default {
       swalFn('正在重整資料', 'info');
       this.clearSearch();
       this.getOrders();
-    },
-    clearSearch() { // 清除搜尋
-      this.orderSearch = '';
     },
   },
   mounted() {

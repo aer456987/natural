@@ -21,19 +21,25 @@
         </span>
         <span class="col-12 col-md-4 col-lg-3 mb-1
           position-relative">
-          <i
-            class="bi bi-x-lg
-            btn_light_green fs-6
-            position-absolute top-50 end-0 translate-middle"
-            @click="clearSearch"></i>
+
+        <span class="input-group">
           <input
-            type="text"
-            class="col-sm-9 form-control"
+            type="search"
+            class="col-sm-9 form-control border-end-0"
             placeholder="請輸入關鍵字"
+            autocomplete="on"
             aria-label="search"
             aria-describedby="basic-addon1"
+            id="frontProductSearch"
             v-model="search"
           />
+          <label
+            for="frontProductSearch"
+            class="input-group-text bg-white border-start-0"
+          >
+            <i class="bi bi-search fs-6"></i>
+          </label>
+          </span>
         </span>
       </div>
       <!-- 主要頁面 -->
@@ -124,9 +130,6 @@ export default {
     filterListMethods(filterTxt) { // 篩選列表
       this.search = '';
       this.select = filterTxt;
-    },
-    clearSearch() { // 清除搜尋
-      this.search = '';
     },
   },
   mounted() {
