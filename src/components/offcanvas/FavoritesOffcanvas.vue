@@ -1,5 +1,5 @@
 <template>
-  <!-- 我的最愛側欄ㄋ -->
+  <!-- 我的最愛側欄 -->
   <Loading :status="loadingStatus"></Loading>
   <div
     class="offcanvas offcanvas-end user_select_none
