@@ -21,6 +21,10 @@
   transition-duration: .3s;
 }
 
+.textStyle_rwd_1{
+  font-size: 40px;
+}
+
 // 箭頭
 .arrow_style{
   @include custom_position_bottom(6%, 10%);

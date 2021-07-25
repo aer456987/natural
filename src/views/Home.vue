@@ -28,7 +28,7 @@
   <main id="main" class="bg-white overflow-hidden user_select_none">
     <!-- 圖片 -->
     <div class="container py-5 py-lg-6">
-      <h1
+      <h2
         class="textStyle_rwd_1 fw-bold text-center mb-1"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
@@ -36,7 +36,7 @@
         data-aos-duration="1000"
       >
         自然，不該被視作理所當然。
-      </h1>
+      </h2>
       <p
         class="text-center mb-4 mb-lg-5"
         data-aos="fade-up"

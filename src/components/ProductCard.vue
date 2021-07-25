@@ -36,9 +36,9 @@
           class="col-9 p-0 text-dark border-0"
           :to="`/product/${product.id}`"
         >
-          <h1 class="h5 m-0 mb-1 text_clamp_1 overflow-hidden">
+          <h2 class="h5 m-0 mb-1 text_clamp_1 overflow-hidden">
             {{ product.title }} <br>
-          </h1>
+          </h2>
           <p class="h6 mb-0 fst-italic">
             ${{ $filters.currency(product.price) }}
           </p>

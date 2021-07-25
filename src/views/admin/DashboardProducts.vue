@@ -1,7 +1,9 @@
 <template>
   <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <section class="container pageContent py-5 overflow-hidden">
-    <h1 class="text-center fw-bold m-0 pb-5">商品管理</h1>
+    <h2 class="h1 text-center fw-bold m-0 pb-5">
+      商品管理
+    </h2>
     <div class="row justify-content-between pb-2">
       <div class="col-md-8 col-lg-6 pb-1">
 

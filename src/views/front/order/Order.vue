@@ -9,7 +9,9 @@
       <!-- 進度條 -->
       <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
-      <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
+      <h2 class="h1 text-center fw-bold mb-4">
+        訂購人資訊
+      </h2>
       <main class="container">
         <!-- 訂單填寫 -->
         <Form

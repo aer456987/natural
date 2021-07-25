@@ -27,9 +27,9 @@
           <div class="row">
 
             <div class="col-12">
-              <h1 class="h4 text-center my-2">
+              <h3 class="h4 text-center my-2">
                 訂購人資訊
-              </h1>
+              </h3>
               <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
@@ -114,7 +114,7 @@
             </div>
 
             <div class="col-12 p-2">
-              <h1 class="h4 text-center my-2">訂單資訊</h1>
+              <h3 class="h4 text-center my-2">訂單資訊</h3>
               <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
@@ -246,7 +246,9 @@
             </div>
 
             <div class="col-12 p-2 text-center">
-              <h1 class="h4 text-center my-2">購買明細</h1>
+              <h3 class="h4 text-center my-2">
+                購買明細
+              </h3>
               <table class="table border rounded shadow-sm text-break">
                 <thead class="border-bottom">
                   <th

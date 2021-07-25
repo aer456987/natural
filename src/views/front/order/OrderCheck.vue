@@ -10,7 +10,9 @@
       <Progress :progress-value="progressNum"></Progress>
 
       <!-- 訂單確認 & 付款 -->
-      <h1 class="text-center fw-bold mb-4">訂單成立</h1>
+      <h2 class="h1 text-center fw-bold mb-4">
+        訂單成立
+      </h2>
       <section class="container">
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->

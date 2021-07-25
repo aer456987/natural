@@ -9,7 +9,9 @@
       <Progress :progress-value="progressNum"></Progress>
 
       <!-- 感謝信 -->
-      <h1 class="pb-5 text-center fw-bold">付款成功</h1>
+      <h2 class="h1 pb-5 text-center fw-bold">
+        付款成功
+      </h2>
       <section class="container">
         <section class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->

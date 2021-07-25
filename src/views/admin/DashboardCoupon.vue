@@ -1,7 +1,9 @@
 <template>
   <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <section class="container pageContent py-5 overflow-hidden">
-    <h1 class="text-center fw-bold m-0 pb-5">優惠券管理</h1>
+    <h2 class="h1 text-center fw-bold m-0 pb-5">
+      優惠券管理
+    </h2>
     <div class="row justify-content-between pb-2">
       <span class="col-md-6 col-lg-4 col-xl-3 pb-1">
         <span class="input-group">

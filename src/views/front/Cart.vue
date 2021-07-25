@@ -9,9 +9,9 @@
       <Progress :progress-value="progressNum"></Progress>
 
       <!-- 購物車 -->
-      <h1 class="text-center fw-bold mb-4">
+      <h2 class="h1 text-center fw-bold mb-4">
         購物車
-      </h1>
+      </h2>
       <div class="container">
         <main class="row px-lg-0 px-xl-5 position-relative">
 

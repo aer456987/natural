@@ -36,9 +36,9 @@
 
         <!-- 商品介紹 -->
         <div class="col-lg-6 col-xl-7 col-xxl-6 py-2 ps-xl-3 ps-xxl-4">
-          <h1 class="h2 fw-bold mb-3">
+          <h2 class="fw-bold mb-3">
             {{ tempProduct.title }}
-          </h1>
+          </h2>
 
           <span class="border rounded text-dark px-3 py-1">
             {{ tempProduct.category }}
