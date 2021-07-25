@@ -77,15 +77,15 @@
     </div>
   </nav>
 
-  <Offcanvas
+  <FavoritesOffcanvas
     ref="likeOffcanvas"
-  ></Offcanvas>
+  ></FavoritesOffcanvas>
 </template>
 
 <script>
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
-import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
+import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 
 export default {
   name: 'MainNavbar',
@@ -98,7 +98,7 @@ export default {
       newFavoritesLength: 0,
     };
   },
-  components: { Offcanvas },
+  components: { FavoritesOffcanvas },
   methods: {
     updateCartLength() { // 取得購物車數量
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

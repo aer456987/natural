@@ -1,12 +1,13 @@
 <template>
   <DashboardLoading :status="loadingStatus"></DashboardLoading>
-  <section class="container pageContent py-5 overflow-hidden">
+  <div class="container pageContent py-5 overflow-hidden">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       優惠券管理
     </h2>
+
     <div class="row justify-content-between pb-2">
-      <span class="col-md-6 col-lg-4 col-xl-3 pb-1">
-        <span class="input-group">
+      <div class="col-md-6 col-lg-4 col-xl-3 pb-1">
+        <div class="input-group">
           <input
             type="search"
             class="form-control"
@@ -22,10 +23,10 @@
           >
             <i class="bi bi-search fs-6"></i>
           </label>
-        </span>
-      </span>
+        </div>
+      </div>
 
-      <span class="col-md-6 text-end pb-1">
+      <div class="col-md-6 text-end pb-1">
         <button
           class="btn btn-brown-500"
           @click="opanCouponModal(true)"
@@ -38,10 +39,10 @@
           @click="resetData">
           <i class="bi bi-arrow-counterclockwise"></i>
         </button>
-      </span>
+      </div>
     </div>
 
-    <div class="table-responsiv">
+    <main class="table-responsiv">
       <table
         class="table table-hover rounded overflow-hidden shadow-sm
           text-break text-center"
@@ -100,29 +101,29 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </main>
 
-    <Pagination
+    <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="couponPagination"
       @get-data="getCoupons"
-    ></Pagination>
+    ></DashboardPagination>
 
-    <CouponModal
+    <DashboardCouponModal
       ref="couponModal"
       :modal-coupon="updataCouponData"
       :modal-isNew ="isNew"
       :modal-btn-status="btnStatus"
       @modal-update-coupon="updateCoupon"
-    ></CouponModal>
-  </section>
+    ></DashboardCouponModal>
+  </div>
 </template>
 
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboard/DashboardPagination.vue';
-import CouponModal from '@/components/modal/DashboardCouponModal.vue';
+import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
+import DashboardCouponModal from '@/components/modal/DashboardCouponModal.vue';
 
 export default {
   name: 'DashboardCoupon',
@@ -156,7 +157,7 @@ export default {
       return this.couponDatas.filter((item) => item.code.match(this.couponSearch));
     },
   },
-  components: { DashboardLoading, Pagination, CouponModal },
+  components: { DashboardLoading, DashboardPagination, DashboardCouponModal },
   methods: {
     getCoupons(page = 1) { // 取得優惠券
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;

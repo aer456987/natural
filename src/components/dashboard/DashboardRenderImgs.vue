@@ -9,31 +9,31 @@
       @change="$emit('updataImgDatas', tempMainImg, tempImgs)"
     >
       <li class="col-6 col-md-3">
-          <label
-            for="modalImg"
-            class="form-label p-1 m-0"
-          >
-            主要圖片<span class="text-danger fw-bold">*</span>
-          </label>
-          <Field
-            type="text"
-            name="主要圖片網址"
-            placeholder="請輸入主圖網址"
-            id="modalImg"
-            class="form-control mb-2"
-            :class="{ 'is-invalid': errors['主要圖片網址'] }"
-            rules="required"
-            v-model="tempMainImg"
-          ></Field>
-          <ErrorMessage
-            name="主要圖片網址"
-            class="invalid-feedback mb-1"
-          ></ErrorMessage>
-          <img
-            :src="tempMainImg"
-            alt="主要圖片"
-            class="w-100"
-          />
+        <label
+          for="modalImg"
+          class="form-label p-1 m-0"
+        >
+          主要圖片<span class="text-danger fw-bold">*</span>
+        </label>
+        <Field
+          type="text"
+          name="主要圖片網址"
+          placeholder="請輸入主圖網址"
+          id="modalImg"
+          class="form-control mb-2"
+          :class="{ 'is-invalid': errors['主要圖片網址'] }"
+          rules="required"
+          v-model="tempMainImg"
+        ></Field>
+        <ErrorMessage
+          name="主要圖片網址"
+          class="invalid-feedback mb-1"
+        ></ErrorMessage>
+        <img
+          :src="tempMainImg"
+          alt="主要圖片"
+          class="w-100"
+        />
       </li>
 
       <template v-if="tempImgs">
@@ -61,7 +61,7 @@
             class="invalid-feedback mb-1"
           ></ErrorMessage>
 
-          <span class="position-relative">
+          <div class="position-relative">
             <i
               class="bi bi-x-lg fs-6
                 btn btn-dark rounded-0
@@ -74,7 +74,7 @@
               :alt="`圖片_${key+1}`"
               class="w-100 mb-2"
             />
-          </span>
+          </div>
 
         </li>
       </template>
@@ -82,12 +82,11 @@
   </Form>
 
   <div class="row">
-    <span class="col-6 mb-1">
+    <div class="col-6 mb-1">
       <UpdateFile @upload-img-file="uploadNewImg"></UpdateFile>
-    </span>
+    </div>
 
-<!-- this.tempProduct.imagesUrl.push('123'); -->
-    <span class="col-6 mb-1">
+    <div class="col-6 mb-1">
       <button
         class="btn btn-brown w-100"
         :class="{
@@ -97,7 +96,7 @@
         >
         新增圖片
       </button>
-    </span>
+    </div>
   </div>
 </template>
 
@@ -132,6 +131,7 @@ export default {
       } else {
         this.tempImgs.push(uploadImg);
       }
+      this.$emit('updataImgDatas', this.tempMainImg, this.tempImgs);
     },
     resetForm() { // 重製表單驗證
       this.$refs.productImgsForm.resetForm();

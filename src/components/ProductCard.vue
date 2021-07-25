@@ -7,10 +7,8 @@
     :key="product.id"
   >
 
-    <div class="card text-dark border-0 shadow-sm">
-      <router-link
-        :to="`/product/${product.id}`"
-      >
+    <section class="card text-dark border-0 shadow-sm">
+      <router-link :to="`/product/${product.id}`">
         <div class="card-img-top card_img_style">
           <div class="more_msg">
             <Font-awesome-icon icon="search-plus" />
@@ -22,11 +20,11 @@
           />
         </div>
       </router-link>
-      <span class="favorite_icon_background shadow-sm">
-        <FavoriteIcon
+      <div class="favorite_icon_background shadow-sm">
+        <Favorite
           :id-data="product.id"
-        ></FavoriteIcon>
-      </span>
+        ></Favorite>
+      </div>
 
       <div
         class="row card-body bg-white rounded-bottom px-2 py-3 m-0
@@ -43,7 +41,7 @@
             ${{ $filters.currency(product.price) }}
           </p>
         </router-link>
-        <span class="col-3 p-0 d-flex justify-content-end">
+        <div class="col-3 p-0 d-flex justify-content-end">
           <button
             type="button"
             class="btn btn_outline_green fs-4 ms-1"
@@ -51,15 +49,15 @@
           >
             <i class="bi bi-cart-plus-fill"></i>
           </button>
-        </span>
+        </div>
       </div>
-    </div>
+    </section>
   </li>
 </template>
 
 <script>
 import bus from '@/methods/bus';
-import FavoriteIcon from '@/components/Favorite.vue';
+import Favorite from '@/components/Favorite.vue';
 import { swalFn } from '@/methods/swal';
 
 export default {
@@ -75,7 +73,7 @@ export default {
       cartsLength: Number,
     };
   },
-  components: { FavoriteIcon },
+  components: { Favorite },
   methods: {
     addCart(data) { // 加入購物車
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

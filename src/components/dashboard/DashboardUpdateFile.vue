@@ -9,7 +9,8 @@
       ref="fileInput"
       @change="isValue=true"
     />
-    <span
+    <button
+      type="button"
       class="input-group-text btn btn-outline-brown"
       :class="{ 'disabled' : !isValue }"
       @click="upload"
@@ -20,7 +21,7 @@
         role="status"
       ></span>
       {{ isUpload ? '檔案上傳中' : '上傳圖片' }}
-    </span>
+    </button>
   </div>
 </template>
 
@@ -58,7 +59,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('上傳失敗', 'error');
+          swalFn('圖片上傳失敗', 'error');
           this.isUpload = false;
         });
     },

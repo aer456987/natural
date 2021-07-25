@@ -9,9 +9,8 @@
     >
       <small class="row align-items-center">
         <nav class="nav-item mb-3">
-
           <ul class="row justify-content-center list-unstyled m-0">
-            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
+            <li class="col-sm-6 col-md-3 col-lg-2 scale">
               <router-link
                 to="/"
                 class="nav-link px-2 text-secondary"
@@ -20,7 +19,7 @@
               </router-link>
             </li>
 
-            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
+            <li class="col-sm-6 col-md-3 col-lg-2 scale">
               <router-link
                 to="/about"
                 class="nav-link px-2 text-secondary"
@@ -29,7 +28,7 @@
               </router-link>
             </li>
 
-            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
+            <li class="col-sm-6 col-md-3 col-lg-2 scale">
               <router-link
                 to="/products"
                 class="nav-link px-2 text-secondary"
@@ -38,7 +37,7 @@
               </router-link>
             </li>
 
-            <li class="col-6 col-md-3 col-lg-2 col-xxl-1 scale">
+            <li class="col-sm-6 col-md-3 col-lg-2 scale">
               <router-link
                 to="/cart"
                 class="nav-link px-2 text-secondary"
@@ -80,7 +79,6 @@
             <p>服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00</p>
           </li>
         </ul>
-
       </small>
     </template>
 
@@ -142,12 +140,14 @@
         </a>
       </li>
     </ul>
-    <small
-      class="container mx-auto my-0"
-      :class="colors.color"
-    >
-      Copyright © 2021 ToriHa 個人作業使用，無商業行為
-    </small>
+    <p class="m-0">
+      <small
+        class="container mx-auto my-0"
+        :class="colors.color"
+      >
+        Copyright © 2021 ToriHa 個人作業使用，無商業行為
+      </small>
+    </p>
   </footer>
 </template>
 

@@ -14,10 +14,11 @@
     </li>
 
     <li class="col-md-6 p-0">
-      <div class="row flex-column align-items-center
+      <section
+        class="row flex-column align-items-center
         py-4 py-sm-4 py-md-2 py-lg-3"
       >
-        <span class="col-10 col-xl-9 p-0 pb-1">
+        <div class="col-10 col-xl-9 p-0 pb-1">
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
@@ -52,9 +53,9 @@
             目前已舉辦過包含淨灘、淨山、淨溪、植樹等 2500 場公益活
             動， 2000 場關於台灣環境保育、野生動物保育的講座。
           </p>
-        </span>
+        </div>
 
-        <span
+        <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
           data-aos-offset="300"
@@ -63,11 +64,9 @@
           data-aos-delay="200"
           data-aos-duration="1200"
         >
-          <router-link to="/products">
-            <HomeButton buttom-text="了解更多"></HomeButton>
-          </router-link>
-        </span>
-      </div>
+          <HomeButton buttom-text="了解更多" link-path="/products"></HomeButton>
+        </div>
+      </section>
     </li>
 
     <li class="col-md-6 p-0 d-block d-md-none">
@@ -83,10 +82,10 @@
     </li>
 
     <li class="col-md-6 p-0">
-      <div class="row flex-column align-items-center
+      <section class="row flex-column align-items-center
         py-4 py-sm-4 py-md-2 py-lg-3 text-end"
       >
-        <span class="col-10 col-xl-9 p-0 pb-1">
+        <div class="col-10 col-xl-9 p-0 pb-1">
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
@@ -121,9 +120,9 @@
             每場環保活動、教育演講幾乎場場額滿，不限參加者年齡，
             透過 Natural 平台的購買機制，大人、小孩皆可輕鬆使用。
           </p>
-        </span>
+        </div>
 
-        <span
+        <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
           data-aos-offset="300"
@@ -132,11 +131,9 @@
           data-aos-delay="200"
           data-aos-duration="1200"
         >
-          <router-link to="/products">
-            <HomeButton buttom-text="我要參加"></HomeButton>
-          </router-link>
-        </span>
-      </div>
+          <HomeButton buttom-text="我要參加" link-path="/products"></HomeButton>
+        </div>
+      </section>
     </li>
     <li class="col-md-6 p-0 d-none d-md-block">
       <img
@@ -162,10 +159,10 @@
       >
     </li>
     <li class="col-md-6 p-0">
-      <div class="row flex-column align-items-center
+      <section class="row flex-column align-items-center
         py-4 py-sm-4 py-md-2 py-lg-3"
       >
-        <span class="col-10 col-xl-9 p-0 pb-1">
+        <div class="col-10 col-xl-9 p-0 pb-1">
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
@@ -200,9 +197,9 @@
             除了能增加曝光率，民眾也能更方便的透過 Natural 平台找到自己喜歡的機構，
             並參與機構釋出的募款活動。
           </p>
-        </span>
+        </div>
 
-        <span
+        <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
           data-aos-offset="300"
@@ -211,11 +208,9 @@
           data-aos-delay="200"
           data-aos-duration="1200"
         >
-          <router-link to="/products">
-            <HomeButton buttom-text="我想捐款"></HomeButton>
-          </router-link>
-        </span>
-      </div>
+          <HomeButton buttom-text="我想捐款" link-path="/products"></HomeButton>
+        </div>
+      </section>
     </li>
 
     <li class="col-md-6 p-0 d-block d-md-none">
@@ -230,10 +225,10 @@
       >
     </li>
     <li class="col-md-6 p-0">
-      <div class="row flex-column align-items-center
+      <section class="row flex-column align-items-center
         py-4 py-sm-4 py-md-2 py-lg-3 text-end"
       >
-        <span class="col-10 col-xl-9 p-0 pb-1">
+        <div class="col-10 col-xl-9 p-0 pb-1">
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
@@ -269,9 +264,9 @@
             另外 Natural 平台也有販售線下主打的環保用品，因應政府
             減塑政策，為環境盡一份心力。
           </p>
-        </span>
+        </div>
 
-        <span
+        <div
           class="col-10 col-md-4 p-0 my-1"
           data-aos="fade"
           data-aos-offset="300"
@@ -280,11 +275,9 @@
           data-aos-delay="200"
           data-aos-duration="1200"
         >
-          <router-link to="/products">
-            <HomeButton buttom-text="前往採購"></HomeButton>
-          </router-link>
-        </span>
-      </div>
+          <HomeButton buttom-text="前往採購" link-path="/products"></HomeButton>
+        </div>
+      </section>
     </li>
     <li class="col-md-6 p-0 d-none d-md-block">
       <img

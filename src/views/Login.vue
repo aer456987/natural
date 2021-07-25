@@ -1,6 +1,7 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
-  <section class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
+
+  <main class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
       <h1 class="m-0 d-flex justify-content-center">
         <router-link
@@ -12,9 +13,11 @@
       </h1>
 
       <section class="col-md-6 col-xl-5 col-xxl-4 p-5 bg-white rounded-1 shadow">
-        <h2 class="text-center fw-bold my-2">後台登入</h2>
+        <h2 class="text-center fw-bold my-2">
+          後台登入
+        </h2>
 
-        <div class="mb-2">
+        <div>
           <Form
             v-slot="{ errors }"
             @submit="login"
@@ -76,7 +79,7 @@
             </button>
           </Form>
 
-          <span class="d-flex justify-content-center align-items-center">
+          <div class="d-flex justify-content-center align-items-center">
             <router-link
               to="/"
               class="custom_success_link"
@@ -84,20 +87,22 @@
               返回首頁
             </router-link>
             |
-            <router-link
-              to="/login"
-              class="custom_success_link"
+            <button
+              class="custom_success_link border-0 bg_transparent"
+              @click="openPasswordMassage"
             >
               忘記密碼?
-            </router-link>
-          </span>
+            </button>
+          </div>
         </div>
       </section>
     </section>
-  </section>
+  </main>
 </template>
 
 <script>
+import { swalFn } from '@/methods/swal';
+
 export default {
   name: 'Login',
   data() {
@@ -134,6 +139,9 @@ export default {
           this.msg = '登入失敗，請稍後再試';
           this.loadingStatus = false;
         });
+    },
+    openPasswordMassage() {
+      swalFn('忘記密碼了嗎？', false, 5000, '再想一下說不定就會想起來囉！', true, true);
     },
   },
 };

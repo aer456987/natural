@@ -1,24 +1,23 @@
 <template>
-  <section class="container pageContent user_select_none">
-    <section class="py-4">
+  <div class="container pageContent user_select_none">
+    <div class="py-4">
 
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
-
       <!-- 進度條 -->
-      <Progress :progress-value="progressNum"></Progress>
+      <CartProgress :progress-value="progressNum"></CartProgress>
 
       <!-- 感謝信 -->
       <h2 class="h1 pb-5 text-center fw-bold">
         付款成功
       </h2>
-      <section class="container">
-        <section class="row px-md-1 px-lg-5 justify-content-center">
+      <main class="container">
+        <div class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
-          <section class="col-md-12 col-lg-9">
-            <main class="px-3 px-md-5 py-5 mb-5 rounded
+          <div class="col-md-12 col-lg-9">
+            <section class="px-3 px-md-5 py-5 mb-5 rounded
               shadow text-center bg-white textStyle_rwd_2">
-              <h5 class="fw-bold mt-2 mb-4">感謝您的訂購！</h5>
+              <h3 class="h5 fw-bold mt-2 mb-4">感謝您的訂購！</h3>
               <p>您訂購的商品將在近期安排出貨，請留意簡訊通知或配送人員的電話。</p>
               <p>
                 如果您選擇的是捐款專案，我們將發送捐款成功的電子收據至您設定的信箱中，歡迎您隨時前往信箱查看。
@@ -32,18 +31,18 @@
               >
                 返回線上商城
               </router-link>
-            </main>
-          </section>
-        </section>
-      </section>
-    </section>
-  </section>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
 </template>
 
 <script>
 import { swalFn } from '@/methods/swal';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import Progress from '@/components/CartProgress.vue';
+import CartProgress from '@/components/CartProgress.vue';
 
 export default {
   name: 'OrderPaid',
@@ -65,7 +64,7 @@ export default {
       },
     };
   },
-  components: { Progress, Breadcrumb },
+  components: { CartProgress, Breadcrumb },
   created() {
     swalFn('已完成付款', 'success');
   },

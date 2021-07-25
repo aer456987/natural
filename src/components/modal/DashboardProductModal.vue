@@ -12,12 +12,12 @@
     <section class="modal-dialog modal-dialog-centered width_xl">
       <main class="modal-content">
         <div class="modal-header bg-warning text-brown-500">
-          <h5
+          <h3
             class="h5 modal-title"
             id="productModalLabel"
           >
             {{ modalIsNew ? '新增產品' : '編輯產品' }}
-          </h5>
+          </h3>
           <button
             type="button"
             class="btn-close"
@@ -77,7 +77,7 @@
                 @change="checkInputValue"
               >
 
-                <span class="col-12">
+                <div class="col-12">
                   <label
                     for="modalName"
                     class="form-label p-1 m-0"
@@ -98,9 +98,9 @@
                     name="品名"
                     class="invalid-feedback mb-1"
                   ></ErrorMessage>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalCategory"
                     class="form-label p-1 m-0"
@@ -127,9 +127,9 @@
                     name="產品分類"
                     class="invalid-feedback mb-1"
                   ></ErrorMessage>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalUnit"
                     class="form-label p-1 m-0"
@@ -150,9 +150,9 @@
                     name="單位"
                     class="invalid-feedback mb-1"
                   ></ErrorMessage>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalOriginPrice"
                     class="form-label p-1 m-0"
@@ -173,9 +173,9 @@
                     name="原價"
                     class="invalid-feedback mb-1"
                   ></ErrorMessage>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalPrice"
                     class="form-label p-1 m-0"
@@ -196,9 +196,9 @@
                     name="售價"
                     class="invalid-feedback mb-1"
                   ></ErrorMessage>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalDescription"
                     class="form-label p-1 m-0"
@@ -212,9 +212,9 @@
                     placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
                   ></textarea>
-                </span>
+                </div>
 
-                <span class="col-12 col-md-6">
+                <div class="col-12 col-md-6">
                   <label
                     for="modalContent"
                     class="form-label p-1 m-0"
@@ -228,7 +228,7 @@
                     placeholder="請輸入說明內容"
                     v-model="tempProduct.content"
                   ></textarea>
-                </span>
+                </div>
 
                 <p class="text-danger text-end fw-bold">
                   * 為必填項目
@@ -241,16 +241,16 @@
               class="col-12"
               :class="{ 'd-none' : !isShow }"
             >
-              <RanderImgs
+              <DashboardRenderImgs
                 ref="renderImg"
                 :product-main-img="tempProduct.imageUrl"
                 :product-imgs="tempProduct.imagesUrl"
                 @updata-img-datas="updateImgs"
-              ></RanderImgs>
+              ></DashboardRenderImgs>
             </div>
           </div>
 
-          <span
+          <div
             class="col-12 form-check
               d-flex justify-content-end align-items-center"
           >
@@ -264,7 +264,7 @@
             <label for="enabled_status">
               是否上架商品
             </label>
-          </span>
+          </div>
         </section>
 
         <div class="modal-footer">
@@ -293,7 +293,7 @@
 <script>
 import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
-import RanderImgs from '@/components/dashboard/DashboardRenderImgs.vue';
+import DashboardRenderImgs from '@/components/dashboard/DashboardRenderImgs.vue';
 
 export default {
   name: 'DashboardProductModal',
@@ -324,7 +324,7 @@ export default {
       this.newBtnStatus = this.modalBtnStatus;
     },
   },
-  components: { RanderImgs },
+  components: { DashboardRenderImgs },
   emits: ['modalUpdateProduct'],
   methods: {
     openModal() {

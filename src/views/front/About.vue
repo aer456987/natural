@@ -1,21 +1,16 @@
 <template>
-  <HeaderImg
+  <HeaderBackgroundImg
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl"
-  ></HeaderImg>
-  <section class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
-    <main class="py-4">
+  ></HeaderBackgroundImg>
+  <div class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
+    <div class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <div class="row">
-        <span class="col-8">
-          <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
-        </span>
-      </div>
+      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
-      <div class="row py-3">
+      <main class="row py-3">
         <div class="col-12 col-lg-7">
           <ul class="row list-unstyled">
-
             <template
               v-for="(pageText, key) in pageTextContent"
               :key="`關於內文_${key}`"
@@ -33,13 +28,11 @@
                 >
               </li>
             </template>
-
           </ul>
         </div>
 
         <aside class="col-5 d-none d-lg-block">
           <ul class="row list-unstyled py-3">
-
             <template
               v-for="(asideImg, key) in pageTextContent"
               :key="`側欄圖片_${key}`"
@@ -52,12 +45,13 @@
                 >
               </li>
             </template>
-
           </ul>
         </aside>
-      </div>
+      </main>
 
-      <section class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2">
+      <section
+        class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2"
+      >
         <div class="col-12 text-center mb-2">
           <h2 class="fw-bold">
             聯絡我們
@@ -129,13 +123,12 @@
           ></iframe>
         </div>
       </section>
-    </main>
-
-  </section>
+    </div>
+  </div>
 </template>
 
 <script>
-import HeaderImg from '@/components/HeaderBackgroundImg.vue';
+import HeaderBackgroundImg from '@/components/HeaderBackgroundImg.vue';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 
 export default {
@@ -206,7 +199,7 @@ export default {
     };
   },
   components: {
-    HeaderImg,
+    HeaderBackgroundImg,
     Breadcrumb,
   },
 };

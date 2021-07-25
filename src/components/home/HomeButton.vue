@@ -1,8 +1,13 @@
 <template>
   <!-- 首頁按鈕 -->
   <div class="buttons bounce_animetion_slow">
-    <button class="blob-btn py-2 w-100">
-      {{ buttomText }}
+    <button class="blob-btn w-100">
+      <router-link
+        :to="linkPath"
+        class="d-block py-2"
+      >
+        {{ buttomText }}
+      </router-link>
       <span class="blob-btn__inner">
         <span class="blob-btn__blobs">
           <span class="blob-btn__blob"></span>
@@ -45,7 +50,7 @@
 <script>
 export default {
   name: 'HomeButton',
-  props: ['buttomText'],
+  props: ['buttomText', 'linkPath'],
 };
 </script>
 
@@ -73,21 +78,16 @@ $blob_dark: red;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 900;
-  color: $blob_light; // $blob_primary
   background-color: $blob_primary; // transparent
   outline: none;
   cursor: pointer;
   z-index: 1;
 
-  &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 4px;
-    z-index: 1;
+  a{
+    color: $blob_light;
+    &:hover{
+      color: $blob_primary;
+    }
   }
 
   &:after {

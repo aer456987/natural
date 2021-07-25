@@ -1,26 +1,25 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent user_select_none">
-    <section class="py-4">
+    <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
       <!-- 進度條 -->
-      <Progress :progress-value="progressNum"></Progress>
+      <CartProgress :progress-value="progressNum"></CartProgress>
 
       <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">
         購物車
       </h2>
       <div class="container">
-        <main class="row px-lg-0 px-xl-5 position-relative">
+        <div class="row px-lg-0 px-xl-5 position-relative">
 
-          <div
+          <section
             class="col-12 table_style bg-white
               mb-5 py-5 px-2 px-md-5
               text-center rounded-3 shadow"
           >
-
             <div
               v-if="btnStatus"
               class="row justify-content-center py-4"
@@ -82,11 +81,9 @@
                             alt="預覽"
                           />
                         </div>
-                        <div class="col-md-8 px-sm-1">
-                          <p class="m-0">
-                            {{ item.product.title }}
-                          </p>
-                        </div>
+                        <p class="col-md-8 px-sm-1 m-0">
+                          {{ item.product.title }}
+                        </p>
                       </div>
                     </td>
                     <td>
@@ -135,15 +132,17 @@
 
               <div class="row justify-content-end">
                 <div class="col-12 text-end mb-1">
-                  <small class="d-block text-gray">
-                    商品金額NT ${{ $filters.currency(carts.total) }}
-                  </small>
-                  <small
-                    v-if="isDiscount"
-                    class="d-block"
-                  >
-                    - 使用優惠折扣NT ${{ $filters.currency(carts.total - carts.final_total) }}
-                  </small>
+                  <p class="m-0">
+                    <small class="d-block text-gray">
+                      商品金額NT ${{ $filters.currency(carts.total) }}
+                    </small>
+                    <small
+                      v-if="isDiscount"
+                      class="d-block"
+                    >
+                      - 使用優惠折扣NT ${{ $filters.currency(carts.total - carts.final_total) }}
+                    </small>
+                  </p>
                 </div>
                 <div class="col-12 mb-3">
                   <p class="h5 text-end text-danger">
@@ -173,7 +172,7 @@
 
               </div>
             </template>
-          </div>
+          </section>
 
           <!-- 繼續購物/清空購物車 -->
           <div
@@ -206,9 +205,9 @@
               填寫訂單 ▷
             </router-link>
           </div>
-        </main>
+        </div>
       </div>
-    </section>
+    </main>
   </section>
 </template>
 
@@ -216,7 +215,7 @@
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import Progress from '@/components/CartProgress.vue';
+import CartProgress from '@/components/CartProgress.vue';
 
 export default {
   name: 'Cart',
@@ -241,7 +240,7 @@ export default {
       },
     };
   },
-  components: { Progress, Breadcrumb },
+  components: { CartProgress, Breadcrumb },
   methods: {
     getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

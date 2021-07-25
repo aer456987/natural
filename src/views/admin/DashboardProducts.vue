@@ -6,9 +6,8 @@
     </h2>
     <div class="row justify-content-between pb-2">
       <div class="col-md-8 col-lg-6 pb-1">
-
         <div class="row">
-          <span class="col-6 col-lg-6 col-xl-4">
+          <div class="col-6 col-lg-6 col-xl-4">
             <select
               class="form-select"
               v-model="productSelect"
@@ -20,10 +19,10 @@
               <option value="有機食品">有機食品</option>
               <option value="周邊商品">周邊商品</option>
             </select>
-          </span>
+          </div>
 
-          <span class="col-6 col-lg-6 col-xl-5">
-            <span class="input-group">
+          <div class="col-6 col-lg-6 col-xl-5">
+            <div class="input-group">
               <input
                 type="search"
                 class="form-control"
@@ -39,11 +38,11 @@
               >
                 <i class="bi bi-search fs-6"></i>
               </label>
-            </span>
-          </span>
+            </div>
+          </div>
         </div>
-
       </div>
+
       <div class="col-md-4 col-lg-6 text-end pb-1">
         <button
           class="btn btn-brown-500  "
@@ -61,7 +60,7 @@
       </div>
     </div>
 
-    <div class="table-responsive">
+    <main class="table-responsive">
       <table
         class="table table-hover text-center text-break
           rounded overflow-hidden shadow-sm"
@@ -142,21 +141,21 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </main>
 
-    <Pagination
+    <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="productPagination"
       @get-data="getProducts"
-    ></Pagination>
+    ></DashboardPagination>
 
-    <ProductModal
+    <DashboardProductModal
       ref="productModal"
       :modal-product="tempProduct"
       :modal-isNew="isNew"
       :modal-btn-status="btnStatus"
       @modal-update-product="updateProduct"
-    ></ProductModal>
+    ></DashboardProductModal>
 
   </section>
 </template>
@@ -164,8 +163,8 @@
 <script>
 import { swalFn, delSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboard/DashboardPagination.vue';
-import ProductModal from '@/components/modal/DashboardProductModal.vue';
+import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
+import DashboardProductModal from '@/components/modal/DashboardProductModal.vue';
 
 export default {
   name: 'DashboardProducts',
@@ -224,7 +223,7 @@ export default {
     },
   },
   components: {
-    DashboardLoading, Pagination, ProductModal,
+    DashboardLoading, DashboardPagination, DashboardProductModal,
   },
   methods: {
     getProducts(page = 1) { // 取得全部商品

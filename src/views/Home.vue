@@ -4,10 +4,10 @@
     :class="classStyle.navbarClass"
     @open-offcanvas="openFavoritesOffcanvas"
   ></HomeNavBar>
-  <Offcanvas ref="likeOffcanvas"></Offcanvas>
+  <FavoritesOffcanvas ref="likeOffcanvas"></FavoritesOffcanvas>
 
   <header class="position-relative user_select_none">
-    <span
+    <div
       class="headerTitleStyle z-index-2
         text-center text-light text-shadow"
     >
@@ -16,18 +16,18 @@
         但你卻看不到它們。
       </p>
 
-      <p class="headerTitleStyle_title fw-bold fade_animetion_slow">
+      <h3 class="headerTitleStyle_title fw-bold fade_animetion_slow">
         你，<br>
         聽見它們的聲音了嗎？
-      </p>
-    </span>
+      </h3>
+    </div>
     <Arrow class="arrow_style z-index-2"></Arrow>
-    <HerderSwiper></HerderSwiper>
+    <HomeHerderSwiper></HomeHerderSwiper>
   </header>
 
   <main id="main" class="bg-white overflow-hidden user_select_none">
     <!-- 圖片 -->
-    <div class="container py-5 py-lg-6">
+    <section class="container py-5 py-lg-6">
       <h2
         class="textStyle_rwd_1 fw-bold text-center mb-1"
         data-aos="fade-up"
@@ -46,9 +46,9 @@
       >
         它們不會說話，卻默默承受著我們造成的業果。
       </p>
-      <NaturalThreatCard
-      ></NaturalThreatCard>
-    </div>
+      <HomeNaturalThreatCard
+      ></HomeNaturalThreatCard>
+    </section>
 
     <!-- 介紹 -->
     <section class="text-center bg-gray-100 py-5 py-lg-6">
@@ -62,7 +62,7 @@
         這一秒，大自然的生命也在逐漸凋零
       </h2>
       <div class="row flex-column align-items-center pt-3">
-        <span
+        <div
           class="col-10 col-md-7 col-lg-5"
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
@@ -78,7 +78,7 @@
             Natural 平台整合了各項環保活動、募款專案，另外也收錄了多家優良廠商推出的有機食品，
             讓民眾能夠快速一覽相關的環境保育資訊、有機商品，並透過 Natural 平台進行快速預約或購買。
           </p>
-        </span>
+        </div>
         <div
           class="col-10 col-sm-4 col-lg-3 col-xl-3 col-xxl-2"
           data-aos="fade"
@@ -86,9 +86,10 @@
           data-aos-delay="300"
           data-aos-duration="1000"
         >
-          <router-link to="/products">
-            <HomeButton buttom-text="來去看看有些什麼"></HomeButton>
-          </router-link>
+          <HomeButton
+            buttom-text="來去看看有些什麼"
+            link-path="/products"
+          ></HomeButton>
         </div>
       </div>
     </section>
@@ -114,7 +115,9 @@
               ></CountTo>
               <span class="fs-4">/{{ platform.unit }}</span>
             </h3>
-            <p class="m-0">{{ platform.text }}</p>
+            <p class="m-0">
+              {{ platform.text }}
+            </p>
           </li>
         </template>
       </ul>
@@ -122,7 +125,7 @@
 
     <!-- 商品分類 -->
     <section class="pt-2 pb-5 pb-lg-6">
-      <ProductSwiper class="py-2"></ProductSwiper>
+      <HomeProductSwiper class="py-2"></HomeProductSwiper>
     </section>
 
     <!-- 資訊 -->
@@ -132,9 +135,9 @@
 
     <!-- 訂閱 -->
     <section class="px-2 py-5 text-center bg-gray-100">
-      <p class="fs-4 mb-3 px-2">
+      <h4 class="fs-4 mb-3 px-2">
         訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！
-      </p>
+      </h4>
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-6 col-xl-4">
           <Form
@@ -183,11 +186,11 @@
 <script>
 import { swalFn } from '@/methods/swal';
 import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
-import Offcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
+import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 import Footer from '@/components/Footer.vue';
-import HerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
-import ProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
-import NaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
+import HomeHerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
+import HomeProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
+import HomeNaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import HomeMessages from '@/components/home/HomeMessages.vue';
 import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
@@ -233,11 +236,11 @@ export default {
   },
   components: {
     HomeNavBar,
-    Offcanvas,
+    FavoritesOffcanvas,
     Footer,
-    HerderSwiper,
-    ProductSwiper,
-    NaturalThreatCard,
+    HomeHerderSwiper,
+    HomeProductSwiper,
+    HomeNaturalThreatCard,
     HomeMessages,
     CountTo,
     HomeButton,

@@ -1,13 +1,12 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="bg-white user_select_none">
-    <section class="container py-4">
-
+    <div class="container py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
       <!-- 主要頁面 -->
-      <section class="row mb-1 pt-3 pb-1 pb-lg-3">
+      <main class="row mb-1 pt-3 pb-1 pb-lg-3">
         <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5 col-xxl-6">
           <img
@@ -50,10 +49,10 @@
           ></p>
 
           <div class="text-end">
-            <span class="fst-italic text-decoration-line-through text-gray">
+            <p class="fst-italic text-decoration-line-through text-gray m-0">
               原價
               ${{ $filters.currency(tempProduct.origin_price) }} / {{ tempProduct.unit }}
-            </span>
+            </p>
 
             <p class="h3 mb-2">
               售價
@@ -68,7 +67,9 @@
                     type="button"
                     class="w-25 btn_light_green text-center border"
                     @click="changeNum('reduce')"
-                  > - </button>
+                  >
+                    -
+                  </button>
 
                   <input type="number"
                     class="form-control text-center m-0 p-1
@@ -81,14 +82,15 @@
                     type="button"
                     class="w-25 btn_light_green text-center border"
                     @click="changeNum('add')"
-                  > + </button>
+                  >
+                    +
+                  </button>
 
                 </div>
               </div>
             </div>
 
             <div class="row align-items-center flex-row-reverse mx-0 mb-2">
-
               <div class="col-6 p-0">
                 <button
                   type="button"
@@ -100,31 +102,32 @@
               </div>
 
               <div class="col-2 p-0 text-end">
-                <FavoriteIcon
+                <Favorite
                   ref="productFavorite"
                   :id-data="productId"
-                ></FavoriteIcon>
+                ></Favorite>
               </div>
             </div>
-            <p class="text-danger">
-              <span v-if="tempProduct.category === '募款專案'">
+
+            <div class="text-danger">
+              <p v-if="tempProduct.category === '募款專案'">
                 募款專案依專案內容不同，金額將全數捐至專案相關之機構。<br>
                 ※注意：所有募款專案皆以個人名義進行捐款，非 Natural 平台掛名。<br>
                 捐款收據上的捐款人為訂購者本人，如發現名稱有錯請盡速聯絡客服修正。
-              </span>
-              <span v-else>
+              </p>
+              <p v-else>
                 活動及產品收益將捐至環境保育或野生動物救助之相關機構。
-              </span>
-            </p>
+              </p>
+            </div>
           </div>
         </div>
-      </section>
-    </section>
+      </main>
+    </div>
   </section>
 
   <!-- 商品說明 -->
   <section class="row py-5 m-0 user_select_none">
-    <section class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
+    <div class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
         <h3 class="pb-4 text-center fw-bold text-primary">
           講座內容說明
@@ -154,7 +157,7 @@
           class="col-10 col-xl-9"
         ></p>
       </div>
-    </section>
+    </div>
   </section>
 </template>
 
@@ -162,7 +165,7 @@
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import FavoriteIcon from '@/components/Favorite.vue';
+import Favorite from '@/components/Favorite.vue';
 
 export default {
   name: 'Product',
@@ -191,7 +194,7 @@ export default {
   },
   components: {
     Breadcrumb,
-    FavoriteIcon,
+    Favorite,
   },
   methods: {
     getProduct() { // 取得單筆資料

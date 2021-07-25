@@ -1,13 +1,12 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
-  <section class="container pageContent user_select_none">
-    <section class="py-4">
-
+  <div class="container pageContent user_select_none">
+    <div class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
-
       <!-- 進度條 -->
-      <Progress :progress-value="progressNum"></Progress>
+      <CartProgress :progress-value="progressNum"></CartProgress>
+
       <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">
         訂購人資訊
@@ -26,9 +25,9 @@
             <div class="col-lg-6">
               <div
                 class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
-                <h2 class="text-center mb-4 fs-5">
+                <h3 class="text-center mb-4 fs-5">
                   購物明細
-                </h2>
+                </h3>
                 <table class="table cart_table_style text-center mb-5">
                   <thead>
                     <tr>
@@ -263,14 +262,14 @@
           </section>
         </Form>
       </main>
-    </section>
-  </section>
+    </div>
+  </div>
 </template>
 
 <script>
 import { swalFn } from '@/methods/swal';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import Progress from '@/components/CartProgress.vue';
+import CartProgress from '@/components/CartProgress.vue';
 
 export default {
   name: 'Order',
@@ -302,7 +301,7 @@ export default {
       tempData: [],
     };
   },
-  components: { Progress, Breadcrumb },
+  components: { CartProgress, Breadcrumb },
   methods: {
     getCarts() { // 取得購物車資料
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;

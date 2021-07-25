@@ -10,12 +10,12 @@
     <section class="modal-dialog modal-dialog-centered width_xl">
       <main class="modal-content">
         <div class="modal-header bg-warning text-brown-500">
-          <h5
-            class="modal-title"
+          <h3
+            class="h5 modal-title"
             id="orderModalLabel"
           >
             修改訂單
-          </h5>
+          </h3>
           <button
             type="button"
             class="btn-close"
@@ -27,9 +27,9 @@
           <div class="row">
 
             <div class="col-12">
-              <h3 class="h4 text-center my-2">
+              <h4 class="h4 text-center my-2">
                 訂購人資訊
-              </h3>
+              </h4>
               <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
@@ -114,7 +114,9 @@
             </div>
 
             <div class="col-12 p-2">
-              <h3 class="h4 text-center my-2">訂單資訊</h3>
+              <h4 class="h4 text-center my-2">
+                訂單資訊
+              </h4>
               <table class="table border rounded shadow-sm text-break">
                 <tbody>
                   <tr>
@@ -178,7 +180,7 @@
                       付款狀態
                     </th>
                     <td class="px-2">
-                      <span
+                      <div
                         class="form-check"
                         :class="{
                         'text-warning-dark' : tempOrder.is_paid,
@@ -196,7 +198,7 @@
                         <label for="isPaid_status">
                           {{ tempOrder.is_paid ? '已付款' : '未付款' }}
                         </label>
-                      </span>
+                      </div>
                     </td>
                   </tr>
 
@@ -222,7 +224,7 @@
                       處理進度
                     </th>
                     <td class="px-2">
-                      <span
+                      <div
                         v-if="orderStatus"
                         class="m-0"
                         :class="{
@@ -231,24 +233,23 @@
                         }"
                       >
                         {{ tempOrder.is_consignment ? '已出貨' : '處理中' }}
-                      </span>
-                      <span
+                      </div>
+                      <div
                         v-else
                         class="text-gray"
                       >
                         訂單成立
-                      </span>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
-
             </div>
 
             <div class="col-12 p-2 text-center">
-              <h3 class="h4 text-center my-2">
+              <h4 class="h4 text-center my-2">
                 購買明細
-              </h3>
+              </h4>
               <table class="table border rounded shadow-sm text-break">
                 <thead class="border-bottom">
                   <th
@@ -292,8 +293,12 @@
                     :key="item.product_id"
                   >
                     <tr>
-                      <td>{{ item.product.title }}</td>
-                      <td>{{ item.product.num }} {{ item.product.unit }}</td>
+                      <td>
+                        {{ item.product.title }}
+                      </td>
+                      <td>
+                        {{ item.product.num }} {{ item.product.unit }}
+                      </td>
                       <td>
                         ${{ $filters.currency(item.product.price) }}
                       </td>
@@ -309,7 +314,7 @@
               </table>
             </div>
 
-            <span
+            <div
               class="col-12 form-check
                 d-flex justify-content-end align-items-center"
             >
@@ -324,7 +329,7 @@
               <label for="consignment_status">
                 商品出貨
               </label>
-            </span>
+            </div>
 
           </div>
         </div>

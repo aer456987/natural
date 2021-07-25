@@ -5,7 +5,7 @@
       style="--bs-breadcrumb-divider: '>'"
       aria-label="breadcrumb"
     >
-      <ol class="breadcrumb m-0">
+      <ul class="breadcrumb m-0">
 
         <template
           v-for="(item, key) in breadcrumbData.previous"
@@ -28,7 +28,7 @@
         >
           {{ breadcrumbData.purpose }}
         </li>
-      </ol>
+      </ul>
     </nav>
   </div>
 </template>
@@ -37,7 +37,5 @@
 export default {
   name: 'Breadcrumb.vue',
   props: ['breadcrumbData'],
-  // previous: {}, 上一個(多個)
-  // purpose: {}, 目前頁面
 };
 </script>

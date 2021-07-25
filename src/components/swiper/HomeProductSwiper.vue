@@ -53,12 +53,12 @@
             :alt="`介紹圖片_${headerImg.id + 1}`"
             class="w-100 rounded-2"
           >
-          <span class="productSwiper_title position-absolute">
+          <h3 class="productSwiper_title position-absolute m-0">
             {{ headerImg.title }}
-            <span class="productSwiper_text d-block fs-6">
+            <span class="productSwiper_text py-1 d-block fs-6">
               {{ headerImg.text }}
             </span>
-          </span>
+          </h3>
         </router-link>
       </swiper-slide>
     </template>

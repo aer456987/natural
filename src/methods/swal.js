@@ -2,14 +2,14 @@ import swal from 'sweetalert';
 // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
 
 // 一般提示視窗
-export function swalFn(title, icon, timer = 1500, text, button = false) {
+export function swalFn(title, icon, timer = 1500, text, button = false, close = false) {
   const txt = {
     title,
     icon,
     timer,
     text,
     button,
-    closeOnClickOutside: false,
+    closeOnClickOutside: close,
   };
   swal(txt);
 }

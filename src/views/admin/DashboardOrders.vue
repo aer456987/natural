@@ -5,9 +5,8 @@
       訂單管理
     </h2>
     <div class="row justify-content-between pb-2">
-
       <div class="col-md-6 col-lg-5 col-xl-4 pb-1">
-        <span class=" input-group">
+        <div class=" input-group">
           <input
             type="search"
             class="form-control"
@@ -23,7 +22,7 @@
           >
             <i class="bi bi-search fs-6"></i>
           </label>
-        </span>
+        </div>
       </div>
 
       <div class="col-md-6 text-end pb-1">
@@ -43,7 +42,7 @@
       </div>
     </div>
 
-    <div class="table-responsive">
+    <main class="table-responsive">
       <table
         class="table table-hover rounded overflow-hidden shadow-sm
           text-break text-center"
@@ -129,31 +128,30 @@
                 @click="delOrderSwalFn(order, 'one')"
               ></i>
             </td>
-            <!-- {{ order }} -->
           </tr>
         </tbody>
       </table>
-    </div>
+    </main>
 
-    <Pagination
+    <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="ordersPagination"
       @get-data="getOrders"
-    ></Pagination>
+    ></DashboardPagination>
 
-    <OrderModal
+    <DashboardOrderModal
       ref="orderModal"
       :modal-order="tempOrderData"
       @modal-update-order-paid="updateOrderPaid"
-    ></OrderModal>
+    ></DashboardOrderModal>
   </section>
 </template>
 
 <script>
 import { swalFn, delSwalFn, doubleCheckdelSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
-import Pagination from '@/components/dashboard/DashboardPagination.vue';
-import OrderModal from '@/components/modal/DashboardOrderModal.vue';
+import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
+import DashboardOrderModal from '@/components/modal/DashboardOrderModal.vue';
 
 export default {
   name: 'DashboardOrders',
@@ -185,7 +183,7 @@ export default {
       return this.orders.filter((item) => item.id.match(this.orderSearch));
     },
   },
-  components: { DashboardLoading, Pagination, OrderModal },
+  components: { DashboardLoading, DashboardPagination, DashboardOrderModal },
   methods: {
     getOrders(page = 1) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;

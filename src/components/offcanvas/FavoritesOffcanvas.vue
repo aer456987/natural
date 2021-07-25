@@ -4,7 +4,7 @@
   <div
     class="offcanvas offcanvas-end user_select_none
       shadow-lg overflow-x px-0 m-0"
-    data-bs-scroll="true"
+    data-bs-scroll="false"
     data-bs-backdrop="true"
     tabindex="-1"
     ref="offcanvas"
@@ -12,19 +12,17 @@
     <div class="offcanvas-header pe-0">
       <div class="row align-items-center justify-content-between w-100">
         <div class="col-10">
-          <h3 class="fs-5">
+          <h3 class="fs-5 d-inline">
             最愛收藏
-            <span>
-              <button
-                type="button"
-                class="btn btn-outline-danger btn-sm"
-                @click="allDelFavorite"
-                :disabled="newFavoritesData.length<1"
-              >
-                清空收藏
-              </button>
-            </span>
           </h3>
+          <button
+              type="button"
+              class="btn btn-outline-danger btn-sm"
+              @click="allDelFavorite"
+              :disabled="newFavoritesData.length<1"
+            >
+              清空收藏
+          </button>
         </div>
         <div class="col-2 text-end">
           <button
@@ -47,24 +45,24 @@
             <li class="row justify-content-center align-items-center
               mb-2 pb-2 border-bottom"
             >
-              <span class="col-2 col-sm-1 p-0">
-                <FavoriteIcon
+              <div class="col-2 col-sm-1 p-0">
+                <Favorite
                   ref="favoriteIcon"
                   :idData="favoriteItme.id"
-                ></FavoriteIcon>
-              </span>
-              <span class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
+                ></Favorite>
+              </div>
+              <div class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
                 <img
                   :src="favoriteItme.imageUrl"
                   alt="圖片"
                   class="w-100"
                 >
-              </span>
-              <span class="col-5 textStyle_rwd_2 py-0 px-1">
+              </div>
+              <p class="col-5 textStyle_rwd_2 py-0 px-1 m-0">
                 {{ favoriteItme.title }} <br>
                 ${{ $filters.currency(favoriteItme.price)}} / {{ favoriteItme.unit }}
-              </span>
-              <span class="col-3 col-sm-2 px-1">
+              </p>
+              <div class="col-3 col-sm-2 px-1">
                 <input
                   ref="numValue"
                   type="number"
@@ -73,8 +71,8 @@
                     py-1 text-center"
                   v-model.number="favoriteItme.qty"
                 >
-              </span>
-              <span class="col-2 p-0 ps-sm-1">
+              </div>
+              <div class="col-2 p-0 ps-sm-1">
                 <button
                   type="button"
                   class="btn btn_outline_green fs-4"
@@ -82,7 +80,7 @@
                 >
                   <i class="bi bi-cart-plus-fill"></i>
                 </button>
-              </span>
+              </div>
             </li>
 
           </template>
@@ -112,20 +110,20 @@
       </template>
 
       <template v-else>
-        <ul class="list-unstyled px-1 mb-5">
-          <li class="text-center">
+        <div class="px-1 mt-5">
+          <div class="text-center">
             <p class="mb-3 fs-5">
               還沒有將喜歡的商品加入收藏嗎？
             </p>
             <router-link
               to="/products"
-              class="btn btn_main w-100 mb-2"
+              class="btn btn_main w-100"
               @click="hideOffcanvas"
             >
               趕快去選購
             </router-link>
-          </li>
-        </ul>
+          </div>
+        </div>
       </template>
     </div>
   </div>
@@ -136,7 +134,7 @@
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Offcanvas from 'bootstrap/js/dist/offcanvas';
-import FavoriteIcon from '@/components/Favorite.vue';
+import Favorite from '@/components/Favorite.vue';
 
 export default {
   name: 'FavoritesOffcanvas.vue',
@@ -149,7 +147,7 @@ export default {
       newFavoritesData: [], // (渲染用)篩選後的最愛清單資料
     };
   },
-  components: { FavoriteIcon },
+  components: { Favorite },
   watch: {
     offcanvasFavoritesList() {
       this.renderFavorite();

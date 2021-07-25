@@ -1,22 +1,21 @@
 <template>
   <Loading :status="loadingStatus"></Loading>
   <section class="container pageContent user_select_none">
-    <section class="py-4">
+    <div class="py-4">
 
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
-
       <!-- 進度條 -->
-      <Progress :progress-value="progressNum"></Progress>
+      <CartProgress :progress-value="progressNum"></CartProgress>
 
       <!-- 訂單確認 & 付款 -->
       <h2 class="h1 text-center fw-bold mb-4">
         訂單成立
       </h2>
-      <section class="container">
-        <section class="row px-md-1 px-lg-5 justify-content-center">
+      <main class="container">
+        <div class="row px-md-1 px-lg-5 justify-content-center">
           <!-- 訂單明細 -->
-          <main class="col-md-12 col-lg-9">
+          <div class="col-md-12 col-lg-9">
             <section class="px-3 px-md-5 py-5 mb-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">
                 訂單編號
@@ -134,7 +133,9 @@
               </table>
 
               <!-- 商品項目 -->
-              <h3 class="h5 text-center fw-bold mt-3 mb-2">商品項目</h3>
+              <h3 class="h5 text-center fw-bold mt-3 mb-2">
+                商品項目
+              </h3>
               <table class="table table-borderless cart_table_style
                 mb-5 text-center text-break"
               >
@@ -187,7 +188,7 @@
                 總金額NT ${{ $filters.currency(order.data.total) }}
               </p>
             </section>
-          </main>
+          </div>
 
           <!-- 我要付款 -->
           <div class="col-12 d-flex justify-content-center mb-2 mb-md-5">
@@ -207,11 +208,11 @@
             >
               我要付款
             </router-link>
-
           </div>
-        </section>
-      </section>
-    </section>
+
+        </div>
+      </main>
+    </div>
   </section>
 </template>
 
@@ -219,7 +220,7 @@
 import { swalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
-import Progress from '@/components/CartProgress.vue';
+import CartProgress from '@/components/CartProgress.vue';
 
 export default {
   name: 'OrderCheck',
@@ -252,7 +253,7 @@ export default {
       },
     };
   },
-  components: { Progress, Breadcrumb },
+  components: { CartProgress, Breadcrumb },
   methods: {
     getOrder(id) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order/${id}`;

@@ -1,6 +1,6 @@
 <template>
   <!-- 優惠券 Modal -->
-  <section
+  <div
     class="modal fade m-0"
     id="productModal"
     tabindex="-1"
@@ -9,15 +9,15 @@
     data-bs-keyboard="false"
     ref="modal"
   >
-    <section class="modal-dialog modal-dialog-centered coupon_width">
-      <main class="modal-content mx-auto">
+    <main class="modal-dialog modal-dialog-centered coupon_width">
+      <section class="modal-content mx-auto">
         <div class="modal-header bg-warning text-brown-500">
-          <h5
-            class="modal-title"
+          <h3
+            class="modal-title h5"
             id="staticBackdropLabel"
           >
             {{ isNewCoupon ? '新增優惠券' : '修改優惠券' }}
-          </h5>
+          </h3>
           <button
             type="button"
             class="btn-close"
@@ -25,7 +25,7 @@
             aria-label="Close"
           ></button>
         </div>
-        <section
+        <div
           v-if="tempCouponData"
           class="modal-body"
         >
@@ -36,7 +36,7 @@
             class="row"
             @change="checkInputValue"
           >
-            <span class="col-12">
+            <div class="col-12">
               <label
                 for="modalTitle"
                 class="form-label p-1 m-0"
@@ -57,9 +57,9 @@
                 name="優惠券名稱"
                 class="invalid-feedback mb-1"
               ></ErrorMessage>
-            </span>
+            </div>
 
-            <span class="col-12">
+            <div class="col-12">
               <label
                 for="modalCode"
                 class="form-label p-1 m-0"
@@ -81,9 +81,9 @@
                 name="優惠碼"
                 class="invalid-feedback mb-1"
               ></ErrorMessage>
-            </span>
+            </div>
 
-            <span class="col-12">
+            <div class="col-12">
               <label
                 for="modalPercent"
                 class="form-label p-1 m-0"
@@ -106,9 +106,9 @@
                 name="折扣 % 數"
                 class="invalid-feedback mb-1"
               ></ErrorMessage>
-            </span>
+            </div>
 
-            <span class="col-12">
+            <div class="col-12">
               <label
                 for="modalDueDate"
                 class="form-label p-1 m-0"
@@ -123,11 +123,15 @@
                 placeholder="請輸入到期日"
                 v-model="tempDueDate"
               >
-            </span>
+            </div>
 
-            <span
+            <p class="text-danger text-end fw-bold mt-1">
+              * 為必填項目
+            </p>
+
+            <div
               class="col-12 form-check
-                d-flex justify-content-end align-items-center"
+                d-flex justify-content-end align-items-center mb-0"
             >
               <input type="checkbox"
                 id="enabledStatus"
@@ -141,15 +145,10 @@
               <label for="enabledStatus">
                 是否啟用
               </label>
-            </span>
-
-            <span class="text-danger text-end fw-bold mt-1">
-              * 為必填項目
-            </span>
-
+            </div>
           </Form>
 
-        </section>
+        </div>
         <div class="modal-footer">
           <button
             type="button"
@@ -167,9 +166,9 @@
             {{ modalIsNew ? '確定新增' : '儲存變更' }}
           </button>
         </div>
-      </main>
-    </section>
-  </section>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>

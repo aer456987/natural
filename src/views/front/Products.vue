@@ -7,40 +7,40 @@
     @filter-list-methods="filterListMethods"
   ></ProductFilterList>
 
-  <HeaderImg
+  <HeaderBackgroundImg
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl"
-  ></HeaderImg>
+  ></HeaderBackgroundImg>
 
-  <section class="container pageContent user_select_none">
-    <main class="py-4">
+  <main class="container pageContent user_select_none">
+    <section class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
-        <span class="col-12 col-md-8 mb-1">
+        <div class="col-12 col-md-8 mb-1">
           <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
-        </span>
-        <span class="col-12 col-md-4 col-lg-3 mb-1
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 mb-1
           position-relative">
 
-        <span class="input-group">
-          <input
-            type="search"
-            class="col-sm-9 form-control border-end-0"
-            placeholder="請輸入關鍵字"
-            autocomplete="on"
-            aria-label="search"
-            aria-describedby="basic-addon1"
-            id="frontProductSearch"
-            v-model="search"
-          />
-          <label
-            for="frontProductSearch"
-            class="input-group-text bg-white border-start-0"
-          >
-            <i class="bi bi-search fs-6"></i>
-          </label>
-          </span>
-        </span>
+          <div class="input-group">
+            <input
+              type="search"
+              class="col-sm-9 form-control border-end-0"
+              placeholder="請輸入關鍵字"
+              autocomplete="on"
+              aria-label="search"
+              aria-describedby="basic-addon1"
+              id="frontProductSearch"
+              v-model="search"
+            />
+            <label
+              for="frontProductSearch"
+              class="input-group-text bg-white border-start-0"
+            >
+              <i class="bi bi-search fs-6"></i>
+            </label>
+          </div>
+        </div>
       </div>
       <!-- 主要頁面 -->
       <div class="py-3">
@@ -49,13 +49,13 @@
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
         </div>
-    </main>
-  </section>
+    </section>
+  </main>
 </template>
 
 <script>
 import { swalFn } from '@/methods/swal';
-import HeaderImg from '@/components/HeaderBackgroundImg.vue';
+import HeaderBackgroundImg from '@/components/HeaderBackgroundImg.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import ProductFilterList from '@/components/ProductFilterList.vue';
@@ -101,7 +101,7 @@ export default {
     },
   },
   components: {
-    HeaderImg,
+    HeaderBackgroundImg,
     ProductFilterList,
     Breadcrumb,
     ProductCard,
