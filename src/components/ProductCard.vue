@@ -44,12 +44,13 @@
           </p>
         </router-link>
         <span class="col-3 p-0 d-flex justify-content-end">
-          <span
+          <button
+            type="button"
             class="btn btn_outline_green fs-4 ms-1"
             @click="addCart(product.id)"
           >
             <i class="bi bi-cart-plus-fill"></i>
-          </span>
+          </button>
         </span>
       </div>
     </div>

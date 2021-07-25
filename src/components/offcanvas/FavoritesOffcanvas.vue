@@ -75,12 +75,13 @@
                 >
               </span>
               <span class="col-2 p-0 ps-sm-1">
-                <span
+                <button
+                  type="button"
                   class="btn btn_outline_green fs-4"
                   @click="addCart(favoriteItme.id, favoriteItme.qty)"
                 >
                   <i class="bi bi-cart-plus-fill"></i>
-                </span>
+                </button>
               </span>
             </li>
 

@@ -2,16 +2,15 @@
   <!-- 後台navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown px-2 shadow-sm">
     <div class="container-fluid">
-      <router-link
-        to="/"
-        class="nav-link logo_brown h3 mb-0 p-0"
-      >
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top"
-        />
-        Natural
-      </router-link>
+      <h1 class="m-0">
+        <router-link
+          to="/"
+          class="nav-link logo_brown h3 mb-0 p-0 border border-white"
+        >
+          Natural
+        </router-link>
+      </h1>
+
       <button
         type="button"
         class="navbar-toggler"

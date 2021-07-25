@@ -10,251 +10,257 @@
       <Progress :progress-value="progressNum"></Progress>
       <!-- 購物車 -->
       <h1 class="text-center fw-bold mb-4">訂購人資訊</h1>
-      <section class="container">
+      <main class="container">
         <!-- 訂單填寫 -->
-        <section
-          class="row px-lg-0 px-xl-5
-            position-relative justify-content-center align-items-center"
-          >
-          <!-- 購物明細 -->
-          <div class="col-lg-6">
-            <div
-              class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
-              <h2 class="text-center mb-4 fs-5">
-                購物明細
-              </h2>
-              <table class="table cart_table_style text-center mb-5">
-                <thead>
-                  <tr>
-                    <td scope="col" width="40%">商品資訊</td>
-                    <td scope="col" width="20%">數量</td>
-                    <td scope="col" width="40%">金額</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    v-for="item in carts.carts"
-                    :key="item.id"
-                  >
-                    <td scope="row" class="text-start">
-                      {{ item.product.title }}
-                    </td>
-                    <td>
-                      {{ item.qty }}
-                    </td>
-                    <td>
-                      NT ${{ $filters.currency(item.final_total) }}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <p class="fs-5 mb-2 text-center">
-                總金額NT ${{ $filters.currency(carts.final_total) }}
-              </p>
-            </div>
-          </div>
-          <!-- 訂購人資訊 -->
-          <main class="col-lg-6 mb-5">
-            <Form
-              v-slot="{ errors }"
-              class="px-3"
-              @change="checkUserDatas"
+        <Form
+          v-slot="{ errors }"
+          @submit="postOrder"
+        >
+          <section
+            class="row px-lg-0 px-xl-5
+              position-relative justify-content-center align-items-center"
             >
-              <!-- 訂購人姓名 -->
-              <label
-                for="orderName"
-                class="form-label mt-3 mb-1"
-              >
-                訂購人姓名<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                type="text"
-                name="姓名"
-                placeholder="請輸入收件人名稱"
-                id="orderName"
-                class="form-control"
-                :class="{ 'is-invalid': errors['姓名'] }"
-                rules="required"
-                v-model="userDatas.user.name"
-              ></Field>
-              <ErrorMessage
-                name="姓名"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+            <!-- 購物明細 -->
+            <div class="col-lg-6">
+              <div
+                class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
+                <h2 class="text-center mb-4 fs-5">
+                  購物明細
+                </h2>
+                <table class="table cart_table_style text-center mb-5">
+                  <thead>
+                    <tr>
+                      <td scope="col" width="40%">商品資訊</td>
+                      <td scope="col" width="20%">數量</td>
+                      <td scope="col" width="40%">金額</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr
+                      v-for="item in carts.carts"
+                      :key="item.id"
+                    >
+                      <td scope="row" class="text-start">
+                        {{ item.product.title }}
+                      </td>
+                      <td>
+                        {{ item.qty }}
+                      </td>
+                      <td>
+                        NT ${{ $filters.currency(item.final_total) }}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
 
-              <!-- 聯絡電話 -->
-              <label
-                for="orderTel"
-                class="form-label mt-3 mb-1"
-              >
-                聯絡電話<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                type="tel"
-                name="電話"
-                placeholder="請輸入手機號碼"
-                id="orderTel"
-                class="form-control"
-                :class="{ 'is-invalid': errors['電話'] }"
-                rules="required|numeric|min:10"
-                v-model="userDatas.user.tel"
-              ></Field>
-              <ErrorMessage
-                name="電話"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
-
-              <!-- Email -->
-              <label
-                for="orderEmail"
-                class="form-label mt-3 mb-1"
-              >
-                Email<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                type="email"
-                name="Email"
-                placeholder="請輸入Email"
-                id="orderEmail"
-                class="form-control"
-                :class="{ 'is-invalid': errors['Email'] }"
-                rules="required|email"
-                v-model="userDatas.user.email"
-              ></Field>
-              <ErrorMessage
-                name="Email"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
-
-              <!-- 寄送方式 -->
-              <template v-if="isSend">
+                <p class="fs-5 mb-2 text-center">
+                  總金額NT ${{ $filters.currency(carts.final_total) }}
+                </p>
+              </div>
+            </div>
+            <!-- 訂購人資訊 -->
+            <div class="col-lg-6 mb-5 px-3">
+                <!-- 訂購人姓名 -->
                 <label
-                  for="orderDelivery"
+                  for="orderName"
                   class="form-label mt-3 mb-1"
                 >
-                  寄送方式<span class="text-danger fw-bold">*</span>
+                  訂購人姓名<span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  type="text"
+                  name="姓名"
+                  placeholder="請輸入收件人名稱"
+                  id="orderName"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors['姓名'] }"
+                  rules="required"
+                  v-model="userDatas.user.name"
+                  @change="checkUserDatas"
+                ></Field>
+                <ErrorMessage
+                  name="姓名"
+                  class="invalid-feedback mb-1"
+                ></ErrorMessage>
+
+                <!-- 聯絡電話 -->
+                <label
+                  for="orderTel"
+                  class="form-label mt-3 mb-1"
+                >
+                  聯絡電話<span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  type="tel"
+                  name="電話"
+                  placeholder="請輸入手機號碼"
+                  id="orderTel"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors['電話'] }"
+                  rules="required|numeric|min:10"
+                  v-model="userDatas.user.tel"
+                  @change="checkUserDatas"
+                ></Field>
+                <ErrorMessage
+                  name="電話"
+                  class="invalid-feedback mb-1"
+                ></ErrorMessage>
+
+                <!-- Email -->
+                <label
+                  for="orderEmail"
+                  class="form-label mt-3 mb-1"
+                >
+                  Email<span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  type="email"
+                  name="Email"
+                  placeholder="請輸入Email"
+                  id="orderEmail"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors['Email'] }"
+                  rules="required|email"
+                  v-model="userDatas.user.email"
+                  @change="checkUserDatas"
+                ></Field>
+                <ErrorMessage
+                  name="Email"
+                  class="invalid-feedback mb-1"
+                ></ErrorMessage>
+
+                <!-- 寄送方式 -->
+                <template v-if="isSend">
+                  <label
+                    for="orderDelivery"
+                    class="form-label mt-3 mb-1"
+                  >
+                    寄送方式<span class="text-danger fw-bold">*</span>
+                  </label>
+                  <Field
+                    as="select"
+                    name="寄送方式"
+                    placeholder="請輸入寄送方式"
+                    id="orderDelivery"
+                    class="form-select"
+                    :class="{ 'is-invalid': errors['寄送方式'] }"
+                    rules="required"
+                    v-model="userDatas.user.delivery"
+                    @change="checkUserDatas"
+                  >
+                    <option value="" selected disabled>選擇寄送方式</option>
+                    <option value="宅配">宅配</option>
+                    <option value="全家超取">全家</option>
+                    <option value="7-11 超取">7-11</option>
+                    <option value="萊爾富超取">萊爾富</option>
+                    <option value="OK 超取">OK 超取</option>
+                  </Field>
+                  <ErrorMessage
+                    name="寄送方式"
+                    class="invalid-feedback mb-1"
+                  ></ErrorMessage>
+                </template>
+
+                <!-- 收件地址 -->
+                <label
+                  for="orderAddress"
+                  class="form-label mt-3 mb-1"
+                >
+                  收件地址(超取請填寫門市名稱)<span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  type="text"
+                  name="地址"
+                  placeholder="宅配請輸入收件地址，超取請填寫門市名稱"
+                  id="orderAddress"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors['地址'] }"
+                  rules="required"
+                  v-model="userDatas.user.address"
+                  :readonly="!isSend"
+                  @change="checkUserDatas"
+                ></Field>
+                <ErrorMessage
+                  name="地址"
+                  class="invalid-feedback mb-1"
+                ></ErrorMessage>
+
+                <!-- 付款方式 -->
+                <label
+                  for="orderPayment"
+                  class="form-label mt-3 mb-1"
+                >
+                  付款方式<span class="text-danger fw-bold">*</span>
                 </label>
                 <Field
                   as="select"
-                  name="寄送方式"
-                  placeholder="請輸入寄送方式"
-                  id="orderDelivery"
+                  name="付款方式"
+                  placeholder="選擇付款方式"
+                  id="orderPayment"
                   class="form-select"
-                  :class="{ 'is-invalid': errors['寄送方式'] }"
+                  :class="{ 'is-invalid': errors['付款方式'] }"
                   rules="required"
-                  v-model="userDatas.user.delivery"
+                  v-model="userDatas.user.payment"
+                  @change="checkUserDatas"
                 >
-                  <option value="" selected disabled>選擇寄送方式</option>
-                  <option value="宅配">宅配</option>
-                  <option value="全家超取">全家</option>
-                  <option value="7-11 超取">7-11</option>
-                  <option value="萊爾富超取">萊爾富</option>
-                  <option value="OK 超取">OK 超取</option>
+                  <option value="" selected disabled>選擇付款方式</option>
+                  <option value="信用卡">信用卡</option>
+                  <option
+                    v-if="isFundraising"
+                    value="貨到付款"
+                  >
+                    貨到付款
+                  </option>
+                  <option value="ATM 匯款">ATM 匯款</option>
                 </Field>
                 <ErrorMessage
-                  name="寄送方式"
+                  name="付款方式"
                   class="invalid-feedback mb-1"
                 ></ErrorMessage>
-              </template>
 
-              <!-- 收件地址 -->
-              <label
-                for="orderAddress"
-                class="form-label mt-3 mb-1"
-              >
-                收件地址(超取請填寫門市名稱)<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                type="text"
-                name="地址"
-                placeholder="宅配請輸入收件地址，超取請填寫門市名稱"
-                id="orderAddress"
-                class="form-control"
-                :class="{ 'is-invalid': errors['地址'] }"
-                rules="required"
-                v-model="userDatas.user.address"
-                :readonly="!isSend"
-              ></Field>
-              <ErrorMessage
-                name="地址"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
-
-              <!-- 付款方式 -->
-              <label
-                for="orderPayment"
-                class="form-label mt-3 mb-1"
-              >
-                付款方式<span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                as="select"
-                name="付款方式"
-                placeholder="選擇付款方式"
-                id="orderPayment"
-                class="form-select"
-                :class="{ 'is-invalid': errors['付款方式'] }"
-                rules="required"
-                v-model="userDatas.user.payment"
-              >
-                <option value="" selected disabled>選擇付款方式</option>
-                <option value="信用卡">信用卡</option>
-                <option
-                  v-if="isFundraising"
-                  value="貨到付款"
+                <!-- 備註 -->
+                <label
+                  for="orderMsg"
+                  class="form-label mt-3 mb-1"
                 >
-                  貨到付款
-                </option>
-                <option value="ATM 匯款">ATM 匯款</option>
-              </Field>
-              <ErrorMessage
-                name="付款方式"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+                  備註
+                </label>
+                <Field
+                  as="textarea"
+                  name="備註"
+                  placeholder="如需指定捐款單位或商品種類，請務必填寫清楚( 例如: 我要指定捐款給 XX 機構；XX 商品請寄紅色 )"
+                  rows="5"
+                  id="orderMsg"
+                  class="form-control"
+                  :class="{ 'is-invalid': errors['備註'] }"
+                  v-model="userDatas.message"
+                ></Field>
 
-              <!-- 備註 -->
-              <label
-                for="orderMsg"
-                class="form-label mt-3 mb-1"
+                <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
+
+            </div>
+            <!-- 返回購物車/送出訂單 -->
+            <div class="col-12 d-flex justify-content-between mb-2 mb-md-5">
+              <router-link
+                to="/cart"
+                class="btn btn-outline-custom-primary btn_style
+                  px-1 px-sm-2 px-md-3 py-1"
               >
-                備註
-              </label>
-              <Field
-                as="textarea"
-                name="備註"
-                placeholder="如需指定捐款單位或商品種類，請務必填寫清楚( 例如: 我要指定捐款給 XX 機構；XX 商品請寄紅色 )"
-                rows="5"
-                id="orderMsg"
-                class="form-control"
-                :class="{ 'is-invalid': errors['備註'] }"
-                v-model="userDatas.message"
-              ></Field>
+                ◁ 返回購物車
+              </router-link>
 
-              <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
-            </Form>
-          </main>
-          <!-- 返回購物車/送出訂單 -->
-          <div class="col-12 d-flex justify-content-between mb-2 mb-md-5">
-            <router-link
-              to="/cart"
-              class="btn btn-outline-custom-primary btn_style
-                px-1 px-sm-2 px-md-3 py-1"
-            >
-              ◁ 返回購物車
-            </router-link>
-
-            <button
-              class="btn btn_main btn_style
-                px-1 px-sm-2 px-md-3 py-1"
-              :disabled="btnStatus"
-              @click="postOrder"
-            >
-            送出訂單 ▷
-            </button>
-          </div>
-        </section>
-      </section>
+              <button
+                type="submit"
+                class="btn btn_main btn_style
+                  px-1 px-sm-2 px-md-3 py-1"
+                :disabled="btnStatus"
+              >
+              送出訂單 ▷
+              </button>
+            </div>
+          </section>
+        </Form>
+      </main>
     </section>
   </section>
 </template>
@@ -321,7 +327,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    filterFundraising() {
+    filterFundraising() { // 確認地址是否需要填寫
       this.tempData = this.carts.carts.filter(
         (item) => item.product.category === '講座' || item.product.category === '募款專案',
       );

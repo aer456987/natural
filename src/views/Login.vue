@@ -2,16 +2,14 @@
   <Loading :status="loadingStatus"></Loading>
   <section class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
-      <router-link
-        to="/"
-        class="nav-link logo_login h1 my-4 pb-0 text-center"
-      >
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top"
-        />
-        Natural
-      </router-link>
+      <h1 class="m-0 d-flex justify-content-center">
+        <router-link
+          to="/"
+          class="nav-link logo_login my-3 my-md-4 pb-0"
+        >
+          Natural
+        </router-link>
+      </h1>
 
       <section class="col-md-6 col-xl-5 col-xxl-4 p-5 bg-white rounded-1 shadow">
         <h2 class="text-center fw-bold my-2">後台登入</h2>

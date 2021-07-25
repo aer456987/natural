@@ -95,17 +95,23 @@
                           class="input-group"
                           style="max-width: 180px"
                         >
-                          <span
-                            class="btn_light_green px-0 px-sm-1 px-md-1"
+                          <button
+                            type="button"
+                            class="btn_light_green px-0 px-sm-1 px-md-1 border-0"
                             @click="putCart('reduce', item)"
-                          > - </span>
-                          <div class="form-control text-center px-0 p-md-1 textStyle_rwd_2">
+                          >
+                            -
+                          </button>
+                          <span class="form-control text-center px-0 p-md-1 textStyle_rwd_2">
                             {{ item.qty }}
-                          </div>
-                          <span
-                            class="btn_light_green px-0 px-sm-1 px-md-1"
+                          </span>
+                          <button
+                            type="button"
+                            class="btn_light_green px-0 px-sm-1 px-md-1 border-0"
                             @click="putCart('add', item)"
-                          > + </span>
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </td>
@@ -113,10 +119,15 @@
                       NT ${{ $filters.currency(item.final_total) }}
                     </td>
                     <td>
-                      <i
-                        class="bi bi-x-lg btn_red fs-5"
-                        @click="delCart('one', item)"
-                      ></i>
+                      <button
+                        type="button"
+                        class="btn_red fs-5 bg_transparent border-0"
+                      >
+                        <i
+                          class="bi bi-x-lg"
+                          @click="delCart('one', item)"
+                        ></i>
+                      </button>
                     </td>
                   </tr>
                 </tbody>

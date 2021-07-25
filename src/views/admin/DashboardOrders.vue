@@ -273,7 +273,7 @@ export default {
     },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
-      this.clearSearch();
+      this.orderSearch = '';
       this.getOrders();
     },
   },

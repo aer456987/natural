@@ -1,37 +1,30 @@
+// logo 共設定
 .logo_home, .logo, .logo_brown{
-  font-family: 'Vibur';
-  font-size: 24px;
-  transition-duration: .3s;
-
+  width: 150px;
+  height: 35px;
+  display: block;
+  text-indent: 101%;;
+  mask-image: url('~@/assets/imgs/logoIcon.svg');
+  white-space: nowrap;
   &:hover{
     transition-duration: .3s;
-  }
+  };
 }
 
-.logo_login{
-  font-family: 'Vibur';
-  transition-duration: .3s;
-
-  &:hover{
-    transition-duration: .3s;
-  }
-}
-
-// 首圖logo
+// 首圖 logo
 .logo_home{
-  color: $white;
-
-  &:hover, &:focus{
-    color: rgba($secondary, .7);
-  }
+  background-color: $white;
+  &:hover{
+    background: rgba($secondary, .7);
+  };
 }
 
 // 前台 logo
 .logo{
-  color: rgba($secondary, .8);
+  background-color: rgba($secondary, .8);
 
   &:hover{
-    color: $secondary;
+    background: $secondary;
   }
 }
 
@@ -46,11 +39,16 @@
 
 // 登入 logo
 .logo_login{
-  color: rgba($secondary, .8);
-
+  width: 210px;
+  height: 50px;
+  text-indent: 110%;;
+  background: rgba($secondary, .8);;
+  mask-image: url('~@/assets/imgs/logoIcon.svg');
+  white-space: nowrap;
   &:hover{
-    color: $secondary;
-  }
+    background: $secondary;
+    transition-duration: .3s;
+  };
 }
 
 .navbar_text{
@@ -71,17 +69,16 @@
   background: $danger;
 }
 
-
-// RWD - media
-// @media(max-width: 992px){
-  
-// }
-
 @media(max-width: 768px){
-  .logo_home, .logo, .logo_brown, .navbar_text{
-    font-size: 16px;
+  .logo_home{
+    width: 105px;
+    height: 25px;
   }
-
+  .logo_login{
+    width: 120px;
+    height: 30px;
+    text-indent: 120%;;
+  }
   .navbar-dark .navbar-toggler {
     padding: 1px 7px;
   }

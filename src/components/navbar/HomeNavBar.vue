@@ -6,16 +6,14 @@
     :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
-      <router-link
-        to="/"
-        class=" logo_home mb-0 p-0"
-      >
-        <Font-awesome-icon
-          icon="crow"
-          class="d-inline-block align-text-top"
-        />
-        Natural
-      </router-link>
+      <h1 class="m-0">
+        <router-link
+          to="/"
+          class="logo_home mb-0 p-0 border border-white"
+        >
+          Natural
+        </router-link>
+      </h1>
       <button
         type="button"
         class="navbar-toggler"

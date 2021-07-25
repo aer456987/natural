@@ -325,7 +325,6 @@ export default {
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
       this.productSelect = '全部商品';
-      this.clearSearch();
       this.getProducts();
     },
   },
