@@ -83,7 +83,7 @@
 
   <div class="row">
     <div class="col-6 mb-1">
-      <UpdateFile @upload-img-file="uploadNewImg"></UpdateFile>
+      <DashboardUpdateFile @upload-img-file="uploadNewImg"></DashboardUpdateFile>
     </div>
 
     <div class="col-6 mb-1">
@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import UpdateFile from '@/components/dashboard/DashboardUpdateFile.vue';
+import DashboardUpdateFile from '@/components/dashboard/DashboardUpdateFile.vue';
 
 export default {
   name: 'DashboardRenderImgs',
@@ -112,7 +112,7 @@ export default {
     };
   },
   props: ['productMainImg', 'productImgs'],
-  components: { UpdateFile },
+  components: { DashboardUpdateFile },
   watch: {
     productMainImg() {
       this.tempMainImg = this.productMainImg;
