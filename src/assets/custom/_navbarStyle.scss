@@ -30,10 +30,10 @@
 
 // 後台 logo
 .logo_brown{
-  color: $brown-500;
+  background: $brown-500;
 
   &:hover, &:focus{
-    color: $warning;
+    background: $warning;
   }
 }
 
