@@ -126,32 +126,33 @@
   <section class="row py-5 m-0 user_select_none">
     <section class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
-        <h2 class="pb-4 text-center fw-bold text-primary">
+        <h3 class="pb-4 text-center fw-bold text-primary">
           講座內容說明
-        </h2>
+        </h3>
       </template>
 
       <template v-else-if="tempProduct.category==='募款專案'">
-        <h2 class="pb-4 text-center fw-bold text-primary">
+        <h3 class="pb-4 text-center fw-bold text-primary">
           募款專案說明
-        </h2>
+        </h3>
       </template>
 
       <template v-else-if="tempProduct.category==='公益活動'">
-        <h2 class="pb-4 text-center fw-bold text-primary">
+        <h3 class="pb-4 text-center fw-bold text-primary">
           活動說明
-        </h2>
+        </h3>
       </template>
 
       <template v-else>
-        <h2 class="pb-4 text-center fw-bold text-primary">
+        <h3 class="pb-4 text-center fw-bold text-primary">
           商品說明
-        </h2>
+        </h3>
       </template>
       <div class="row justify-content-center">
-        <span class="col-10 col-xl-9">
-          <p v-html="tempProduct.content"></p>
-        </span>
+        <p
+          v-html="tempProduct.content"
+          class="col-10 col-xl-9"
+        ></p>
       </div>
     </section>
   </section>
