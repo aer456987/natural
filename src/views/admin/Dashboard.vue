@@ -2,7 +2,7 @@
   <!-- 導覽列 -->
   <DashboardNavbar></DashboardNavbar>
   <!-- 主要頁面 -->
-  <router-view></router-view>
+  <router-view v-if="loginStatus"></router-view>
   <!-- 頁尾 -->
   <Footer
     :bgColor="'bg-brown'"
