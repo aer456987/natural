@@ -71,7 +71,7 @@
             </td>
 
             <td data-title="訂單編號">
-              {{ order.id }}
+              <small> {{ order.id }} </small>
             </td>
 
             <td data-title="訂購人">
@@ -139,6 +139,10 @@
       @get-data="getOrders"
     ></DashboardPagination>
 
+    <p class="text-center mt-1">
+      {{ `共有 ${filterOrder.length} 筆資料` }}
+    </p>
+
     <DashboardOrderModal
       ref="orderModal"
       :modal-order="tempOrderData"
@@ -165,19 +169,18 @@ export default {
       loadingStatus: false, // Loading 狀態
       orderSearch: '', // 搜尋
       ordersPagination: {}, // 分頁
-      orders: [], // 原始資料
+      orders: [], // 原始資料 (有分頁)
       tempOrderData: {}, // 存放新增 & 修改資料
+      allOrderss: [], // 所有產品資料 (無分頁)
+      filterDatas: [], // 暫存的商品分類列表
+      pageNnm: Number,
       isPaginationShow: true, // 分頁狀態
     };
   },
   watch: {
     orderSearch() {
       if (this.orderSearch !== '') {
-        if (this.filterOrder.length > 9) {
-          this.isPaginationShow = true;
-        } else {
-          this.isPaginationShow = false;
-        }
+        this.isPaginationShow = false;
       } else if (this.orderSearch === '') {
         this.isPaginationShow = true;
       }
@@ -185,7 +188,15 @@ export default {
   },
   computed: {
     filterOrder() { // 渲染資料
-      return this.orders.filter((item) => item.id.match(this.orderSearch));
+      let searchData = [];
+      const newsearch = this.orderSearch.toUpperCase();
+
+      if (this.orderSearch === '') {
+        searchData = this.orders;
+      } else {
+        searchData = this.allOrderss.filter((item) => item.id.toUpperCase().match(newsearch));
+      }
+      return searchData;
     },
   },
   components: { DashboardLoading, DashboardPagination, DashboardOrderModal },
@@ -199,8 +210,11 @@ export default {
           if (res.data.success) {
             this.orders = res.data.orders;
             this.ordersPagination = res.data.pagination;
-            if (this.ordersPagination.total_pages > 1) {
+            this.getAllOrders();
+            if (this.ordersPagination.total_pages > 1 && this.orderSearch === '') {
               this.isPaginationShow = true;
+            } else {
+              this.isPaginationShow = false;
             }
             this.loadingStatus = false;
           } else {
@@ -212,6 +226,34 @@ export default {
           errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
           this.loadingStatus = false;
         });
+    },
+    getAllOrders() { // 取得f全部訂單
+      this.allOrderss = [...this.orders];
+      if (this.ordersPagination.has_next) {
+        for (
+          this.pageNnm = 2;
+          this.pageNnm < this.ordersPagination.total_pages + 1;
+          this.pageNnm += 1
+        ) {
+          const url = `
+            ${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${this.pageNnm}
+          `;
+
+          this.$http.get(url)
+            .then((res) => {
+              if (res.data.success) {
+                res.data.orders.forEach((item) => {
+                  this.allOrderss.push(item);
+                });
+              } else {
+                errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+              }
+            })
+            .catch(() => {
+              errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+            });
+        }
+      }
     },
     delOrder(variable) { // 刪除單筆訂單
       const { action, id } = variable;
@@ -283,6 +325,7 @@ export default {
     },
   },
   mounted() {
+    this.pageNnm = 0;
     this.getOrders();
   },
 };

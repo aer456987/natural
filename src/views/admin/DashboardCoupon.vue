@@ -178,9 +178,14 @@ export default {
           if (res.data.success) {
             this.couponDatas = res.data.coupons;
             this.couponPagination = res.data.pagination;
-            if (this.couponPagination.has_next) {
+            this.getAllCoupons();
+
+            if (this.couponPagination.has_next && this.couponSearch === '') {
               this.isPaginationShow = true;
+            } else {
+              this.isPaginationShow = false;
             }
+
             this.loadingStatus = false;
           } else {
             errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
@@ -209,12 +214,6 @@ export default {
             errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
           });
       }
-    },
-    renderAllDatas() {
-      this.getCoupons();
-      setTimeout(() => {
-        this.getAllCoupons();
-      }, 2500);
     },
     opanCouponModal(isNew, coupon) { // 打開 Modal
       if (isNew) {
@@ -252,7 +251,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
-            this.renderAllDatas();
+            this.getCoupons();
             this.$refs.couponModal.hideCouponModal();
           } else {
             swalFn(res.data.message, 'error');
@@ -273,7 +272,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
-            this.renderAllDatas();
+            this.getCoupons();
           } else {
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
@@ -290,11 +289,11 @@ export default {
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
       this.couponSearch = '';
-      this.renderAllDatas();
+      this.getCoupons();
     },
   },
   mounted() {
-    this.renderAllDatas();
+    this.getCoupons();
     this.$refs.couponModal.resetForm();
   },
 };
