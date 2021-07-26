@@ -11,6 +11,11 @@
     :moreMsg="false"
     @back-top="backTop"
   ></Footer>
+
+  <GoToTopBtn
+    :class="'text-brown-500'"
+    @click="backTop"
+  ></GoToTopBtn>
 </template>
 
 <script>
@@ -18,6 +23,7 @@ import { swalFn, errorSwalFn, checkLoginErrorSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
 import DashboardNavbar from '@/components/navbar/DashboardNavbar.vue';
 import Footer from '@/components/Footer.vue';
+import GoToTopBtn from '@/components/GoToTopBtn.vue';
 
 export default {
   name: 'Dashboard',
@@ -27,7 +33,12 @@ export default {
       loadingStatus: false,
     };
   },
-  components: { DashboardLoading, Footer, DashboardNavbar },
+  components: {
+    DashboardLoading,
+    Footer,
+    DashboardNavbar,
+    GoToTopBtn,
+  },
   methods: {
     checkLogin() { // axios check 確認登入狀態
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;

@@ -104,6 +104,7 @@ $theme-colors: (
   "pink":       #e83e59,
   "green":      #07b53b,
   "custom-primary":   #1d7e63,
+  "custom-primary-500":   darken($custom-primary, 5),
 ) !default;
 // scss-docs-end theme-colors-map
 

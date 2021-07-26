@@ -57,9 +57,9 @@ tbody{
 
 .goTopBtn{
   bottom: 30px;
+  margin: 0;
   right: 30px;
   border: none;
-  color:  darken($custom-primary, 5);
   background: transparent;
   z-index: 3;
   transition-duration: .2s;

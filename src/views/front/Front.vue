@@ -7,7 +7,11 @@
     :moreMsg="true"
     @back-top="backTop"
   ></Footer>
-  <GoToTopBtn @click="backTop"></GoToTopBtn>
+
+  <GoToTopBtn
+    :class="'text-custom-primary-500'"
+    @click="backTop"
+  ></GoToTopBtn>
 </template>
 
 <script>
