@@ -216,13 +216,13 @@
 
                 <div class="col-12 col-md-6">
                   <label
-                    for="modalContent"
+                    for="modalContentSupplement"
                     class="form-label p-1 m-0"
                   >
                     次要文案內容
                   </label>
                   <textarea
-                    id="modalContent"
+                    id="modalContentSupplement"
                     rows="4"
                     class="form-control mb-2"
                     placeholder="請輸入次要文案內容"
