@@ -109,6 +109,10 @@
       @get-data="getCoupons"
     ></DashboardPagination>
 
+    <p class="text-center mt-1">
+      {{ `共有 ${filterCoupon.length} 筆資料` }}
+    </p>
+
     <DashboardCouponModal
       ref="couponModal"
       :modal-coupon="updataCouponData"
@@ -144,11 +148,7 @@ export default {
   watch: {
     couponSearch() {
       if (this.couponSearch !== '') {
-        if (this.filterCoupon.length > 9) {
-          this.isPaginationShow = true;
-        } else {
-          this.isPaginationShow = false;
-        }
+        this.isPaginationShow = false;
       } else if (this.couponSearch === '') {
         this.isPaginationShow = true;
       }
@@ -156,7 +156,13 @@ export default {
   },
   computed: {
     filterCoupon() {
-      return this.couponDatas.filter((item) => item.code.match(this.couponSearch));
+      let searchData = [];
+      if (this.couponSearch === '') {
+        searchData = this.couponDatas;
+      } else {
+        searchData = this.allCouponDatas.filter((item) => item.code.match(this.couponSearch));
+      }
+      return searchData;
     },
   },
   components: { DashboardLoading, DashboardPagination, DashboardCouponModal },
@@ -170,7 +176,7 @@ export default {
           if (res.data.success) {
             this.couponDatas = res.data.coupons;
             this.couponPagination = res.data.pagination;
-            if (this.couponPagination.total_pages > 1) {
+            if (this.couponPagination.has_next) {
               this.isPaginationShow = true;
             }
             this.loadingStatus = false;
@@ -185,31 +191,28 @@ export default {
         });
     },
     getAllCoupons() { // 取得f全部優惠券
+      this.allCouponDatas = [];
+      if (this.couponPagination.has_next) {
+        const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${this.couponPagination.current_page + 1}`;
 
-      // allCouponDatas: [], // 所有優惠券資料 (無分頁)
-      // filterDatas: [], // 暫存的商品分類列表
-      // const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}
-      // /admin/coupons?page=${page}`;
-      // this.loadingStatus = true;
-
-      // this.$http.get(url)
-      //   .then((res) => {
-      //     if (res.data.success) {
-      //       this.couponDatas = res.data.coupons;
-      //       this.couponPagination = res.data.pagination;
-      //       if (this.couponPagination.total_pages > 1) {
-      //         this.isPaginationShow = true;
-      //       }
-      //       this.loadingStatus = false;
-      //     } else {
-      //       errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
-      //       this.loadingStatus = false;
-      //     }
-      //   })
-      //   .catch(() => {
-      //     errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
-      //     this.loadingStatus = false;
-      //   });
+        this.$http.get(url)
+          .then((res) => {
+            if (res.data.success) {
+              this.allCouponDatas = [...this.couponDatas, ...res.data.coupons];
+            } else {
+              errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+            }
+          })
+          .catch(() => {
+            errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+          });
+      }
+    },
+    renderAllDatas() {
+      this.getCoupons();
+      setTimeout(() => {
+        this.getAllCoupons();
+      }, 2500);
     },
     opanCouponModal(isNew, coupon) { // 打開 Modal
       if (isNew) {
@@ -247,8 +250,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
-            this.getCoupons();
-            this.getAllCoupons();
+            this.renderAllDatas();
             this.$refs.couponModal.hideCouponModal();
           } else {
             swalFn(res.data.message, 'error');
@@ -269,8 +271,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
-            this.getCoupons();
-            this.getAllCoupons();
+            this.renderAllDatas();
           } else {
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
@@ -284,23 +285,14 @@ export default {
     delCouponSwalFn(data, action) { // 刪除單筆訂單的視窗
       delSwalFn(data, this.delCoupon, action);
     },
-    chechCouponSearch() { // 搜尋優惠券篩選函式
-      // let filterData = [];
-
-      //   filterData = this.filterDatas.filter((item) => item.title.match(this.productSearch));
-
-      // return filterData;
-    },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
       this.couponSearch = '';
-      this.getCoupons();
-      this.getAllCoupons();
+      this.renderAllDatas();
     },
   },
   mounted() {
-    this.getCoupons();
-    this.getAllCoupons();
+    this.renderAllDatas();
     this.$refs.couponModal.resetForm();
   },
 };
