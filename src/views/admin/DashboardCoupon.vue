@@ -157,10 +157,12 @@ export default {
   computed: {
     filterCoupon() {
       let searchData = [];
+      const newsearch = this.couponSearch.toUpperCase();
+
       if (this.couponSearch === '') {
         searchData = this.couponDatas;
       } else {
-        searchData = this.allCouponDatas.filter((item) => item.code.match(this.couponSearch));
+        searchData = this.allCouponDatas.filter((item) => item.code.match(newsearch));
       }
       return searchData;
     },
