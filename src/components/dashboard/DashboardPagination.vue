@@ -7,7 +7,7 @@
           v-if="pagesData.has_pre"
           class="page-item"
           :class="{ 'disabled' : !pagesData.has_pre }"
-          @click="$emit('get-data', pagesData.current_page - 1)"
+          @click="$emit('getData', pagesData.current_page - 1)"
         >
           <button
             type="button"
@@ -20,7 +20,7 @@
           <li
             class="page-item"
             :class="{ 'active' : pagesData.current_page === page }"
-            @click="$emit('get-data', page)"
+            @click="$emit('getData', page)"
           >
             <button
               type="button"
@@ -31,7 +31,7 @@
         <li
           v-if="pagesData.has_next"
           class="page-item"
-          @click="$emit('get-data', pagesData.current_page + 1)"
+          @click="$emit('getData', pagesData.current_page + 1)"
         >
           <button
             type="button"
@@ -60,5 +60,6 @@ export default {
       },
     },
   },
+  emits: ['getData'],
 };
 </script>
