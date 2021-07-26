@@ -87,6 +87,7 @@
         <a
           href="#"
           :class="colors.color"
+          @click.prevent="$emit('backTop')"
         >
           <Font-awesome-icon
             :icon="['fab', 'facebook-square']"
@@ -99,6 +100,7 @@
         <a
           href="#"
           :class="colors.color"
+          @click.prevent="$emit('backTop')"
         >
           <Font-awesome-icon
             :icon="['fab', 'instagram-square']"
@@ -111,6 +113,7 @@
         <a
           href="#"
           :class="colors.color"
+          @click.prevent="$emit('backTop')"
         >
           <Font-awesome-icon
             :icon="['fab', 'line']"
@@ -123,6 +126,7 @@
         <a
           href="#"
           :class="colors.color"
+          @click.prevent="$emit('backTop')"
         >
           <i class="fab fa-github-square"></i>
         </a>
@@ -131,6 +135,7 @@
         <a
           href="#"
           :class="colors.color"
+          @click.prevent="$emit('backTop')"
         >
           <Font-awesome-icon
             :icon="['fab', 'github-square']"
@@ -163,6 +168,7 @@ export default {
       },
     };
   },
+  emits: ['backTop'],
   mounted() {
     this.colors.color = this.textColor;
     this.colors.backgroundColor = this.bgColor;

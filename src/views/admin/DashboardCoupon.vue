@@ -171,6 +171,7 @@ export default {
   methods: {
     getCoupons(page = 1) { // 取得優惠券
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;
+      this.backTop();
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -180,7 +181,10 @@ export default {
             this.couponPagination = res.data.pagination;
             this.getAllCoupons();
 
-            if (this.couponPagination.has_next && this.couponSearch === '') {
+            if (
+              this.couponPagination.total_pages > 1
+              && this.couponSearch === ''
+            ) {
               this.isPaginationShow = true;
             } else {
               this.isPaginationShow = false;
@@ -291,8 +295,13 @@ export default {
       this.couponSearch = '';
       this.getCoupons();
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.getCoupons();
     this.$refs.couponModal.resetForm();
   },

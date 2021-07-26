@@ -87,6 +87,7 @@ export default {
   computed: {
     filterProducts() { // 渲染資料
       let newfilterData = [];
+      this.backTop();
       if (this.select === '全部商品') {
         newfilterData = this.products;
       } else {
@@ -96,7 +97,6 @@ export default {
       if (this.search.length > 0) {
         newfilterData = this.products.filter((item) => item.title.match(this.search));
       }
-
       return newfilterData;
     },
   },
@@ -130,6 +130,10 @@ export default {
     filterListMethods(filterTxt) { // 篩選列表
       this.search = '';
       this.select = filterTxt;
+    },
+    backTop() { // 至頂
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     },
   },
   mounted() {

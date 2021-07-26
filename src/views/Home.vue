@@ -181,6 +181,8 @@
     :bgColor="'bg-primary'"
     :moreMsg="true"
   ></Footer>
+
+  <GoToTopBtn @click="backTop"></GoToTopBtn>
 </template>
 
 <script>
@@ -195,6 +197,7 @@ import HomeMessages from '@/components/home/HomeMessages.vue';
 import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
 import Arrow from '@/components/home/Arrow.vue';
+import GoToTopBtn from '@/components/GoToTopBtn.vue';
 
 export default {
   name: 'Home',
@@ -245,6 +248,7 @@ export default {
     CountTo,
     HomeButton,
     Arrow,
+    GoToTopBtn,
   },
   methods: {
     changeNavbarStyle() { // 滾動追蹤
@@ -276,9 +280,14 @@ export default {
     resetForm() { // 重製表單驗證
       this.$refs.subscriptionForm.resetForm();
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.changeNavbarStyle);
+    this.backTop();
   },
   unmounted() { // 離開頁面後移除監聽事件
     window.removeEventListener('scroll', this.changeNavbarStyle);

@@ -5,15 +5,24 @@
     :textColor="'text-secondary'"
     :bgColor="'bg-primary'"
     :moreMsg="true"
+    @back-top="backTop"
   ></Footer>
+  <GoToTopBtn @click="backTop"></GoToTopBtn>
 </template>
 
 <script>
 import MainNavbar from '@/components/navbar/MainNavbar.vue';
 import Footer from '@/components/Footer.vue';
+import GoToTopBtn from '@/components/GoToTopBtn.vue';
 
 export default {
   name: 'Front',
-  components: { MainNavbar, Footer },
+  components: { MainNavbar, Footer, GoToTopBtn },
+  methods: {
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+  },
 };
 </script>

@@ -9,6 +9,7 @@
     :bgColor="'bg-brown'"
     :textColor="'text-dark'"
     :moreMsg="false"
+    @back-top="backTop"
   ></Footer>
 </template>
 
@@ -69,6 +70,10 @@ export default {
         .catch(() => {
           errorSwalFn('登出失敗', '請稍後再試');
         });
+    },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     },
   },
   mounted() {

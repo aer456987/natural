@@ -65,7 +65,14 @@ export default {
     };
   },
   components: { CartProgress, Breadcrumb },
+  methods: {
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+  },
   created() {
+    this.backTop();
     swalFn('已完成付款', 'success');
   },
 };

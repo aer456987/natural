@@ -203,6 +203,7 @@ export default {
   methods: {
     getOrders(page = 1) { // 取得訂單
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;
+      this.backTop();
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -212,7 +213,10 @@ export default {
             this.ordersPagination = res.data.pagination;
             this.getAllOrders();
 
-            if (this.ordersPagination.has_next && this.orderSearch === '') {
+            if (
+              this.ordersPagination.total_pages > 1
+              && this.orderSearch === ''
+            ) {
               this.isPaginationShow = true;
             } else {
               this.isPaginationShow = false;
@@ -325,8 +329,13 @@ export default {
       this.orderSearch = '';
       this.getOrders();
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.pageNnm = 0;
     this.getOrders();
   },

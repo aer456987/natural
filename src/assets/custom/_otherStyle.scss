@@ -54,3 +54,17 @@ tbody{
     transform: translate(-50%, -50%);
   }
 }
+
+.goTopBtn{
+  bottom: 30px;
+  right: 30px;
+  border: none;
+  color:  darken($custom-primary, 5);
+  background: transparent;
+  z-index: 3;
+  transition-duration: .2s;
+  &:hover{
+    transform: translateY(-5px);
+    transition-duration: .2s;
+  }
+}

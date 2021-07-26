@@ -385,8 +385,13 @@ export default {
           this.loadingStatus = false;
         });
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.getCarts();
   },
 };

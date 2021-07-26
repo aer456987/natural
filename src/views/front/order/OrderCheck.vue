@@ -312,8 +312,13 @@ export default {
           errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.order.id = this.$route.params.id;
     this.getOrder(this.order.id);
     swalFn('已建立訂單', 'success', 2000, `訂單編號：${this.order.id}`);

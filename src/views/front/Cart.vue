@@ -384,8 +384,13 @@ export default {
           errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.getCarts();
     this.isDiscount = false;
   },

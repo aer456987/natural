@@ -58,7 +58,10 @@
           </h2>
           <ul class="d-flex justify-content-center fs-2 mb-1">
             <li class="px-1">
-              <a href="#">
+              <a
+                href="#"
+                @click.prevent="backTop"
+              >
                 <Font-awesome-icon
                   :icon="['fab', 'facebook-square']"
                   class="mx-1 text-blue-600 scale transition-duration_2"
@@ -67,7 +70,10 @@
               </a>
             </li>
             <li class="px-1">
-              <a href="#">
+              <a
+                href="#"
+                @click.prevent="backTop"
+              >
                 <Font-awesome-icon
                   :icon="['fab', 'instagram-square']"
                   class="mx-1 text-pink scale transition-duration_2"
@@ -76,7 +82,10 @@
               </a>
             </li>
             <li class="px-1">
-              <a href="#">
+              <a
+                href="#"
+                @click.prevent="backTop"
+              >
                 <Font-awesome-icon
                   :icon="['fab', 'line']"
                   class="mx-1 text-green scale transition-duration_2"
@@ -201,6 +210,15 @@ export default {
   components: {
     HeaderBackgroundImg,
     Breadcrumb,
+  },
+  methods: {
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+  },
+  created() {
+    this.backTop();
   },
 };
 </script>

@@ -234,6 +234,7 @@ export default {
   methods: {
     getProducts(page = 1) { // 取得分頁商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
+      this.backTop();
       this.loadingStatus = true;
 
       this.$http.get(url)
@@ -243,7 +244,7 @@ export default {
             this.productPagination = res.data.pagination;
 
             if (
-              this.productPagination.has_next
+              this.productPagination.total_pages > 1
               && this.productSearch === ''
               && this.productSelect === '全部商品'
             ) {
@@ -385,8 +386,13 @@ export default {
       this.getProducts();
       this.getAllProducts();
     },
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.productSelect = '全部商品';
     this.getProducts();
     this.getAllProducts();
