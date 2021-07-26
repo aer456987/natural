@@ -39,7 +39,6 @@ import bus from '@/methods/bus';
 export default {
   name: 'Favorite',
   props: ['idData'],
-  // emits: ['favoriteFn'],
   data() {
     return {
       isFavorite: false,
