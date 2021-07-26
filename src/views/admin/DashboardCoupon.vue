@@ -120,7 +120,7 @@
 </template>
 
 <script>
-import { swalFn, delSwalFn } from '@/methods/swal';
+import { swalFn, delSwalFn, errorSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
 import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
 import DashboardCouponModal from '@/components/modal/DashboardCouponModal.vue';
@@ -173,12 +173,12 @@ export default {
             }
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
           this.loadingStatus = false;
         });
     },
@@ -226,7 +226,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },
@@ -246,7 +246,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },

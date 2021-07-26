@@ -84,7 +84,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { errorSwalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 
 export default {
@@ -113,11 +113,11 @@ export default {
             });
             this.cartsLength = totleQty;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
     updateFavoritesLength() { // 取得最愛收藏數量

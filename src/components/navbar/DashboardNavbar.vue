@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
   name: 'DashboardNavbar',
@@ -82,11 +82,11 @@ export default {
             document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
             this.$router.push('/login');
           } else {
-            swalFn('登出失敗', 'error');
+            errorSwalFn('登出失敗', '請重新操作');
           }
         })
         .catch(() => {
-          swalFn('登出失敗', 'error');
+          errorSwalFn('登出失敗', '請重新操作');
         });
     },
   },

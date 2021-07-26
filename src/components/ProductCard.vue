@@ -58,7 +58,7 @@
 <script>
 import bus from '@/methods/bus';
 import Favorite from '@/components/Favorite.vue';
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
   name: 'ProductCard',
@@ -97,7 +97,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },
@@ -115,11 +115,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
   },

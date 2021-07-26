@@ -267,7 +267,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
 
@@ -319,12 +319,12 @@ export default {
             this.filterFundraising();
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('資料取得失敗', '請重新整理');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('資料取得失敗', '請重新整理');
           this.loadingStatus = false;
         });
     },
@@ -381,7 +381,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },

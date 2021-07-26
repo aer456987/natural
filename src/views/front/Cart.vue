@@ -212,7 +212,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
@@ -263,12 +263,12 @@ export default {
 
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
           this.loadingStatus = false;
         });
     },
@@ -338,11 +338,11 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },
-    useCoupon() {
+    useCoupon() { // 使用優惠券
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/coupon`;
       this.loadingStatus = true;
 
@@ -360,7 +360,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },
@@ -377,11 +377,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
   },

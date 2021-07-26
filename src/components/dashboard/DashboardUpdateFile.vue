@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
   name: 'DashboardUpdateFile',
@@ -59,7 +59,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('圖片上傳失敗', 'error');
+          errorSwalFn('圖片上傳失敗', '請重新操作');
           this.isUpload = false;
         });
     },

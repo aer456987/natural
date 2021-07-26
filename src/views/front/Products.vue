@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { errorSwalFn } from '@/methods/swal';
 import HeaderBackgroundImg from '@/components/HeaderBackgroundImg.vue';
 import ProductCard from '@/components/ProductCard.vue';
 import Breadcrumb from '@/components/Breadcrumb.vue';
@@ -118,12 +118,12 @@ export default {
             this.products = res.data.products;
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('資料取得失敗', '請重新整理');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('資料取得失敗', '請重新整理');
           this.loadingStatus = false;
         });
     },

@@ -2,14 +2,51 @@ import swal from 'sweetalert';
 // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
 
 // 一般提示視窗
-export function swalFn(title, icon, timer = 1500, text, button = false, close = false) {
+export function swalFn(title, icon) {
   const txt = {
     title,
     icon,
-    timer,
+    timer: 1500,
+    button: false,
+    closeOnClickOutside: false,
+  };
+  swal(txt);
+}
+
+// 錯誤提示視窗
+export function errorSwalFn(title, text) {
+  const txt = {
+    title,
+    icon: 'error',
+    timer: 1500,
     text,
-    button,
-    closeOnClickOutside: close,
+    button: false,
+    closeOnClickOutside: false,
+  };
+  swal(txt);
+}
+
+// 登入驗證失敗
+export function checkLoginErrorSwalFn(title, icon) {
+  const txt = {
+    title,
+    icon,
+    timer: 3000,
+    text: '即將於 3 秒後引導至登入畫面',
+    button: false,
+    closeOnClickOutside: false,
+  };
+  swal(txt);
+}
+
+// 密碼提示視窗
+export function passwordMassageSwalFn() {
+  const txt = {
+    title: '忘記密碼了嗎？',
+    text: '再想一下說不定就會想起來囉！',
+    timer: 5000,
+    button: true,
+    closeOnClickOutside: true,
   };
   swal(txt);
 }

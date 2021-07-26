@@ -161,7 +161,7 @@
 </template>
 
 <script>
-import { swalFn, delSwalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn, delSwalFn } from '@/methods/swal';
 import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
 import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
 import DashboardProductModal from '@/components/modal/DashboardProductModal.vue';
@@ -175,7 +175,8 @@ export default {
       productSelect: '', // 選單
       productSearch: '', // 搜尋
       productPagination: {}, // 分頁
-      products: [], // 原始資料
+      products: [], // 原始資料 (有分頁)
+      allProductDatas: [], // 全部的資料 (無分頁)
       tempProduct: {}, // 存放新增 & 修改資料
       isNew: Boolean, // 判斷 madal 是否為新
       isPaginationShow: true, // 分頁狀態
@@ -226,7 +227,7 @@ export default {
     DashboardLoading, DashboardPagination, DashboardProductModal,
   },
   methods: {
-    getProducts(page = 1) { // 取得全部商品
+    getProducts(page = 1) { // 取得分頁商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
       this.loadingStatus = true;
 
@@ -241,6 +242,31 @@ export default {
 
             this.loadingStatus = false;
           } else {
+            errorSwalFn('分頁資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+            this.loadingStatus = false;
+          }
+        })
+        .catch(() => {
+          errorSwalFn('分頁資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+          this.loadingStatus = false;
+        });
+    },
+
+    getAllProducts() { // 取得全部商品
+      const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products/all`;
+      this.loadingStatus = true;
+
+      this.$http.get(url)
+        .then((res) => {
+          if (res.data.success) {
+            // this.products = res.data.products;
+            // this.productPagination = res.data.pagination;
+            // if (this.productPagination.total_pages > 1) {
+            //   this.isPaginationShow = true;
+            // }
+
+            this.loadingStatus = false;
+          } else {
             swalFn('資料取得失敗', 'error');
             this.loadingStatus = false;
           }
@@ -250,6 +276,7 @@ export default {
           this.loadingStatus = false;
         });
     },
+
     delProduct(variable) { // 刪除商品
       const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
@@ -267,7 +294,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },
@@ -299,7 +326,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('操作失敗', 'error');
+          errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
     },

@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { passwordMassageSwalFn } from '@/methods/swal';
 
 export default {
   name: 'Login',
@@ -141,7 +141,7 @@ export default {
         });
     },
     openPasswordMassage() {
-      swalFn('忘記密碼了嗎？', false, 5000, '再想一下說不定就會想起來囉！', true, true);
+      passwordMassageSwalFn();
     },
   },
 };

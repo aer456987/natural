@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn, checkLoginErrorSwalFn } from '@/methods/swal';
 import DashboardNavbar from '@/components/navbar/DashboardNavbar.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -35,16 +35,18 @@ export default {
           } else {
             this.loginStatus = false;
             document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
-            swalFn(res.data.message, 'warning', 3000, '即將於 3 秒後引導至登入畫面');
+            checkLoginErrorSwalFn(res.data.message, 'warning');
             setTimeout(() => {
               this.$router.push('/login');
             }, 3000);
           }
         })
         .catch(() => {
-          swalFn('認證錯誤', 'error');
           document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
-          this.$router.push('/login');
+          checkLoginErrorSwalFn('驗證錯誤', 'error');
+          setTimeout(() => {
+            this.$router.push('/login');
+          }, 3000);
         });
     },
     logout() { // 登出
@@ -61,7 +63,7 @@ export default {
           }
         })
         .catch(() => {
-          swalFn('登出失敗', 'error');
+          errorSwalFn('登出失敗', '請稍後再試');
         });
     },
   },

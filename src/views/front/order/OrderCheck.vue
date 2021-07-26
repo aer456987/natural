@@ -217,7 +217,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { swalFn, errorSwalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
@@ -268,12 +268,12 @@ export default {
             this.updateCartLength();
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('資料取得失敗', '請重新整理');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('資料取得失敗', '請重新整理');
           this.loadingStatus = false;
         });
     },
@@ -287,12 +287,12 @@ export default {
             this.loadingStatus = false;
             this.$router.push('/orderPaid');
           } else {
-            swalFn('付款失敗', 'error');
+            errorSwalFn('付款失敗', '請聯絡客服人員');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('付款失敗', 'error');
+          errorSwalFn('付款失敗', '請聯絡客服人員');
           this.loadingStatus = false;
         });
     },
@@ -305,11 +305,11 @@ export default {
           if (res.data.success) {
             bus.emit('cart-number', res.data.data.carts.length);
           } else {
-            swalFn('購物車資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
           }
         })
         .catch(() => {
-          swalFn('購物車資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
   },

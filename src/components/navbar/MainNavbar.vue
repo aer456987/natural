@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import { swalFn } from '@/methods/swal';
+import { errorSwalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 
@@ -112,11 +112,11 @@ export default {
             });
             this.cartsLength = totleQty;
           } else {
-            swalFn('購物車資料取得失敗', 'error');
+            errorSwalFn('購物車資料異常', '請重新整理');
           }
         })
         .catch(() => {
-          swalFn('購物車資料取得失敗', 'error');
+          errorSwalFn('購物車資料異常', '請重新整理');
         });
     },
     updateFavoritesLength() { // 取得最愛收藏數量
