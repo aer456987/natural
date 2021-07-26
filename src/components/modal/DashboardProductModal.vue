@@ -65,7 +65,7 @@
           </div>
 
           <div class="row">
-
+            <!-- 主要內容編輯 -->
             <div
               class="col-12"
               :class="{ 'd-none' : isShow }"
@@ -203,11 +203,11 @@
                     for="modalDescription"
                     class="form-label p-1 m-0"
                   >
-                    產品描述
+                    產品重點描述
                   </label>
                   <textarea
                     id="modalDescription"
-                    rows="5"
+                    rows="4"
                     class="form-control mb-2"
                     placeholder="請輸入產品描述"
                     v-model="tempProduct.description"
@@ -219,13 +219,29 @@
                     for="modalContent"
                     class="form-label p-1 m-0"
                   >
-                    說明內容
+                    次要文案內容
+                  </label>
+                  <textarea
+                    id="modalContent"
+                    rows="4"
+                    class="form-control mb-2"
+                    placeholder="請輸入次要文案內容"
+                    v-model="tempProduct.content_supplement"
+                  ></textarea>
+                </div>
+
+                <div class="col-12">
+                  <label
+                    for="modalContent"
+                    class="form-label p-1 m-0"
+                  >
+                    主要文案內容
                   </label>
                   <textarea
                     id="modalContent"
                     rows="5"
                     class="form-control mb-2"
-                    placeholder="請輸入說明內容"
+                    placeholder="請輸入主要文案內容"
                     v-model="tempProduct.content"
                   ></textarea>
                 </div>
@@ -237,6 +253,7 @@
               </Form>
             </div>
 
+            <!-- 圖片編輯 -->
             <div
               class="col-12"
               :class="{ 'd-none' : !isShow }"

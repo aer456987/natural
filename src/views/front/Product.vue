@@ -43,10 +43,9 @@
             {{ tempProduct.category }}
           </span>
 
-          <p
-            class="p-4 my-4 bg-primary-100"
-            v-html="tempProduct.description"
-          ></p>
+          <p class="p-4 my-4 bg-primary-100 text-white-space">
+            {{ tempProduct.description }}
+          </p>
 
           <div class="text-end">
             <p class="fst-italic text-decoration-line-through text-gray m-0">
@@ -148,14 +147,18 @@
 
       <template v-else>
         <h3 class="pb-4 text-center fw-bold text-primary">
-          商品說明
+          產品說明
         </h3>
       </template>
-      <div class="row justify-content-center">
-        <p
-          v-html="tempProduct.content"
-          class="col-10 col-xl-9"
-        ></p>
+      <div class="row justify-content-center text-white-space">
+
+        <p class="col-10 col-xl-9 border-bottom border-gray pb-5">
+          {{ tempProduct.content }}
+        </p>
+
+        <p class="col-10 col-xl-9">
+          {{ tempProduct.content_supplement }}
+        </p>
       </div>
     </div>
   </section>

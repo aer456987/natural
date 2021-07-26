@@ -75,6 +75,7 @@ ul{
   opacity: .5;
 }
 
+// 透明背景
 .bg_transparent{
   background: transparent;
 }
@@ -115,6 +116,11 @@ ul{
 // 首頁最大高度
 .max_height_lg{
   max-height: 900px;
+}
+
+.text-white-space{
+  white-space: pre-wrap;
+  // word-break: normal;
 }
 
 // 置中
