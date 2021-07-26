@@ -73,10 +73,10 @@
             環境議題一直都是不斷被提起，卻又容易被忽視的問題，
             一般大眾如果沒有無刻意關注，很常會錯過這些環保活動。
           </p>
-          <strong>而這正是 Natural 平台成立的目的。</strong>
+          <strong>而這正是 Natural 環保資訊整合平台成立的目的。</strong>
           <p class="pt-2 pb-2">
-            Natural 平台整合了各項環保活動、募款專案，另外也收錄了多家優良廠商推出的有機食品，
-            讓民眾能夠快速一覽相關的環境保育資訊、有機商品，並透過 Natural 平台進行快速預約或購買。
+            Natural 環保資訊整合平台整合了各項環保活動、募款專案，另外也收錄了多家優良廠商推出的有機食品，
+            讓民眾能夠快速一覽相關的環境保育資訊、有機商品，並透過 Natural 環保資訊整合平台進行快速預約或購買。
           </p>
         </div>
         <div
@@ -136,7 +136,7 @@
     <!-- 訂閱 -->
     <section class="px-2 py-5 text-center bg-gray-100">
       <h4 class="fs-4 mb-3 px-2">
-        訂閱 Natural 平台，讓您絕不漏接任何一則最新資訊！
+        訂閱 Natural 環保資訊整合平台，讓您絕不漏接任何一則最新資訊！
       </h4>
       <div class="row justify-content-center">
         <div class="col-md-7 col-lg-6 col-xl-4">

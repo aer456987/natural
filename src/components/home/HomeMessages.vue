@@ -105,7 +105,7 @@
             data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
-            Natural 平台成立至今，每天都有近 500
+            Natural 環保資訊整合平台成立至今，每天都有近 500
             人透過平台預約環境保育活動、參與募資或是購買有機商品。
           </p>
           <p
@@ -117,8 +117,8 @@
             data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
-            每場環保活動、教育演講幾乎場場額滿，不限參加者年齡，
-            透過 Natural 平台的購買機制，大人、小孩皆可輕鬆使用。
+            環保活動、教育演講場場額滿，不限參加者年齡，
+            只要透過 Natural 環保資訊整合平台的購買機制，便能輕鬆預約。
           </p>
         </div>
 
@@ -182,7 +182,7 @@
             data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
-            Natural 平台整合了各縣市大大小小的公益組織募款資訊，
+            Natural 環保資訊整合平台整合了各縣市大大小小的公益組織募款資訊，
             提供知名度較小或者是較需要資源的環境保育公益機構一個友善的刊登平台。
           </p>
           <p
@@ -194,7 +194,7 @@
             data-aos-duration="1000"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
-            除了能增加曝光率，民眾也能更方便的透過 Natural 平台找到自己喜歡的機構，
+            除了能增加曝光率，民眾也能更方便的透過 Natural 環保資訊整合平台找到自己喜歡的機構，
             並參與機構釋出的募款活動。
           </p>
         </div>
@@ -248,7 +248,7 @@
             data-aos-duration="1000"
             class="mb-md-1 mb-lg-2"
           >
-            Natural 平台現有 310 家合作的有機農家、廠商，所有的合作
+            Natural 環保資訊整合平台現有 310 家合作的有機農家、廠商，所有的合作
             商家皆有獲得政府認證之有機食品標章。
           </p>
           <p
@@ -261,7 +261,7 @@
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             依照季節的不同推出不同的當季新鮮蔬果，
-            另外 Natural 平台也有販售線下主打的環保用品，因應政府
+            另外 Natural 環保資訊整合平台也有販售線下主打的環保用品，因應政府
             減塑政策，為環境盡一份心力。
           </p>
         </div>

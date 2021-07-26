@@ -169,14 +169,14 @@ export default {
           content: `
             Natural 團隊起初由幾個擁有相同意志的人組成，
             期間不斷積極的接洽各縣市與公益團體，推廣整合平台的優勢，
-            Natural 平台除了能增加活動的曝光率、民眾獲取資料的方便性，
+            Natural 環保資訊整合平台除了能增加活動的曝光率、民眾獲取資料的方便性，
             更能提升民眾的參與度。<br><br>
 
-            Natural 平台成立雖然只有短短 5 年，但使用人數逐年增加，
-            共累計超過萬人透過 Natural 平台預約環保、動保實體活動，
+            Natural 環保資訊整合平台成立雖然只有短短 5 年，但使用人數逐年增加，
+            共累計超過萬人透過 Natural 環保資訊整合平台預約環保、動保實體活動，
             募款專案的募款成效及有機商品的回響皆大受好評。<br><br>
 
-            除了整合資訊外，Natural 平台也協助參與公益活動的舉辦及宣傳，
+            除了整合資訊外，Natural 環保資訊整合平台也協助參與公益活動的舉辦及宣傳，
             目前已舉辦過包含淨灘、淨溪、淨山等大型公益活動，
             活動收益扣除成本後，皆全數捐給不特定、較小眾的環保、動保組織。
           `,
@@ -185,13 +185,13 @@ export default {
         {
           title: '未來展望',
           content: `
-            Natural 平台至今已統整近千場有關於環境教育、動物保育的活動、講座、
+            Natural 環保資訊整合平台至今已統整近千場有關於環境教育、動物保育的活動、講座、
             募資等資訊，也接洽過百家廠商洽談有機商品的合作。<br><br>
 
             希望可以藉由網路力量及整合平台的優勢，讓宣傳資源較少的公益團隊能夠透過
-            Natural 平台增加曝光度，維持公益團隊的運作。<br><br>
+            Natural 環保資訊整合平台增加曝光度，維持公益團隊的運作。<br><br>
 
-            民眾也能利用 Natural 平台，快速獲取公益活動，用自己的方式為環境盡一份心力。
+            民眾也能利用 Natural 環保資訊整合平台，快速獲取公益活動，用自己的方式為環境盡一份心力。
           `,
           img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625386513455.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=moZhegjw%2FvCbWRXbREXgpFLaQh5gEL4t%2F%2B3LnHxTUIh2r%2F0qnUp7hGW7l03E%2BTFv5scCn1dhVAmXZcUZtqJ56bwU6gAlwExwcAmWtldyMT3IcJpwJA%2BaiF0FGgk2Jqwhni6WgRuSlsux%2Fef5v1MctATYVz6Ds2o%2Bpg%2F5tnviMHK9Zx6rT%2BNQaTqhBvu%2FpZhkvwrArazx%2BG5vOSB7Qsbu7Szr8obEftmIwfBTaQ2h5XeIgMxKTysvwERU%2BnwBBXSOiFQVJC%2F6Hlfsh5Z7EyRtMD7PlG6VKpbNjgc3UXga5Esq0IQQQb%2BycapLwTEsmowzPwXanU6dV6vA%2FkPwelICkQ%3D%3D',
         },

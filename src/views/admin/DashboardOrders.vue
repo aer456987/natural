@@ -211,11 +211,13 @@ export default {
             this.orders = res.data.orders;
             this.ordersPagination = res.data.pagination;
             this.getAllOrders();
-            if (this.ordersPagination.total_pages > 1 && this.orderSearch === '') {
+
+            if (this.ordersPagination.has_next && this.orderSearch === '') {
               this.isPaginationShow = true;
             } else {
               this.isPaginationShow = false;
             }
+
             this.loadingStatus = false;
           } else {
             errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');

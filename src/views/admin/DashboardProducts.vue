@@ -241,8 +241,15 @@ export default {
           if (res.data.success) {
             this.products = res.data.products;
             this.productPagination = res.data.pagination;
-            if (this.productPagination.total_pages > 1) {
+
+            if (
+              this.productPagination.has_next
+              && this.productSearch === ''
+              && this.productSelect === '全部商品'
+            ) {
               this.isPaginationShow = true;
+            } else {
+              this.isPaginationShow = false;
             }
 
             this.loadingStatus = false;
@@ -277,6 +284,7 @@ export default {
     },
     filterProduct(data) { // 將所有商品 push 到陣列裡
       const productKeys = Object.keys(data);
+      this.allProducts = [];
 
       productKeys.forEach((item) => {
         this.allProducts.push(data[item]);
