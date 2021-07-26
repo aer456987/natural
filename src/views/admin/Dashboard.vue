@@ -1,4 +1,5 @@
 <template>
+  <DashboardLoading :status="loadingStatus"></DashboardLoading>
   <!-- 導覽列 -->
   <DashboardNavbar></DashboardNavbar>
   <!-- 主要頁面 -->
@@ -13,6 +14,7 @@
 
 <script>
 import { swalFn, errorSwalFn, checkLoginErrorSwalFn } from '@/methods/swal';
+import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
 import DashboardNavbar from '@/components/navbar/DashboardNavbar.vue';
 import Footer from '@/components/Footer.vue';
 
@@ -21,9 +23,10 @@ export default {
   data() {
     return {
       loginStatus: false,
+      loadingStatus: false,
     };
   },
-  components: { Footer, DashboardNavbar },
+  components: { DashboardLoading, Footer, DashboardNavbar },
   methods: {
     checkLogin() { // axios check 確認登入狀態
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;
@@ -32,6 +35,7 @@ export default {
         .then((res) => {
           if (res.data.success) {
             this.loginStatus = true;
+            this.loadingStatus = false;
           } else {
             this.loginStatus = false;
             document.cookie = 'hexToken=; expires=Thu, 18 Dec 2003 12:00:00 UTC; path=/natural/dist;';
@@ -68,6 +72,7 @@ export default {
     },
   },
   mounted() {
+    this.loadingStatus = true;
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.$http.defaults.headers.common.Authorization = token;
     this.checkLogin();

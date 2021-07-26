@@ -149,6 +149,10 @@
       @get-data="getProducts"
     ></DashboardPagination>
 
+    <p class="text-center mt-1">
+      {{ `共有 ${filterProducts.length} 筆資料` }}
+    </p>
+
     <DashboardProductModal
       ref="productModal"
       :modal-product="tempProduct"
@@ -175,9 +179,10 @@ export default {
       productSelect: '', // 選單
       productSearch: '', // 搜尋
       productPagination: {}, // 分頁
-      products: [], // 原始資料 (有分頁)
-      allProductDatas: [], // 全部的資料 (無分頁)
+      products: [], // 原始商品資料 (有分頁)
       tempProduct: {}, // 存放新增 & 修改資料
+      allProducts: [], // 所有產品資料 (無分頁)
+      filterDatas: [], // 暫存的商品分類列表
       isNew: Boolean, // 判斷 madal 是否為新
       isPaginationShow: true, // 分頁狀態
     };
@@ -214,10 +219,10 @@ export default {
       if (this.productSelect === '全部商品') {
         newFilterData = this.products;
       } else {
-        newFilterData = this.products.filter((item) => item.category.match(this.productSelect));
+        newFilterData = this.checkProductSelect();
       }
       if (this.productSearch !== '') {
-        newFilterData = this.products.filter((item) => item.title.match(this.productSearch));
+        newFilterData = this.chechProductSearch();
       }
 
       return newFilterData;
@@ -242,16 +247,15 @@ export default {
 
             this.loadingStatus = false;
           } else {
-            errorSwalFn('分頁資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+            errorSwalFn('產品資料取得失敗', '請重新刷新頁面或使用重整按鈕');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('分頁資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+          errorSwalFn('產品資料取得失敗', '請重新刷新頁面或使用重整按鈕');
           this.loadingStatus = false;
         });
     },
-
     getAllProducts() { // 取得全部商品
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products/all`;
       this.loadingStatus = true;
@@ -259,24 +263,25 @@ export default {
       this.$http.get(url)
         .then((res) => {
           if (res.data.success) {
-            // this.products = res.data.products;
-            // this.productPagination = res.data.pagination;
-            // if (this.productPagination.total_pages > 1) {
-            //   this.isPaginationShow = true;
-            // }
-
+            this.filterProduct(res.data.products);
             this.loadingStatus = false;
           } else {
-            swalFn('資料取得失敗', 'error');
+            errorSwalFn('產品資料取得失敗', '請重新刷新頁面或使用重整按鈕');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          swalFn('資料取得失敗', 'error');
+          errorSwalFn('產品資料取得失敗', '請重新刷新頁面或使用重整按鈕');
           this.loadingStatus = false;
         });
     },
+    filterProduct(data) { // 將所有商品 push 到陣列裡
+      const productKeys = Object.keys(data);
 
+      productKeys.forEach((item) => {
+        this.allProducts.push(data[item]);
+      });
+    },
     delProduct(variable) { // 刪除商品
       const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
@@ -287,6 +292,7 @@ export default {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
             this.getProducts();
+            this.getAllProducts();
             this.loadingStatus = false;
           } else {
             swalFn(res.data.message, 'error');
@@ -319,6 +325,7 @@ export default {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
             this.getProducts();
+            this.getAllProducts();
             this.$refs.productModal.hideModal();
           } else {
             swalFn(res.data.message, 'error');
@@ -329,6 +336,20 @@ export default {
           errorSwalFn('操作出現異常', '請稍後再試');
           this.loadingStatus = false;
         });
+    },
+    checkProductSelect() { // 產品分類篩選函式
+      this.filterDatas = this.allProducts.filter((item) => item.category.match(this.productSelect));
+      return this.filterDatas;
+    },
+    chechProductSearch() { // 搜尋商品篩選函式
+      let filterData = [];
+
+      if (this.productSelect === '全部商品') {
+        filterData = this.allProducts.filter((item) => item.title.match(this.productSearch));
+      } else {
+        filterData = this.filterDatas.filter((item) => item.title.match(this.productSearch));
+      }
+      return filterData;
     },
     openModal(isNew, product) { // 打開模組
       if (isNew) {
@@ -354,11 +375,13 @@ export default {
       swalFn('正在重整資料', 'info');
       this.productSelect = '全部商品';
       this.getProducts();
+      this.getAllProducts();
     },
   },
   mounted() {
     this.productSelect = '全部商品';
     this.getProducts();
+    this.getAllProducts();
   },
 };
 </script>

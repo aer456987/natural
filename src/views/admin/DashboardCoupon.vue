@@ -133,9 +133,11 @@ export default {
       btnStatus: Boolean, // true 禁用; false 啟用
       couponSearch: '', // 搜尋功能
       couponPagination: {}, // 分頁
-      couponDatas: [],
+      couponDatas: [], // 優惠券資料 (有分頁)
+      updataCouponData: {}, // 更新優惠券資料
+      allCouponDatas: [], // 所有優惠券資料 (無分頁)
+      filterDatas: [], // 暫存的商品分類列表
       isNew: Boolean, // modal新增/修改
-      updataCouponData: {},
       isPaginationShow: true, // 分頁狀態
     };
   },
@@ -182,6 +184,33 @@ export default {
           this.loadingStatus = false;
         });
     },
+    getAllCoupons() { // 取得f全部優惠券
+
+      // allCouponDatas: [], // 所有優惠券資料 (無分頁)
+      // filterDatas: [], // 暫存的商品分類列表
+      // const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}
+      // /admin/coupons?page=${page}`;
+      // this.loadingStatus = true;
+
+      // this.$http.get(url)
+      //   .then((res) => {
+      //     if (res.data.success) {
+      //       this.couponDatas = res.data.coupons;
+      //       this.couponPagination = res.data.pagination;
+      //       if (this.couponPagination.total_pages > 1) {
+      //         this.isPaginationShow = true;
+      //       }
+      //       this.loadingStatus = false;
+      //     } else {
+      //       errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+      //       this.loadingStatus = false;
+      //     }
+      //   })
+      //   .catch(() => {
+      //     errorSwalFn('資料取得失敗', '請重新刷新頁面或使用重整按鈕');
+      //     this.loadingStatus = false;
+      //   });
+    },
     opanCouponModal(isNew, coupon) { // 打開 Modal
       if (isNew) {
         this.isNew = true;
@@ -219,6 +248,7 @@ export default {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
             this.getCoupons();
+            this.getAllCoupons();
             this.$refs.couponModal.hideCouponModal();
           } else {
             swalFn(res.data.message, 'error');
@@ -240,6 +270,7 @@ export default {
           if (res.data.success) {
             swalFn(res.data.message, 'success');
             this.getCoupons();
+            this.getAllCoupons();
           } else {
             swalFn(res.data.message, 'error');
             this.loadingStatus = false;
@@ -253,14 +284,23 @@ export default {
     delCouponSwalFn(data, action) { // 刪除單筆訂單的視窗
       delSwalFn(data, this.delCoupon, action);
     },
+    chechCouponSearch() { // 搜尋優惠券篩選函式
+      // let filterData = [];
+
+      //   filterData = this.filterDatas.filter((item) => item.title.match(this.productSearch));
+
+      // return filterData;
+    },
     resetData() { // 重整資料
       swalFn('正在重整資料', 'info');
       this.couponSearch = '';
       this.getCoupons();
+      this.getAllCoupons();
     },
   },
   mounted() {
     this.getCoupons();
+    this.getAllCoupons();
     this.$refs.couponModal.resetForm();
   },
 };

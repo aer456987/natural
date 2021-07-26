@@ -12,7 +12,9 @@
           <button
             type="button"
             class="page-link"
-          >&laquo;</button>
+          >
+            &laquo;
+          </button>
         </li>
         <template
           v-for="page in pagesData.total_pages"
@@ -25,7 +27,9 @@
             <button
               type="button"
               class="page-link"
-            >{{ page }}</button>
+            >
+              {{ page }}
+            </button>
           </li>
         </template>
         <li
@@ -36,7 +40,9 @@
           <button
             type="button"
             class="page-link"
-          >&raquo;</button>
+          >
+            &raquo;
+          </button>
         </li>
       </ul>
     </nav>
