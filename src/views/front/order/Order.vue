@@ -131,7 +131,7 @@
                 ></ErrorMessage>
 
                 <!-- 寄送方式 -->
-                <template v-if="isSend">
+                <template v-if="isDeliveryMethodShow">
                   <label
                     for="orderDelivery"
                     class="form-label mt-3 mb-1"
@@ -162,29 +162,31 @@
                   ></ErrorMessage>
                 </template>
 
+                <template v-if="isSendShow">
                 <!-- 收件地址 -->
-                <label
-                  for="orderAddress"
-                  class="form-label mt-3 mb-1"
-                >
-                  收件地址(超取請填寫門市名稱)<span class="text-danger fw-bold">*</span>
-                </label>
-                <Field
-                  type="text"
-                  name="地址"
-                  placeholder="宅配請輸入收件地址，超取請填寫門市名稱"
-                  id="orderAddress"
-                  class="form-control"
-                  :class="{ 'is-invalid': errors['地址'] }"
-                  rules="required"
-                  v-model="userDatas.user.address"
-                  :readonly="!isSend"
-                  @change="checkUserDatas"
-                ></Field>
-                <ErrorMessage
-                  name="地址"
-                  class="invalid-feedback mb-1"
-                ></ErrorMessage>
+                  <label
+                    for="orderAddress"
+                    class="form-label mt-3 mb-1"
+                  >
+                    收件地址(超取請填寫門市名稱)<span class="text-danger fw-bold">*</span>
+                  </label>
+                  <Field
+                    type="text"
+                    name="地址"
+                    :placeholder="addressMsg"
+                    id="orderAddress"
+                    class="form-control"
+                    :class="{ 'is-invalid': errors['地址'] }"
+                    rules="required"
+                    v-model="userDatas.user.address"
+                    :readonly="!isSendShow"
+                    @change="checkUserDatas"
+                  ></Field>
+                  <ErrorMessage
+                    name="地址"
+                    class="invalid-feedback mb-1"
+                  ></ErrorMessage>
+                </template>
 
                 <!-- 付款方式 -->
                 <label
@@ -204,10 +206,14 @@
                   v-model="userDatas.user.payment"
                   @change="checkUserDatas"
                 >
-                  <option value="" selected disabled>選擇付款方式</option>
-                  <option value="信用卡">信用卡</option>
+                  <option value="" selected disabled>
+                    選擇付款方式
+                  </option>
+                  <option value="信用卡">
+                    信用卡
+                  </option>
                   <option
-                    v-if="isFundraising"
+                    v-if="isFundraisingShow"
                     value="貨到付款"
                   >
                     貨到付款
@@ -282,8 +288,10 @@ export default {
       userDatas: { // 未送訂單: 訂單資料
         user: {},
       },
-      isFundraising: true, // 特定付款選項不能用
-      isSend: true, // 需要寄送
+      isFundraisingShow: true, // 特定付款選項不能用
+      isDeliveryMethodShow: true, // 寄送方式選擇
+      isSendShow: true, // 需要寄送
+      addressMsg: '',
       isAll: true,
       breadcrumbData: { // 麵包屑
         previous: [ // 上一個(多個)
@@ -329,25 +337,41 @@ export default {
         });
     },
     filterFundraising() { // 確認地址是否需要填寫
-      this.tempData = this.carts.carts.filter(
-        (item) => item.product.category === '講座' || item.product.category === '募款專案',
+      // 單純講座 & 活動的資料
+      const notNeedSendProduct = this.carts.carts.filter(
+        (item) => item.product.category === '講座' || item.product.category === '公益活動',
+      );
+      // 單純捐款的資料
+      const onlyDonations = this.carts.carts.filter(
+        (item) => item.product.category === '募款專案',
       );
 
+      this.tempData = [...onlyDonations, ...notNeedSendProduct];
+
       this.carts.carts.forEach((item) => {
-        if (this.tempData.includes(item)) {
-          this.isFundraising = false;
-          this.isSend = true;
+        if (notNeedSendProduct.includes(item)) {
+          this.isFundraisingShow = false;
+          this.isSendShow = true;
+          this.isDeliveryMethodShow = true;
         }
       });
 
-      if (this.tempData.length === this.carts.carts.length) {
-        this.isFundraising = false;
-        this.isSend = false;
-        this.userDatas.user.delivery = '單純參加講座或捐款無需填寫';
-        this.userDatas.user.address = '單純參加講座或捐款無需填寫';
+      if (notNeedSendProduct.length === this.carts.carts.length) {
+        this.isFundraisingShow = false;
+        this.isSendShow = false;
+        this.isDeliveryMethodShow = false;
+        this.userDatas.user.delivery = '單純參加講座或公益活動無需填寫';
+        this.userDatas.user.address = '單純參加講座或公益活動無需填寫';
+      } else if (this.tempData.length === this.carts.carts.length) {
+        this.isFundraisingShow = false;
+        this.isSendShow = true;
+        this.isDeliveryMethodShow = false;
+        this.addressMsg = '訂單中含有募款專案，請填寫捐款收據寄送地址(一律掛號寄出)';
       } else {
-        this.isFundraising = true;
-        this.isSend = true;
+        this.isFundraisingShow = true;
+        this.isSendShow = true;
+        this.isDeliveryMethodShow = true;
+        this.addressMsg = '宅配請輸入收件地址，超取請填寫門市名稱';
       }
     },
     checkUserDatas() { // 驗證是否為空訂單
@@ -393,6 +417,7 @@ export default {
   mounted() {
     this.backTop();
     this.getCarts();
+    this.addressMsg = '宅配請輸入收件地址，超取請填寫門市名稱';
   },
 };
 </script>
