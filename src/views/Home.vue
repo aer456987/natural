@@ -183,8 +183,9 @@
   ></Footer>
 
   <GoToTopBtn
-    :class="'text-primary-500'"
-    @click="backTop"
+    is-show="ture"
+    :bg-Color="'bg-primary'"
+    @back-top-btn="backTop"
   ></GoToTopBtn>
 </template>
 

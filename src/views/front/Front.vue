@@ -9,8 +9,9 @@
   ></Footer>
 
   <GoToTopBtn
-    :class="'text-custom-primary-500'"
-    @click="backTop"
+    is-show="ture"
+    :bg-Color="'bg-primary'"
+    @back-top-btn="backTop"
   ></GoToTopBtn>
 </template>
 

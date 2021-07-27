@@ -13,8 +13,9 @@
   ></Footer>
 
   <GoToTopBtn
-    :class="'text-brown-500'"
-    @click="backTop"
+    :is-show="false"
+    :bg-Color="'bg-brown-500'"
+    @back-top-btn="backTop"
   ></GoToTopBtn>
 </template>
 
