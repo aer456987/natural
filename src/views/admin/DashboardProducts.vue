@@ -17,7 +17,7 @@
               <option value="公益活動">公益活動</option>
               <option value="講座">講座</option>
               <option value="有機食品">有機食品</option>
-              <option value="周邊商品">周邊商品</option>
+              <option value="環保商品">環保商品</option>
             </select>
           </div>
 

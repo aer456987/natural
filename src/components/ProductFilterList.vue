@@ -101,7 +101,7 @@
       <input
         type="radio"
         name="productFilterRadio"
-        value="周邊商品"
+        value="環保商品"
         autocomplete="off"
         id="merchandise"
         class="btn-check"
@@ -112,7 +112,7 @@
         class="btn btn-outline-primary textStyle_rwd_2 py-1 border-0 rounded-0"
         for="merchandise"
       >
-        周邊商品
+        環保商品
       </label>
     </form>
   </nav>

@@ -102,7 +102,7 @@ export default {
         },
         {
           id: 4,
-          title: '周邊商品',
+          title: '環保商品',
           text: '減塑行動，從你我開始',
           imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625202999417.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=BjHrZrY%2BFjumd7Rv%2BbkRYlIWkosvMv9oAnx8SQsSypjmQRfyhwi0DvsAey%2F3svyUVXfgIqEdnt7%2FDqVoInxFrUa1TuEVHh6aq%2FnDEK%2BuGRtVg3CiYWljmi6CCylnt0lemNHcB4alSBesS2utcZ6UV9gus8M7S3wglPa1X4fxAm2Iq8VTa9MCbbsu55HowJR6Vk2gmgEYfqCbaKGiiPj1lVJ0jKTCbKnILUwkI6IA%2B9AKQX3SJUkM4G%2B%2FCPFK8cpMaLqVXBzWcMFV1hNZizudopA8%2Byt88FoFqJzsCA6WaH%2FulbsMwYxivynU%2FtY16as2MJyHDe1UeMpHZG9ebxlbiQ%3D%3D',
         },

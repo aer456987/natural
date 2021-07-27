@@ -3,12 +3,12 @@
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl"
   ></HeaderBackgroundImg>
-  <div class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
+  <main class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
     <div class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
-      <main
+      <section
         class="row py-3"
       >
         <div class="col-12 col-lg-7">
@@ -63,7 +63,7 @@
             </template>
           </ul>
         </aside>
-      </main>
+      </section>
 
       <section
         class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2"
@@ -154,7 +154,7 @@
         </div>
       </section>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
