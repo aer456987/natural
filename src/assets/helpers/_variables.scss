@@ -83,8 +83,9 @@ $custom-primary:   #1d7e63 !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
-  "primary"     :$primary,// $primary, 1D7E63, 09694C
-  "primary-100" :rgba(#09694C, .1),
+  "primary":    $primary,// $primary, 1D7E63, 09694C
+  "primary-100": rgba(#09694C, .1),
+  "primary-500": darken($primary, 5),
   "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
   "success-light":    lighten(#06805f, 2),

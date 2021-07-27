@@ -137,6 +137,7 @@ export default {
     },
   },
   mounted() {
+    this.backTop();
     this.getProducts();
     this.select = '全部商品';
   },

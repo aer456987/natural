@@ -288,8 +288,13 @@ export default {
     changeImg(img) { // 切換圖片
       this.productImg = img;
     },
+    backTop() { // 至頂
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
   },
   mounted() {
+    this.backTop();
     this.productId = this.$route.params.id;
     this.getProduct(this.productId);
     this.qty = 1;

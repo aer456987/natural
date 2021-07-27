@@ -182,7 +182,10 @@
     :moreMsg="true"
   ></Footer>
 
-  <GoToTopBtn @click="backTop"></GoToTopBtn>
+  <GoToTopBtn
+    :class="'text-primary-500'"
+    @click="backTop"
+  ></GoToTopBtn>
 </template>
 
 <script>
