@@ -140,6 +140,17 @@
               </p>
             </li>
             <li>
+              <p class="m-0">
+                客服信箱：
+                <a
+                  href="mailto:naturalConservation@gmail.com"
+                  class="custom_success_link"
+                >
+                  naturalConservation@gmail.com
+                </a>
+              </p>
+            </li>
+            <li>
               <p>服務時間：09:00 ~ 13:00 / 15:00 ~ 19:00</p>
             </li>
           </ul>

@@ -70,7 +70,6 @@
               <a
                 href="tel:+886-2-2308264"
                 :class="colors.color"
-                class="scale"
               >
                 (02)2308264
               </a>
@@ -78,9 +77,19 @@
               <a
                 href="tel:+886-2-2308264"
                 :class="colors.color"
-                class="scale"
               >
                 (02)8650610
+              </a>
+            </p>
+          </li>
+          <li>
+            <p class="m-0">
+              客服信箱：
+              <a
+                href="mailto:naturalConservation@gmail.com"
+                :class="colors.color"
+              >
+                naturalConservation@gmail.com
               </a>
             </p>
           </li>
