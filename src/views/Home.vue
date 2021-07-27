@@ -31,9 +31,10 @@
       <h2
         class="textStyle_rwd_1 fw-bold text-center mb-1"
         data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom"
+        data-aos-anchor-placement="bottom-bottom"
         data-aos-delay="200"
-        data-aos-duration="1000"
+        data-aos-duration="700"
+        data-aos-easing="ease-out"
       >
         自然，不該被視作理所當然。
       </h2>
@@ -42,7 +43,8 @@
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         data-aos-delay="400"
-        data-aos-duration="1000"
+        data-aos-duration="700"
+        data-aos-easing="ease-out"
       >
         它們不會說話，卻默默承受著我們造成的業果。
       </p>
@@ -57,24 +59,45 @@
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         data-aos-delay="100"
-        data-aos-duration="1000"
+        data-aos-duration="700"
+        data-aos-easing="ease-out"
       >
         這一秒，大自然的生命也在逐漸凋零
       </h2>
       <div class="row flex-column align-items-center pt-3">
         <div
           class="col-10 col-md-7 col-lg-5"
-          data-aos="fade-up"
-          data-aos-anchor-placement="center-bottom"
-          data-aos-delay="200"
-          data-aos-duration="1000"
         >
-          <p>
+          <p
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+            data-aos-delay="200"
+            data-aos-duration="700"
+            data-aos-easing="ease-out"
+          >
             環境議題一直都是不斷被提起，卻又容易被忽視的問題，
             一般大眾如果沒有無刻意關注，很常會錯過這些環保活動。
           </p>
-          <strong>而這正是 Natural 環保資訊整合平台成立的目的。</strong>
-          <p class="pt-2 pb-2">
+          <p
+            class="m-0"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+            data-aos-delay="300"
+            data-aos-duration="700"
+            data-aos-easing="ease-out"
+          >
+            <strong>
+              而這正是 Natural 環保資訊整合平台成立的目的。
+            </strong>
+          </p>
+          <p
+            class="pt-2 pb-2"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+            data-aos-delay="400"
+            data-aos-duration="700"
+            data-aos-easing="ease-out"
+          >
             Natural 環保資訊整合平台整合了各項環保活動、募款專案，另外也收錄了多家優良廠商推出的有機食品，
             讓民眾能夠快速一覽相關的環境保育資訊、有機商品，並透過 Natural 環保資訊整合平台進行快速預約或購買。
           </p>
@@ -83,7 +106,7 @@
           class="col-10 col-sm-4 col-lg-3 col-xl-3 col-xxl-2"
           data-aos="fade"
           data-aos-anchor-placement="center-bottom"
-          data-aos-delay="300"
+          data-aos-delay="500"
           data-aos-duration="1000"
         >
           <HomeButton
@@ -106,7 +129,7 @@
             class="col-6 col-xl-3 px-0 text-center mb-2"
             data-aos="zoom-in-down"
             data-aos-anchor-placement="center-bottom"
-            data-aos-duration="1000"
+            data-aos-duration="700"
           >
             <h3 class="fs-7 fw-bold">
               <CountTo

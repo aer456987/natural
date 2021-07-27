@@ -8,11 +8,13 @@
       <li
         class="col-sm-12 col-md-6 col-lg-3 p-0
           natural_threat_card_item overflow-hidden"
-        data-aos="zoom-in-up"
-        data-aos-anchor-placement="center-bottom"
+        data-aos="zoom-in"
+        data-aos-anchor-placement="top-bottom"
         data-aos-delay="500"
-        data-aos-duration="1000"
+        data-aos-duration="900"
+        data-aos-easing="ease-out-back"
       >
+        <!-- easing="ease-out-back" -->
         <img
           :src="item.img"
           :alt="`圖片${item.id + 1}`"

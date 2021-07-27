@@ -8,14 +8,23 @@
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
-      <main class="row py-3">
+      <main
+        class="row py-3"
+      >
         <div class="col-12 col-lg-7">
           <ul class="row list-unstyled">
             <template
               v-for="(pageText, key) in pageTextContent"
               :key="`關於內文_${key}`"
             >
-              <li class="col-12 pe-2 py-3 text-break">
+              <li
+                class="col-12 pe-2 py-3 text-break"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-back"
+                data-aos-anchor-placement="top-bottom"
+                :data-aos-delay="`1${key+1}0`"
+                data-aos-duration="700"
+              >
                 <h2 class="fw-bold pb-1">
                   {{ pageText.title }}
                 </h2>
@@ -37,7 +46,14 @@
               v-for="(asideImg, key) in pageTextContent"
               :key="`側欄圖片_${key}`"
             >
-              <li class="col-12 py-1">
+              <li
+                class="col-12 py-1"
+                data-aos="fade-up"
+                data-aos-easing="ease-out-back"
+                data-aos-anchor-placement="top-bottom"
+                :data-aos-delay="`1${key+2}0`"
+                data-aos-duration="700"
+              >
                 <img
                   :src="asideImg.img"
                   :alt="asideImg.title"
@@ -51,6 +67,11 @@
 
       <section
         class="row pt-5 pb-3 px-2 mt-2 mb-4 bg-white shadow-sm rounded-2"
+        data-aos="fade-up"
+        data-aos-easing="ease-out-back"
+        data-aos-anchor-placement="top-bottom"
+        data-aos-delay="200"
+        data-aos-duration="700"
       >
         <div class="col-12 text-center mb-2">
           <h2 class="fw-bold">

@@ -23,19 +23,19 @@
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
           >
             活動資訊豐富
           </h3>
           <p
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="mb-md-1 mb-lg-2"
           >
             不定時發布各縣市政府、企業以及民間團體所舉辦的環境保
@@ -44,10 +44,10 @@
           <p
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             目前已舉辦過包含淨灘、淨山、淨溪、植樹等 2500 場公益活
@@ -61,7 +61,7 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="200"
+          data-aos-delay="0"
           data-aos-duration="1200"
         >
           <HomeButton buttom-text="了解更多" link-path="/products"></HomeButton>
@@ -90,19 +90,19 @@
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
           >
             民眾參加度踴躍
           </h3>
           <p
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="mb-md-1 mb-lg-2"
           >
             Natural 環保資訊整合平台成立至今，每天都有近 500
@@ -111,10 +111,10 @@
           <p
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             環保活動、教育演講場場額滿，不限參加者年齡，
@@ -128,7 +128,7 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="200"
+          data-aos-delay="0"
           data-aos-duration="1200"
         >
           <HomeButton buttom-text="我要參加" link-path="/products"></HomeButton>
@@ -167,19 +167,19 @@
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
           >
             募資專案
           </h3>
           <p
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="mb-md-1 mb-lg-2"
           >
             Natural 環保資訊整合平台整合了各縣市大大小小的公益組織募款資訊，
@@ -188,10 +188,10 @@
           <p
             data-aos="fade-left"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             除了能增加曝光率，民眾也能更方便的透過 Natural 環保資訊整合平台找到自己喜歡的機構，
@@ -205,7 +205,7 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="200"
+          data-aos-delay="0"
           data-aos-duration="1200"
         >
           <HomeButton buttom-text="我想捐款" link-path="/products"></HomeButton>
@@ -233,19 +233,19 @@
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
           >
             產品種類多樣
           </h3>
           <p
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="mb-md-1 mb-lg-2"
           >
             Natural 環保資訊整合平台現有 310 家合作的有機農家、廠商，所有的合作
@@ -254,10 +254,10 @@
           <p
             data-aos="fade-right"
             data-aos-offset="300"
-            data-aos-easing="ease-in-sine"
+            data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
-            data-aos-duration="1000"
+            data-aos-duration="1200"
             class="d-block d-md-none d-lg-block mb-lg-1 mb-xl-2"
           >
             依照季節的不同推出不同的當季新鮮蔬果，
@@ -272,7 +272,7 @@
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
-          data-aos-delay="200"
+          data-aos-delay="0"
           data-aos-duration="1200"
         >
           <HomeButton buttom-text="前往採購" link-path="/products"></HomeButton>
