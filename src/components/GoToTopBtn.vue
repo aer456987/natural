@@ -2,8 +2,7 @@
   <!-- 至頂按鈕 -->
   <ul
     class="goTopBtn position-fixed
-      d-flex flex-column justify-content-around align-items-center
-      rounded-1"
+      d-flex flex-column justify-content-around align-items-center"
     :class="bgColor"
   >
     <template v-if="isShow">

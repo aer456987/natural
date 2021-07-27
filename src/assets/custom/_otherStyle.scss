@@ -57,12 +57,12 @@ tbody{
 
 .goTopBtn{
   width: 45px;
-  bottom: 30px;
-  right: 30px;
+  bottom: 25px;
+  right: 0;
   margin: 0;
   padding-top: 2px;
   padding-bottom: 5px;
-  border: none;
+  border-radius: 4px 0 0 4px;
   z-index: 3;
 
   li{
@@ -98,7 +98,6 @@ tbody{
   .goTopBtn{
     transform: scale(.9);
     bottom: 10px;
-    right: 10px;
   }
 }
 
@@ -106,6 +105,5 @@ tbody{
   .goTopBtn{
     transform: scale(.8);
     bottom: 5px;
-    right: 5px;
   }
 }
