@@ -183,7 +183,7 @@
   ></Footer>
 
   <GoToTopBtn
-    is-show="ture"
+    :is-show="false"
     :bg-Color="'bg-primary'"
     @back-top-btn="backTop"
   ></GoToTopBtn>
