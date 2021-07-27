@@ -118,8 +118,6 @@ export default {
       this.favoritesLength = num;
       this.newFavoritesLength = num;
     });
-
-    console.log(this.isShow);
   },
 };
 </script>

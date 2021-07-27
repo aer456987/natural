@@ -143,9 +143,6 @@ export default {
   .natural_threat_card_content{
     height: auto;
   }
-//   .natural_threat_card_title{
-//     font-size: 20px;
-//   }
 }
 
 @media(max-width: 320px){

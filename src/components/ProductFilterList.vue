@@ -1,6 +1,8 @@
 <template>
   <!-- 商品頁篩選 -->
-  <nav class="row text-center bg-secondary m-0">
+  <nav class="row product_filter_nav overflow-auto bg-secondary m-0
+    text-nowrap text-center"
+  >
     <form
       class="btn-group p-0"
       role="group"
@@ -20,7 +22,8 @@
         checked
       />
       <label
-        class="btn btn-outline-primary textStyle_rwd_2 py-1 border-0 rounded-0"
+        class="btn btn-outline-primary
+          textStyle_rwd_2 py-1 border-0 rounded-0"
         for="all"
       >
         全部商品
@@ -37,7 +40,8 @@
         @change="$emit('filterListMethods', productSelect)"
       />
       <label
-        class="btn btn-outline-primary textStyle_rwd_2 py-1 border-0"
+        class="btn btn-outline-primary
+          textStyle_rwd_2 py-1 border-0"
         for="fundraise"
       >
         募款專案
@@ -125,3 +129,23 @@ export default {
   emits: ['filterListMethods'],
 };
 </script>
+
+<style lang="scss">
+.product_filter_nav{
+  // 捲軸本身，可以設定寬度
+  &::-webkit-scrollbar{
+    height: 8px;
+  }
+
+  // 捲軸可以拉的部分
+  &::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: rgba(#225243, .6);
+  }
+
+  // 捲軸空的地方，也可以說背景的顏色
+  &::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(#225243, .5);
+  }
+}
+</style>
