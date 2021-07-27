@@ -134,7 +134,7 @@ export default {
 .product_filter_nav{
   // 捲軸本身，可以設定寬度
   &::-webkit-scrollbar{
-    height: 8px;
+    height: 6px;
   }
 
   // 捲軸可以拉的部分

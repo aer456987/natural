@@ -91,18 +91,3 @@ tbody{
     }
   }
 }
-
-
-@media(max-width: 767px){
-  .goTopBtn{
-    transform: scale(.9);
-    bottom: 10px;
-  }
-}
-
-@media(max-width: 414px){
-  .goTopBtn{
-    transform: scale(.8);
-    bottom: 5px;
-  }
-}
