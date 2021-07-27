@@ -203,6 +203,7 @@
     :textColor="'text-secondary'"
     :bgColor="'bg-primary'"
     :moreMsg="true"
+    @back-top="backTop"
   ></Footer>
 
   <GoToTopBtn
