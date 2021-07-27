@@ -40,7 +40,7 @@
                 >
                   <button
                     type="button"
-                    class="accordion-button"
+                    class="accordion-button collapsed"
                     data-bs-toggle="collapse"
                     :data-bs-target="`#${item.id}_${faq.id}`"
                     aria-expanded="true"
@@ -191,6 +191,15 @@ export default {
   components: {
     HeaderBackgroundImg,
     Breadcrumb,
+  },
+  methods: {
+    backTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    },
+  },
+  created() {
+    this.backTop();
   },
 };
 </script>
