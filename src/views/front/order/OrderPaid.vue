@@ -17,14 +17,50 @@
           <div class="col-md-12 col-lg-9">
             <section class="px-3 px-md-5 py-5 mb-5 rounded
               shadow text-center bg-white textStyle_rwd_2">
-              <h3 class="h5 fw-bold mt-2 mb-4">感謝您的訂購！</h3>
-              <p>您訂購的商品將在近期安排出貨，請留意簡訊通知或配送人員的電話。</p>
-              <p>
-                如果您選擇的是捐款專案，我們將發送捐款成功的電子收據至您設定的信箱中，歡迎您隨時前往信箱查看。
-              </p>
-              <p>
-                如需紙本收據或發票，可至<span class="text-danger">會員中心</span>修改發票設定。
-              </p>
+
+              <i class="bi bi-emoji-smile display-3 text-warning"></i>
+
+              <h3 class="h4 fw-bold mt-2 mb-5">感謝您的訂購！</h3>
+
+              <ul class="px-xl-5 text-start">
+                <li>
+                  <p class="d-inline bg-gray-200 p-1 rounded-1">
+                    訂單如含有「有機食品」、「環保商品」：
+                  </p>
+                </li>
+                <li class="mt-2 mb-4">
+                  <p class="m-0">
+                    商品將在近期安排出貨，請留意簡訊通知或配送人員的電話。
+                  </p>
+                  <p class="m-0">
+                    本平台之商品預設為電子發票，如需紙本發票可至
+                    <a
+                      href="#"
+                      class="text-danger"
+                      @click.prevent="backTop()"
+                    >
+                      會員中心
+                    </a>
+                    修改發票設定。
+                    </p>
+                </li>
+                <li>
+                  <p class="d-inline bg-gray-200 p-1 rounded-1">
+                    訂單如含有「公益活動」、「講座」：
+                  </p>
+                  <p class="mt-2 mb-4">
+                    我們將發送付款成功的電子收據至您設定的信箱中，歡迎您隨時前往信箱查看。
+                  </p>
+                </li>
+                <li>
+                  <p class="d-inline bg-gray-200 p-1 rounded-1">
+                    訂單如含有「捐款專案」：
+                  </p>
+                  <p class="mt-2 mb-4">
+                    我們將發送付款成功的電子收據至您設定的信箱中，歡迎您隨時前往信箱查看。
+                  </p>
+                </li>
+              </ul>
               <router-link
                 to="/products"
                 class="btn btn-outline-custom-primary px-3 py-1 my-2"
