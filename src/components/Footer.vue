@@ -10,7 +10,7 @@
       <small class="row align-items-center">
         <nav class="nav-item mb-3">
           <ul class="row justify-content-center list-unstyled m-0">
-            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+            <li class="col-md-2 p-md-0 col-lg-2 scale">
               <router-link
                 to="/"
                 class="nav-link px-2 text-secondary"
@@ -19,7 +19,7 @@
               </router-link>
             </li>
 
-            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+            <li class="col-md-2 p-md-0 col-lg-2 scale">
               <router-link
                 to="/about"
                 class="nav-link px-2 text-secondary"
@@ -28,7 +28,7 @@
               </router-link>
             </li>
 
-            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+            <li class="col-md-2 p-md-0 col-lg-2 scale">
               <router-link
                 to="/FAQ"
                 class="nav-link px-2 text-secondary"
@@ -37,7 +37,7 @@
               </router-link>
             </li>
 
-            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+            <li class="col-md-2 p-md-0 col-lg-2 scale">
               <router-link
                 to="/products"
                 class="nav-link px-2 text-secondary"
@@ -46,7 +46,7 @@
               </router-link>
             </li>
 
-            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+            <li class="col-md-2 p-md-0 col-lg-2 scale">
               <router-link
                 to="/cart"
                 class="nav-link px-2 text-secondary"
