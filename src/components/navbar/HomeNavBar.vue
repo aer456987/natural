@@ -41,6 +41,14 @@
           </li>
           <li class="nav-item scale">
             <router-link
+              to="/FAQ"
+              class="nav-link"
+            >
+              常見問答
+            </router-link>
+          </li>
+          <li class="nav-item scale">
+            <router-link
               to="/products"
               class="nav-link"
             >

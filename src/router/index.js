@@ -16,9 +16,14 @@ const routes = [
     component: () => import('../views/front/Front.vue'),
     children: [
       {
-        path: '/about',
+        path: 'about',
         name: '關於我們',
         component: () => import('../views/front/About.vue'),
+      },
+      {
+        path: 'FAQ',
+        name: '常見問答',
+        component: () => import('../views/front/FAQ.vue'),
       },
       {
         path: 'products',

@@ -30,6 +30,15 @@
 
             <li class="col-sm-6 col-md-3 col-lg-2 scale">
               <router-link
+                to="/FAQ"
+                class="nav-link px-2 text-secondary"
+              >
+                常見問答
+              </router-link>
+            </li>
+
+            <li class="col-sm-6 col-md-3 col-lg-2 scale">
+              <router-link
                 to="/products"
                 class="nav-link px-2 text-secondary"
               >
