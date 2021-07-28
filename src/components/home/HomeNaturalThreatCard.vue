@@ -86,20 +86,6 @@ export default {
       ],
     };
   },
-  methods: {
-    openCard(num) {
-      const cardContentDom = document.querySelector(`#natural_threat_card_content_${num}`);
-      const cardtextDom = document.querySelector(`#natural_threat_card_text_${num}`);
-      cardContentDom.setAttribute('style', 'height: 90%;');
-      cardtextDom.setAttribute('style', 'opacity: 1;');
-    },
-    closenCard(num) {
-      const cardContentDom = document.querySelector(`#natural_threat_card_content_${num}`);
-      const cardtextDom = document.querySelector(`#natural_threat_card_text_${num}`);
-      cardContentDom.setAttribute('style', '');
-      cardtextDom.setAttribute('style', '');
-    },
-  },
 };
 </script>
 
