@@ -1,21 +1,14 @@
 <template>
   <!-- 頁首大圖輪播 -->
   <swiper
-    :centeredSlides="true"
-    :loop="true"
-    :FadeEffect="true"
-    :autoplay='
-      {
-        "delay": 10000,
-        "disableOnInteraction": false,
-      }'
+    :="swiperSetting"
     class="mySwiper"
   >
     <template
       v-for="headerImg in headerImgs"
       :key="headerImg.id"
     >
-      <swiper-slide class="">
+      <swiper-slide>
         <img
         :src="headerImg.img"
         :alt="`首圖_${headerImg.id}`"
@@ -36,6 +29,15 @@ export default {
   name: 'HomeHerderSwiper',
   data() {
     return {
+      swiperSetting: {
+        centeredSlides: true,
+        loop: true,
+        FadeEffect: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false,
+        },
+      },
       headerImgs: [
         {
           id: 0,
