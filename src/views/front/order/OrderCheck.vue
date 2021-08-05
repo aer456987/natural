@@ -235,7 +235,7 @@ export default {
         data: {
           products: {},
           user: {},
-          total: Number,
+          total: 0,
         },
       },
       breadcrumbData: { // 麵包屑

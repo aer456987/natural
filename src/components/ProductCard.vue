@@ -70,7 +70,7 @@ export default {
         product_id: '',
         qty: 1,
       },
-      cartsLength: Number,
+      cartsLength: 0,
     };
   },
   components: { Favorite },

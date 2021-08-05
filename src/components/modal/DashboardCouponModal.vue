@@ -189,7 +189,7 @@ export default {
         is_enabled: 1,
       },
       isNewCoupon: true,
-      tempDueDate: Number,
+      tempDueDate: 0,
     };
   },
   props: ['modalCoupon', 'modalIsNew', 'modalBtnStatus'],

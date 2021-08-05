@@ -365,12 +365,12 @@ export default {
       orderModal: '',
       orderStatus: false,
       tempOrder: {
-        create_at: Number,
+        create_at: 0,
         id: '',
         is_paid: Boolean,
-        paid_date: Number,
+        paid_date: 0,
         products: {},
-        total: Number,
+        total: 0,
         user: {
           name: '',
           email: '',

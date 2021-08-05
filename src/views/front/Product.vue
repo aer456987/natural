@@ -177,8 +177,8 @@ export default {
       productId: '',
       productImg: '',
       tempProduct: {},
-      qty: Number,
-      cartsLength: Number, // 購物車長度
+      qty: 0,
+      cartsLength: 0, // 購物車長度
       breadcrumbData: { // 麵包屑
         previous: [ // 上一個(多個)
           {

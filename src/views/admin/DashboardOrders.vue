@@ -175,7 +175,7 @@ export default {
       tempOrderData: {}, // 存放新增 & 修改資料
       allOrderss: [], // 所有產品資料 (無分頁)
       filterDatas: [], // 暫存的商品分類列表
-      pageNnm: Number,
+      pageNnm: 0,
       isPaginationShow: true, // 分頁狀態
     };
   },
