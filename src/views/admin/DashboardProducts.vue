@@ -1,5 +1,5 @@
 <template>
-  <DashboardLoading :status="loadingStatus"></DashboardLoading>
+  <DashboardLoading :status="loadingStatus" />
   <section class="container pageContent py-5 overflow-hidden">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       商品管理
@@ -148,8 +148,7 @@
     <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="productPagination"
-      @get-data="getProducts"
-    ></DashboardPagination>
+      @get-data="getProducts" />
 
     <p class="text-center mt-1">
       {{ `共有 ${filterProducts.length} 筆資料` }}
@@ -160,8 +159,7 @@
       :modal-product="tempProduct"
       :modal-isNew="isNew"
       :modal-btn-status="btnStatus"
-      @modal-update-product="updateProduct"
-    ></DashboardProductModal>
+      @modal-update-product="updateProduct" />
 
   </section>
 </template>

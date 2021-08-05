@@ -1,6 +1,6 @@
 <template>
   <!-- 商品頁卡片 -->
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <li
     class="col-sm-6 col-lg-4 col-xl-3 my-2 custom_card_style"
     v-for="product in cartProductData"
@@ -21,9 +21,7 @@
         </div>
       </router-link>
       <div class="favorite_icon_background shadow-sm">
-        <Favorite
-          :id-data="product.id"
-        ></Favorite>
+        <Favorite :id-data="product.id" />
       </div>
 
       <div

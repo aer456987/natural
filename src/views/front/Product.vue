@@ -1,9 +1,9 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <section class="bg-white user_select_none">
     <div class="container py-4">
       <!-- 麵包屑&搜尋 -->
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <!-- 主要頁面 -->
       <main class="row mb-1 pt-3 pb-1 pb-lg-3">
@@ -102,8 +102,7 @@
               <div class="col-2 p-0 text-end">
                 <Favorite
                   ref="productFavorite"
-                  :id-data="productId"
-                ></Favorite>
+                  :id-data="productId" />
               </div>
             </div>
 

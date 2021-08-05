@@ -64,7 +64,7 @@
           data-aos-delay="0"
           data-aos-duration="1200"
         >
-          <HomeButton buttom-text="了解更多" link-path="/products"></HomeButton>
+          <HomeButton buttom-text="了解更多" link-path="/products" />
         </div>
       </section>
     </li>
@@ -131,7 +131,7 @@
           data-aos-delay="0"
           data-aos-duration="1200"
         >
-          <HomeButton buttom-text="我要參加" link-path="/products"></HomeButton>
+          <HomeButton buttom-text="我要參加" link-path="/products" />
         </div>
       </section>
     </li>
@@ -208,7 +208,7 @@
           data-aos-delay="0"
           data-aos-duration="1200"
         >
-          <HomeButton buttom-text="我想捐款" link-path="/products"></HomeButton>
+          <HomeButton buttom-text="我想捐款" link-path="/products" />
         </div>
       </section>
     </li>
@@ -275,7 +275,7 @@
           data-aos-delay="0"
           data-aos-duration="1200"
         >
-          <HomeButton buttom-text="前往採購" link-path="/products"></HomeButton>
+          <HomeButton buttom-text="前往採購" link-path="/products" />
         </div>
       </section>
     </li>

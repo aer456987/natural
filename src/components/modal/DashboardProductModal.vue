@@ -92,12 +92,10 @@
                     class="form-control mb-2"
                     :class="{ 'is-invalid': errors['品名'] }"
                     rules="required"
-                    v-model="tempProduct.title"
-                  ></Field>
+                    v-model="tempProduct.title" />
                   <ErrorMessage
                     name="品名"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -125,8 +123,7 @@
                   </Field>
                   <ErrorMessage
                     name="產品分類"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -144,12 +141,10 @@
                     class="form-control mb-2"
                     :class="{ 'is-invalid': errors['單位'] }"
                     rules="required"
-                    v-model="tempProduct.unit"
-                  ></Field>
+                    v-model="tempProduct.unit" />
                   <ErrorMessage
                     name="單位"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -167,12 +162,10 @@
                     class="form-control mb-2"
                     :class="{ 'is-invalid': errors['原價'] }"
                     rules="required|numeric"
-                    v-model.number="tempProduct.origin_price"
-                  ></Field>
+                    v-model.number="tempProduct.origin_price" />
                   <ErrorMessage
                     name="原價"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -190,12 +183,10 @@
                     class="form-control mb-2"
                     :class="{ 'is-invalid': errors['售價'] }"
                     rules="required|numeric"
-                    v-model.number="tempProduct.price"
-                  ></Field>
+                    v-model.number="tempProduct.price" />
                   <ErrorMessage
                     name="售價"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </div>
 
                 <div class="col-12 col-md-6">
@@ -262,8 +253,7 @@
                 ref="renderImg"
                 :product-main-img="tempProduct.imageUrl"
                 :product-imgs="tempProduct.imagesUrl"
-                @updata-img-datas="updateImgs"
-              ></DashboardRenderImgs>
+                @updata-img-datas="updateImgs" />
             </div>
           </div>
 

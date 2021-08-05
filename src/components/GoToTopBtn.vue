@@ -51,9 +51,7 @@
     </li>
   </ul>
 
-  <FavoritesOffcanvas
-    ref="likeOffcanvas"
-  ></FavoritesOffcanvas>
+  <FavoritesOffcanvas ref="likeOffcanvas" />
 </template>
 
 <script>

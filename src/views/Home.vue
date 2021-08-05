@@ -2,9 +2,8 @@
   <HomeNavBar
     class="transition-duration_1"
     :class="classStyle.navbarClass"
-    @open-offcanvas="openFavoritesOffcanvas"
-  ></HomeNavBar>
-  <FavoritesOffcanvas ref="likeOffcanvas"></FavoritesOffcanvas>
+    @open-offcanvas="openFavoritesOffcanvas" />
+  <FavoritesOffcanvas ref="likeOffcanvas" />
 
   <header class="position-relative user_select_none">
     <div
@@ -21,8 +20,8 @@
         聽見它們的聲音了嗎？
       </h3>
     </div>
-    <Arrow class="arrow_style z-index-2"></Arrow>
-    <HomeHerderSwiper></HomeHerderSwiper>
+    <Arrow class="arrow_style z-index-2" />
+    <HomeHerderSwiper />
   </header>
 
   <main id="main" class="bg-white overflow-hidden user_select_none">
@@ -48,8 +47,7 @@
       >
         它們不會說話，卻默默承受著我們造成的業果。
       </p>
-      <HomeNaturalThreatCard
-      ></HomeNaturalThreatCard>
+      <HomeNaturalThreatCard />
     </section>
 
     <!-- 介紹 -->
@@ -109,8 +107,7 @@
         >
           <HomeButton
             buttom-text="來去看看有些什麼"
-            link-path="/products"
-          ></HomeButton>
+            link-path="/products" />
         </div>
       </div>
     </section>
@@ -132,8 +129,7 @@
             <h3 class="fs-7 fw-bold">
               <CountTo
                 :end-val="platform.num"
-                :count-to-id="platform.id"
-              ></CountTo>
+                :count-to-id="platform.id" />
               <span class="fs-4">/{{ platform.unit }}</span>
             </h3>
             <p class="m-0">
@@ -146,12 +142,12 @@
 
     <!-- 商品分類 -->
     <section class="pt-2 pb-5 pb-lg-6">
-      <HomeProductSwiper class="py-2"></HomeProductSwiper>
+      <HomeProductSwiper class="py-2" />
     </section>
 
     <!-- 資訊 -->
     <section class="container py-5 py-lg-6">
-      <HomeMessages></HomeMessages>
+      <HomeMessages />
     </section>
 
     <!-- 訂閱 -->
@@ -176,8 +172,7 @@
                 class="form-control py-1 px-2"
                 :class="{ 'is-invalid': errors['Email'] }"
                 rules="email"
-                v-model="subscriptionEmail"
-              ></Field>
+                v-model="subscriptionEmail" />
               <button
                 type="button"
                 class="btn btn_main py-1 px-4"
@@ -188,8 +183,7 @@
               </button>
               <ErrorMessage
                 name="Email"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+                class="invalid-feedback mb-1" />
             </div>
           </Form>
         </div>
@@ -201,14 +195,12 @@
     :textColor="'text-secondary'"
     :bgColor="'bg-primary'"
     :moreMsg="true"
-    @back-top="backTop"
-  ></Footer>
+    @back-top="backTop" />
 
   <GoToTopBtn
     :is-show="false"
     :bg-Color="'bg-primary'"
-    @back-top-btn="backTop"
-  ></GoToTopBtn>
+    @back-top-btn="backTop" />
 </template>
 
 <script>

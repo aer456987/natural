@@ -1,12 +1,11 @@
 <template>
   <HeaderBackgroundImg
     :header-title="headerData.title"
-    :header-imgUrl="headerData.imgUrl"
-  ></HeaderBackgroundImg>
+    :header-imgUrl="headerData.imgUrl" />
   <main class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
     <div class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <section class="row py-3">
         <div class="col-12 col-lg-7">
@@ -84,8 +83,7 @@
                 <Font-awesome-icon
                   :icon="['fab', 'facebook-square']"
                   class="mx-1 text-blue-600 scale transition-duration_2"
-                  title="facabook 粉絲團"
-                />
+                  title="facabook 粉絲團" />
               </a>
             </li>
             <li class="px-1">
@@ -96,8 +94,7 @@
                 <Font-awesome-icon
                   :icon="['fab', 'instagram-square']"
                   class="mx-1 text-pink scale transition-duration_2"
-                  title="Instagram"
-                />
+                  title="Instagram" />
               </a>
             </li>
             <li class="px-1">
@@ -108,8 +105,7 @@
                 <Font-awesome-icon
                   :icon="['fab', 'line']"
                   class="mx-1 text-green scale transition-duration_2"
-                  title="@line 官方"
-                />
+                  title="@line 官方" />
               </a>
             </li>
           </ul>

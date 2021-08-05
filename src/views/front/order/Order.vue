@@ -1,11 +1,11 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <div class="container pageContent user_select_none">
     <div class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
       <!-- 進度條 -->
-      <CartProgress :progress-value="progressNum"></CartProgress>
+      <CartProgress :progress-value="progressNum" />
 
       <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">
@@ -77,12 +77,10 @@
                   :class="{ 'is-invalid': errors['姓名'] }"
                   rules="required"
                   v-model="userDatas.user.name"
-                  @change="checkUserDatas"
-                ></Field>
+                  @change="checkUserDatas" />
                 <ErrorMessage
                   name="姓名"
-                  class="invalid-feedback mb-1"
-                ></ErrorMessage>
+                  class="invalid-feedback mb-1" />
 
                 <!-- 聯絡電話 -->
                 <label
@@ -100,12 +98,10 @@
                   :class="{ 'is-invalid': errors['電話'] }"
                   rules="required|numeric|min:10"
                   v-model="userDatas.user.tel"
-                  @change="checkUserDatas"
-                ></Field>
+                  @change="checkUserDatas" />
                 <ErrorMessage
                   name="電話"
-                  class="invalid-feedback mb-1"
-                ></ErrorMessage>
+                  class="invalid-feedback mb-1" />
 
                 <!-- Email -->
                 <label
@@ -123,12 +119,10 @@
                   :class="{ 'is-invalid': errors['Email'] }"
                   rules="required|email"
                   v-model="userDatas.user.email"
-                  @change="checkUserDatas"
-                ></Field>
+                  @change="checkUserDatas" />
                 <ErrorMessage
                   name="Email"
-                  class="invalid-feedback mb-1"
-                ></ErrorMessage>
+                  class="invalid-feedback mb-1" />
 
                 <!-- 寄送方式 -->
                 <template v-if="isDeliveryMethodShow">
@@ -158,8 +152,7 @@
                   </Field>
                   <ErrorMessage
                     name="寄送方式"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </template>
 
                 <template v-if="isSendShow">
@@ -180,12 +173,10 @@
                     rules="required"
                     v-model="userDatas.user.address"
                     :readonly="!isSendShow"
-                    @change="checkUserDatas"
-                  ></Field>
+                    @change="checkUserDatas" />
                   <ErrorMessage
                     name="地址"
-                    class="invalid-feedback mb-1"
-                  ></ErrorMessage>
+                    class="invalid-feedback mb-1" />
                 </template>
 
                 <!-- 付款方式 -->
@@ -222,8 +213,7 @@
                 </Field>
                 <ErrorMessage
                   name="付款方式"
-                  class="invalid-feedback mb-1"
-                ></ErrorMessage>
+                  class="invalid-feedback mb-1" />
 
                 <!-- 備註 -->
                 <label
@@ -240,8 +230,7 @@
                   id="orderMsg"
                   class="form-control"
                   :class="{ 'is-invalid': errors['備註'] }"
-                  v-model="userDatas.message"
-                ></Field>
+                  v-model="userDatas.message" />
 
                 <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
 

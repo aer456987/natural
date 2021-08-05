@@ -1,5 +1,5 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
 
   <main class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
@@ -37,12 +37,10 @@
               class="form-control"
               :class="{ 'is-invalid': errors['Email'] }"
               rules="required|email"
-              v-model="userDatas.username"
-            ></Field>
+              v-model="userDatas.username" />
             <ErrorMessage
               name="Email"
-              class="invalid-feedback mb-1"
-            ></ErrorMessage>
+              class="invalid-feedback mb-1" />
 
             <!-- 密碼 -->
             <label
@@ -60,12 +58,10 @@
               class="form-control"
               :class="{ 'is-invalid': errors['密碼'] }"
               rules="required"
-              v-model="userDatas.password"
-            ></Field>
+              v-model="userDatas.password" />
             <ErrorMessage
               name="密碼"
-              class="invalid-feedback mb-1"
-            ></ErrorMessage>
+              class="invalid-feedback mb-1" />
 
             <p class="text-danger text-center my-3">
               {{ msg }}

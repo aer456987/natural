@@ -1,12 +1,12 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <section class="container pageContent user_select_none">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <!-- 進度條 -->
-      <CartProgress :progress-value="progressNum"></CartProgress>
+      <CartProgress :progress-value="progressNum" />
 
       <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">

@@ -23,12 +23,10 @@
           class="form-control mb-2"
           :class="{ 'is-invalid': errors['主要圖片網址'] }"
           rules="required"
-          v-model="tempMainImg"
-        ></Field>
+          v-model="tempMainImg" />
         <ErrorMessage
           name="主要圖片網址"
-          class="invalid-feedback mb-1"
-        ></ErrorMessage>
+          class="invalid-feedback mb-1" />
         <img
           :src="tempMainImg"
           alt="主要圖片"
@@ -54,12 +52,10 @@
             class="form-control mb-2"
             :class="{ 'is-invalid': errors[`圖片網址_${key+1}`] }"
             rules="min:1"
-            v-model="tempImgs[key]"
-          ></Field>
+            v-model="tempImgs[key]" />
           <ErrorMessage
             :name="`圖片網址_${key+1}`"
-            class="invalid-feedback mb-1"
-          ></ErrorMessage>
+            class="invalid-feedback mb-1" />
 
           <div class="position-relative">
             <i
@@ -83,7 +79,7 @@
 
   <div class="row">
     <div class="col-6 mb-1">
-      <DashboardUpdateFile @upload-img-file="uploadNewImg"></DashboardUpdateFile>
+      <DashboardUpdateFile @upload-img-file="uploadNewImg" />
     </div>
 
     <div class="col-6 mb-1">

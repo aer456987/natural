@@ -1,12 +1,11 @@
 <template>
   <HeaderBackgroundImg
     :header-title="headerData.title"
-    :header-imgUrl="headerData.imgUrl"
-  ></HeaderBackgroundImg>
+    :header-imgUrl="headerData.imgUrl" />
 
   <main class="container pageContent user_select_none">
     <div class="py-4">
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <div class="row py-3">
         <template

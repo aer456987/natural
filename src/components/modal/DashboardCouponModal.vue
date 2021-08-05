@@ -51,12 +51,10 @@
                 class="form-control mb-2"
                 :class="{ 'is-invalid': errors['優惠券名稱'] }"
                 rules="required"
-                v-model="tempCouponData.title"
-              ></Field>
+                v-model="tempCouponData.title" />
               <ErrorMessage
                 name="優惠券名稱"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+                class="invalid-feedback mb-1" />
             </div>
 
             <div class="col-12">
@@ -75,12 +73,10 @@
                 class="form-control mb-2"
                 :class="{ 'is-invalid': errors['優惠碼'] }"
                 rules="required"
-                v-model="tempCouponData.code"
-              ></Field>
+                v-model="tempCouponData.code" />
               <ErrorMessage
                 name="優惠碼"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+                class="invalid-feedback mb-1" />
             </div>
 
             <div class="col-12">
@@ -100,12 +96,10 @@
                 class="form-control mb-2"
                 :class="{ 'is-invalid': errors['折扣 % 數'] }"
                 rules="required|numeric|numeric"
-                v-model.number="tempCouponData.percent"
-              ></Field>
+                v-model.number="tempCouponData.percent" />
               <ErrorMessage
                 name="折扣 % 數"
-                class="invalid-feedback mb-1"
-              ></ErrorMessage>
+                class="invalid-feedback mb-1" />
             </div>
 
             <div class="col-12">

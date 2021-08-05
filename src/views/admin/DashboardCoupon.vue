@@ -1,5 +1,5 @@
 <template>
-  <DashboardLoading :status="loadingStatus"></DashboardLoading>
+  <DashboardLoading :status="loadingStatus" />
   <div class="container pageContent py-5 overflow-hidden">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       優惠券管理
@@ -108,8 +108,7 @@
     <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="couponPagination"
-      @get-data="getCoupons"
-    ></DashboardPagination>
+      @get-data="getCoupons" />
 
     <p class="text-center mt-1">
       {{ `共有 ${filterCoupon.length} 筆資料` }}
@@ -120,8 +119,7 @@
       :modal-coupon="updataCouponData"
       :modal-isNew ="isNew"
       :modal-btn-status="btnStatus"
-      @modal-update-coupon="updateCoupon"
-    ></DashboardCouponModal>
+      @modal-update-coupon="updateCoupon" />
   </div>
 </template>
 

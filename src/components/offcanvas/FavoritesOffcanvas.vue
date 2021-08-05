@@ -1,6 +1,6 @@
 <template>
   <!-- 我的最愛側欄 -->
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <div
     class="offcanvas offcanvas-end user_select_none
       shadow-lg overflow-x px-0 m-0"
@@ -48,8 +48,7 @@
               <div class="col-2 col-sm-1 p-0">
                 <Favorite
                   ref="favoriteIcon"
-                  :idData="favoriteItme.id"
-                ></Favorite>
+                  :idData="favoriteItme.id" />
               </div>
               <div class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
                 <img

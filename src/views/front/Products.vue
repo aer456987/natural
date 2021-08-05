@@ -1,23 +1,21 @@
 <template>
-  <Loading :status="loadingStatus"></Loading>
+  <Loading :status="loadingStatus" />
   <!-- 篩選列表 -->
   <ProductFilterList
     class="sticky-top user_select_none shadow"
     :products="products"
-    @filter-list-methods="filterListMethods"
-  ></ProductFilterList>
+    @filter-list-methods="filterListMethods" />
 
   <HeaderBackgroundImg
     :header-title="headerData.title"
-    :header-imgUrl="headerData.imgUrl"
-  ></HeaderBackgroundImg>
+    :header-imgUrl="headerData.imgUrl" />
 
   <main class="container pageContent user_select_none">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">
         <div class="col-12 col-md-8 mb-1">
-          <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+          <Breadcrumb :breadcrumb-data="breadcrumbData" />
         </div>
         <div class="col-12 col-md-4 col-lg-3 mb-1 position-relative">
 
@@ -44,7 +42,7 @@
       <!-- 主要頁面 -->
       <div class="py-3">
         <ul class="row list-unstyled">
-          <ProductCard :cart-product-data="filterProducts"></ProductCard>
+          <ProductCard :cart-product-data="filterProducts" />
         </ul>
         <p class="text-end">共有 {{ filterProducts.length }} 件商品</p>
         </div>

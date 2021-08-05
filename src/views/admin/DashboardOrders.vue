@@ -1,5 +1,5 @@
 <template>
-  <DashboardLoading :status="loadingStatus"></DashboardLoading>
+  <DashboardLoading :status="loadingStatus" />
   <section class="container pageContent py-5 overflow-auto">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       訂單管理
@@ -138,8 +138,7 @@
     <DashboardPagination
       :pagination-isShow="isPaginationShow"
       :pagination-page="ordersPagination"
-      @get-data="getOrders"
-    ></DashboardPagination>
+      @get-data="getOrders" />
 
     <p class="text-center mt-1">
       {{ `共有 ${filterOrder.length} 筆資料` }}
@@ -148,8 +147,7 @@
     <DashboardOrderModal
       ref="orderModal"
       :modal-order="tempOrderData"
-      @modal-update-order-paid="updateOrderPaid"
-    ></DashboardOrderModal>
+      @modal-update-order-paid="updateOrderPaid" />
   </section>
 </template>
 

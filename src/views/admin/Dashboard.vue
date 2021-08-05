@@ -1,7 +1,7 @@
 <template>
-  <DashboardLoading :status="loadingStatus"></DashboardLoading>
+  <DashboardLoading :status="loadingStatus" />
   <!-- 導覽列 -->
-  <DashboardNavbar></DashboardNavbar>
+  <DashboardNavbar />
   <!-- 主要頁面 -->
   <router-view v-if="loginStatus"></router-view>
   <!-- 頁尾 -->
@@ -9,14 +9,12 @@
     :bgColor="'bg-brown'"
     :textColor="'text-dark'"
     :moreMsg="false"
-    @back-top="backTop"
-  ></Footer>
+    @back-top="backTop" />
 
   <GoToTopBtn
     :is-show="false"
     :bg-Color="'bg-brown-500'"
-    @back-top-btn="backTop"
-  ></GoToTopBtn>
+    @back-top-btn="backTop" />
 </template>
 
 <script>

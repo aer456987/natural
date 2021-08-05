@@ -1,18 +1,16 @@
 <template>
-  <MainNavbar></MainNavbar>
+  <MainNavbar />
   <router-view></router-view>
   <Footer
     :textColor="'text-secondary'"
     :bgColor="'bg-primary'"
     :moreMsg="true"
-    @back-top="backTop"
-  ></Footer>
+    @back-top="backTop" />
 
   <GoToTopBtn
     is-show="ture"
     :bg-Color="'bg-primary'"
-    @back-top-btn="backTop"
-  ></GoToTopBtn>
+    @back-top-btn="backTop" />
 </template>
 
 <script>

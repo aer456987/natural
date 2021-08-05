@@ -110,8 +110,7 @@
           <Font-awesome-icon
             :icon="['fab', 'facebook-square']"
             class="mx-1 pointer_no_hover scale"
-            title="facabook 粉絲團"
-          />
+            title="facabook 粉絲團" />
         </a>
       </li>
       <li>
@@ -123,8 +122,7 @@
           <Font-awesome-icon
             :icon="['fab', 'instagram-square']"
             class="mx-1 pointer_no_hover scale"
-            title="Instagram"
-          />
+            title="Instagram" />
         </a>
       </li>
       <li>
@@ -136,8 +134,7 @@
           <Font-awesome-icon
             :icon="['fab', 'line']"
             class="mx-1 pointer_no_hover scale"
-            title="@line 官方"
-          />
+            title="@line 官方" />
         </a>
       </li>
       <li>
@@ -158,8 +155,7 @@
           <Font-awesome-icon
             :icon="['fab', 'github-square']"
             class="mx-1 pointer_no_hover scale"
-            title="github"
-          />
+            title="github" />
         </a>
       </li>
     </ul>

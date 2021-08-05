@@ -85,9 +85,7 @@
     </div>
   </nav>
 
-  <FavoritesOffcanvas
-    ref="likeOffcanvas"
-  ></FavoritesOffcanvas>
+  <FavoritesOffcanvas ref="likeOffcanvas" />
 </template>
 
 <script>

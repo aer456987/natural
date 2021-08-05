@@ -3,9 +3,9 @@
     <div class="py-4">
 
       <!-- 麵包屑&搜尋 -->
-      <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
+      <Breadcrumb :breadcrumb-data="breadcrumbData" />
       <!-- 進度條 -->
-      <CartProgress :progress-value="progressNum"></CartProgress>
+      <CartProgress :progress-value="progressNum" />
 
       <!-- 感謝信 -->
       <h2 class="h1 pb-5 text-center fw-bold">
