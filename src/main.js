@@ -16,7 +16,7 @@ import axios from 'axios';
 import VueAxios from 'vue-axios';
 import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json';
 import Loading from '@/components/loading/Loading.vue'; // Loading元件
-import 'bootstrap'; // bootstrap icon
+import 'bootstrap';
 import AOS from 'aos'; // AOS 頁面滾動套件
 import 'aos/dist/aos.css'; // AOS 頁面滾動套件-CSS
 import App from './App.vue';

@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/allStyle';
+@import '@/assets/css/allStyle';
 @import '~swiper/swiper.scss';
 
 .natural_threat_card_item{
