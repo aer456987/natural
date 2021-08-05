@@ -269,7 +269,10 @@ export default {
       let url = '';
       this.loadingStatus = true;
 
-      if (action === 'all') {
+      if (
+        action === undefined
+        && id === undefined
+      ) {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders/all`;
       } else if (action === 'one') {
         url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${id}`;

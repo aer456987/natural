@@ -83,17 +83,9 @@ export function delSwalFn(data, methods, action) {
     });
 }
 
-// 全部刪除商品的確認視窗
-export function doubleCheckdelSwalFn(action, methods) {
-  const firstCheckTxt = { // 第一層確認文檔
-    title: '確定要刪除全部訂單嗎？(1/2)',
-    icon: 'warning',
-    text: '請注意，刪除後將無法復原！',
-    buttons: ['取消', '確定刪除'],
-    dangerMode: true,
-  };
-
-  const secondCheckTxt = { // 第二層確認文檔
+// 第二層確認刪除
+export function secondCheckdelSwalFn(action, methods) {
+  const secondCheckTxt = {
     title: '真的要刪除全部訂單嗎？(2/2)',
     icon: 'info',
     text: '請注意，刪除動作執行後，資料將無法復原！',
@@ -101,17 +93,30 @@ export function doubleCheckdelSwalFn(action, methods) {
     dangerMode: true,
   };
 
+  swal(secondCheckTxt)
+    .then((secondDelete) => {
+      if (secondDelete) {
+        methods(action);
+      } else {
+        swalFn('已取消操作', 'error');
+      }
+    });
+}
+
+// 全部刪除商品的確認視窗
+export function doubleCheckdelSwalFn(action, methods) {
+  const firstCheckTxt = {
+    title: '確定要刪除全部訂單嗎？(1/2)',
+    icon: 'warning',
+    text: '請注意，刪除後將無法復原！',
+    buttons: ['取消', '確定刪除'],
+    dangerMode: true,
+  };
+
   swal(firstCheckTxt) // 第一層確認
     .then((firstDelete) => {
       if (firstDelete) {
-        swal(secondCheckTxt) // 第二層確認
-          .then((secondDelete) => {
-            if (secondDelete) {
-              methods(action);
-            } else {
-              swalFn('已取消操作', 'error');
-            }
-          });
+        secondCheckdelSwalFn(action, methods); // 第二層確認
       } else {
         swalFn('已取消操作', 'error');
       }
