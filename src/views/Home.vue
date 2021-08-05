@@ -157,7 +157,7 @@
             ref="subscriptionForm"
             v-slot="{ errors }"
             class="px-3"
-            @submit.prevent="goSubscription"
+            @submit="goSubscription"
           >
             <div
               class="input-group"
