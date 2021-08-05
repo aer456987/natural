@@ -4,7 +4,7 @@
   height: 35px;
   display: block;
   text-indent: 101%;;
-  mask-image: url('~@/assets/imgs/logoIcon.svg');
+  mask-image: url('~@/assets/imgs/logos/logoIcon.svg');
   white-space: nowrap;
   &:hover{
     transition-duration: .3s;
@@ -43,7 +43,7 @@
   height: 50px;
   text-indent: 110%;;
   background: rgba($secondary, .8);;
-  mask-image: url('~@/assets/imgs/logoIcon.svg');
+  mask-image: url('~@/assets/imgs/logos/logoIcon.svg');
   white-space: nowrap;
   &:hover{
     background: $secondary;

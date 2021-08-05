@@ -5,7 +5,7 @@
     v-if="status"
   >
     <img
-      src="@/assets/imgs/loaging.svg"
+      src="@/assets/imgs/loading/loaging.svg"
       alt="loading"
     />
   </div>
