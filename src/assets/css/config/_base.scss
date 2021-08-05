@@ -1,0 +1,29 @@
+*{
+  letter-spacing: 2.5px;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Noto Sans TC', sans-serif;
+  position: relative;
+  width: 100%;
+  background: $gray-100;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li{
+    padding: 0;
+    margin: 0;
+  }
+}
+
+tbody{
+  th, td{
+    vertical-align: middle;
+  }
+}

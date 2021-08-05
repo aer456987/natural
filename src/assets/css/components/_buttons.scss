@@ -50,3 +50,41 @@
     transition-duration: .5s;
   }
 }
+
+// 置頂按鈕
+.goTopBtn{
+  width: 45px;
+  bottom: 25px;
+  right: 0;
+  margin: 0;
+  padding: 2px 5px 5px 0;
+  border-radius: 4px 0 0 4px;
+  z-index: 3;
+
+  li{
+    width: 100%;
+    text-align: center;
+  }
+
+  a{
+    display: block;
+    .num_icon{
+      transform: translate(-9px, -1px) scale(.8);
+      transition-duration: .2s;
+    }
+    &:hover{
+      .num_icon{
+        transform: translate(-11px, 0px) scale(0.9);
+        transition-duration: .2s;
+      }
+    }
+  }
+
+  button{
+    transition-duration: .2s;
+    &:hover{
+      transform: translateY(-3px);
+      transition-duration: .2s;
+    }
+  }
+}

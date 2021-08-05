@@ -1,0 +1,9 @@
+// 自訂連結
+.custom_success_link{
+  padding: 8px;
+  color: $success;
+  transition-duration: .2s;
+  &:hover{
+    color: $secondary;
+  }
+}

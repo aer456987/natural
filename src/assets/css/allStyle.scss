@@ -1,24 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
+
 @import "~bootstrap/scss/functions";
 @import "./helpers/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap";
 @import '~bootstrap-icons/font/bootstrap-icons.css';
 
-// @import url('https://fonts.googleapis.com/css2?family=Vibur&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500&display=swap');
+@import "./helpers/mixins";
+@import "./config/base";
+@import "./helpers/utilities";
+@import "./helpers/layout";
 
-@import "./custom/mixins";
+@import "./components/loading";
+@import "./components/buttons";
+@import "./components/link";
+@import "./components/table";
+@import "./components/swal";
 
-@import "./helpers/swalStyle";
-@import "./helpers/swiperStyle";
+@import '~swiper/swiper.scss';
+@import "~swiper/components/effect-coverflow/effect-coverflow.min.css";
+@import "~swiper/components/pagination/pagination.min.css";
+@import "./components/swiper";
 
-@import "./custom/generalSettingStyle";
-@import "./custom/productCardStyle";
-@import "./custom/navbarStyle";
-@import "./custom/buttonsStyle";
-@import "./custom/iconsStyle";
-@import "./custom/progressStyle";
-@import "./custom/otherStyle";
+@import "./components/favoriteIcons";
+@import "./components/progress";
+@import "./layout/navbarStyle";
+
+@import "./components/productCard";
 @import "./custom/rwdStyle";
-
-@import "./animation/homeAnimation";
+@import "./helpers/homeAnimation";
