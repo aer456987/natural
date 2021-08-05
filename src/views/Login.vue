@@ -133,7 +133,7 @@ export default {
           document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
         })
         .catch(() => {
-          this.msg = '登入失敗，請稍後再試';
+          this.msg = '登入異常，請稍後再試';
           this.loadingStatus = false;
         });
     },
