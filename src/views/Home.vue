@@ -157,9 +157,12 @@
             ref="subscriptionForm"
             v-slot="{ errors }"
             class="px-3"
-            @change="checkEmailValue"
+            @submit.prevent="goSubscription"
           >
-            <div class="input-group">
+            <div
+              class="input-group"
+              @change="checkEmailValue"
+            >
               <Field
                 type="email"
                 name="Email"
@@ -170,10 +173,9 @@
                 rules="email"
                 v-model="subscriptionEmail" />
               <button
-                type="button"
+                type="submit"
                 class="btn btn_main py-1 px-4"
                 :class="{ 'disabled' : btnStatus }"
-                @click="goSubscription"
               >
                 訂閱
               </button>

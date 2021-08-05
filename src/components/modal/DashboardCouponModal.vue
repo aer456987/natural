@@ -25,141 +25,146 @@
             aria-label="Close"
           ></button>
         </div>
-        <div
-          v-if="tempCouponData"
-          class="modal-body"
+
+        <Form
+          ref="couponForm"
+          v-slot="{ errors }"
+          @submit="$emit('modalUpdateCoupon', tempCouponData)"
         >
-
-          <Form
-            ref="couponForm"
-            v-slot="{ errors }"
-            class="row"
-            @change="checkInputValue"
+          <div
+            v-if="tempCouponData"
+            class="modal-body"
           >
-            <div class="col-12">
-              <label
-                for="modalTitle"
-                class="form-label p-1 m-0"
-              >
-                優惠券名稱 <span class="text-danger fw-bold">*</span>
-              </label>
-              <Field
-                type="text"
-                name="優惠券名稱"
-                placeholder="請輸入優惠券名稱"
-                id="modalTitle"
-                class="form-control mb-2"
-                :class="{ 'is-invalid': errors['優惠券名稱'] }"
-                rules="required"
-                v-model="tempCouponData.title" />
-              <ErrorMessage
-                name="優惠券名稱"
-                class="invalid-feedback mb-1" />
-            </div>
-
-            <div class="col-12">
-              <label
-                for="modalCode"
-                class="form-label p-1 m-0"
-              >
-                優惠碼<span class="text-danger fw-bold">*</span>
-              </label>
-
-              <Field
-                type="text"
-                name="優惠碼"
-                placeholder="請輸入優惠碼"
-                id="modalCode"
-                class="form-control mb-2"
-                :class="{ 'is-invalid': errors['優惠碼'] }"
-                rules="required"
-                v-model="tempCouponData.code" />
-              <ErrorMessage
-                name="優惠碼"
-                class="invalid-feedback mb-1" />
-            </div>
-
-            <div class="col-12">
-              <label
-                for="modalPercent"
-                class="form-label p-1 m-0"
-              >
-                折扣 % 數<span class="text-danger fw-bold">*</span>
-              </label>
-
-              <Field
-                type="number"
-                min="1"
-                max="99"
-                name="折扣 % 數"
-                id="modalPercent"
-                class="form-control mb-2"
-                :class="{ 'is-invalid': errors['折扣 % 數'] }"
-                rules="required|numeric|numeric"
-                v-model.number="tempCouponData.percent" />
-              <ErrorMessage
-                name="折扣 % 數"
-                class="invalid-feedback mb-1" />
-            </div>
-
-            <div class="col-12">
-              <label
-                for="modalDueDate"
-                class="form-label p-1 m-0"
-              >
-                到期日<span class="text-danger fw-bold">*</span>
-              </label>
-              <input
-                type="date"
-                id="modalDueDate"
-                name="到期日"
-                class="form-control mb-2"
-                placeholder="請輸入到期日"
-                v-model="tempDueDate"
-              >
-            </div>
-
-            <p class="text-danger text-end fw-bold mt-1">
-              * 為必填項目
-            </p>
 
             <div
-              class="col-12 form-check
-                d-flex justify-content-end align-items-center mb-0"
+              class="row"
+              @change="checkInputValue"
             >
-              <input type="checkbox"
-                id="enabledStatus"
-                name="啟用狀態"
-                value="啟用狀態"
-                class="form-check-input m-2 me-1"
-                :true-value="1"
-                :false-value="0"
-                v-model="tempCouponData.is_enabled"
-              >
-              <label for="enabledStatus">
-                是否啟用
-              </label>
-            </div>
-          </Form>
+              <div class="col-12">
+                <label
+                  for="modalTitle"
+                  class="form-label p-1 m-0"
+                >
+                  優惠券名稱 <span class="text-danger fw-bold">*</span>
+                </label>
+                <Field
+                  type="text"
+                  name="優惠券名稱"
+                  placeholder="請輸入優惠券名稱"
+                  id="modalTitle"
+                  class="form-control mb-2"
+                  :class="{ 'is-invalid': errors['優惠券名稱'] }"
+                  rules="required"
+                  v-model="tempCouponData.title" />
+                <ErrorMessage
+                  name="優惠券名稱"
+                  class="invalid-feedback mb-1" />
+              </div>
 
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-outline-brown-500"
-            data-bs-dismiss="modal"
-          >
-            關閉
-          </button>
-          <button
-            type="button"
-            class="btn btn-warning text-brown-500"
-            :disabled="newBtnStatus"
-            @click="$emit('modalUpdateCoupon', tempCouponData)"
-          >
-            {{ modalIsNew ? '確定新增' : '儲存變更' }}
-          </button>
-        </div>
+              <div class="col-12">
+                <label
+                  for="modalCode"
+                  class="form-label p-1 m-0"
+                >
+                  優惠碼<span class="text-danger fw-bold">*</span>
+                </label>
+
+                <Field
+                  type="text"
+                  name="優惠碼"
+                  placeholder="請輸入優惠碼"
+                  id="modalCode"
+                  class="form-control mb-2"
+                  :class="{ 'is-invalid': errors['優惠碼'] }"
+                  rules="required"
+                  v-model="tempCouponData.code" />
+                <ErrorMessage
+                  name="優惠碼"
+                  class="invalid-feedback mb-1" />
+              </div>
+
+              <div class="col-12">
+                <label
+                  for="modalPercent"
+                  class="form-label p-1 m-0"
+                >
+                  折扣 % 數<span class="text-danger fw-bold">*</span>
+                </label>
+
+                <Field
+                  type="number"
+                  min="1"
+                  max="99"
+                  name="折扣 % 數"
+                  id="modalPercent"
+                  class="form-control mb-2"
+                  :class="{ 'is-invalid': errors['折扣 % 數'] }"
+                  rules="required|numeric|numeric"
+                  v-model.number="tempCouponData.percent" />
+                <ErrorMessage
+                  name="折扣 % 數"
+                  class="invalid-feedback mb-1" />
+              </div>
+
+              <div class="col-12">
+                <label
+                  for="modalDueDate"
+                  class="form-label p-1 m-0"
+                >
+                  到期日<span class="text-danger fw-bold">*</span>
+                </label>
+                <input
+                  type="date"
+                  id="modalDueDate"
+                  name="到期日"
+                  class="form-control mb-2"
+                  placeholder="請輸入到期日"
+                  v-model="tempDueDate"
+                >
+              </div>
+
+              <p class="text-danger text-end fw-bold mt-1">
+                * 為必填項目
+              </p>
+
+              <div
+                class="col-12 form-check
+                  d-flex justify-content-end align-items-center mb-0"
+              >
+                <input type="checkbox"
+                  id="enabledStatus"
+                  name="啟用狀態"
+                  value="啟用狀態"
+                  class="form-check-input m-2 me-1"
+                  :true-value="1"
+                  :false-value="0"
+                  v-model="tempCouponData.is_enabled"
+                >
+                <label for="enabledStatus">
+                  是否啟用
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-outline-brown-500"
+              data-bs-dismiss="modal"
+            >
+              關閉
+            </button>
+            <button
+              type="submit"
+              class="btn btn-warning text-brown-500"
+              :disabled="newBtnStatus"
+            >
+              {{ modalIsNew ? '確定新增' : '儲存變更' }}
+            </button>
+          </div>
+        </Form>
+
       </section>
     </main>
   </div>
