@@ -88,6 +88,7 @@
 
     <div class="col-6 mb-1">
       <button
+        type="button"
         class="btn btn-brown w-100"
         :class="{
           'disabled' : tempMainImg === '' || tempImgs[tempImgs.length - 1] === ''

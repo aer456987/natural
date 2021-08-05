@@ -53,7 +53,7 @@
           </li>
           <li class="nav-item d-flex justify-content-center">
             <button
-              type="buttom"
+              type="button"
               class="nav-link btn fs-5 shadow-none"
               @click="logout"
             >

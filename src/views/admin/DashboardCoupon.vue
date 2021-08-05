@@ -28,6 +28,7 @@
 
       <div class="col-md-6 text-end pb-1">
         <button
+          type="button"
           class="btn btn-brown-500"
           @click="opanCouponModal(true)"
         >
@@ -86,6 +87,7 @@
             </td>
             <td data-title="操作">
               <button
+                type="button"
                 class="btn btn-outline-brown-500 px-2 py-1"
                 @click="opanCouponModal(false, coupon)"
               >

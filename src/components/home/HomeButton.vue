@@ -1,7 +1,10 @@
 <template>
   <!-- 首頁按鈕 -->
   <div class="buttons bounce_animetion_slow">
-    <button class="blob-btn w-100">
+    <button
+      type="button"
+      class="blob-btn w-100"
+    >
       <router-link
         :to="linkPath"
         class="d-block py-2"

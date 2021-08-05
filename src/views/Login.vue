@@ -88,6 +88,7 @@
             </router-link>
             |
             <button
+              type="button"
               class="custom_success_link border-0 bg_transparent"
               @click="openPasswordMassage"
             >

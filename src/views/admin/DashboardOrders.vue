@@ -27,6 +27,7 @@
 
       <div class="col-md-6 text-end pb-1">
         <button
+          type="button"
           class="btn btn-outline-danger"
           @click="delAllOrderSwalFn('all')"
         >
@@ -115,6 +116,7 @@
 
             <td data-title="操作">
               <button
+                type="button"
                 class="btn btn-outline-brown-500 px-2 py-1"
                 @click="openOrderModal(order)"
               >

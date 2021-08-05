@@ -16,12 +16,12 @@
             最愛收藏
           </h3>
           <button
-              type="button"
-              class="btn btn-outline-danger btn-sm"
-              @click="allDelFavorite"
-              :disabled="newFavoritesData.length<1"
-            >
-              清空收藏
+            type="button"
+            class="btn btn-outline-danger btn-sm"
+            @click="allDelFavorite"
+            :disabled="newFavoritesData.length<1"
+          >
+            清空收藏
           </button>
         </div>
         <div class="col-2 text-end">

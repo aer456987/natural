@@ -45,6 +45,7 @@
 
       <div class="col-md-4 col-lg-6 text-end pb-1">
         <button
+          type="button"
           class="btn btn-brown-500"
           @click="openModal(true)"
         >
@@ -124,6 +125,7 @@
 
             <td data-title="操作">
               <button
+                type="button"
                 class="btn btn-outline-brown-500 px-2 py-1"
                 @click="openModal(false, product)"
               >
