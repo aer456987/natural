@@ -4,18 +4,16 @@
     :="swiperSetting"
     class="mySwiper"
   >
-    <template
+    <swiper-slide
       v-for="headerImg in headerImgs"
       :key="headerImg.id"
     >
-      <swiper-slide>
-        <img
-        :src="headerImg.img"
-        :alt="`首圖_${headerImg.id}`"
-        class="w-100"
-      >
-      </swiper-slide>
-    </template>
+      <img
+      :src="headerImg.img"
+      :alt="`首圖_${headerImg.id}`"
+      class="w-100"
+    >
+    </swiper-slide>
   </swiper>
 </template>
 

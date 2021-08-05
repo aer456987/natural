@@ -115,28 +115,24 @@
     <!-- 網頁人氣 -->
     <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
       <ul class="row justify-content-around list-unstyled">
-
-        <template
+        <li
           v-for="platform in platformData"
           :key="platform.id"
+          class="col-6 col-xl-3 px-0 text-center mb-2"
+          data-aos="zoom-in-down"
+          data-aos-anchor-placement="center-bottom"
+          data-aos-duration="700"
         >
-          <li
-            class="col-6 col-xl-3 px-0 text-center mb-2"
-            data-aos="zoom-in-down"
-            data-aos-anchor-placement="center-bottom"
-            data-aos-duration="700"
-          >
-            <h3 class="fs-7 fw-bold">
-              <CountTo
-                :end-val="platform.num"
-                :count-to-id="platform.id" />
-              <span class="fs-4">/{{ platform.unit }}</span>
-            </h3>
-            <p class="m-0">
-              {{ platform.text }}
-            </p>
-          </li>
-        </template>
+          <h3 class="fs-7 fw-bold">
+            <CountTo
+              :end-val="platform.num"
+              :count-to-id="platform.id" />
+            <span class="fs-4">/{{ platform.unit }}</span>
+          </h3>
+          <p class="m-0">
+            {{ platform.text }}
+          </p>
+        </li>
       </ul>
     </section>
 

@@ -164,11 +164,11 @@
                     </th>
                   </tr>
                 </thead>
-                <tbody
-                  v-for="item in order.data.products"
-                  :key="item.id"
-                >
-                  <tr>
+                <tbody>
+                  <tr
+                    v-for="item in order.data.products"
+                    :key="item.id"
+                  >
                     <td
                       scope="row"
                       class="border ps-2 text-start"

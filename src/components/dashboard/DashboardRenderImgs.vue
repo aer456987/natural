@@ -43,7 +43,9 @@
           <label
             :for="`moreImg_${key+1}`"
             class="form-label p-1 m-0"
-          >{{ `圖片${key+1}` }}</label>
+          >
+            {{ `圖片${key+1}` }}
+          </label>
           <Field
             type="text"
             :name="`圖片網址_${key+1}`"

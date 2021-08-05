@@ -16,22 +16,22 @@
             &laquo;
           </button>
         </li>
-        <template
+
+        <li
           v-for="page in pagesData.total_pages"
-          :key="`分頁_${page}`">
-          <li
-            class="page-item"
-            :class="{ 'active' : pagesData.current_page === page }"
-            @click="$emit('getData', page)"
+          :key="`分頁_${page}`"
+          class="page-item"
+          :class="{ 'active' : pagesData.current_page === page }"
+          @click="$emit('getData', page)"
+        >
+          <button
+            type="button"
+            class="page-link"
           >
-            <button
-              type="button"
-              class="page-link"
-            >
-              {{ page }}
-            </button>
-          </li>
-        </template>
+            {{ page }}
+          </button>
+        </li>
+
         <li
           v-if="pagesData.has_next"
           class="page-item"

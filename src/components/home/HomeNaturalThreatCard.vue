@@ -1,55 +1,52 @@
 <template>
   <!-- 引言用圖 -->
   <ul class="row m-0 list-unstyled">
-    <template
+    <li
       v-for="item in naturalThreatImgs"
       :key="item.img"
+      data-aos="zoom-in"
+      data-aos-anchor-placement="top-bottom"
+      data-aos-delay="500"
+      data-aos-duration="900"
+      data-aos-easing="ease-out-back"
+      class="col-sm-12 col-md-6 col-lg-3 p-0
+        natural_threat_card_item
+        d-flex justify-content-center align-items-center"
     >
-      <li
-        data-aos="zoom-in"
-        data-aos-anchor-placement="top-bottom"
-        data-aos-delay="500"
-        data-aos-duration="900"
-        data-aos-easing="ease-out-back"
-        class="col-sm-12 col-md-6 col-lg-3 p-0
-          natural_threat_card_item
-          d-flex justify-content-center align-items-center"
+      <input
+        type="checkbox"
+        class="natural_threat_card_checkbox"
+        :id="`natural_threat_card_checkbox_${item.id + 1}`"
+        :value="`natural_threat_card_${item.id + 1}`"
       >
-        <input
-          type="checkbox"
-          class="natural_threat_card_checkbox"
-          :id="`natural_threat_card_checkbox_${item.id + 1}`"
-          :value="`natural_threat_card_${item.id + 1}`"
+      <label
+        name="card_items"
+        class="natural_threat_card_label"
+        :for="`natural_threat_card_checkbox_${item.id + 1}`"
+      >
+        <img
+          :src="item.img"
+          :alt="`圖片${item.id + 1}`"
+          class="natural_threat_card_img w-100"
         >
-        <label
-          name="card_items"
-          class="natural_threat_card_label"
-          :for="`natural_threat_card_checkbox_${item.id + 1}`"
+        <div
+          class="natural_threat_card_content"
+          :id="`natural_threat_card_content_${item.id + 1}`"
         >
-          <img
-            :src="item.img"
-            :alt="`圖片${item.id + 1}`"
-            class="natural_threat_card_img w-100"
-          >
-          <div
-            class="natural_threat_card_content"
-            :id="`natural_threat_card_content_${item.id + 1}`"
-          >
-            <div>
-              <h3 class="natural_threat_card_title">
-                {{ item.title }}
-              </h3>
-              <p
-                class="natural_threat_card_text"
-                :id="`natural_threat_card_text_${item.id + 1}`"
-              >
-                {{ item.text }}
-              </p>
-            </div>
+          <div>
+            <h3 class="natural_threat_card_title">
+              {{ item.title }}
+            </h3>
+            <p
+              class="natural_threat_card_text"
+              :id="`natural_threat_card_text_${item.id + 1}`"
+            >
+              {{ item.text }}
+            </p>
           </div>
-        </label>
-      </li>
-    </template>
+        </div>
+      </label>
+    </li>
   </ul>
 </template>
 

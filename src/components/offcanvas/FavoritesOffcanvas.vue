@@ -37,52 +37,48 @@
     <div class="offcanvas-body">
       <template v-if="offcanvasFavoritesList.length > 0">
         <ul class="list-unstyled px-1 mb-5">
-          <template
+          <li
+            class="row justify-content-center align-items-center
+            mb-2 pb-2 border-bottom"
             v-for="favoriteItme in newFavoritesData"
             :key="favoriteItme.id"
           >
-
-            <li class="row justify-content-center align-items-center
-              mb-2 pb-2 border-bottom"
-            >
-              <div class="col-2 col-sm-1 p-0">
-                <Favorite
-                  ref="favoriteIcon"
-                  :idData="favoriteItme.id" />
-              </div>
-              <div class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
-                <img
-                  :src="favoriteItme.imageUrl"
-                  alt="圖片"
-                  class="w-100"
-                >
-              </div>
-              <p class="col-5 textStyle_rwd_2 py-0 px-1 m-0">
-                {{ favoriteItme.title }} <br>
-                ${{ $filters.currency(favoriteItme.price)}} / {{ favoriteItme.unit }}
-              </p>
-              <div class="col-3 col-sm-2 px-1">
-                <input
-                  ref="numValue"
-                  type="number"
-                  min="1"
-                  class="form-control w-100 text-center
-                    py-1 text-center"
-                  v-model.number="favoriteItme.qty"
-                >
-              </div>
-              <div class="col-2 p-0 ps-sm-1">
-                <button
-                  type="button"
-                  class="btn btn_outline_green fs-4"
-                  @click="addCart(favoriteItme.id, favoriteItme.qty)"
-                >
-                  <i class="bi bi-cart-plus-fill"></i>
-                </button>
-              </div>
-            </li>
-
-          </template>
+            <div class="col-2 col-sm-1 p-0">
+              <Favorite
+                ref="favoriteIcon"
+                :idData="favoriteItme.id" />
+            </div>
+            <div class="col-1 p-0 ms-2 me-1 d-none d-sm-block">
+              <img
+                :src="favoriteItme.imageUrl"
+                alt="圖片"
+                class="w-100"
+              >
+            </div>
+            <p class="col-5 textStyle_rwd_2 py-0 px-1 m-0">
+              {{ favoriteItme.title }} <br>
+              ${{ $filters.currency(favoriteItme.price)}} / {{ favoriteItme.unit }}
+            </p>
+            <div class="col-3 col-sm-2 px-1">
+              <input
+                ref="numValue"
+                type="number"
+                min="1"
+                class="form-control w-100 text-center
+                  py-1 text-center"
+                v-model.number="favoriteItme.qty"
+              >
+            </div>
+            <div class="col-2 p-0 ps-sm-1">
+              <button
+                type="button"
+                class="btn btn_outline_green fs-4"
+                @click="addCart(favoriteItme.id, favoriteItme.qty)"
+              >
+                <i class="bi bi-cart-plus-fill"></i>
+              </button>
+            </div>
+          </li>
         </ul>
 
         <div class="row flex-row-reverse">

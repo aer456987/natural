@@ -288,28 +288,26 @@
                   </th>
                 </thead>
                 <tbody>
-                  <template
+                  <tr
                     v-for="item in tempOrder.products"
                     :key="item.product_id"
                   >
-                    <tr>
-                      <td>
-                        {{ item.product.title }}
-                      </td>
-                      <td>
-                        {{ item.product.num }} {{ item.product.unit }}
-                      </td>
-                      <td>
-                        ${{ $filters.currency(item.product.price) }}
-                      </td>
-                      <td>
-                        $ {{ $filters.currency(item.final_total) }}
-                      </td>
-                      <td>
-                        $ {{ $filters.currency(item.final_total) }}
-                      </td>
-                    </tr>
-                  </template>
+                    <td>
+                      {{ item.product.title }}
+                    </td>
+                    <td>
+                      {{ item.product.num }} {{ item.product.unit }}
+                    </td>
+                    <td>
+                      ${{ $filters.currency(item.product.price) }}
+                    </td>
+                    <td>
+                      $ {{ $filters.currency(item.final_total) }}
+                    </td>
+                    <td>
+                      $ {{ $filters.currency(item.final_total) }}
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

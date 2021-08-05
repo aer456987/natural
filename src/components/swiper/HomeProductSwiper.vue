@@ -8,26 +8,25 @@
     data-aos-delay="100"
     data-aos-duration="1000"
   >
-    <template
+    <swiper-slide
+      class="p-0 position-relative productSwiper_content"
       v-for="headerImg in headerImgs"
       :key="headerImg.id"
     >
-      <swiper-slide class="p-0 position-relative productSwiper_content">
-        <router-link to="/products">
-          <img
-            :src="headerImg.imgUrl"
-            :alt="`介紹圖片_${headerImg.id + 1}`"
-            class="w-100 rounded-2"
-          >
-          <h3 class="productSwiper_title position-absolute m-0">
-            {{ headerImg.title }}
-            <span class="productSwiper_text py-1 d-block fs-6">
-              {{ headerImg.text }}
-            </span>
-          </h3>
-        </router-link>
-      </swiper-slide>
-    </template>
+      <router-link to="/products">
+        <img
+          :src="headerImg.imgUrl"
+          :alt="`介紹圖片_${headerImg.id + 1}`"
+          class="w-100 rounded-2"
+        >
+        <h3 class="productSwiper_title position-absolute m-0">
+          {{ headerImg.title }}
+          <span class="productSwiper_text py-1 d-block fs-6">
+            {{ headerImg.text }}
+          </span>
+        </h3>
+      </router-link>
+    </swiper-slide>
   </swiper>
 </template>
 

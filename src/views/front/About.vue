@@ -10,54 +10,48 @@
       <section class="row py-3">
         <div class="col-12 col-lg-7">
           <ul class="row list-unstyled">
-            <template
+            <li
               v-for="(pageText, key) in pageTextContent"
               :key="`關於內文_${key}`"
+              class="col-12 pe-2 py-3 text-break"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-back"
+              data-aos-anchor-placement="top-bottom"
+              :data-aos-delay="`1${key+1}0`"
+              data-aos-duration="700"
             >
-              <li
-                class="col-12 pe-2 py-3 text-break"
-                data-aos="fade-up"
-                data-aos-easing="ease-out-back"
-                data-aos-anchor-placement="top-bottom"
-                :data-aos-delay="`1${key+1}0`"
-                data-aos-duration="700"
+              <h2 class="fw-bold pb-1">
+                {{ pageText.title }}
+              </h2>
+              <p v-html="pageText.content">
+              </p>
+              <img
+                :src="pageText.img"
+                :alt="`${pageText.title}_圖片${key}`"
+                class="d-block d-lg-none w-100 rounded-1"
               >
-                <h2 class="fw-bold pb-1">
-                  {{ pageText.title }}
-                </h2>
-                <p v-html="pageText.content">
-                </p>
-                <img
-                  :src="pageText.img"
-                  :alt="`${pageText.title}_圖片${key}`"
-                  class="d-block d-lg-none w-100 rounded-1"
-                >
-              </li>
-            </template>
+            </li>
           </ul>
         </div>
 
         <aside class="col-5 d-none d-lg-block">
           <ul class="row list-unstyled py-3">
-            <template
+            <li
               v-for="(asideImg, key) in pageTextContent"
               :key="`側欄圖片_${key}`"
+              class="col-12 py-1"
+              data-aos="fade-up"
+              data-aos-easing="ease-out-back"
+              data-aos-anchor-placement="top-bottom"
+              :data-aos-delay="`1${key+2}0`"
+              data-aos-duration="700"
             >
-              <li
-                class="col-12 py-1"
-                data-aos="fade-up"
-                data-aos-easing="ease-out-back"
-                data-aos-anchor-placement="top-bottom"
-                :data-aos-delay="`1${key+2}0`"
-                data-aos-duration="700"
+              <img
+                :src="asideImg.img"
+                :alt="asideImg.title"
+                class="w-100 rounded-1"
               >
-                <img
-                  :src="asideImg.img"
-                  :alt="asideImg.title"
-                  class="w-100 rounded-1"
-                >
-              </li>
-            </template>
+            </li>
           </ul>
         </aside>
       </section>

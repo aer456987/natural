@@ -8,11 +8,9 @@
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <div class="row py-3">
-        <template
+        <section
           v-for="(item, key) in FAQData"
           :key="item.id"
-        >
-        <section
           class="col-12 py-3"
           data-aos="fade-up"
           data-aos-easing="ease-out-back"
@@ -25,12 +23,12 @@
             {{ item.title }}
           </h2>
 
-          <template
-            v-for="(faq, key) in item.faqs"
-            :key="`${item.id}_${key}`"
-          >
             <ul class="accordion accordion-flush shadow-sm">
-              <li class="accordion-item border-bottom">
+              <li
+                v-for="(faq, key) in item.faqs"
+                :key="`${item.id}_${key}`"
+                class="accordion-item border-bottom"
+              >
                 <h3
                   class="accordion-header"
                   :id="`${item.id}_${key + 1}`"
@@ -61,10 +59,7 @@
                 </div>
               </li>
             </ul>
-          </template>
-
         </section>
-      </template>
       </div>
     </div>
   </main>

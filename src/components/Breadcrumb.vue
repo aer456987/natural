@@ -7,20 +7,18 @@
     >
       <ul class="breadcrumb m-0">
 
-        <template
+        <li
           v-for="(item, key) in breadcrumbData.previous"
           :key="`麵包屑_${key}`"
+          class="breadcrumb-item"
         >
-
-          <li class="breadcrumb-item">
-            <router-link
-              :to="item.url"
-              class="link-success-light"
-            >
-              {{ item.title }}
-            </router-link>
-          </li>
-        </template>
+          <router-link
+            :to="item.url"
+            class="link-success-light"
+          >
+            {{ item.title }}
+          </router-link>
+        </li>
 
         <li
           class="breadcrumb-item active"
