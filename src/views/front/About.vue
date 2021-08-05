@@ -8,9 +8,7 @@
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
-      <section
-        class="row py-3"
-      >
+      <section class="row py-3">
         <div class="col-12 col-lg-7">
           <ul class="row list-unstyled">
             <template

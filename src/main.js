@@ -7,7 +7,7 @@ import {
 } from '@vee-validate/rules'; // 規則載入
 import { localize, setLocale } from '@vee-validate/i18n'; // 多國語言載入
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faCrow, faSearchPlus } from '@fortawesome/free-solid-svg-icons'; // Font Awesome icons
+import { faSearchPlus } from '@fortawesome/free-solid-svg-icons'; // Font Awesome icons
 import {
   faFacebookSquare, faLine, faInstagramSquare, faGithubSquare,
 } from '@fortawesome/free-brands-svg-icons';
@@ -40,7 +40,6 @@ configure({
 setLocale('zh_TW');
 
 library.add(
-  faCrow,
   faSearchPlus,
   faFacebookSquare,
   faLine,

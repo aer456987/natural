@@ -65,9 +65,7 @@
         這一秒，大自然的生命也在逐漸凋零
       </h2>
       <div class="row flex-column align-items-center pt-3">
-        <div
-          class="col-10 col-md-7 col-lg-5"
-        >
+        <div class="col-10 col-md-7 col-lg-5">
           <p
             data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"

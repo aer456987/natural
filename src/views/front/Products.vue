@@ -19,8 +19,7 @@
         <div class="col-12 col-md-8 mb-1">
           <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
         </div>
-        <div class="col-12 col-md-4 col-lg-3 mb-1
-          position-relative">
+        <div class="col-12 col-md-4 col-lg-3 mb-1 position-relative">
 
           <div class="input-group">
             <input

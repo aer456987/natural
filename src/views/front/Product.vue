@@ -58,8 +58,7 @@
               ${{ $filters.currency(tempProduct.price)}} / {{ tempProduct.unit }}
             </p>
 
-            <div class="row align-items-center flex-row-reverse
-              mx-0 mb-2">
+            <div class="row align-items-center flex-row-reverse mx-0 mb-2">
               <div class="col-6 p-0">
                 <div class="input-group">
                   <button

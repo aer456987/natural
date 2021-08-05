@@ -8,9 +8,7 @@
     <div class="py-4">
       <Breadcrumb :breadcrumb-data="breadcrumbData"></Breadcrumb>
 
-      <div
-        class="row py-3"
-      >
+      <div class="row py-3">
         <template
           v-for="(item, key) in FAQData"
           :key="item.id"

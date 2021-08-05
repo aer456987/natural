@@ -45,7 +45,7 @@
 
       <div class="col-md-4 col-lg-6 text-end pb-1">
         <button
-          class="btn btn-brown-500  "
+          class="btn btn-brown-500"
           @click="openModal(true)"
         >
           新增產品
