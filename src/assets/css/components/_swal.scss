@@ -2,13 +2,14 @@
 .swal2-container {
   z-index: 2000 !important;
 }
-.swal2-popup, .swal2-popup .swal2-modal .swal2-icon-success .swal2-show {
+
+.swal2-popup {
   width: auto !important;
-  padding: 10px 30px 40px !important;
+  padding: 20px 30px 40px !important;
 }
 
-.swal2-title {
-  color: $primary !important;
+.swal2-popup.swal2-toast.swal2-show {
+  padding-bottom: 20px !important;
 }
 
 .swal2-popup.swal2-toast .swal2-title {
@@ -20,18 +21,6 @@
 .swal2-html-container {
   max-width: none;
 }
-// .swal-text{
-// }
-
-// .swal2-styled.swal2-confirm {
-//   &:focus{
-//     box-shadow: 0 0 5px 0 rgba($primary, .2) !important;
-//   }
-// }
-
-// .swal-icon:first-child{
-//   margin: 20px auto;
-// }
 
 .swal2-icon.swal2-success .swal2-success-ring,
 .swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring {
@@ -46,14 +35,4 @@
 }
 .swal2-popup.swal2-toast .swal2-success {
   border: solid 2.5px $custom-green !important;
-
 }
-// .swal-icon--warning__body{
-//   height: 38px;
-//   top: 15px;
-// }
-
-// .swal-icon--warning__dot{
-//   bottom: -13px;
-//   margin-left: -3px;
-// }

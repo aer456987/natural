@@ -1,7 +1,5 @@
-// import swal from 'sweetalert';
 import Swal from 'sweetalert2';
 // success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
-// closeOnClickOutside: false,
 
 // 一般提示視窗 V
 export function swalFn(title, icon, toast = false, posi = 'center') {
@@ -9,7 +7,7 @@ export function swalFn(title, icon, toast = false, posi = 'center') {
     position: posi,
     title,
     icon,
-    timer: 1500,
+    // timer: 1500,
     showConfirmButton: false,
     timerProgressBar: true,
     toast,
