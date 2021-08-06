@@ -11,9 +11,12 @@
   padding-bottom: 20px !important;
 }
 
-.swal2-title, .swal2-popup .swal2-toast .swal2-title {
+.swal2-popup .swal2-toast .swal2-title {
   margin: 10px !important;
   font-weight: 500;
+  color: $primary !important;
+}
+.swal2-title {
   color: $primary !important;
 }
 
