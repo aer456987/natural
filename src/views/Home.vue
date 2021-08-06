@@ -7,7 +7,7 @@
 
   <header class="position-relative userselect-none">
     <div
-      class="header__banner z-index-2
+      class="position-absolute top-50 start-50 translate-middle transition-duration-3 z-index-2
         text-center text-light text-shadow"
     >
       <p class="header__banner__text custom-fade-animetion">
