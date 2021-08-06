@@ -1,5 +1,4 @@
 <template>
-  <!-- 商品 Modal -->
   <section
     class="modal fade m-0"
     id="productModal"
@@ -70,7 +69,6 @@
             </div>
 
             <div class="row">
-              <!-- 主要內容編輯 -->
               <div
                 class="col-12"
                 :class="{ 'd-none' : isShow }"
@@ -247,7 +245,6 @@
                 </div>
               </div>
 
-              <!-- 圖片編輯 -->
               <div
                 class="col-12"
                 :class="{ 'd-none' : !isShow }"
@@ -311,7 +308,7 @@ export default {
   data() {
     return {
       modal: '',
-      newBtnStatus: Boolean, // true 禁用; false 啟用
+      newBtnStatus: Boolean,
       tempProduct: {
         title: '',
         category: '',
@@ -344,7 +341,7 @@ export default {
     hideModal() {
       this.modal.hide();
     },
-    resetForm() { // 重製表單驗證
+    resetForm() {
       this.$refs.productForm.resetForm();
       this.$refs.renderImg.resetForm();
     },
@@ -353,7 +350,7 @@ export default {
       this.tempProduct.imagesUrl = newImgs;
       this.checkInputValue();
     },
-    checkInputValue() { // 驗證欄位是否為空
+    checkInputValue() {
       const {
         title, category, unit, price, imageUrl,
       } = this.tempProduct;

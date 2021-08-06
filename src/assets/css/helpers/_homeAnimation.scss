@@ -1,8 +1,7 @@
-// 呼吸燈效果
-.custom-fade-animetion{
+.custom-fade-animetion {
   @include animetion-init(fadeAni, 10s, infinite);
 }
-.custom-fade-animetion_slow{
+.custom-fade-animetion_slow {
   @include animetion-init(fadeAni, 14s, infinite);
 }
 
@@ -18,7 +17,6 @@
   }
 }
 
-// 彈跳效果(快速)
 @keyframes bounce {
 	0% {
 		transform: translateY(0%);
@@ -37,10 +35,10 @@
 	}
 }
 
-.custom-animetion-slow{
+.custom-animetion-slow {
   @include animetion-init(bounceSlow, 2s, infinite);
 }
-// 彈跳效果(慢)
+
 @keyframes bounceSlow {
 	0% {
 		transform: translateY(0%);

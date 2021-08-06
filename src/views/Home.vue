@@ -25,7 +25,6 @@
   </header>
 
   <main id="main" class="bg-white overflow-hidden userselect-none">
-    <!-- 圖片 -->
     <section class="container py-5 py-lg-6">
       <h2
         class="custom-style-text-1 fw-bold text-center mb-1"
@@ -50,7 +49,6 @@
       <HomeNaturalThreatCard />
     </section>
 
-    <!-- 介紹 -->
     <section class="text-center bg-gray-100 py-5 py-lg-6">
       <h2
         class="custom-style-text-1 fw-bold mb-0 mb-md-2 px-2"
@@ -112,7 +110,6 @@
       </div>
     </section>
 
-    <!-- 網頁人氣 -->
     <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
       <ul class="row justify-content-around list-unstyled">
         <li
@@ -137,17 +134,14 @@
       </ul>
     </section>
 
-    <!-- 商品分類 -->
     <section class="pt-2 pb-5 pb-lg-6">
       <HomeProductSwiper class="py-2" />
     </section>
 
-    <!-- 資訊 -->
     <section class="container py-5 py-lg-6">
       <HomeMessages />
     </section>
 
-    <!-- 訂閱 -->
     <section class="px-2 py-5 text-center bg-gray-100">
       <h4 class="fs-4 mb-3 px-2">
         訂閱 Natural 環保資訊整合平台，讓您絕不漏接任何一則最新資訊！
@@ -269,7 +263,7 @@ export default {
     GoToTopBtn,
   },
   methods: {
-    changeNavbarStyle() { // 滾動追蹤
+    changeNavbarStyle() {
       const windowY = window.scrollY;
       const main = document.querySelector('#main');
 
@@ -279,10 +273,10 @@ export default {
         this.classStyle.navbarClass = ['py-sm-1', 'py-md-3'];
       }
     },
-    openFavoritesOffcanvas() { // 打開最愛收藏側藍
+    openFavoritesOffcanvas() {
       this.$refs.likeOffcanvas.openOffcanvas(this.homeFavoritesList);
     },
-    checkEmailValue() { // 確認訂閱輸入欄是否為空
+    checkEmailValue() {
       if (this.subscriptionEmail === '') {
         this.btnStatus = true;
       } else {
@@ -295,7 +289,7 @@ export default {
       this.resetForm();
       swalFn('訂閱成功', 'success', true, 'top-end');
     },
-    resetForm() { // 重製表單驗證
+    resetForm() {
       this.$refs.subscriptionForm.resetForm();
     },
     backTop() {
@@ -307,7 +301,7 @@ export default {
     window.addEventListener('scroll', this.changeNavbarStyle);
     this.backTop();
   },
-  unmounted() { // 離開頁面後移除監聽事件
+  unmounted() {
     window.removeEventListener('scroll', this.changeNavbarStyle);
   },
 };

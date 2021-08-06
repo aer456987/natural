@@ -1,7 +1,5 @@
 import Swal from 'sweetalert2';
-// success (成功) ； error (叉叉) ； warning(警告) ； info (說明)
 
-// 一般提示視窗 V
 export function swalFn(title, icon, toast = false, posi = 'center') {
   const txt = {
     position: posi,
@@ -15,7 +13,6 @@ export function swalFn(title, icon, toast = false, posi = 'center') {
   Swal.fire(txt);
 }
 
-// 錯誤提示視窗 V
 export function errorSwalFn(title, text, toast = false, posi = 'center') {
   const txt = {
     position: posi,
@@ -30,7 +27,6 @@ export function errorSwalFn(title, text, toast = false, posi = 'center') {
   Swal.fire(txt);
 }
 
-// 登入驗證失敗 V
 export function checkLoginErrorSwalFn(title, icon) {
   const txt = {
     title,
@@ -43,7 +39,6 @@ export function checkLoginErrorSwalFn(title, icon) {
   Swal.fire(txt);
 }
 
-// 密碼提示視窗 V
 export function passwordMassageSwalFn() {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -65,7 +60,6 @@ export function passwordMassageSwalFn() {
   swalWithBootstrapButtons.fire(txt);
 }
 
-// 刪除商品的確認視窗 V
 export function delSwalFn(data, methods, action) {
   const { title, id } = data;
   let newTitle = title;
@@ -107,7 +101,7 @@ export function delSwalFn(data, methods, action) {
     });
 }
 
-// 第二層確認刪除
+// 雙層確認視窗裡的第二層
 export function secondCheckdelSwalFn(action, methods) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -137,7 +131,6 @@ export function secondCheckdelSwalFn(action, methods) {
     });
 }
 
-// 全部刪除商品的確認視窗
 export function doubleCheckdelSwalFn(action, methods) {
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
@@ -160,7 +153,7 @@ export function doubleCheckdelSwalFn(action, methods) {
   swalWithBootstrapButtons.fire(firstCheckTxt)
     .then((result) => {
       if (result.isConfirmed) {
-        secondCheckdelSwalFn(action, methods); // 第二層確認
+        secondCheckdelSwalFn(action, methods);
       } else {
         swalFn('已取消操作', 'error');
       }

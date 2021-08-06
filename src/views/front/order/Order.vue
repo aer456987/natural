@@ -2,17 +2,13 @@
   <Loading :status="loadingStatus" />
   <div class="container page-content userselect-none">
     <div class="py-4">
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
-      <!-- 進度條 -->
       <CartProgress :progress-value="progressNum" />
 
-      <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">
         訂購人資訊
       </h2>
       <main class="container">
-        <!-- 訂單填寫 -->
         <Form
           v-slot="{ errors }"
           @submit="postOrder"
@@ -21,7 +17,6 @@
             class="row px-lg-0 px-xl-5
               position-relative justify-content-center align-items-center"
             >
-            <!-- 購物明細 -->
             <div class="col-lg-6">
               <div
                 class="width-xl w-100 p-3 p-sm-5 mx-auto mb-sm-5 rounded bg-white shadow-sm">
@@ -59,9 +54,7 @@
                 </p>
               </div>
             </div>
-            <!-- 訂購人資訊 -->
             <div class="col-lg-6 mb-5 px-3">
-                <!-- 訂購人姓名 -->
                 <label
                   for="orderName"
                   class="form-label mt-3 mb-1"
@@ -82,7 +75,6 @@
                   name="姓名"
                   class="invalid-feedback mb-1" />
 
-                <!-- 聯絡電話 -->
                 <label
                   for="orderTel"
                   class="form-label mt-3 mb-1"
@@ -103,7 +95,6 @@
                   name="電話"
                   class="invalid-feedback mb-1" />
 
-                <!-- Email -->
                 <label
                   for="orderEmail"
                   class="form-label mt-3 mb-1"
@@ -124,7 +115,6 @@
                   name="Email"
                   class="invalid-feedback mb-1" />
 
-                <!-- 寄送方式 -->
                 <template v-if="isDeliveryMethodShow">
                   <label
                     for="orderDelivery"
@@ -156,7 +146,6 @@
                 </template>
 
                 <template v-if="isSendShow">
-                <!-- 收件地址 -->
                   <label
                     for="orderAddress"
                     class="form-label mt-3 mb-1"
@@ -179,7 +168,6 @@
                     class="invalid-feedback mb-1" />
                 </template>
 
-                <!-- 付款方式 -->
                 <label
                   for="orderPayment"
                   class="form-label mt-3 mb-1"
@@ -215,7 +203,6 @@
                   name="付款方式"
                   class="invalid-feedback mb-1" />
 
-                <!-- 備註 -->
                 <label
                   for="orderMsg"
                   class="form-label mt-3 mb-1"
@@ -235,7 +222,6 @@
                 <p class="text-danger text-end fw-bold pt-1">* 為必填項目</p>
 
             </div>
-            <!-- 返回購物車/送出訂單 -->
             <div class="col-12 d-flex justify-content-between mb-2 mb-md-5">
               <router-link
                 to="/cart"
@@ -271,19 +257,19 @@ export default {
   data() {
     return {
       loadingStatus: false,
-      btnStatus: true, // true 禁用; false 啟用
-      progressNum: 33, // 進度條
+      btnStatus: true,
+      progressNum: 33,
       carts: {},
-      userDatas: { // 未送訂單: 訂單資料
+      userDatas: {
         user: {},
       },
-      isFundraisingShow: true, // 特定付款選項不能用
-      isDeliveryMethodShow: true, // 寄送方式選擇
-      isSendShow: true, // 需要寄送
+      isFundraisingShow: true,
+      isDeliveryMethodShow: true,
+      isSendShow: true,
       addressMsg: '',
       isAll: true,
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      breadcrumbData: {
+        previous: [
           {
             title: '線上商城',
             url: '/products',
@@ -293,14 +279,14 @@ export default {
             url: '/cart',
           },
         ],
-        purpose: '填寫訂單資料', // 目前頁面
+        purpose: '填寫訂單資料',
       },
       tempData: [],
     };
   },
   components: { CartProgress, Breadcrumb },
   methods: {
-    getCarts() { // 取得購物車資料
+    getCarts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
 
@@ -325,12 +311,10 @@ export default {
           this.loadingStatus = false;
         });
     },
-    filterFundraising() { // 確認地址是否需要填寫
-      // 單純講座 & 活動的資料
+    filterFundraising() {
       const notNeedSendProduct = this.carts.carts.filter(
         (item) => item.product.category === '講座' || item.product.category === '公益活動',
       );
-      // 單純捐款的資料
       const onlyDonations = this.carts.carts.filter(
         (item) => item.product.category === '募款專案',
       );
@@ -363,7 +347,7 @@ export default {
         this.addressMsg = '宅配請輸入收件地址，超取請填寫門市名稱';
       }
     },
-    checkUserDatas() { // 驗證是否為空訂單
+    checkUserDatas() {
       const {
         name, email, tel, address,
       } = this.userDatas.user;
@@ -378,7 +362,7 @@ export default {
         this.btnStatus = false;
       }
     },
-    postOrder() { // 送出訂單
+    postOrder() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order`;
       this.loadingStatus = true;
 

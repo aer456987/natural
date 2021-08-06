@@ -2,19 +2,15 @@
   <Loading :status="loadingStatus" />
   <section class="bg-white userselect-none">
     <div class="container py-4">
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
-      <!-- 主要頁面 -->
       <main class="row mb-1 pt-3 pb-1 pb-lg-3">
-        <!-- 主圖 -->
         <div class="col-lg-6 col-xl-5 col-xxl-6">
           <img
             class="rounded-2 w-100"
             :src="productImg"
             :alt="tempProduct.title"
           />
-          <!-- 多圖: 橫 -->
           <div class="col-12 flex-nowrap py-1 overflow-auto">
             <div class="row flex-nowrap m-0">
               <div
@@ -33,7 +29,6 @@
           </div>
         </div>
 
-        <!-- 商品介紹 -->
         <div class="col-lg-6 col-xl-7 col-xxl-6 py-2 ps-xl-3 ps-xxl-4">
           <h2 class="fw-bold mb-3">
             {{ tempProduct.title }}
@@ -122,7 +117,6 @@
     </div>
   </section>
 
-  <!-- 商品說明 -->
   <section class="row py-5 m-0 userselect-none">
     <div class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
@@ -172,14 +166,14 @@ export default {
   name: 'Product',
   data() {
     return {
-      loadingStatus: false, // false
+      loadingStatus: false,
       productId: '',
       productImg: '',
       tempProduct: {},
       qty: 0,
-      cartsLength: 0, // 購物車長度
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      cartsLength: 0,
+      breadcrumbData: {
+        previous: [
           {
             title: '首頁',
             url: '/',
@@ -189,7 +183,7 @@ export default {
             url: '/products',
           },
         ],
-        purpose: '', // 目前頁面
+        purpose: '',
       },
     };
   },
@@ -198,7 +192,7 @@ export default {
     Favorite,
   },
   methods: {
-    getProduct() { // 取得單筆資料
+    getProduct() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/product/${this.productId}`;
       this.loadingStatus = true;
 
@@ -221,7 +215,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    changeNum(action) { // 改變數量
+    changeNum(action) {
       if (action === 'reduce') {
         if (this.qty < 2) {
           swalFn('數量不可少於 1', 'error', true, 'top-end');
@@ -232,7 +226,7 @@ export default {
         this.qty += 1;
       }
     },
-    addCart() { // 加入購物車
+    addCart() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       const cartData = {
         data: {
@@ -262,7 +256,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
 
       this.$http
@@ -283,10 +277,10 @@ export default {
           errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
-    changeImg(img) { // 切換圖片
+    changeImg(img) {
       this.productImg = img;
     },
-    backTop() { // 至頂
+    backTop() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     },

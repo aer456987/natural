@@ -134,15 +134,15 @@ export default {
   data() {
     return {
       loadingStatus: false,
-      btnStatus: Boolean, // true 禁用; false 啟用
-      couponSearch: '', // 搜尋功能
-      couponPagination: {}, // 分頁
+      btnStatus: Boolean,
+      couponSearch: '',
+      couponPagination: {},
       couponDatas: [], // 優惠券資料 (有分頁)
-      updataCouponData: {}, // 更新優惠券資料
-      allCouponDatas: [], // 所有優惠券資料 (無分頁)
+      updataCouponData: {},
+      allCouponDatas: [],
       filterDatas: [], // 暫存的商品分類列表
-      isNew: Boolean, // modal新增/修改
-      isPaginationShow: true, // 分頁狀態
+      isNew: Boolean,
+      isPaginationShow: true,
     };
   },
   watch: {
@@ -169,7 +169,7 @@ export default {
   },
   components: { DashboardLoading, DashboardPagination, DashboardCouponModal },
   methods: {
-    getCoupons(page = 1) { // 取得優惠券
+    getCoupons(page = 1) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${page}`;
       this.backTop();
       this.loadingStatus = true;
@@ -201,7 +201,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    getAllCoupons() { // 取得f全部優惠券
+    getAllCoupons() {
       this.allCouponDatas = [];
       if (this.couponPagination.has_next) {
         const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupons?page=${this.couponPagination.current_page + 1}`;
@@ -219,7 +219,7 @@ export default {
           });
       }
     },
-    opanCouponModal(isNew, coupon) { // 打開 Modal
+    opanCouponModal(isNew, coupon) {
       if (isNew) {
         this.isNew = true;
         this.btnStatus = true;
@@ -238,7 +238,7 @@ export default {
       }
       this.$refs.couponModal.openCouponModal();
     },
-    updateCoupon(newCouponData) { // 更新優惠券
+    updateCoupon(newCouponData) {
       let url = '';
       let httpMethods = '';
       this.loadingStatus = true;
@@ -267,7 +267,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCoupon(variable) { // 刪除優惠券
+    delCoupon(variable) {
       const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/coupon/${id}`;
       this.loadingStatus = true;
@@ -287,10 +287,10 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCouponSwalFn(data, action) { // 刪除單筆訂單的視窗
+    delCouponSwalFn(data, action) {
       delSwalFn(data, this.delCoupon, action);
     },
-    resetData() { // 重整資料
+    resetData() {
       swalFn('正在重整資料', 'info');
       this.couponSearch = '';
       this.getCoupons();

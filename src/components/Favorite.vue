@@ -1,5 +1,4 @@
 <template>
-  <!-- 按鈕-我的最愛 -->
   <template v-if="isFavorite">
     <input
       type="checkbox"
@@ -54,21 +53,20 @@ export default {
     },
   },
   methods: {
-    saveFavorite(item) { // 存入最愛
+    saveFavorite(item) {
       const data = JSON.stringify(item);
       localStorage.setItem('favoriteData', data);
     },
-    getFavorites() { // 取得最愛清單
+    getFavorites() {
       this.favoritesList = JSON.parse(localStorage.getItem('favoriteData')) || [];
     },
-    updateFavoritesNum(num) { // 更新最愛數量
+    updateFavoritesNum(num) {
       bus.emit('favorites-number', num.length);
     },
-    addFavoriteItem() { // 加入最愛
+    addFavoriteItem() {
       this.getFavorites();
       const favorStatus = this.checkFavorStatus();
 
-      // 在列表裡就刪除，沒有就增加
       if (favorStatus) {
         this.favoritesList.splice(this.favoritesList.indexOf(this.idData), 1);
         this.saveFavorite(this.favoritesList);
@@ -82,7 +80,7 @@ export default {
         this.isFavorite = favorStatus;
       }
     },
-    checkFavorStatus() { // 確認最愛按鈕狀態
+    checkFavorStatus() {
       return this.favoritesList.includes(this.idData);
     },
   },

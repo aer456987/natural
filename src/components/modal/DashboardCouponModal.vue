@@ -1,5 +1,4 @@
 <template>
-  <!-- 優惠券 Modal -->
   <div
     class="modal fade m-0"
     id="productModal"
@@ -179,7 +178,7 @@ export default {
   data() {
     return {
       couponModal: '',
-      newBtnStatus: Boolean, // true 禁用; false 啟用
+      newBtnStatus: Boolean,
       tempCouponData: {
         title: '',
         code: '',
@@ -218,10 +217,10 @@ export default {
     hideCouponModal() {
       this.couponModal.hide();
     },
-    resetForm() { // 重製表單驗證
+    resetForm() {
       this.$refs.couponForm.resetForm();
     },
-    checkInputValue() { // 驗證欄位是否為空
+    checkInputValue() {
       const { title, code, percent } = this.tempCouponData;
 
       if (this.tempCouponData.percent === 0) {

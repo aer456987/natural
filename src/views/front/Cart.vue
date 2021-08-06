@@ -2,13 +2,9 @@
   <Loading :status="loadingStatus" />
   <section class="container page-content userselect-none">
     <main class="py-4">
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
-
-      <!-- 進度條 -->
       <CartProgress :progress-value="progressNum" />
 
-      <!-- 購物車 -->
       <h2 class="h1 text-center fw-bold mb-4">
         購物車
       </h2>
@@ -174,7 +170,6 @@
             </template>
           </section>
 
-          <!-- 繼續購物/清空購物車 -->
           <div
             v-if="!btnStatus"
             class="d-flex justify-content-between mb-2 mb-md-5"
@@ -223,26 +218,26 @@ export default {
     return {
       loadingStatus: false,
       btnStatus: true,
-      progressNum: 0, // 進度條
+      progressNum: 0,
       carts: {},
-      couponNum: { // 優惠券
+      couponNum: {
         code: 'Y2021M03YIP',
       },
-      isDiscount: false, // 是否已使用折扣
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      isDiscount: false,
+      breadcrumbData: {
+        previous: [
           {
             title: '線上商城',
             url: '/products',
           },
         ],
-        purpose: '購物車', // 目前頁面
+        purpose: '購物車',
       },
     };
   },
   components: { CartProgress, Breadcrumb },
   methods: {
-    getCarts() { // 取得購物車資料
+    getCarts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
       this.$http
@@ -272,7 +267,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delCart(action, item) { // 刪除購物車
+    delCart(action, item) {
       let url = '';
       let productName = '';
       this.loadingStatus = true;
@@ -302,7 +297,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    putCart(action, item) { // 修改購物車
+    putCart(action, item) {
       this.loadingStatus = true;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart/${item.id}`;
       let newNum = item.qty;
@@ -342,7 +337,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    useCoupon() { // 使用優惠券
+    useCoupon() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/coupon`;
       this.loadingStatus = true;
 
@@ -364,7 +359,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.$http
         .get(url)

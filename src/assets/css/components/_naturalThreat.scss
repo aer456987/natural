@@ -1,39 +1,28 @@
-.naturalThreat__card__item{
-  position: relative;
-}
-
-.naturalThreat__card__item__title, .naturalThreat__card__item__text{
+.naturalThreat__card__item__title, .naturalThreat__card__item__text {
   text-align: center;
   color: $white;
 }
 
-.naturalThreat__card__item__checkbox{
-  display: none;
-}
-.naturalThreat__card__item__label{
-  cursor: pointer;
-}
-
-.naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label{
-  .naturalThreat__card__item__content{
+.naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label {
+  .naturalThreat__card__item__content {
     height: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .naturalThreat__card__item__title{
+  .naturalThreat__card__item__title {
     margin-bottom: 12px;
   }
 
-  .naturalThreat__card__item__text{
+  .naturalThreat__card__item__text {
     height: auto;
     transform: translateY(0);
     opacity: 1;
   }
 }
 
-.naturalThreat__card__item__content{
+.naturalThreat__card__item__content {
   @include custom-position-bottom(0%);
   width: 90%;
   height: 25%;
@@ -48,39 +37,33 @@
   transition-duration: .25s;
   overflow: hidden;
 
-  div{
+  div {
     height: auto;
   }
 
-  &:hover{
+  &:hover {
     height: 30%;
     transition-duration: .25s;
   }
-
-  // 捲軸本身，可以設定寬度
-  &::-webkit-scrollbar{
+  &::-webkit-scrollbar {
     width: 8px;
   }
-
-  // 捲軸可以拉的部分
-  &::-webkit-scrollbar-thumb{
+  &::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: rgba($white, .8);
   }
-
-  // 捲軸空的地方，也可以說背景的顏色
-  &::-webkit-scrollbar-track{
+  &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba($white, 1);
   }
 }
 
-.naturalThreat__card__item__title{
+.naturalThreat__card__item__title {
   margin-bottom: 0;
   font-size: 24px;
   font-weight: bold;
   transition-duration: .25s;
 }
-.naturalThreat__card__item__text{
+.naturalThreat__card__item__text {
   height: 0;
   margin-bottom: 0;
   font-size: 16px;
@@ -91,18 +74,18 @@
 }
 
 // RWD
-@media(max-width: 1200px){
-  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label{
-    .naturalThreat__card__item__content{
+@media(max-width: 1200px) {
+  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label {
+    .naturalThreat__card__item__content {
       display: block;
       overflow-y: auto;
     }
   }
 }
 
-@media(max-width: 992px){
-  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label{
-    .naturalThreat__card__item__content{
+@media(max-width: 992px) {
+  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label {
+    .naturalThreat__card__item__content {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -111,32 +94,32 @@
   }
 }
 
-@media(max-width: 414px){
-  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label{
-    .naturalThreat__card__item__content{
+@media(max-width: 414px) {
+  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label {
+    .naturalThreat__card__item__content {
       overflow-y: auto;
     }
 
-    .naturalThreat__card__item__text{
+    .naturalThreat__card__item__text {
       display: block;
     }
   }
-  .naturalThreat__card__item__title{
+  .naturalThreat__card__item__title {
     font-size: 20px;
   }
-  .naturalThreat__card__item__text{
+  .naturalThreat__card__item__text {
     display: none;
   }
 }
 
-@media(max-width: 320px){
-  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label{
-    .naturalThreat__card__item__content{
+@media(max-width: 320px) {
+  .naturalThreat__card__item__checkbox:checked+.naturalThreat__card__item__label {
+    .naturalThreat__card__item__content {
       display: block;
     }
   }
 
-  .naturalThreat__card__item__title{
+  .naturalThreat__card__item__title {
     font-size: 18px;
   }
 }

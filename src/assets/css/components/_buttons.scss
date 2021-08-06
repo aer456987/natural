@@ -1,57 +1,52 @@
-// 主要按鈕
-.custom-btn-main{
+.custom-btn-main {
   padding: 8px;
   color: white;
   background: $custom-primary;
-  &:hover{
+  &:hover {
     color: $primary;
     background: $secondary;
   }
 }
 
-// 我的最愛 & 購物車按鈕 & 購物車數量 +/-
-.custom-btn-red, .custom-btn-light-green{
+.custom-btn-red, .custom-btn-light-green  {
   font-size: 26px;
   transform: scale(1);
   transition-duration: .5s;
   cursor: pointer;
 }
 
-// 加入購物車按鈕
-.custom-btn-outline-green{
+.custom-btn-outline-green {
   border: solid 1px $success;
   color: $success;
-  &:hover{
+  &:hover {
     color: $white;
     background: $success;
   }
 }
 
-.custom-btn-red{
+.custom-btn-red {
   padding: 5px;
   border-radius: 4px;
   color: rgba($red, .3);
 
-  &:hover{
+  &:hover {
     color: $red;
   }
 }
 
-// 購物車 +/-
-.custom-btn-light-green{
+.custom-btn-light-green {
   padding: 0px 10px;
   color: $custom-primary;
   background: $white;
   z-index: 1;
-  &:hover{
+  &:hover {
     color: darken($secondary, 5);
     transform: scale(1.2);
     transition-duration: .5s;
   }
 }
 
-// 置頂按鈕
-.custom-btn-go-top{
+.custom-btn-go-top {
   width: 45px;
   bottom: 25px;
   right: 0;
@@ -60,28 +55,28 @@
   border-radius: 4px 0 0 4px;
   z-index: 3;
 
-  li{
+  li {
     width: 100%;
     text-align: center;
   }
 
-  a{
+  a {
     display: block;
-    .num-icon{
+    .num-icon {
       transform: translate(-9px, -1px) scale(.8);
       transition-duration: .2s;
     }
-    &:hover{
-      .num-icon{
+    &:hover {
+      .num-icon {
         transform: translate(-11px, 0px) scale(0.9);
         transition-duration: .2s;
       }
     }
   }
 
-  button{
+  button {
     transition-duration: .2s;
-    &:hover{
+    &:hover {
       transform: translateY(-3px);
       transition-duration: .2s;
     }

@@ -1,5 +1,4 @@
 <template>
-  <!-- 麵包屑 -->
   <div>
     <nav
       style="--bs-breadcrumb-divider: '>'"

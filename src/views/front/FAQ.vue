@@ -73,21 +73,21 @@ export default {
   name: 'FAQ',
   data() {
     return {
-      headerData: { // banner
+      headerData: {
         title: '常見問答',
         imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1627447004774.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=V5CAS6GzLtEmt%2FK7QTLpft4j9c6dV3Oa8Dl9V75UI%2BSlhZjdM3R5YJOKkj8CMKs06r%2Bm%2Bvwo7bRRy%2ByG5ME2Z4HQ5d5at8QUUBGPPkkOdTrAy2UK6qGsUSzAixGXJAwJEr9A%2FyWYI0n7JS59laczgN3arP9rGxl7NL%2BXUPrWDu7HNGl0g0f6RBFIgCALWGhD5U0oh8qCt17akZHNIcekTs15yXLVR2ZGV2GDqX8GLp7nxZI%2FNrQvVuCfiItZVPK1Qs%2FnACFZbB1H6cDILTX7%2Fg1T%2FhuYtVVie6%2Bun1l84zQKZZvQrEDoeSeQLMiAtokrwfk1TgvxuaCDN2F6AZBvWw%3D%3D',
       },
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      breadcrumbData: {
+        previous: [
           {
             title: '首頁',
             url: '/',
           },
         ],
-        purpose: '常見問答', // 目前頁面
+        purpose: '常見問答',
       },
       FAQData: {
-        fundraisingProject: { // 募資專案
+        fundraisingProject: {
           id: 'fundraisingProject',
           title: '募資專案',
           faqs: [
@@ -123,7 +123,7 @@ export default {
             },
           ],
         },
-        charitableActivities: { // 公益活動
+        charitableActivities: {
           id: 'charitableActivities',
           title: '公益活動',
           faqs: [
@@ -149,7 +149,7 @@ export default {
             },
           ],
         },
-        discourse: { // 講座
+        discourse: {
           id: 'discourse',
           title: '講座',
           faqs: [
@@ -180,7 +180,7 @@ export default {
             },
           ],
         },
-        organicFood: { // 有機食品
+        organicFood: {
           id: 'organicFood',
           title: '有機食品',
           faqs: [
@@ -216,7 +216,7 @@ export default {
             },
           ],
         },
-        otherProducts: { // 環保商品
+        otherProducts: {
           id: 'otherProducts',
           title: '環保商品',
           faqs: [

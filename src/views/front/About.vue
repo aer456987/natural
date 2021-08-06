@@ -4,7 +4,6 @@
     :header-imgUrl="headerData.imgUrl" />
   <main class="container page-content userselect-none px-3 px-sm-1 px-md-4">
     <div class="py-4">
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
       <section class="row py-3">
@@ -168,14 +167,14 @@ export default {
         title: '關於我們',
         imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625381277465.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Qr1h3nGOQfMXPX6xtyHsiq9Q6u8FKLZ2YyqwO7RdiLAflXUKcKiE9xXz%2FY2ZTXYxURAfTC8mobCxm04%2BFL%2BTbE1Xwi0ZHW1n1X37w46ptwZwa9qV6ODquLd8%2Fizo2k12gJFotUph7vY79LO5vXFOzz1aA%2FcLSSuDikv%2B9RfJUAcMA0ShO%2FJ70d0sBSY7tWcgOfZOe8%2Fc0MHN9RhJ4ZFppqiVXOqiiR7r9tV4V0air8vsNxJyQMyM0sOHHEqTAyKf%2Fc55QlE6Yg%2Bs19VLInoE4yxJEWT0RNvRNNMRYaqSz4qsshVZK0r2k%2BDFNzSmmfxM%2FDmJ3gLaGUmVxURWvKEPHQ%3D%3D',
       },
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      breadcrumbData: {
+        previous: [
           {
             title: '首頁',
             url: '/',
           },
         ],
-        purpose: '關於我們', // 目前頁面
+        purpose: '關於我們',
       },
       pageTextContent: [
         {

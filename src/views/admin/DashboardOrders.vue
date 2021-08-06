@@ -158,7 +158,7 @@ import {
   delSwalFn,
   doubleCheckdelSwalFn,
 } from '@/methods/swal';
-import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import DashboardLoading from '@/components/loading/DashboardLoading.vue';
 import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
 import DashboardOrderModal from '@/components/modal/DashboardOrderModal.vue';
 
@@ -166,15 +166,15 @@ export default {
   name: 'DashboardOrders',
   data() {
     return {
-      loadingStatus: false, // Loading 狀態
-      orderSearch: '', // 搜尋
-      ordersPagination: {}, // 分頁
+      loadingStatus: false,
+      orderSearch: '',
+      ordersPagination: {},
       orders: [], // 原始資料 (有分頁)
-      tempOrderData: {}, // 存放新增 & 修改資料
-      allOrderss: [], // 所有產品資料 (無分頁)
+      tempOrderData: {},
+      allOrderss: [],
       filterDatas: [], // 暫存的商品分類列表
       pageNnm: 0,
-      isPaginationShow: true, // 分頁狀態
+      isPaginationShow: true,
     };
   },
   watch: {
@@ -187,7 +187,7 @@ export default {
     },
   },
   computed: {
-    filterOrder() { // 渲染資料
+    filterOrder() {
       let searchData = [];
       const newsearch = this.orderSearch.toUpperCase();
 
@@ -201,7 +201,7 @@ export default {
   },
   components: { DashboardLoading, DashboardPagination, DashboardOrderModal },
   methods: {
-    getOrders(page = 1) { // 取得訂單
+    getOrders(page = 1) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/orders?page=${page}`;
       this.backTop();
       this.loadingStatus = true;
@@ -233,7 +233,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    getAllOrders() { // 取得f全部訂單
+    getAllOrders() {
       this.allOrderss = [...this.orders];
       if (this.ordersPagination.has_next) {
         for (
@@ -261,7 +261,7 @@ export default {
         }
       }
     },
-    delOrder(variable) { // 刪除單筆訂單
+    delOrder(variable) {
       const { action, id } = variable;
 
       let url = '';
@@ -291,13 +291,13 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delOrderSwalFn(data, action) { // 刪除單筆訂單的視窗
+    delOrderSwalFn(data, action) {
       delSwalFn(data, this.delOrder, action);
     },
-    delAllOrderSwalFn(action) { // 刪除全部訂單的視窗(雙重確認)
+    delAllOrderSwalFn(action) {
       doubleCheckdelSwalFn(action, this.delOrder);
     },
-    updateOrderPaid(paidData) { // 修改訂單
+    updateOrderPaid(paidData) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/order/${paidData.id}`;
       this.loadingStatus = true;
 
@@ -323,11 +323,11 @@ export default {
           this.loadingStatus = false;
         });
     },
-    openOrderModal(order) { // 打開訂單視窗
+    openOrderModal(order) {
       this.tempOrderData = JSON.parse(JSON.stringify(order));
       this.$refs.orderModal.openOrderModal();
     },
-    resetData() { // 重整資料
+    resetData() {
       swalFn('正在重整資料', 'info');
       this.orderSearch = '';
       this.getOrders();

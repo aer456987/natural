@@ -1,5 +1,4 @@
 <template>
-  <!-- 商品頁篩選 -->
   <nav class="row productFilter__nav overflow-auto bg-secondary m-0
     text-nowrap text-center"
   >

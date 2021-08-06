@@ -1,5 +1,4 @@
 <template>
-  <!-- 引言用圖 -->
   <ul class="row m-0 list-unstyled">
     <li
       v-for="item in naturalThreatImgs"
@@ -10,18 +9,18 @@
       data-aos-duration="900"
       data-aos-easing="ease-out-back"
       class="col-sm-12 col-md-6 col-lg-3 p-0
-        naturalThreat__card__item
+        position-relative
         d-flex justify-content-center align-items-center"
     >
       <input
         type="checkbox"
-        class="naturalThreat__card__item__checkbox"
+        class="naturalThreat__card__item__checkbox d-none"
         :id="`naturalThreat__card__item__checkbox_${item.id + 1}`"
         :value="`natural_threat_card_${item.id + 1}`"
       >
       <label
         name="card_items"
-        class="naturalThreat__card__item__label"
+        class="naturalThreat__card__item__label pointer-no-hover"
         :for="`naturalThreat__card__item__checkbox_${item.id + 1}`"
       >
         <img

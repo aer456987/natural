@@ -174,17 +174,17 @@ export default {
   name: 'DashboardProducts',
   data() {
     return {
-      loadingStatus: false, // Loading 狀態
-      btnStatus: Boolean, // true 禁用; false 啟用
-      productSelect: '', // 選單
-      productSearch: '', // 搜尋
-      productPagination: {}, // 分頁
+      loadingStatus: false,
+      btnStatus: Boolean,
+      productSelect: '',
+      productSearch: '',
+      productPagination: {},
       products: [], // 原始商品資料 (有分頁)
-      tempProduct: {}, // 存放新增 & 修改資料
+      tempProduct: {},
       allProducts: [], // 所有產品資料 (無分頁)
-      filterDatas: [], // 暫存的商品分類列表
-      isNew: Boolean, // 判斷 madal 是否為新
-      isPaginationShow: true, // 分頁狀態
+      filterDatas: [],
+      isNew: Boolean,
+      isPaginationShow: true,
     };
   },
   watch: {
@@ -213,7 +213,7 @@ export default {
     },
   },
   computed: {
-    filterProducts() { // 渲染資料
+    filterProducts() {
       let newFilterData = [];
 
       if (this.productSelect === '全部商品') {
@@ -232,7 +232,7 @@ export default {
     DashboardLoading, DashboardPagination, DashboardProductModal,
   },
   methods: {
-    getProducts(page = 1) { // 取得分頁商品
+    getProducts(page = 1) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products?page=${page}`;
       this.backTop();
       this.loadingStatus = true;
@@ -264,7 +264,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    getAllProducts() { // 取得全部商品
+    getAllProducts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/products/all`;
       this.loadingStatus = true;
 
@@ -283,7 +283,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    filterProduct(data) { // 將所有商品 push 到陣列裡
+    filterProduct(data) {
       const productKeys = Object.keys(data);
       this.allProducts = [];
 
@@ -291,7 +291,7 @@ export default {
         this.allProducts.push(data[item]);
       });
     },
-    delProduct(variable) { // 刪除商品
+    delProduct(variable) {
       const { id } = variable;
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/admin/product/${id}`;
       this.loadingStatus = true;
@@ -313,10 +313,10 @@ export default {
           this.loadingStatus = false;
         });
     },
-    delProductFn(data) { // 刪除提示視窗
+    delProductFn(data) {
       delSwalFn(data, this.delProduct);
     },
-    updateProduct(item) { // 新增產品 & 修改產品
+    updateProduct(item) {
       this.loadingStatus = true;
       let url = '';
       let httpMethods = '';
@@ -346,11 +346,11 @@ export default {
           this.loadingStatus = false;
         });
     },
-    checkProductSelect() { // 產品分類篩選函式
+    checkProductSelect() {
       this.filterDatas = this.allProducts.filter((item) => item.category.match(this.productSelect));
       return this.filterDatas;
     },
-    chechProductSearch() { // 搜尋商品篩選函式
+    chechProductSearch() {
       let filterData = [];
 
       if (this.productSelect === '全部商品') {
@@ -360,7 +360,7 @@ export default {
       }
       return filterData;
     },
-    openModal(isNew, product) { // 打開模組
+    openModal(isNew, product) {
       if (isNew) {
         this.isNew = true;
         this.btnStatus = true;
@@ -380,7 +380,7 @@ export default {
       }
       this.$refs.productModal.openModal();
     },
-    resetData() { // 重整資料
+    resetData() {
       swalFn('正在重整資料', 'info');
       this.productSelect = '全部商品';
       this.getProducts();

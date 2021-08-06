@@ -1,5 +1,4 @@
 <template>
-  <!-- 商品頁卡片 -->
   <Loading :status="loadingStatus" />
   <li
     class="col-sm-6 col-lg-4 col-xl-3 my-2 custom__card"
@@ -73,7 +72,7 @@ export default {
   },
   components: { Favorite },
   methods: {
-    addCart(data) { // 加入購物車
+    addCart(data) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
       const cartData = {
@@ -99,7 +98,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
 
       this.$http

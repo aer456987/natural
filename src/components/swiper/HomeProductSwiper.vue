@@ -1,5 +1,4 @@
 <template>
-  <!-- 產品分類輪播 -->
   <swiper
     :="swiperSetting"
     class="mySwiper"

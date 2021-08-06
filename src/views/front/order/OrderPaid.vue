@@ -2,18 +2,14 @@
   <div class="container page-content userselect-none">
     <div class="py-4">
 
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
-      <!-- 進度條 -->
       <CartProgress :progress-value="progressNum" />
 
-      <!-- 感謝信 -->
       <h2 class="h1 pb-5 text-center fw-bold">
         付款成功
       </h2>
       <main class="container">
         <div class="row px-md-1 px-lg-5 justify-content-center">
-          <!-- 訂單明細 -->
           <div class="col-md-12 col-lg-9">
             <section class="px-3 px-md-5 py-5 mb-5 rounded
               shadow text-center bg-white custom-style-text-2">
@@ -84,9 +80,9 @@ export default {
   name: 'OrderPaid',
   data() {
     return {
-      progressNum: 100, // 進度條
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      progressNum: 100,
+      breadcrumbData: {
+        previous: [
           {
             title: '線上商城',
             url: '/products',
@@ -96,7 +92,7 @@ export default {
             url: '/cart',
           },
         ],
-        purpose: '付款完成', // 目前頁面
+        purpose: '付款完成',
       },
     };
   },

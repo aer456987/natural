@@ -1,10 +1,9 @@
 <template>
   <DashboardLoading :status="loadingStatus" />
-  <!-- 導覽列 -->
   <DashboardNavbar />
-  <!-- 主要頁面 -->
+
   <router-view v-if="loginStatus"></router-view>
-  <!-- 頁尾 -->
+
   <Footer
     :bgColor="'bg-brown'"
     :textColor="'text-dark'"
@@ -19,7 +18,7 @@
 
 <script>
 import { swalFn, errorSwalFn, checkLoginErrorSwalFn } from '@/methods/swal';
-import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import DashboardLoading from '@/components/loading/DashboardLoading.vue';
 import DashboardNavbar from '@/components/navbar/DashboardNavbar.vue';
 import Footer from '@/components/Footer.vue';
 import GoToTopBtn from '@/components/GoToTopBtn.vue';
@@ -39,7 +38,7 @@ export default {
     GoToTopBtn,
   },
   methods: {
-    checkLogin() { // axios check 確認登入狀態
+    checkLogin() {
       const url = `${process.env.VUE_APP_PATH}/api/user/check`;
 
       this.$http.post(url)
@@ -64,7 +63,7 @@ export default {
           }, 3000);
         });
     },
-    logout() { // 登出
+    logout() {
       const url = `${process.env.VUE_APP_PATH}/logout`;
       swalFn('正在登出', 'info');
 

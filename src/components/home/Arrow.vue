@@ -1,5 +1,4 @@
 <template>
-  <!-- 首頁大圖的箭頭 -->
   <div>
     <div class="chevron"></div>
     <div class="chevron"></div>
@@ -13,7 +12,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   $base: 0.6rem;
 
   .chevron {

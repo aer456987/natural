@@ -1,5 +1,4 @@
 <template>
-  <!-- 我的最愛側欄 -->
   <Loading :status="loadingStatus" />
   <div
     class="offcanvas offcanvas-end userselect-none
@@ -136,9 +135,9 @@ export default {
   data() {
     return {
       loadingStatus: false,
-      offcanvas: '', // 元件註冊位置
-      offcanvasProducts: [], // 所有產品
-      offcanvasFavoritesList: [], // 最愛清單內容
+      offcanvas: '',
+      offcanvasProducts: [],
+      offcanvasFavoritesList: [],
       newFavoritesData: [], // (渲染用)篩選後的最愛清單資料
     };
   },
@@ -157,7 +156,7 @@ export default {
     hideOffcanvas() {
       this.offcanvas.hide();
     },
-    getProducts() { // 取得全部商品
+    getProducts() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/products/all`;
       this.$http
         .get(url)
@@ -173,7 +172,7 @@ export default {
           errorSwalFn('商品資料取得失敗', '請重新整理', true, 'top-end');
         });
     },
-    renderFavorite() { // 渲染資料
+    renderFavorite() {
       this.newFavoritesData = [];
 
       this.offcanvasProducts.forEach((item, i) => {
@@ -184,13 +183,13 @@ export default {
       });
       bus.emit('favorites-btn-status');
     },
-    allDelFavorite() { // 刪除全部最愛
+    allDelFavorite() {
       this.$refs.favoriteIcon.saveFavorite([]);
       this.offcanvasFavoritesList = [];
       this.newFavoritesData = [];
       bus.emit('favorites-number', this.newFavoritesData.length);
     },
-    addCart(id, num = 1) { // 加入購物車
+    addCart(id, num = 1) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.loadingStatus = true;
       const cartData = {
@@ -219,7 +218,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.$http
         .get(url)

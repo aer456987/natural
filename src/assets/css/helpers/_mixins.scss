@@ -15,7 +15,6 @@
   transform: translate(-50%, 0) scale($scaleValue);
 }
 
-// animetion 動畫
 @mixin animetion-init($animetionName, $seconds, $infinite) {
   animation: $animetionName $seconds $infinite;
   animation-timing-function: steps(100);

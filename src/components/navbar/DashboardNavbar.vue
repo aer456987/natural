@@ -1,5 +1,4 @@
 <template>
-  <!-- 後台navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-brown px-2 shadow-sm">
     <div class="container-fluid">
       <h1 class="m-0">
@@ -72,7 +71,7 @@ import { swalFn, errorSwalFn } from '@/methods/swal';
 export default {
   name: 'DashboardNavbar',
   methods: {
-    logout() { // 登出
+    logout() {
       const url = `${process.env.VUE_APP_PATH}/logout`;
       swalFn('正在登出', 'info');
 

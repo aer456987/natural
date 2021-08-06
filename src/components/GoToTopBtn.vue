@@ -1,5 +1,4 @@
 <template>
-  <!-- 至頂按鈕 -->
   <ul
     class="custom-btn-go-top position-fixed
       d-flex flex-column justify-content-around align-items-center"
@@ -74,7 +73,7 @@ export default {
   components: { FavoritesOffcanvas },
   emits: ['backTopBtn'],
   methods: {
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.$http
         .get(url)
@@ -93,11 +92,11 @@ export default {
           errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
-    updateFavoritesLength() { // 取得最愛收藏數量
+    updateFavoritesLength() {
       this.favoritesLength = this.mainFavoritesList.length;
       this.newFavoritesLength = this.mainFavoritesList.length;
     },
-    openFavoritesOffcanvas() { // 打開最愛收藏側欄
+    openFavoritesOffcanvas() {
       const data = JSON.parse(localStorage.getItem('favoriteData')) || [];
       this.$refs.likeOffcanvas.openOffcanvas(data);
     },
@@ -105,13 +104,11 @@ export default {
   mounted() {
     this.updateCartLength();
     this.updateFavoritesLength();
-    // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
       this.newLength = num;
     });
 
-    // 更新最愛收藏數量
     bus.on('favorites-number', (num) => {
       this.favoritesLength = num;
       this.newFavoritesLength = num;

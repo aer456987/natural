@@ -3,18 +3,14 @@
   <section class="container page-content userselect-none">
     <div class="py-4">
 
-      <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
-      <!-- 進度條 -->
       <CartProgress :progress-value="progressNum" />
 
-      <!-- 訂單確認 & 付款 -->
       <h2 class="h1 text-center fw-bold mb-4">
         訂單成立
       </h2>
       <main class="container">
         <div class="row px-md-1 px-lg-5 justify-content-center">
-          <!-- 訂單明細 -->
           <div class="col-md-12 col-lg-9">
             <section class="px-3 px-md-5 py-5 mb-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">
@@ -24,8 +20,6 @@
                 custom-style-text-2 fw-bold mb-4 pb-3">
                 {{ order.id }}
               </p>
-
-              <!-- 訂購人資訊 -->
               <h3 class="h5 text-center fw-bold mt-3 mb-2">
                 訂購人資訊
               </h3>
@@ -132,7 +126,6 @@
                 </tbody>
               </table>
 
-              <!-- 商品項目 -->
               <h3 class="h5 text-center fw-bold mt-3 mb-2">
                 商品項目
               </h3>
@@ -190,7 +183,6 @@
             </section>
           </div>
 
-          <!-- 我要付款 -->
           <div class="col-12 d-flex justify-content-center mb-2 mb-md-5">
             <router-link
               v-if="order.data.user.payment === '貨到付款'"
@@ -228,9 +220,9 @@ export default {
   data() {
     return {
       loadingStatus: false,
-      btnStatus: true, // true 禁用; false 啟用
-      progressNum: 66, // 進度條
-      order: { // 單一訂單
+      btnStatus: true,
+      progressNum: 66,
+      order: {
         id: '',
         data: {
           products: {},
@@ -238,8 +230,8 @@ export default {
           total: 0,
         },
       },
-      breadcrumbData: { // 麵包屑
-        previous: [ // 上一個(多個)
+      breadcrumbData: {
+        previous: [
           {
             title: '線上商城',
             url: '/products',
@@ -249,13 +241,13 @@ export default {
             url: '/cart',
           },
         ],
-        purpose: '訂單確認', // 目前頁面
+        purpose: '訂單確認',
       },
     };
   },
   components: { CartProgress, Breadcrumb },
   methods: {
-    getOrder(id) { // 取得訂單
+    getOrder(id) {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/order/${id}`;
       this.loadingStatus = true;
 
@@ -277,7 +269,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    goPay() { // 前往付款.
+    goPay() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/pay/${this.order.id}`;
       this.loadingStatus = true;
 
@@ -296,7 +288,7 @@ export default {
           this.loadingStatus = false;
         });
     },
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
 
       this.$http

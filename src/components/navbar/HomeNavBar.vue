@@ -1,5 +1,4 @@
 <template>
-  <!-- 首頁導覽列 -->
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-sm-1 px-md-2
       position-fixed z-index-3 w-100 userselect-none"
@@ -109,7 +108,7 @@ export default {
   },
   emits: ['openOffcanvas'],
   methods: {
-    updateCartLength() { // 取得購物車數量
+    updateCartLength() {
       const url = `${process.env.VUE_APP_PATH}/api/${process.env.VUE_APP_API}/cart`;
       this.$http
         .get(url)
@@ -128,7 +127,7 @@ export default {
           errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
-    updateFavoritesLength() { // 取得最愛收藏數量
+    updateFavoritesLength() {
       this.favoritesLength = this.homeFavoritesList.length;
       this.newFavoritesLength = this.homeFavoritesList.length;
     },
@@ -136,13 +135,11 @@ export default {
   mounted() {
     this.updateCartLength();
     this.updateFavoritesLength();
-    // 更新購物車數量
     bus.on('cart-number', (num) => {
       this.cartsLength = num;
       this.newLength = num;
     });
 
-    // 更新最愛收藏數量
     bus.on('favorites-number', (num) => {
       this.favoritesLength = num;
       this.newFavoritesLength = num;

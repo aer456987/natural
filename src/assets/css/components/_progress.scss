@@ -1,5 +1,4 @@
-// 訂單進度條
-.custom__progress{
+.custom__progress {
   width: 40px;
   height: 40px;
   border-radius: 100%;
@@ -7,12 +6,13 @@
   line-height: 40px;
   background: $secondary;
   transform: scale(1);
-  i{
+  i {
     color: $white;
     font-size: 20px;
   }
 }
-.custom__progress--active{
+
+.custom__progress--active {
   width: 50px;
   height: 50px;
   padding: 8px 13px;

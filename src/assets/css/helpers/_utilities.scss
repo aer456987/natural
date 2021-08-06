@@ -1,89 +1,76 @@
-// 頁面不可選取
-.userselect-none{
+.userselect-none {
   user-select: none;
 }
 
-// 放大1.2倍
-.scale{
+.scale {
   transform: scale(1);
   transition-duration: .3s;
-  &:hover{
+  &:hover {
     transform: scale(1.2);
     transition-duration: .3s;
   }
 }
 
-// 點擊游標
-.pointer{
+.pointer {
   cursor: pointer;
   transition-duration: .3s;
-  &:hover{
+  &:hover {
     box-shadow: 0 0 8px 2px $gray-500;
     transition-duration: .3s;
   }
 }
-.pointer-no-hover{
+.pointer-no-hover {
   cursor: pointer;
 }
 
-// 圖層
-.z-index-2{
+.z-index-2 {
   z-index: 2;
 }
-.z-index-3{
+.z-index-3 {
   z-index: 3;
 }
 
-// 文字陰影
-.text-shadow{
+.text-shadow {
   text-shadow: 0 0 10px $dark;
 }
 
-// 動畫轉換速度
-.transition-duration-3{
+.transition-duration-3 {
   transition-duration: .3s;
 }
-.transition-duration-2{
+.transition-duration-2 {
   transition-duration: .2s;
 }
 
-.bg-primary-rgba-900 {
+.bg-primary-rgba-900  {
   background-color: rgba($primary, .9)
 }
-// 透明背景
-.bg-transparent{
+.bg-transparent {
   background: transparent;
 }
 
-// 寬度
-.width-xl{
+.width-xl {
   max-width: 900px !important;
 }
-
-.width-md{
+.width-md {
   max-width: 600px !important;
 }
-
-// 寬度
-.width-sm{
+.width-sm {
   max-width: 60px !important;
 }
 
-// 高度
-.height-xl{
+.height-xl {
   height: 450px !important;
 }
 
-// 文字省略號
-.text-clamp{
+.text-clamp {
   height: 48px !important;
   display: -webkit-box;
   text-overflow: ellipsis;
   white-space: normal;
-  -webkit-line-clamp: 2; //行數
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
-.text-white-space{
+.text-white-space {
   white-space: pre-wrap;
 }

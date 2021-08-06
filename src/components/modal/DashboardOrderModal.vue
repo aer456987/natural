@@ -1,5 +1,4 @@
 <template>
-  <!-- 訂單 Modal -->
   <section
     class="modal fade"
     id="orderFirstModal"

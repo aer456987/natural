@@ -1,5 +1,4 @@
 <template>
-  <!-- 頁首大圖輪播 -->
   <swiper
     :="swiperSetting"
     class="mySwiper"

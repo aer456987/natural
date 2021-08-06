@@ -1,5 +1,4 @@
 <template>
-  <!-- 每頁banner -->
   <header class="header position-relative userselect-none">
     <h2
     class="custom-style-title

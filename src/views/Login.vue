@@ -42,7 +42,6 @@
               name="Email"
               class="invalid-feedback mb-1" />
 
-            <!-- 密碼 -->
             <label
               for="orderPs"
               class="form-label mt-3 mb-1"
@@ -113,7 +112,7 @@ export default {
     };
   },
   methods: {
-    login() { // 登入驗證
+    login() {
       const url = `${process.env.VUE_APP_PATH}/admin/signin`;
       this.loadingStatus = true;
       this.msg = '資料驗證中，請稍後';

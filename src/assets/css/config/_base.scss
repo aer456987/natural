@@ -1,9 +1,9 @@
-*{
+* {
   letter-spacing: 2.5px;
   box-sizing: border-box;
 }
 
-body{
+body {
   font-family: 'Noto Sans TC', sans-serif;
   position: relative;
   width: 100%;
@@ -12,18 +12,18 @@ body{
   scroll-behavior: smooth;
 }
 
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  li{
+  li {
     padding: 0;
     margin: 0;
   }
 }
 
-tbody{
-  th, td{
+tbody {
+  th, td {
     vertical-align: middle;
   }
 }

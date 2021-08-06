@@ -1,5 +1,4 @@
 <template>
-  <!-- 首頁按鈕 -->
   <div class="buttons custom-animetion-slow">
     <button
       type="button"
@@ -81,7 +80,7 @@ $blob-dark: red;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 900;
-  background-color: $blob-primary; // transparent
+  background-color: $blob-primary;
   outline: none;
   cursor: pointer;
   z-index: 1;
@@ -100,9 +99,9 @@ $blob-dark: red;
     height: 100%;
     top: 10px;
     left: 15px;
-    border: solid 1px rgba($blob-primary, .1); // $ ; $blob-secondary $blob-primary
+    border: solid 1px rgba($blob-primary, .1);
     border-radius: 4px;
-    background: rgba($blob-primary, .1); // $blob-secondary
+    background: rgba($blob-primary, .1);
     transition: all 0.3s 0.2s;
     z-index: -2;
   }
@@ -129,8 +128,6 @@ $blob-dark: red;
     z-index: -1;
   }
 
-// additional container created,
-// because in FF blobs are breaking overflow:hidden of element with svg gooey filter
   &__blobs {
     position: relative;
     display: block;

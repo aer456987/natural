@@ -1,5 +1,4 @@
-// 我的最愛按鈕(全商品
-.favorite-icon-background{
+.favorite-icon-background {
   position: absolute;
   top: 0;
   right: 10px;
@@ -14,7 +13,7 @@
   transition-duration: .3s;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     color: $danger;
     transform: scale(1.1);
     transition-duration: .3s;
@@ -22,8 +21,7 @@
   }
 }
 
-// 最愛收藏 按鈕
-.btn-check:checked + .favorite-icon{
+.btn-check:checked + .favorite-icon {
   transform: scale(1.1);
   color: $danger;
 }

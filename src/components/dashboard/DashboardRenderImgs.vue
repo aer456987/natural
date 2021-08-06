@@ -1,5 +1,4 @@
 <template>
-  <!-- 後台圖片編輯 -->
   <Form
     ref="productImgsForm"
     v-slot="{ errors }"
@@ -132,7 +131,7 @@ export default {
       }
       this.$emit('updataImgDatas', this.tempMainImg, this.tempImgs);
     },
-    resetForm() { // 重製表單驗證
+    resetForm() {
       this.$refs.productImgsForm.resetForm();
     },
   },

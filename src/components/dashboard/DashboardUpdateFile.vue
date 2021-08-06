@@ -1,5 +1,4 @@
 <template>
-  <!-- 資料上傳 -->
   <div class="input-group">
     <input
       type="file"
@@ -45,7 +44,7 @@ export default {
       this.isUpload = true;
       formData.append('file-to-upload', file);
 
-      this.$http.post(url, formData) // 帶入路徑和資料
+      this.$http.post(url, formData)
         .then((res) => {
           if (res.data.success) {
             this.$emit('uploadImgFile', res.data.imageUrl);
