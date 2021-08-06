@@ -1,5 +1,4 @@
 <template>
-  <!-- 數字跳轉效果 -->
   <span
     ref="number"
     :id="countId"
@@ -7,7 +6,7 @@
 </template>
 
 <script>
-import CountUp from 'countup';
+import { CountTo } from 'vue3-count-to';
 
 export default {
   name: 'CountTo',
@@ -37,49 +36,49 @@ export default {
       required: true,
     },
     /**
-     * @description 小数点后保留位数
+     * @description 小數點後保留位數
      */
     decimals: {
       type: Number,
       default: 0,
     },
     /**
-     * @description 动画延迟开始时间
+     * @description 動畫延遲開始時間
      */
     delay: {
       type: Number,
       default: 2000,
     },
     /**
-     * @description 渐变时长
+     * @description 漸變時長
      */
     duration: {
       type: Number,
       default: 10,
     },
     /**
-     * @description 是否使用变速效果
+     * @description 是否使用變速效果
      */
     useEasing: {
       type: Boolean,
       default: true,
     },
     /**
-     * @description 是否分组显示
+     * @description 是否分組顯示
      */
     useGroup: {
       type: Boolean,
       default: true,
     },
     /**
-     * @description 分组显示的分隔符
+     * @description 分組顯示的分隔符號
      */
     separator: {
       type: String,
       default: ',',
     },
     /**
-     * @description 整数部分和小数的分隔符
+     * @description 整數部分和小數的分隔符號
      */
     decimal: {
       type: String,
@@ -96,7 +95,7 @@ export default {
   },
   watch: {
     /**
-     * @description 监控endVal值变化，调用update方法
+     * @description 監控endVal值變化，調用update方法
      */
     endVal(newVal) {
       this.counter.update(newVal);
@@ -104,10 +103,10 @@ export default {
   },
   mounted() {
     /**
-     * @description 基于上述参数，初始化一个counter实例
+     * @description 基於上述參數，初始化一個counter實例
      */
     this.$nextTick(() => {
-      this.counter = new CountUp(
+      this.counter = new CountTo(
         this.countId,
         this.startVal,
         this.endVal,
