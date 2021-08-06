@@ -7,7 +7,7 @@ export function swalFn(title, icon, toast = false, posi = 'center') {
     position: posi,
     title,
     icon,
-    // timer: 1500,
+    timer: 1500,
     showConfirmButton: false,
     timerProgressBar: true,
     toast,
