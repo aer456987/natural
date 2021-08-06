@@ -1,6 +1,6 @@
 <template>
   <!-- 首頁按鈕 -->
-  <div class="buttons bounce_animetion_slow">
+  <div class="buttons custom-animetion-slow">
     <button
       type="button"
       class="blob-btn w-100"
@@ -58,10 +58,10 @@ export default {
 </script>
 
 <style lang="scss">
-$blob_primary: #1d7e63; // #0fe0f5; #589985
-$blob_secondary: #d5d83c;
-$blob_light: white;
-$blob_dark: red;
+$blob-primary: #1d7e63; // #0fe0f5; #589985
+$blob-secondary: #d5d83c;
+$blob-light: white;
+$blob-dark: red;
 
 *, *:before, *:after {
   margin: 0;
@@ -81,15 +81,15 @@ $blob_dark: red;
   text-transform: uppercase;
   font-size: 16px;
   font-weight: 900;
-  background-color: $blob_primary; // transparent
+  background-color: $blob-primary; // transparent
   outline: none;
   cursor: pointer;
   z-index: 1;
 
   a{
-    color: $blob_light;
+    color: $blob-light;
     &:hover{
-      color: $blob_primary;
+      color: $blob-primary;
     }
   }
 
@@ -100,21 +100,21 @@ $blob_dark: red;
     height: 100%;
     top: 10px;
     left: 15px;
-    border: solid 1px rgba($blob_primary, .1); // $ ; $blob_secondary $blob_primary
+    border: solid 1px rgba($blob-primary, .1); // $ ; $blob-secondary $blob-primary
     border-radius: 4px;
-    background: rgba($blob_primary, .1); // $blob_secondary
+    background: rgba($blob-primary, .1); // $blob-secondary
     transition: all 0.3s 0.2s;
     z-index: -2;
   }
 
   &:hover {
-    color: $blob_primary;
+    color: $blob-primary;
 
     &:after {
       top: 8px;
       left: 13px;
-      border: rgba($blob_secondary, .5);
-      background: rgba($blob_secondary, .3);
+      border: rgba($blob-secondary, .5);
+      background: rgba($blob-secondary, .3);
       transition: all 0.3s;
     }
   }
@@ -144,7 +144,7 @@ $blob_dark: red;
     height: 150%;
     top: 6px;
     border-radius: 100%;
-    background: $blob_secondary;
+    background: $blob-secondary;
     transform: translate3d(0, 100%, 0) scale(1.7);
     transition: transform 0.25s;
 

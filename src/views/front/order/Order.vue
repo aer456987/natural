@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <div class="container pageContent user_select_none">
+  <div class="container page-content userselect-none">
     <div class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
@@ -24,11 +24,11 @@
             <!-- 購物明細 -->
             <div class="col-lg-6">
               <div
-                class="table_style w-100 p-3 p-sm-5 mb-sm-5 rounded bg-white shadow-sm">
+                class="width-xl w-100 p-3 p-sm-5 mx-auto mb-sm-5 rounded bg-white shadow-sm">
                 <h3 class="text-center mb-4 fs-5">
                   購物明細
                 </h3>
-                <table class="table cart_table_style text-center mb-5">
+                <table class="table custom-cart-table text-center mb-5">
                   <thead>
                     <tr>
                       <td scope="col" width="40%">商品資訊</td>
@@ -239,7 +239,7 @@
             <div class="col-12 d-flex justify-content-between mb-2 mb-md-5">
               <router-link
                 to="/cart"
-                class="btn btn-outline-custom-primary btn_style
+                class="btn btn-outline-custom-primary custom-style-text-3
                   px-1 px-sm-2 px-md-3 py-1"
               >
                 ◁ 返回購物車
@@ -247,7 +247,7 @@
 
               <button
                 type="submit"
-                class="btn btn_main btn_style
+                class="btn custom-btn-main custom-style-text-3
                   px-1 px-sm-2 px-md-3 py-1"
                 :disabled="btnStatus"
               >

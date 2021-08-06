@@ -2,7 +2,7 @@
   <Loading :status="loadingStatus" />
   <!-- 篩選列表 -->
   <ProductFilterList
-    class="sticky-top user_select_none shadow"
+    class="sticky-top userselect-none shadow"
     :products="products"
     @filter-list-methods="filterListMethods" />
 
@@ -10,7 +10,7 @@
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl" />
 
-  <main class="container pageContent user_select_none">
+  <main class="container page-content userselect-none">
     <section class="py-4">
       <!-- 麵包屑&搜尋 -->
       <div class="row justify-content-between align-items-center">

@@ -1,12 +1,8 @@
-.animation_delay{
-  animation-delay: .5s;
-}
-
 // 呼吸燈效果
-.fade_animetion{
+.custom-fade-animetion{
   @include animetion_init(fadeAni, 10s, infinite);
 }
-.fade_animetion_slow{
+.custom-fade-animetion_slow{
   @include animetion_init(fadeAni, 14s, infinite);
 }
 
@@ -41,7 +37,7 @@
 	}
 }
 
-.bounce_animetion_slow{
+.custom-animetion-slow{
   @include animetion_init(bounceSlow, 2s, infinite);
 }
 // 彈跳效果(慢)

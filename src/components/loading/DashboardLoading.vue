@@ -1,7 +1,7 @@
 <template>
   <!-- 後台loading 讀取 -->
   <div
-    class="loadingImg user_select_none"
+    class="loading-img userselect-none"
     v-if="status"
   >
     <img

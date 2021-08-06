@@ -85,8 +85,6 @@ $custom-primary:   #1d7e63 !default;
 $theme-colors: (
   "primary":    $primary,// $primary, 1D7E63, 09694C
   "primary-100":  #e5f0ed,
-  "primary-500": darken($primary, 5),
-  "primary-900":  rgba($primary, .9),
   "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
   "success-light":    lighten(#06805f, 2),
@@ -106,7 +104,6 @@ $theme-colors: (
   "pink":       #e83e59,
   "green":      #07b53b,
   "custom-primary":   #1d7e63,
-  "custom-primary-500":   darken($custom-primary, 5),
 ) !default;
 // scss-docs-end theme-colors-map
 

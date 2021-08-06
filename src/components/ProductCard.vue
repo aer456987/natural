@@ -2,15 +2,15 @@
   <!-- 商品頁卡片 -->
   <Loading :status="loadingStatus" />
   <li
-    class="col-sm-6 col-lg-4 col-xl-3 my-2 custom_card_style"
+    class="col-sm-6 col-lg-4 col-xl-3 my-2 custom__card"
     v-for="product in cartProductData"
     :key="product.id"
   >
 
     <section class="card text-dark border-0 shadow-sm">
       <router-link :to="`/product/${product.id}`">
-        <div class="card-img-top card_img_style">
-          <div class="more_msg">
+        <div class="card-img-top custom__card__img">
+          <div class="custom__card__more">
             <Font-awesome-icon icon="search-plus" />
           </div>
           <img
@@ -20,7 +20,7 @@
           />
         </div>
       </router-link>
-      <div class="favorite_icon_background shadow-sm">
+      <div class="favorite-icon-background shadow-sm">
         <Favorite :id-data="product.id" />
       </div>
 
@@ -32,7 +32,7 @@
           class="col-9 p-0 text-dark border-0"
           :to="`/product/${product.id}`"
         >
-          <h2 class="h5 m-0 mb-1 text_clamp_1 overflow-hidden">
+          <h2 class="h5 m-0 mb-1 text-clamp overflow-hidden">
             {{ product.title }} <br>
           </h2>
           <p class="h6 mb-0 fst-italic">
@@ -42,7 +42,7 @@
         <div class="col-3 p-0 d-flex justify-content-end">
           <button
             type="button"
-            class="btn btn_outline_green fs-4 ms-1"
+            class="btn custom-btn-outline-green fs-4 ms-1"
             @click="addCart(product.id)"
           >
             <i class="bi bi-cart-plus-fill"></i>

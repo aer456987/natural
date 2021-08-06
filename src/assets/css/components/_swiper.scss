@@ -1,5 +1,5 @@
 // 首頁產品列 Swiper
-.productSwiper_title{
+.swiper__product__title{
   width: 100%;
   left: 50%;
   bottom: 0%;
@@ -14,7 +14,7 @@
   opacity: 1;
 }
 
-.productSwiper_text{
+.swiper__product__text{
   height: 0;
   color: $dark;
   transform: translateY(20px);
@@ -22,8 +22,8 @@
   opacity: 0;
 }
 
-.productSwiper_content:hover{
-  .productSwiper_title{
+.swiper__product__content:hover{
+  .swiper__product__title{
     padding-top: 50%;
     padding-bottom: 45%;
     text-shadow: rgba($dark, 1);
@@ -31,7 +31,7 @@
     transition-duration: .3s;
   }
 
-  .productSwiper_text{
+  .swiper__product__text{
     transform: translateY(0);
     transition-delay: .2s;
     transition-duration: .3s;

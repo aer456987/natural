@@ -2,7 +2,7 @@
   <HeaderBackgroundImg
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl" />
-  <main class="container pageContent user_select_none px-3 px-sm-1 px-md-4">
+  <main class="container page-content userselect-none px-3 px-sm-1 px-md-4">
     <div class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
@@ -76,7 +76,7 @@
               >
                 <Font-awesome-icon
                   :icon="['fab', 'facebook-square']"
-                  class="mx-1 text-blue-600 scale transition-duration_2"
+                  class="mx-1 text-blue-600 scale transition-duration-2"
                   title="facabook 粉絲團" />
               </a>
             </li>
@@ -87,7 +87,7 @@
               >
                 <Font-awesome-icon
                   :icon="['fab', 'instagram-square']"
-                  class="mx-1 text-pink scale transition-duration_2"
+                  class="mx-1 text-pink scale transition-duration-2"
                   title="Instagram" />
               </a>
             </li>
@@ -98,7 +98,7 @@
               >
                 <Font-awesome-icon
                   :icon="['fab', 'line']"
-                  class="mx-1 text-green scale transition-duration_2"
+                  class="mx-1 text-green scale transition-duration-2"
                   title="@line 官方" />
               </a>
             </li>
@@ -114,14 +114,14 @@
                 客服電話：
                 <a
                   href="tel:+886-2-2308264"
-                  class="custom_success_link"
+                  class="custom-link-success"
                 >
                   (02)2308264
                 </a>
                 /
                 <a
                   href="tel:+886-2-2308264"
-                  class="custom_success_link"
+                  class="custom-link-success"
                 >
                   (02)8650610
                 </a>
@@ -132,7 +132,7 @@
                 客服信箱：
                 <a
                   href="mailto:naturalConservation@gmail.com"
-                  class="custom_success_link"
+                  class="custom-link-success"
                 >
                   naturalConservation@gmail.com
                 </a>
@@ -148,7 +148,7 @@
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d451.8560236395452!2d121.5829368923491!3d25.0392255102093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab0a75bd22d7%3A0xf1b53b5cf37fc8da!2zMTEw5Y-w5YyX5biC5L-h576p5Y2A5p6X5Y-j6KGXMzjlt7cxMDnomZ8!5e0!3m2!1szh-TW!2stw!4v1625387151731!5m2!1szh-TW!2stw"
             allowfullscreen=""
             loading="lazy"
-            class="height_xl border-0 w-100 h-100"
+            class="height-xl border-0 w-100 h-100"
           ></iframe>
         </div>
       </section>

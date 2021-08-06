@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <section class="container pageContent user_select_none">
+  <section class="container page-content userselect-none">
     <div class="py-4">
 
       <!-- 麵包屑&搜尋 -->
@@ -21,7 +21,7 @@
                 訂單編號
               </h3>
               <p class="text-center text-danger
-                textStyle_rwd_2 fw-bold mb-4 pb-3">
+                custom-style-text-2 fw-bold mb-4 pb-3">
                 {{ order.id }}
               </p>
 
@@ -29,7 +29,7 @@
               <h3 class="h5 text-center fw-bold mt-3 mb-2">
                 訂購人資訊
               </h3>
-              <table class="table table-borderless cart_table_style
+              <table class="table table-borderless custom-cart-table
                 mb-5 text-break"
               >
                 <tbody>
@@ -136,7 +136,7 @@
               <h3 class="h5 text-center fw-bold mt-3 mb-2">
                 商品項目
               </h3>
-              <table class="table table-borderless cart_table_style
+              <table class="table table-borderless custom-cart-table
                 mb-5 text-center text-break"
               >
                 <thead>
@@ -195,7 +195,7 @@
             <router-link
               v-if="order.data.user.payment === '貨到付款'"
               to="/products"
-              class="btn btn_main px-3 py-1"
+              class="btn custom-btn-main px-3 py-1"
             >
               繼續選購
             </router-link>
@@ -203,7 +203,7 @@
             <router-link
               v-else
               to="/orderPaid"
-              class="btn btn_main px-3 py-1"
+              class="btn custom-btn-main px-3 py-1"
               @click="goPay"
             >
               我要付款

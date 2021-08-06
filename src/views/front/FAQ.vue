@@ -3,7 +3,7 @@
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl" />
 
-  <main class="container pageContent user_select_none">
+  <main class="container page-content userselect-none">
     <div class="py-4">
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 

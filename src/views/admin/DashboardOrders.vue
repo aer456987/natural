@@ -1,6 +1,6 @@
 <template>
   <DashboardLoading :status="loadingStatus" />
-  <section class="container pageContent py-5 overflow-auto">
+  <section class="container page-content py-5 overflow-auto">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       訂單管理
     </h2>

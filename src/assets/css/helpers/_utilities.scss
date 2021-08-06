@@ -1,5 +1,5 @@
 // 頁面不可選取
-.user_select_none{
+.userselect-none{
   user-select: none;
 }
 
@@ -7,10 +7,10 @@
 .scale{
   transform: scale(1);
   transition-duration: .3s;
-}
-.scale:hover{
-  transform: scale(1.2);
-  transition-duration: .3s;
+  &:hover{
+    transform: scale(1.2);
+    transition-duration: .3s;
+  }
 }
 
 // 點擊游標
@@ -22,7 +22,7 @@
     transition-duration: .3s;
   }
 }
-.pointer_no_hover{
+.pointer-no-hover{
   cursor: pointer;
 }
 
@@ -40,51 +40,37 @@
 }
 
 // 動畫轉換速度
-.transition-duration_1{
+.transition-duration-3{
   transition-duration: .3s;
 }
-.transition-duration_2{
+.transition-duration-2{
   transition-duration: .2s;
 }
 
-// 透明度
-.opacity_1{
-  opacity: .5;
-}
 .bg-primary-rgba-900 {
   background-color: rgba($primary, .9)
 }
-
 // 透明背景
-.bg_transparent{
+.bg-transparent{
   background: transparent;
 }
 
 // 寬度
-.width_xl{
+.width-xl{
   max-width: 900px !important;
 }
 // 寬度
-.width_sm{
+.width-sm{
   max-width: 60px !important;
 }
 
 // 高度
-// 產品頁面 多圖
-.img_view{
-  height: 514px;
-}
-
-.height_xl{
+.height-xl{
   height: 450px !important;
 }
-.height_md{
-  max-height: 300px !important;
-}
-.height_sm{
-  max-height: 120px !important;
-}
-.text_clamp_1{
+
+// 文字省略號
+.text-clamp{
   height: 48px !important;
   display: -webkit-box;
   text-overflow: ellipsis;
@@ -93,22 +79,6 @@
   -webkit-box-orient: vertical;
 }
 
-// 首頁最大高度
-.max_height_lg{
-  max-height: 900px;
-}
-
 .text-white-space{
   white-space: pre-wrap;
-}
-
-// 置中
-.set_in{
-  @include custom_position_setIn;
-  transition-duration: 3s;
-}
-
-.move_up_start{
-  @include custom_position_setIn(55%);
-  transition-duration: 3s;
 }

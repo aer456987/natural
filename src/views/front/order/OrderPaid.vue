@@ -1,5 +1,5 @@
 <template>
-  <div class="container pageContent user_select_none">
+  <div class="container page-content userselect-none">
     <div class="py-4">
 
       <!-- 麵包屑&搜尋 -->
@@ -16,7 +16,7 @@
           <!-- 訂單明細 -->
           <div class="col-md-12 col-lg-9">
             <section class="px-3 px-md-5 py-5 mb-5 rounded
-              shadow text-center bg-white textStyle_rwd_2">
+              shadow text-center bg-white custom-style-text-2">
 
               <i class="bi bi-emoji-smile display-3 text-warning"></i>
 

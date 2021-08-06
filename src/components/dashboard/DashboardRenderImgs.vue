@@ -5,7 +5,7 @@
     v-slot="{ errors }"
   >
     <ul
-      class="row list-unstyled height_xl overflow-auto"
+      class="row list-unstyled height-xl overflow-auto"
       @change="$emit('updataImgDatas', tempMainImg, tempImgs)"
     >
       <li class="col-6 col-md-3">

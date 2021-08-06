@@ -1,19 +1,19 @@
 <template>
   <!-- 至頂按鈕 -->
   <ul
-    class="goTopBtn position-fixed
+    class="custom-btn-go-top position-fixed
       d-flex flex-column justify-content-around align-items-center"
     :class="bgColor"
   >
     <template v-if="isShow">
       <li>
         <a
-          class="text-white pt-2 pointer_no_hover"
+          class="text-white pt-2 pointer-no-hover"
           @click="openFavoritesOffcanvas()"
         >
           <i class="bi bi-heart-fill fs-6 position-relative">
             <span
-              class="num_icon"
+              class="num-icon"
               v-if="favoritesLength > 0"
             >
               {{ favoritesLength || newFavoritesLength }}
@@ -29,7 +29,7 @@
         >
           <i class="bi bi-cart-fill fs-5 position-relative">
             <span
-              class="num_icon"
+              class="num-icon"
               v-if="cartsLength > 0"
             >
               {{ cartsLength || newLength }}
@@ -43,7 +43,7 @@
       <button
         type="button"
         class="d-flex justify-content-center align-items-center
-          border-0 bg_transparent pb-1 mt-1 text-white w-100"
+          border-0 bg-transparent pb-1 mt-1 text-white w-100"
         @click="$emit('backTopBtn')"
       >
         <i class="bi bi-arrow-up fs-5 lh-1"></i>

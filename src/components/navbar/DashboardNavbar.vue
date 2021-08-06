@@ -5,7 +5,7 @@
       <h1 class="m-0">
         <router-link
           to="/"
-          class="nav-link logo_brown mb-0 p-0 border border-white"
+          class="nav-link custom-logo-brown mb-0 p-0 border border-white"
         >
           Natural
         </router-link>
@@ -26,7 +26,7 @@
         id="navbarToggler"
         class="collapse navbar-collapse flex justify-content-end"
       >
-        <ul class="navbar-nav navbar_text text-center">
+        <ul class="navbar-nav navbar__text text-center">
           <li class="nav-item">
             <router-link
               to="/admin/coupon"

@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <section class="container pageContent user_select_none">
+  <section class="container page-content userselect-none">
     <main class="py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
@@ -16,8 +16,8 @@
         <div class="row px-lg-0 px-xl-5 position-relative">
 
           <section
-            class="col-12 table_style bg-white
-              mb-5 py-5 px-2 px-md-5
+            class="col-12 width-xl bg-white
+              mx-auto mb-5  py-5 px-2 px-md-5
               text-center rounded-3 shadow"
           >
             <div
@@ -28,7 +28,7 @@
                 <h3 class="mb-3">購物車內沒有商品</h3>
                 <router-link
                   to="/products"
-                  class="btn btn_main w-100"
+                  class="btn custom-btn-main w-100"
                 >
                   前往選購
                 </router-link>
@@ -36,7 +36,7 @@
             </div>
 
             <template v-else>
-              <table class="table cart_table_style position-relative">
+              <table class="table custom-cart-table position-relative">
                 <thead>
                   <tr>
                     <td
@@ -76,7 +76,7 @@
                       <div class="row align-items-center">
                         <div class="col-4 d-none d-md-inline">
                           <img
-                            class="width_sm"
+                            class="width-sm"
                             :src="item.product.imageUrl"
                             alt="預覽"
                           />
@@ -94,17 +94,17 @@
                         >
                           <button
                             type="button"
-                            class="btn_light_green px-0 px-sm-1 px-md-1 border-0"
+                            class="custom-btn-light-green px-0 px-sm-1 px-md-1 border-0"
                             @click="putCart('reduce', item)"
                           >
                             -
                           </button>
-                          <span class="form-control text-center px-0 p-md-1 textStyle_rwd_2">
+                          <span class="form-control text-center px-0 p-md-1 custom-style-text-2">
                             {{ item.qty }}
                           </span>
                           <button
                             type="button"
-                            class="btn_light_green px-0 px-sm-1 px-md-1 border-0"
+                            class="custom-btn-light-green px-0 px-sm-1 px-md-1 border-0"
                             @click="putCart('add', item)"
                           >
                             +
@@ -118,7 +118,7 @@
                     <td>
                       <button
                         type="button"
-                        class="btn_red fs-5 bg_transparent border-0"
+                        class="custom-btn-red fs-5 bg-transparent border-0"
                       >
                         <i
                           class="bi bi-x-lg"
@@ -181,7 +181,7 @@
           >
             <router-link
               to="/products"
-              class="btn btn-outline-custom-primary btn_style
+              class="btn btn-outline-custom-primary custom-style-text-3
                 px-1 px-sm-2 px-md-3 py-1"
             >
               ◁ 繼續購物
@@ -189,7 +189,7 @@
 
             <button
               type="button"
-              class="btn btn-outline-danger btn_style
+              class="btn btn-outline-danger custom-style-text-3
                 px-1 px-sm-2 px-md-3 py-1"
               @click="delCart('all')"
             >
@@ -198,7 +198,7 @@
 
             <router-link
               to="/order"
-              class="btn btn_main btn_style
+              class="btn custom-btn-main custom-btn
                 px-1 px-sm-2 px-md-3 py-1"
               :class="{ 'disabled' : btnStatus }"
             >

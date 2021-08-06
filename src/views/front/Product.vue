@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <section class="bg-white user_select_none">
+  <section class="bg-white userselect-none">
     <div class="container py-4">
       <!-- 麵包屑&搜尋 -->
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
@@ -63,7 +63,7 @@
                 <div class="input-group">
                   <button
                     type="button"
-                    class="w-25 btn_light_green text-center border"
+                    class="w-25 custom-btn-light-green text-center border"
                     @click="changeNum('reduce')"
                   >
                     -
@@ -78,7 +78,7 @@
 
                   <button
                     type="button"
-                    class="w-25 btn_light_green text-center border"
+                    class="w-25 custom-btn-light-green text-center border"
                     @click="changeNum('add')"
                   >
                     +
@@ -92,7 +92,7 @@
               <div class="col-6 p-0">
                 <button
                   type="button"
-                  class="btn btn_main py-1 w-100"
+                  class="btn custom-btn-main py-1 w-100"
                   @click="addCart"
                 >
                   加入購物車
@@ -123,7 +123,7 @@
   </section>
 
   <!-- 商品說明 -->
-  <section class="row py-5 m-0 user_select_none">
+  <section class="row py-5 m-0 userselect-none">
     <div class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
         <h3 class="pb-4 text-center fw-bold text-primary">

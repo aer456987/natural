@@ -10,7 +10,7 @@
     >
     <label
       :for="idData"
-      class="favorite_icon"
+      class="favorite-icon"
       @click="addFavoriteItem"
     >
       <i class="bi bi-heart-fill fs-4"></i>
@@ -25,7 +25,7 @@
     >
     <label
       :for="idData"
-      class="favorite_icon"
+      class="favorite-icon"
       @click="addFavoriteItem"
     >
       <i class="bi bi-heart-fill fs-4"></i>

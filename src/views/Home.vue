@@ -1,34 +1,34 @@
 <template>
   <HomeNavBar
-    class="transition-duration_1"
+    class="transition-duration-3"
     :class="classStyle.navbarClass"
     @open-offcanvas="openFavoritesOffcanvas" />
   <FavoritesOffcanvas ref="likeOffcanvas" />
 
-  <header class="position-relative user_select_none">
+  <header class="position-relative userselect-none">
     <div
-      class="headerTitleStyle z-index-2
+      class="header__banner z-index-2
         text-center text-light text-shadow"
     >
-      <p class="headerTitleStyle_text fade_animetion">
+      <p class="header__banner__text custom-fade-animetion">
         有個聲音正在向你求救，<br>
         但你卻看不到它們。
       </p>
 
-      <h3 class="headerTitleStyle_title fw-bold fade_animetion_slow">
+      <h3 class="header__banner__title fw-bold custom-fade-animetion_slow">
         你，<br>
         聽見它們的聲音了嗎？
       </h3>
     </div>
-    <Arrow class="arrow_style z-index-2" />
+    <Arrow class="arrow z-index-2" />
     <HomeHerderSwiper />
   </header>
 
-  <main id="main" class="bg-white overflow-hidden user_select_none">
+  <main id="main" class="bg-white overflow-hidden userselect-none">
     <!-- 圖片 -->
     <section class="container py-5 py-lg-6">
       <h2
-        class="textStyle_rwd_1 fw-bold text-center mb-1"
+        class="custom-style-text-1 fw-bold text-center mb-1"
         data-aos="fade-up"
         data-aos-anchor-placement="bottom-bottom"
         data-aos-delay="200"
@@ -53,7 +53,7 @@
     <!-- 介紹 -->
     <section class="text-center bg-gray-100 py-5 py-lg-6">
       <h2
-        class="textStyle_rwd_1 fw-bold mb-0 mb-md-2 px-2"
+        class="custom-style-text-1 fw-bold mb-0 mb-md-2 px-2"
         data-aos="fade-up"
         data-aos-anchor-placement="center-bottom"
         data-aos-delay="100"
@@ -175,7 +175,7 @@
                 v-model="subscriptionEmail" />
               <button
                 type="submit"
-                class="btn btn_main py-1 px-4"
+                class="btn custom-btn-main py-1 px-4"
                 :class="{ 'disabled' : btnStatus }"
               >
                 訂閱

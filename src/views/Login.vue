@@ -1,12 +1,12 @@
 <template>
   <Loading :status="loadingStatus" />
 
-  <main class="user_select_none p-5 bg-primary min-vh-100 mx-auto">
+  <main class="userselect-none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
       <h1 class="m-0 d-flex justify-content-center">
         <router-link
           to="/"
-          class="nav-link logo_login my-3 my-md-4 pb-0"
+          class="nav-link custom-logo-login my-3 my-md-4 pb-0"
         >
           Natural
         </router-link>
@@ -69,7 +69,7 @@
 
             <button
               type="submit"
-              class="btn btn_main w-100 mt-1 mb-1"
+              class="btn custom-btn-main w-100 mt-1 mb-1"
             >
               登入
             </button>
@@ -78,14 +78,14 @@
           <div class="d-flex justify-content-center align-items-center">
             <router-link
               to="/"
-              class="custom_success_link"
+              class="custom-link-success"
             >
               返回首頁
             </router-link>
             |
             <button
               type="button"
-              class="custom_success_link border-0 bg_transparent"
+              class="custom-link-success border-0 bg-transparent"
               @click="openPasswordMassage"
             >
               忘記密碼?

@@ -1,6 +1,6 @@
 <template>
   <DashboardLoading :status="loadingStatus" />
-  <div class="container pageContent py-5 overflow-hidden">
+  <div class="container page-content py-5 overflow-hidden">
     <h2 class="h1 text-center fw-bold m-0 pb-5">
       優惠券管理
     </h2>

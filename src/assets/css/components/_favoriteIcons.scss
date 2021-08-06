@@ -1,5 +1,5 @@
 // 我的最愛按鈕(全商品
-.favorite_icon_background{
+.favorite-icon-background{
   position: absolute;
   top: 0;
   right: 10px;
@@ -7,7 +7,7 @@
   background-color: $white;
 }
 
-.favorite_icon {
+.favorite-icon {
   padding: 12px;
   color: rgba($danger, .2);
   transform: scale(.9);
@@ -23,7 +23,7 @@
 }
 
 // 最愛收藏 按鈕
-.btn-check:checked + .favorite_icon{
+.btn-check:checked + .favorite-icon{
   transform: scale(1.1);
   color: $danger;
 }

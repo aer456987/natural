@@ -1,32 +1,21 @@
-.headerTitleStyle{
+header__banner{
   @include custom_position_setIn(50%);
   transition-duration: 3s;
 }
-.headerTitleStyle_text{
+.header__banner__text{
   margin-bottom: 24px;
   font-size: 24px;
 }
-.headerTitleStyle_title{
+.header__banner__title{
   font-size: 32px;
 }
 
-.opacity_scale_hide{
-  opacity: 0;
-  transform: scale(0.1);
-  transition-duration: .3s;
-}
-.opacity_scale_show{
-  opacity: 1;
-  transform: scale(1);
-  transition-duration: .3s;
-}
-
-.textStyle_rwd_1{
+.custom-style-text-1{
   font-size: 40px;
 }
 
 // 箭頭
-.arrow_style{
+.arrow{
   @include custom_position_bottom(6%, 10%);
 }
 
@@ -37,33 +26,33 @@
 
 // RWD - media
 @media(max-width: 992px){
-  .arrow_style{
+  .arrow{
     @include custom_position_bottom(21%, 0%, .8);
   }
 
-  .textStyle_rwd_1{
+  .custom-style-text-1{
     font-size: 32px;
   }
 }
 
 @media(max-width: 767px){
-  .headerTitleStyle_text{
+  .header__banner__text{
     margin-bottom: 16px;
     font-size: 16px; 
   }
-  .headerTitleStyle_title{
+  .header__banner__title{
     font-size: 24px;
   }
 
-  .textStyle_rwd_1{
+  .custom-style-text-1{
     font-size: 24px;
   }
 
-  .arrow_style{
+  .arrow{
     @include custom_position_bottom(-5%, 32%, .5);
   }
 
-  .title_style{
+  .custom-style-title{
     font-size: 24px;
   }
 
@@ -73,37 +62,37 @@
 }
 
 @media(max-width: 414px){
-  .headerTitleStyle_text{
+  .header__banner__text{
     margin-bottom: 14px;
     font-size: 12px; 
   }
-  .headerTitleStyle_title{
+  .header__banner__title{
     font-size: 16px;
   }
 
-  .arrow_style{
+  .arrow{
     @include custom_position_bottom(-20%, 60%, .3);
   }
 
-  .title_style{
+  .custom-style-title{
     font-size: 16px;
   }
 
-  .textStyle_rwd_1{
+  .custom-style-text-1{
     font-size: 24px;
   }
 
-  .textStyle_rwd_2{
+  .custom-style-text-2{
     font-size: 14px;
   }
 
-  .cart_table_style{
+  .custom-cart-table{
     thead, tbody{
       font-size: 12px;
     }
   }
 
-  .btn_style{
+  .custom-style-text-3{
     font-size: 14px;
   }
 

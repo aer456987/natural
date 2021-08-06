@@ -2,14 +2,14 @@
   <!-- 首頁導覽列 -->
   <nav
     class="navbar navbar-expand-lg navbar-dark z-index-3 px-sm-1 px-md-2
-      position-fixed z-index-3 w-100 user_select_none"
+      position-fixed z-index-3 w-100 userselect-none"
     :class="{ 'bg-primary-rgba-900': isClassChange }"
   >
     <div class="container-fluid">
       <h1 class="m-0">
         <router-link
           to="/"
-          class="logo_home mb-0 p-0 border border-white"
+          class="custom-logo-home mb-0 p-0 border border-white"
         >
           Natural
         </router-link>
@@ -30,7 +30,7 @@
         id="navbarToggler"
         class="collapse navbar-collapse flex justify-content-end"
       >
-        <ul class="navbar-nav navbar_text text-center">
+        <ul class="navbar-nav navbar__text text-center">
           <li class="nav-item scale">
             <router-link
               to="/about"
@@ -57,12 +57,12 @@
           </li>
           <li class="nav-item scale">
             <a
-              class="nav-link pointer_no_hover"
+              class="nav-link pointer-no-hover"
               @click="$emit('openOffcanvas', homeFavoritesList)"
             >
               <i class="bi bi-heart-fill position-relative">
                 <span
-                  class="num_icon"
+                  class="num-icon"
                   v-if="favoritesLength > 0"
                 >
                   {{ favoritesLength || newFavoritesLength }}
@@ -77,7 +77,7 @@
             >
               <i class="bi bi-cart-fill position-relative">
                 <span
-                  class="num_icon"
+                  class="num-icon"
                   v-if="cartsLength > 0"
                 >
                   {{ cartsLength || newLength }}

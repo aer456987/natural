@@ -1,13 +1,13 @@
 // 商品-卡片圖片
-.card_img_style{
+.custom__card__img{
   position: relative;
   overflow: hidden;
   background: $black;
 
-  .more_msg, img{
+  .custom__card__more, img{
     transition-duration: .3s;
   }
-  .more_msg{
+  .custom__card__more{
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -23,12 +23,12 @@
 }
 
 // 商品-卡片圖片 hover 效果
-.custom_card_style:hover{
+.custom__card:hover{
   cursor: pointer;
-  .more_msg, img{
+  .custom__card__more, img{
     transition-duration: .3s;
   }
-  .more_msg{
+  .custom__card__more{
     opacity: .8;
     color: $white;
   }

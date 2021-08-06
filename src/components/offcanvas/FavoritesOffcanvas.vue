@@ -2,7 +2,7 @@
   <!-- 我的最愛側欄 -->
   <Loading :status="loadingStatus" />
   <div
-    class="offcanvas offcanvas-end user_select_none
+    class="offcanvas offcanvas-end userselect-none
       shadow-lg overflow-x px-0 m-0"
     data-bs-scroll="false"
     data-bs-backdrop="true"
@@ -55,7 +55,7 @@
                 class="w-100"
               >
             </div>
-            <p class="col-5 textStyle_rwd_2 py-0 px-1 m-0">
+            <p class="col-5 custom-style-text-2 py-0 px-1 m-0">
               {{ favoriteItme.title }} <br>
               ${{ $filters.currency(favoriteItme.price)}} / {{ favoriteItme.unit }}
             </p>
@@ -72,7 +72,7 @@
             <div class="col-2 p-0 ps-sm-1">
               <button
                 type="button"
-                class="btn btn_outline_green fs-4"
+                class="btn custom-btn-outline-green fs-4"
                 @click="addCart(favoriteItme.id, favoriteItme.qty)"
               >
                 <i class="bi bi-cart-plus-fill"></i>
@@ -85,7 +85,7 @@
           <div class="col-12 col-md-6">
             <router-link
               to="/cart"
-              class="btn btn_main w-100 mb-2"
+              class="btn custom-btn-main w-100 mb-2"
               @click="hideOffcanvas"
             >
               我要結帳
@@ -112,7 +112,7 @@
             </p>
             <router-link
               to="/products"
-              class="btn btn_main w-100"
+              class="btn custom-btn-main w-100"
               @click="hideOffcanvas"
             >
               趕快去選購

@@ -9,7 +9,7 @@
     data-aos-duration="1000"
   >
     <swiper-slide
-      class="p-0 position-relative productSwiper_content"
+      class="p-0 position-relative swiper__product__content"
       v-for="headerImg in headerImgs"
       :key="headerImg.id"
     >
@@ -19,9 +19,9 @@
           :alt="`介紹圖片_${headerImg.id + 1}`"
           class="w-100 rounded-2"
         >
-        <h3 class="productSwiper_title position-absolute m-0">
+        <h3 class="swiper__product__title position-absolute m-0">
           {{ headerImg.title }}
-          <span class="productSwiper_text py-1 d-block fs-6">
+          <span class="swiper__product__text py-1 d-block fs-6">
             {{ headerImg.text }}
           </span>
         </h3>

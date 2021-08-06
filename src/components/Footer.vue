@@ -1,7 +1,7 @@
 <template>
   <!-- 頁尾 -->
   <footer
-    class="user_select_none p-3 text-center"
+    class="userselect-none p-3 text-center"
     :class="colors.backgroundColor"
   >
     <template
@@ -109,7 +109,7 @@
         >
           <Font-awesome-icon
             :icon="['fab', 'facebook-square']"
-            class="mx-1 pointer_no_hover scale"
+            class="mx-1 pointer-no-hover scale"
             title="facabook 粉絲團" />
         </a>
       </li>
@@ -121,7 +121,7 @@
         >
           <Font-awesome-icon
             :icon="['fab', 'instagram-square']"
-            class="mx-1 pointer_no_hover scale"
+            class="mx-1 pointer-no-hover scale"
             title="Instagram" />
         </a>
       </li>
@@ -133,7 +133,7 @@
         >
           <Font-awesome-icon
             :icon="['fab', 'line']"
-            class="mx-1 pointer_no_hover scale"
+            class="mx-1 pointer-no-hover scale"
             title="@line 官方" />
         </a>
       </li>
@@ -154,7 +154,7 @@
         >
           <Font-awesome-icon
             :icon="['fab', 'github-square']"
-            class="mx-1 pointer_no_hover scale"
+            class="mx-1 pointer-no-hover scale"
             title="github" />
         </a>
       </li>
