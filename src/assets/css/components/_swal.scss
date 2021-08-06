@@ -11,7 +11,7 @@
   padding-bottom: 20px !important;
 }
 
-.swal2-popup.swal2-toast .swal2-title {
+.swal2-title, .swal2-popup .swal2-toast .swal2-title {
   margin: 10px !important;
   font-weight: 500;
   color: $primary !important;
@@ -26,9 +26,7 @@
   border: solid 3px rgba($custom-green, .3) !important;
 }
 
-
 .swal2-icon.swal2-success [class^=swal2-success-line] {
-  // margin-top: 1px;
   height: 3.5px !important;
   background-color: $custom-green !important;
 }
