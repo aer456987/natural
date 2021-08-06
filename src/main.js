@@ -19,7 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
-import Loading from '@/components/loading/Loading.vue'; // Loading元件
+import Loading from '@/components/loading/Loading.vue';
 
 import 'bootstrap';
 
