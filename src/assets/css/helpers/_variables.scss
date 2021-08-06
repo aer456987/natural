@@ -84,8 +84,9 @@ $custom-primary:   #1d7e63 !default;
 // scss-docs-start theme-colors-map
 $theme-colors: (
   "primary":    $primary,// $primary, 1D7E63, 09694C
-  "primary-100": rgba(#09694C, .1),
+  "primary-100":  #e5f0ed,
   "primary-500": darken($primary, 5),
+  "primary-900":  rgba($primary, .9),
   "secondary":  $secondary,// $secondary, F8DF8F, D5D83C,
   "success":    $success,
   "success-light":    lighten(#06805f, 2),
@@ -94,14 +95,13 @@ $theme-colors: (
   "warning-dark":    #9a6e00,
   "danger":     $danger,
   "light":      $light,
-  "dark":       $dark,
   "white":      $white,
+  "dark":       $dark,
   "brown":      $brown,
   "brown-500":  $brown-500,
   "gray":       $gray-500,
   "gray-100":   $gray-100,
   "gray-200":   $gray-200,
-  "primary-rgba-900":   rgba($primary, .9),
   "blue-600":   #0472e6,
   "pink":       #e83e59,
   "green":      #07b53b,
