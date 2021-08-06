@@ -86,16 +86,16 @@ export default {
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
-            swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success', true, 'top-end');
             this.loadingStatus = false;
             this.updateCartLength();
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('操作出現異常', '請稍後再試');
+          errorSwalFn('操作出現異常', '請稍後再試', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -113,11 +113,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            errorSwalFn('購物車資料異常', '請重新整理');
+            errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
           }
         })
         .catch(() => {
-          errorSwalFn('購物車資料異常', '請重新整理');
+          errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
   },

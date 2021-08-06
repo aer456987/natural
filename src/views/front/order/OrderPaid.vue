@@ -109,7 +109,7 @@ export default {
   },
   created() {
     this.backTop();
-    swalFn('已完成付款', 'success');
+    swalFn('已完成付款', 'success', true, 'top-end');
   },
 };
 </script>

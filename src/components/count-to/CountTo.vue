@@ -37,49 +37,49 @@ export default {
       required: true,
     },
     /**
-     * @description 小數點後保留位數
+     * @description 小数点后保留位数
      */
     decimals: {
       type: Number,
       default: 0,
     },
     /**
-     * @description 動畫延遲開始時間
+     * @description 动画延迟开始时间
      */
     delay: {
       type: Number,
       default: 2000,
     },
     /**
-     * @description 漸變時長
+     * @description 渐变时长
      */
     duration: {
       type: Number,
       default: 10,
     },
     /**
-     * @description 是否使用變速效果
+     * @description 是否使用变速效果
      */
     useEasing: {
       type: Boolean,
       default: true,
     },
     /**
-     * @description 是否分組顯示
+     * @description 是否分组显示
      */
     useGroup: {
       type: Boolean,
       default: true,
     },
     /**
-     * @description 分組顯示的分隔符號
+     * @description 分组显示的分隔符
      */
     separator: {
       type: String,
       default: ',',
     },
     /**
-     * @description 整數部分和小數的分隔符號
+     * @description 整数部分和小数的分隔符
      */
     decimal: {
       type: String,
@@ -96,7 +96,7 @@ export default {
   },
   watch: {
     /**
-     * @description 監控endVal值變化，調用update方法
+     * @description 监控endVal值变化，调用update方法
      */
     endVal(newVal) {
       this.counter.update(newVal);
@@ -104,7 +104,7 @@ export default {
   },
   mounted() {
     /**
-     * @description 基於上述參數，初始化一個counter實例
+     * @description 基于上述参数，初始化一个counter实例
      */
     this.$nextTick(() => {
       this.counter = new CountUp(

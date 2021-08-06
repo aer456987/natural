@@ -1,40 +1,59 @@
 // 彈跳視窗
-.swal-modal{
-  width: auto;
-  padding: 50px 60px;
+.swal2-container {
+  z-index: 2000 !important;
+}
+.swal2-popup, .swal2-popup .swal2-modal .swal2-icon-success .swal2-show {
+  width: auto !important;
+  padding: 10px 30px 40px !important;
 }
 
-.swal-title{
-  color: $primary;
+.swal2-title {
+  color: $primary !important;
 }
 
-.swal-text{
+.swal2-popup.swal2-toast .swal2-title {
+  margin: 10px !important;
+  font-weight: 500;
+  color: $primary !important;
+}
+
+.swal2-html-container {
   max-width: none;
 }
+// .swal-text{
+// }
 
-.swal-button{
-  font-size: 16px;
-}
+// .swal2-styled.swal2-confirm {
+//   &:focus{
+//     box-shadow: 0 0 5px 0 rgba($primary, .2) !important;
+//   }
+// }
 
-.swal-icon:first-child{
-  margin: 20px auto;
-}
-.swal-icon--success__ring {
-  border-color: rgba($custom-green, .2);
-}
-.swal-icon--success__line{
-  background-color: $custom-green;
-}
-.swal-icon--success{
-  border-color: $custom-green;
-}
+// .swal-icon:first-child{
+//   margin: 20px auto;
+// }
 
-.swal-icon--warning__body{
-  height: 38px;
-  top: 15px;
+.swal2-icon.swal2-success .swal2-success-ring,
+.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring {
+  border: solid 3px rgba($custom-green, .3) !important;
 }
 
-.swal-icon--warning__dot{
-  bottom: -13px;
-  margin-left: -3px;
+
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  // margin-top: 1px;
+  height: 3.5px !important;
+  background-color: $custom-green !important;
 }
+.swal2-popup.swal2-toast .swal2-success {
+  border: solid 2.5px $custom-green !important;
+
+}
+// .swal-icon--warning__body{
+//   height: 38px;
+//   top: 15px;
+// }
+
+// .swal-icon--warning__dot{
+//   bottom: -13px;
+//   margin-left: -3px;
+// }

@@ -263,12 +263,12 @@ export default {
 
             this.loadingStatus = false;
           } else {
-            errorSwalFn('購物車資料異常', '請重新整理');
+            errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('購物車資料異常', '請重新整理');
+          errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -289,16 +289,16 @@ export default {
         .delete(url)
         .then((res) => {
           if (res.data.success) {
-            swalFn(`${productName} ${res.data.message}`, 'success');
+            swalFn(`${productName} ${res.data.message}`, 'success', true, 'top-end');
             this.updateCartLength();
             this.getCarts();
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch((err) => {
-          swalFn(err.data.message, 'error');
+          swalFn(err.data.message, 'error', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -309,7 +309,7 @@ export default {
 
       if (action === 'reduce') {
         if (item.qty < 2) {
-          swalFn('數量不可少於 1', 'error');
+          swalFn('數量不可少於 1', 'error', true, 'top-end');
           this.loadingStatus = false;
           return;
         }
@@ -329,16 +329,16 @@ export default {
         .put(url, datas)
         .then((res) => {
           if (res.data.success) {
-            swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success', true, 'top-end');
             this.updateCartLength();
             this.getCarts();
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('操作出現異常', '請稍後再試');
+          errorSwalFn('操作出現異常', '請稍後再試', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -349,18 +349,18 @@ export default {
       this.$http.post(url, { data: this.couponNum })
         .then((res) => {
           if (res.data.success) {
-            swalFn(res.data.message, 'success');
+            swalFn(res.data.message, 'success', true, 'top-end');
             this.rederCode = this.couponNum.code;
             this.getCarts();
             this.couponNum.code = '';
             this.loadingStatus = false;
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('操作出現異常', '請稍後再試');
+          errorSwalFn('操作出現異常', '請稍後再試', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -377,11 +377,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            errorSwalFn('購物車資料異常', '請重新整理');
+            errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
           }
         })
         .catch(() => {
-          errorSwalFn('購物車資料異常', '請重新整理');
+          errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
     backTop() {

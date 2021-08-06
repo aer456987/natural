@@ -291,7 +291,7 @@ export default {
       this.subscriptionEmail = '';
       this.btnStatus = true;
       this.resetForm();
-      swalFn('訂閱成功', 'success');
+      swalFn('訂閱成功', 'success', true, 'top-end');
     },
     resetForm() { // 重製表單驗證
       this.$refs.subscriptionForm.resetForm();

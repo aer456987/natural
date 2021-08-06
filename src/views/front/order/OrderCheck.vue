@@ -268,12 +268,12 @@ export default {
             this.updateCartLength();
             this.loadingStatus = false;
           } else {
-            errorSwalFn('資料取得失敗', '請重新整理');
+            errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('資料取得失敗', '請重新整理');
+          errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -287,12 +287,12 @@ export default {
             this.loadingStatus = false;
             this.$router.push('/orderPaid');
           } else {
-            errorSwalFn('付款失敗', '請聯絡客服人員');
+            errorSwalFn('付款失敗', '請聯絡客服人員', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('付款失敗', '請聯絡客服人員');
+          errorSwalFn('付款失敗', '請聯絡客服人員', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -305,11 +305,11 @@ export default {
           if (res.data.success) {
             bus.emit('cart-number', res.data.data.carts.length);
           } else {
-            errorSwalFn('購物車資料異常', '請重新整理');
+            errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
           }
         })
         .catch(() => {
-          errorSwalFn('購物車資料異常', '請重新整理');
+          errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
     backTop() {
@@ -321,7 +321,7 @@ export default {
     this.backTop();
     this.order.id = this.$route.params.id;
     this.getOrder(this.order.id);
-    swalFn('已建立訂單', 'success', 2000, `訂單編號：${this.order.id}`);
+    swalFn('已建立訂單', 'success', true, 'top-end');
   },
 };
 </script>

@@ -115,12 +115,12 @@ export default {
             this.products = res.data.products;
             this.loadingStatus = false;
           } else {
-            errorSwalFn('資料取得失敗', '請重新整理');
+            errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('資料取得失敗', '請重新整理');
+          errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
           this.loadingStatus = false;
         });
     },

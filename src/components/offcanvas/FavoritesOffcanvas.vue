@@ -166,11 +166,11 @@ export default {
             this.offcanvasProducts = res.data.products;
             this.renderFavorite();
           } else {
-            errorSwalFn('商品資料取得失敗', '請重新整理');
+            errorSwalFn('商品資料取得失敗', '請重新整理', true, 'top-end');
           }
         })
         .catch(() => {
-          errorSwalFn('商品資料取得失敗', '請重新整理');
+          errorSwalFn('商品資料取得失敗', '請重新整理', true, 'top-end');
         });
     },
     renderFavorite() { // 渲染資料
@@ -204,18 +204,17 @@ export default {
         .post(url, cartData)
         .then((res) => {
           if (res.data.success) {
-            swalFn(res.data.message, 'success');
-            this.productQty = 1;
+            swalFn(res.data.message, 'success', true, 'top-end');
             this.updateCartLength();
             this.loadingStatus = false;
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.productQty = 1;
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('操作出現異常', '請稍後再試');
+          errorSwalFn('操作出現異常', '請稍後再試', true, 'top-end');
           this.productQty = 1;
           this.loadingStatus = false;
         });
@@ -233,11 +232,11 @@ export default {
             this.cartsLength = totleQty;
             bus.emit('cart-number', this.cartsLength);
           } else {
-            errorSwalFn('購物車資料異常', '請重新整理');
+            errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
           }
         })
         .catch(() => {
-          errorSwalFn('購物車資料異常', '請重新整理');
+          errorSwalFn('購物車資料異常', '請重新整理', true, 'top-end');
         });
     },
   },

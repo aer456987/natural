@@ -316,12 +316,12 @@ export default {
             this.filterFundraising();
             this.loadingStatus = false;
           } else {
-            errorSwalFn('資料取得失敗', '請重新整理');
+            errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('資料取得失敗', '請重新整理');
+          errorSwalFn('資料取得失敗', '請重新整理', true, 'top-end');
           this.loadingStatus = false;
         });
     },
@@ -389,12 +389,12 @@ export default {
           if (res.data.success) {
             this.$router.push(`/order/${res.data.orderId}`);
           } else {
-            swalFn(res.data.message, 'error');
+            swalFn(res.data.message, 'error', true, 'top-end');
             this.loadingStatus = false;
           }
         })
         .catch(() => {
-          errorSwalFn('操作出現異常', '請稍後再試');
+          errorSwalFn('操作出現異常', '請稍後再試', true, 'top-end');
           this.loadingStatus = false;
         });
     },

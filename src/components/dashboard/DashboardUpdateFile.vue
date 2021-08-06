@@ -59,7 +59,7 @@ export default {
           }
         })
         .catch(() => {
-          errorSwalFn('圖片上傳失敗', '請重新操作');
+          errorSwalFn('圖片上傳異常', '請重新操作');
           this.isUpload = false;
         });
     },
