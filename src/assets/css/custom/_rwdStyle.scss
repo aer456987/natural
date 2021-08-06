@@ -12,7 +12,7 @@
 
 // 箭頭
 .arrow{
-  @include custom_position_bottom(6%, 10%);
+  @include custom-position-bottom(6%, 10%);
 }
 
 // 我的最愛
@@ -23,7 +23,7 @@
 // RWD - media
 @media(max-width: 992px){
   .arrow{
-    @include custom_position_bottom(21%, 0%, .8);
+    @include custom-position-bottom(21%, 0%, .8);
   }
 
   .custom-style-text-1{
@@ -45,7 +45,7 @@
   }
 
   .arrow{
-    @include custom_position_bottom(-5%, 32%, .5);
+    @include custom-position-bottom(-5%, 32%, .5);
   }
 
   .custom-style-title{
@@ -67,7 +67,7 @@
   }
 
   .arrow{
-    @include custom_position_bottom(-20%, 60%, .3);
+    @include custom-position-bottom(-20%, 60%, .3);
   }
 
   .custom-style-title{

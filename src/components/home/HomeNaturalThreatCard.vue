@@ -10,19 +10,19 @@
       data-aos-duration="900"
       data-aos-easing="ease-out-back"
       class="col-sm-12 col-md-6 col-lg-3 p-0
-        natural_threat_card_item
+        naturalThreat__card__item
         d-flex justify-content-center align-items-center"
     >
       <input
         type="checkbox"
-        class="natural_threat_card_checkbox"
-        :id="`natural_threat_card_checkbox_${item.id + 1}`"
+        class="naturalThreat__card__item__checkbox"
+        :id="`naturalThreat__card__item__checkbox_${item.id + 1}`"
         :value="`natural_threat_card_${item.id + 1}`"
       >
       <label
         name="card_items"
-        class="natural_threat_card_label"
-        :for="`natural_threat_card_checkbox_${item.id + 1}`"
+        class="naturalThreat__card__item__label"
+        :for="`naturalThreat__card__item__checkbox_${item.id + 1}`"
       >
         <img
           :src="item.img"
@@ -30,16 +30,16 @@
           class="natural_threat_card_img w-100"
         >
         <div
-          class="natural_threat_card_content"
-          :id="`natural_threat_card_content_${item.id + 1}`"
+          class="naturalThreat__card__item__content"
+          :id="`naturalThreat__card__item__content_${item.id + 1}`"
         >
           <div>
-            <h3 class="natural_threat_card_title">
+            <h3 class="naturalThreat__card__item__title">
               {{ item.title }}
             </h3>
             <p
-              class="natural_threat_card_text"
-              :id="`natural_threat_card_text_${item.id + 1}`"
+              class="naturalThreat__card__item__text"
+              :id="`naturalThreat__card__item__text_${item.id + 1}`"
             >
               {{ item.text }}
             </p>
@@ -85,151 +85,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import '@/assets/css/allStyle';
-@import '~swiper/swiper.scss';
-
-.natural_threat_card_item{
-  position: relative;
-}
-
-.natural_threat_card_title, .natural_threat_card_text{
-  text-align: center;
-  color: $white;
-}
-
-.natural_threat_card_checkbox{
-  display: none;
-}
-.natural_threat_card_label{
-  cursor: pointer;
-}
-
-.natural_threat_card_checkbox:checked+.natural_threat_card_label{
-  .natural_threat_card_content{
-    height: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .natural_threat_card_title{
-    margin-bottom: 12px;
-  }
-
-  .natural_threat_card_text{
-    height: auto;
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.natural_threat_card_content{
-  @include custom_position_bottom(0%);
-  width: 90%;
-  height: 25%;
-  padding: 20px 15px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
-  vertical-align: bottom;
-  background: rgba($dark, .6);
-  transition-duration: .25s;
-  overflow: hidden;
-
-  div{
-    height: auto;
-  }
-
-  &:hover{
-    height: 30%;
-    transition-duration: .25s;
-  }
-
-  // 捲軸本身，可以設定寬度
-  &::-webkit-scrollbar{
-    width: 8px;
-  }
-
-  // 捲軸可以拉的部分
-  &::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    background-color: rgba($white, .8);
-  }
-
-  // 捲軸空的地方，也可以說背景的顏色
-  &::-webkit-scrollbar-track{
-    box-shadow: inset 0 0 6px rgba($white, 1);
-  }
-}
-
-.natural_threat_card_title{
-  margin-bottom: 0;
-  font-size: 24px;
-  font-weight: bold;
-  transition-duration: .25s;
-}
-.natural_threat_card_text{
-  height: 0;
-  margin-bottom: 0;
-  font-size: 16px;
-  text-align: left;
-  transform: translateY(10px);
-  transition-duration: .25s;
-  opacity: 0;
-}
-
-// RWD
-@media(max-width: 1200px){
-  .natural_threat_card_checkbox:checked+.natural_threat_card_label{
-    .natural_threat_card_content{
-      display: block;
-      overflow-y: auto;
-    }
-  }
-}
-
-@media(max-width: 992px){
-  .natural_threat_card_checkbox:checked+.natural_threat_card_label{
-    .natural_threat_card_content{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-y: hidden;
-    }
-  }
-}
-
-@media(max-width: 414px){
-  .natural_threat_card_checkbox:checked+.natural_threat_card_label{
-    .natural_threat_card_content{
-      overflow-y: auto;
-    }
-
-    .natural_threat_card_text{
-      display: block;
-    }
-  }
-  .natural_threat_card_title{
-    font-size: 20px;
-  }
-  .natural_threat_card_text{
-    display: none;
-  }
-}
-
-@media(max-width: 320px){
-  .natural_threat_card_checkbox:checked+.natural_threat_card_label{
-    .natural_threat_card_content{
-      display: block;
-    }
-  }
-
-  .natural_threat_card_title{
-    font-size: 18px;
-  }
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <!-- 商品頁篩選 -->
-  <nav class="row product_filter_nav overflow-auto bg-secondary m-0
+  <nav class="row productFilter__nav overflow-auto bg-secondary m-0
     text-nowrap text-center"
   >
     <form
@@ -130,8 +130,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.product_filter_nav{
+<style lang="scss" scoped>
+.productFilter__nav{
   // 捲軸本身，可以設定寬度
   &::-webkit-scrollbar{
     height: 6px;

@@ -62,7 +62,7 @@
 // icons 數字
 // 最愛收藏數量&購物車數量 共同設定
 .num-icon{
-  @include custom_position_setIn(-9px, 12px, 0, 0);
+  @include custom-position-setIn(-9px, 12px, 0, 0);
   width: 27px;
   height: 27px;
   border-radius: 100%;

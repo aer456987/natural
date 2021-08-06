@@ -1,4 +1,4 @@
-@mixin custom_position_setIn(
+@mixin custom-position-setIn(
   $topValue: 50%, $leftValue: 50%, $transX: -50%, $transY: -50%,
 ) {
   position: absolute;
@@ -7,7 +7,7 @@
   transform: translate($transX, $transY);
 }
 
-@mixin custom_position_bottom($bottomValue, $heightValue: auto, $scaleValue: 1) {
+@mixin custom-position-bottom($bottomValue, $heightValue: auto, $scaleValue: 1) {
   position: absolute;
   height: $heightValue;
   bottom: $bottomValue;
@@ -16,7 +16,7 @@
 }
 
 // animetion 動畫
-@mixin animetion_init($animetionName, $seconds, $infinite) {
+@mixin animetion-init($animetionName, $seconds, $infinite) {
   animation: $animetionName $seconds $infinite;
   animation-timing-function: steps(100);
 }

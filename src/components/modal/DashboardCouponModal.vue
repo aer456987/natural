@@ -9,7 +9,7 @@
     data-bs-keyboard="false"
     ref="modal"
   >
-    <main class="modal-dialog modal-dialog-centered coupon_width">
+    <main class="modal-dialog modal-dialog-centered width-md">
       <section class="modal-content mx-auto">
         <div class="modal-header bg-warning text-brown-500">
           <h3
@@ -245,8 +245,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass">
-.coupon_width
-  max-width: 600px
-</style>

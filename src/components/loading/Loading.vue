@@ -1,5 +1,4 @@
 <template>
-  <!-- 前台 loading 讀取 -->
   <div
     class="loading-img userselect-none"
     v-if="status"

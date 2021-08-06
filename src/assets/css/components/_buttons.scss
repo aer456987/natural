@@ -1,5 +1,5 @@
 // 主要按鈕
-custom-btn-main{
+.custom-btn-main{
   padding: 8px;
   color: white;
   background: $custom-primary;
@@ -10,7 +10,7 @@ custom-btn-main{
 }
 
 // 我的最愛 & 購物車按鈕 & 購物車數量 +/-
-custom-btn-red, custom-btn-light-green{
+.custom-btn-red, .custom-btn-light-green{
   font-size: 26px;
   transform: scale(1);
   transition-duration: .5s;
@@ -18,7 +18,7 @@ custom-btn-red, custom-btn-light-green{
 }
 
 // 加入購物車按鈕
-custom-btn-outline-green{
+.custom-btn-outline-green{
   border: solid 1px $success;
   color: $success;
   &:hover{
@@ -27,7 +27,7 @@ custom-btn-outline-green{
   }
 }
 
-custom-btn-red{
+.custom-btn-red{
   padding: 5px;
   border-radius: 4px;
   color: rgba($red, .3);
@@ -38,7 +38,7 @@ custom-btn-red{
 }
 
 // 購物車 +/-
-custom-btn-light-green{
+.custom-btn-light-green{
   padding: 0px 10px;
   color: $custom-primary;
   background: $white;
@@ -51,7 +51,7 @@ custom-btn-light-green{
 }
 
 // 置頂按鈕
-custom-btn-go-top{
+.custom-btn-go-top{
   width: 45px;
   bottom: 25px;
   right: 0;

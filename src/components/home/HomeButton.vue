@@ -57,8 +57,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-$blob-primary: #1d7e63; // #0fe0f5; #589985
+<style lang="scss" scoped>
+$blob-primary: #1d7e63;
 $blob-secondary: #d5d83c;
 $blob-light: white;
 $blob-dark: red;

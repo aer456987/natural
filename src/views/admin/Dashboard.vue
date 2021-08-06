@@ -95,7 +95,7 @@ export default {
 };
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 table
   background: white
 
