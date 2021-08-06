@@ -125,6 +125,7 @@
         >
           <h3 class="fs-7 fw-bold">
             <CountTo
+              :duration="6000"
               :end-val="platform.num"
               :count-to-id="platform.id" />
             <span class="fs-4">/{{ platform.unit }}</span>
@@ -203,6 +204,7 @@
 
 <script>
 import { swalFn } from '@/methods/swal';
+import { CountTo } from 'vue3-count-to';
 import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
 import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 import Footer from '@/components/Footer.vue';
@@ -210,7 +212,7 @@ import HomeHerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import HomeProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
 import HomeNaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import HomeMessages from '@/components/home/HomeMessages.vue';
-import CountTo from '@/components/count-to';
+// import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
 import Arrow from '@/components/home/Arrow.vue';
 import GoToTopBtn from '@/components/GoToTopBtn.vue';
