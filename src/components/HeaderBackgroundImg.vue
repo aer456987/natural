@@ -1,5 +1,5 @@
 <template>
-  <header class="header position-relative userselect-none">
+  <header class="header position-relative user-select-none">
     <h2
     class="custom-style-title
       position-absolute top-50 start-50 translate-middle

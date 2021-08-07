@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <section class="bg-white userselect-none">
+  <section class="bg-white user-select-none">
     <div class="container py-4">
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 
@@ -117,7 +117,7 @@
     </div>
   </section>
 
-  <section class="row py-5 m-0 userselect-none">
+  <section class="row py-5 m-0 user-select-none">
     <div class="col-11 col-lg-10 col-xl-10 col-xxl-8 my-2 py-5 container bg-white">
       <template v-if="tempProduct.category==='講座'">
         <h3 class="pb-4 text-center fw-bold text-primary">

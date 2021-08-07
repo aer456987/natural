@@ -5,7 +5,7 @@
     @open-offcanvas="openFavoritesOffcanvas" />
   <FavoritesOffcanvas ref="likeOffcanvas" />
 
-  <header class="position-relative userselect-none">
+  <header class="position-relative user-select-none">
     <div
       class="position-absolute top-50 start-50 translate-middle transition-duration-3 z-index-2
         text-center text-light text-shadow"
@@ -24,7 +24,7 @@
     <HomeHerderSwiper />
   </header>
 
-  <main id="main" class="bg-white overflow-hidden userselect-none">
+  <main id="main" class="bg-white overflow-hidden user-select-none">
     <section class="container py-5 py-lg-6">
       <h2
         class="custom-style-text-1 fw-bold text-center mb-1"

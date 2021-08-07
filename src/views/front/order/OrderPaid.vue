@@ -1,5 +1,5 @@
 <template>
-  <div class="container page-content userselect-none">
+  <div class="container page-content user-select-none">
     <div class="py-4">
 
       <Breadcrumb :breadcrumb-data="breadcrumbData" />

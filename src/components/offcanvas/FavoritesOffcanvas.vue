@@ -1,7 +1,7 @@
 <template>
   <Loading :status="loadingStatus" />
   <div
-    class="offcanvas offcanvas-end userselect-none
+    class="offcanvas offcanvas-end user-select-none
       shadow-lg overflow-x px-0 m-0"
     data-bs-scroll="false"
     data-bs-backdrop="true"

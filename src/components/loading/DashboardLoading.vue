@@ -1,6 +1,6 @@
 <template>
   <div
-    class="loading-img userselect-none"
+    class="loading-img user-select-none"
     v-if="status"
   >
     <img

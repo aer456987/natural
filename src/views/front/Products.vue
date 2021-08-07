@@ -1,7 +1,7 @@
 <template>
   <Loading :status="loadingStatus" />
   <ProductFilterList
-    class="sticky-top userselect-none shadow"
+    class="sticky-top user-select-none shadow"
     :products="products"
     @filter-list-methods="filterListMethods" />
 
@@ -9,7 +9,7 @@
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl" />
 
-  <main class="container page-content userselect-none">
+  <main class="container page-content user-select-none">
     <section class="py-4">
       <div class="row justify-content-between align-items-center">
         <div class="col-12 col-md-8 mb-1">

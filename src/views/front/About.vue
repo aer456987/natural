@@ -2,7 +2,7 @@
   <HeaderBackgroundImg
     :header-title="headerData.title"
     :header-imgUrl="headerData.imgUrl" />
-  <main class="container page-content userselect-none px-3 px-sm-1 px-md-4">
+  <main class="container page-content user-select-none px-3 px-sm-1 px-md-4">
     <div class="py-4">
       <Breadcrumb :breadcrumb-data="breadcrumbData" />
 

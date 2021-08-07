@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="userselect-none p-3 text-center"
+    class="user-select-none p-3 text-center"
     :class="colors.backgroundColor"
   >
     <template

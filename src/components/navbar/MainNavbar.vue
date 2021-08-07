@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2 w-100 userselect-none">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary px-2 w-100 user-select-none">
     <div class="container-fluid">
       <h1 class="m-0">
         <router-link

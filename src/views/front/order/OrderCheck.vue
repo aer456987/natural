@@ -1,6 +1,6 @@
 <template>
   <Loading :status="loadingStatus" />
-  <section class="container page-content userselect-none">
+  <section class="container page-content user-select-none">
     <div class="py-4">
 
       <Breadcrumb :breadcrumb-data="breadcrumbData" />

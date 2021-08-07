@@ -1,7 +1,7 @@
 <template>
   <Loading :status="loadingStatus" />
 
-  <main class="userselect-none p-5 bg-primary min-vh-100 mx-auto">
+  <main class="user-select-none p-5 bg-primary min-vh-100 mx-auto">
     <section class="row justify-content-center">
       <h1 class="m-0 d-flex justify-content-center">
         <router-link
