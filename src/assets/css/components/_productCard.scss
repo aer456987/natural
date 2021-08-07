@@ -6,6 +6,7 @@
   .custom__card__more, img {
     transition-duration: .3s;
   }
+
   .custom__card__more {
     opacity: 0;
     position: absolute;
@@ -15,6 +16,7 @@
     font-weight: bold;
     z-index: 1;
   }
+
   img {
     width: 110%;
     height: auto;
@@ -23,13 +25,16 @@
 
 .custom__card:hover {
   cursor: pointer;
+
   .custom__card__more, img {
     transition-duration: .3s;
   }
+
   .custom__card__more {
     opacity: .8;
     color: $white;
   }
+
   img {
     opacity: .6;
     transform: scale(1.2);

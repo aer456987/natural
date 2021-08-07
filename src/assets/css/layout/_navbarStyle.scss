@@ -1,10 +1,13 @@
-.custom-logo-home, .custom-logo, .custom-logo-brown {
+.custom-logo-home,
+.custom-logo,
+.custom-logo-brown {
   width: 150px;
   height: 35px;
   display: block;
   text-indent: 101%;;
   mask-image: url('~@/assets/imgs/logos/logoIcon.svg');
   white-space: nowrap;
+
   &:hover {
     transition-duration: .3s;
   };
@@ -12,6 +15,7 @@
 
 .custom-logo-home {
   background-color: $white;
+
   &:hover {
     background: rgba($secondary, .7);
   };
@@ -40,6 +44,7 @@
   background: rgba($secondary, .8);;
   mask-image: url('~@/assets/imgs/logos/logoIcon.svg');
   white-space: nowrap;
+
   &:hover {
     background: $secondary;
     transition-duration: .3s;
@@ -67,7 +72,9 @@
 }
 
 @media(max-width: 768px) {
-  .custom-logo-home, .custom-logo-brown, .custom-logo {
+  .custom-logo-home,
+  .custom-logo-brown,
+  .custom-logo {
     width: 105px;
     height: 25px;
   }

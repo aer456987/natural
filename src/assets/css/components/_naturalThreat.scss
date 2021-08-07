@@ -1,4 +1,5 @@
-.naturalThreat__card__item__title, .naturalThreat__card__item__text {
+.naturalThreat__card__item__title,
+.naturalThreat__card__item__text {
   text-align: center;
   color: $white;
 }
@@ -40,11 +41,7 @@
   div {
     height: auto;
   }
-
-  &:hover {
-    height: 30%;
-    transition-duration: .25s;
-  }
+  
   &::-webkit-scrollbar {
     width: 8px;
   }
@@ -54,6 +51,11 @@
   }
   &::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba($white, 1);
+  }
+
+  &:hover {
+    height: 30%;
+    transition-duration: .25s;
   }
 }
 

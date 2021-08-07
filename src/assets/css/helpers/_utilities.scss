@@ -5,6 +5,7 @@
 .scale {
   transform: scale(1);
   transition-duration: .3s;
+
   &:hover {
     transform: scale(1.2);
     transition-duration: .3s;
@@ -14,6 +15,7 @@
 .pointer {
   cursor: pointer;
   transition-duration: .3s;
+
   &:hover {
     box-shadow: 0 0 8px 2px $gray-500;
     transition-duration: .3s;

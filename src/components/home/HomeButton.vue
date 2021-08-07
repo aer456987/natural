@@ -62,10 +62,11 @@ $blob-secondary: #d5d83c;
 $blob-light: white;
 $blob-dark: red;
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .buttons {
