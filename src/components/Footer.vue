@@ -3,9 +3,7 @@
     class="user-select-none p-3 text-center"
     :class="colors.backgroundColor"
   >
-    <template
-      v-if="moreMsg"
-    >
+    <template v-if="moreMsg">
       <small class="row align-items-center">
         <nav class="nav-item mb-3">
           <ul class="row justify-content-center list-unstyled m-0">
