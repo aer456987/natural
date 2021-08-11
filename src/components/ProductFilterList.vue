@@ -130,18 +130,15 @@ export default {
 
 <style lang="scss" scoped>
 .productFilter__nav{
-  // 捲軸本身，可以設定寬度
   &::-webkit-scrollbar{
     height: 6px;
   }
 
-  // 捲軸可以拉的部分
   &::-webkit-scrollbar-thumb{
     border-radius: 2px;
     background-color: rgba(#225243, .6);
   }
 
-  // 捲軸空的地方，也可以說背景的顏色
   &::-webkit-scrollbar-track{
     box-shadow: inset 0 0 6px rgba(#225243, .5);
   }

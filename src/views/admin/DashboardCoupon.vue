@@ -125,7 +125,7 @@
 
 <script>
 import { swalFn, delSwalFn, errorSwalFn } from '@/methods/swal';
-import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import DashboardLoading from '@/components/loading/DashboardLoading.vue';
 import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
 import DashboardCouponModal from '@/components/modal/DashboardCouponModal.vue';
 
@@ -138,7 +138,7 @@ export default {
       couponPagination: {},
       couponDatas: [], // 優惠券資料 (有分頁)
       updataCouponData: {},
-      allCouponDatas: [],
+      allCouponDatas: [], // 所有優惠券資料 (無分頁)
       filterDatas: [], // 暫存的商品分類列表
       isNew: Boolean,
       isPaginationShow: true,

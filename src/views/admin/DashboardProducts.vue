@@ -166,7 +166,7 @@
 
 <script>
 import { swalFn, errorSwalFn, delSwalFn } from '@/methods/swal';
-import DashboardLoading from '@/components/loading/DashboardLoading.vue'; // 後台Loading元件
+import DashboardLoading from '@/components/loading/DashboardLoading.vue';
 import DashboardPagination from '@/components/dashboard/DashboardPagination.vue';
 import DashboardProductModal from '@/components/modal/DashboardProductModal.vue';
 

@@ -44,7 +44,7 @@ export default {
     };
   },
   watch: {
-    idData() { // 資料狀態改變後，在確認一次最愛清單
+    idData() {
       this.isFavorite = this.checkFavorStatus();
     },
     favoritesList() {

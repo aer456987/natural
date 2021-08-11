@@ -170,8 +170,8 @@ export default {
       ordersPagination: {},
       orders: [], // 原始資料 (有分頁)
       tempOrderData: {},
-      allOrderss: [],
-      filterDatas: [], // 暫存的商品分類列表
+      allOrderss: [], // 所有產品資料 (無分頁)
+      filterDatas: [],
       pageNnm: 0,
       isPaginationShow: true,
     };

@@ -206,7 +206,6 @@ import HomeHerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
 import HomeProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
 import HomeNaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import HomeMessages from '@/components/home/HomeMessages.vue';
-// import CountTo from '@/components/count-to';
 import HomeButton from '@/components/home/HomeButton.vue';
 import Arrow from '@/components/home/Arrow.vue';
 import GoToTopBtn from '@/components/GoToTopBtn.vue';
