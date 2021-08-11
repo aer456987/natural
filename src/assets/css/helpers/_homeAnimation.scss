@@ -1,7 +1,7 @@
 .custom-fade-animetion {
   @include animetion-init(fadeAni, 10s, infinite);
 }
-.custom-fade-animetion_slow {
+.custom-fade-animetion-slow {
   @include animetion-init(fadeAni, 14s, infinite);
 }
 

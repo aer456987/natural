@@ -15,7 +15,7 @@
         但你卻看不到它們。
       </p>
 
-      <h3 class="header__banner__title fw-bold custom-fade-animetion_slow">
+      <h3 class="header__banner__title fw-bold custom-fade-animetion-slow">
         你，<br>
         聽見它們的聲音了嗎？
       </h3>
