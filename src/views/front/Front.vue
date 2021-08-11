@@ -19,7 +19,6 @@ import Footer from '@/components/Footer.vue';
 import GoToTopBtn from '@/components/GoToTopBtn.vue';
 
 export default {
-  name: 'Front',
   components: { MainNavbar, Footer, GoToTopBtn },
   methods: {
     backTop() {

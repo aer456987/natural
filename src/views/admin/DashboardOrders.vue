@@ -163,7 +163,6 @@ import DashboardPagination from '@/components/dashboard/DashboardPagination.vue'
 import DashboardOrderModal from '@/components/modal/DashboardOrderModal.vue';
 
 export default {
-  name: 'DashboardOrders',
   data() {
     return {
       loadingStatus: false,

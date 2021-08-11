@@ -303,7 +303,6 @@ import Modal from 'bootstrap/js/dist/modal';
 import DashboardRenderImgs from '@/components/dashboard/DashboardRenderImgs.vue';
 
 export default {
-  name: 'DashboardProductModal',
   props: ['modalProduct', 'modalIsNew', 'modalBtnStatus'],
   data() {
     return {

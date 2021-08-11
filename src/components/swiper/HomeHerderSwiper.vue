@@ -23,7 +23,6 @@ import SwiperCore, { Pagination, Autoplay } from 'swiper/core';
 SwiperCore.use([Autoplay, Pagination]);
 
 export default {
-  name: 'HomeHerderSwiper',
   data() {
     return {
       swiperSetting: {

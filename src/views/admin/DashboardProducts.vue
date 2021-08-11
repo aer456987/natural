@@ -171,7 +171,6 @@ import DashboardPagination from '@/components/dashboard/DashboardPagination.vue'
 import DashboardProductModal from '@/components/modal/DashboardProductModal.vue';
 
 export default {
-  name: 'DashboardProducts',
   data() {
     return {
       loadingStatus: false,

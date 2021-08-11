@@ -213,7 +213,6 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
 
 export default {
-  name: 'Cart',
   data() {
     return {
       loadingStatus: false,

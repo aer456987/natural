@@ -28,7 +28,6 @@
 import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
-  name: 'DashboardUpdateFile',
   data() {
     return {
       isValue: false,

@@ -69,7 +69,6 @@
 import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
-  name: 'DashboardNavbar',
   methods: {
     logout() {
       const url = `${process.env.VUE_APP_PATH}/logout`;

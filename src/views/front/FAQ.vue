@@ -70,7 +70,6 @@ import HeaderBackgroundImg from '@/components/HeaderBackgroundImg.vue';
 import Breadcrumb from '@/components/Breadcrumb.vue';
 
 export default {
-  name: 'FAQ',
   data() {
     return {
       headerData: {

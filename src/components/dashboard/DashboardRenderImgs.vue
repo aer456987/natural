@@ -102,7 +102,6 @@
 import DashboardUpdateFile from '@/components/dashboard/DashboardUpdateFile.vue';
 
 export default {
-  name: 'DashboardRenderImgs',
   data() {
     return {
       tempMainImg: '',

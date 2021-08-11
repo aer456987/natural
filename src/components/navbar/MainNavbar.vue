@@ -93,7 +93,6 @@ import bus from '@/methods/bus';
 import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 
 export default {
-  name: 'MainNavbar',
   data() {
     return {
       cartsLength: 0,

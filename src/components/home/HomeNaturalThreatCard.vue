@@ -51,7 +51,6 @@
 
 <script>
 export default {
-  name: 'HomeNaturalThreatCard',
   data() {
     return {
       naturalThreatImgs: [

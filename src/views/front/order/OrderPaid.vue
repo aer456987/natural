@@ -77,7 +77,6 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
 
 export default {
-  name: 'OrderPaid',
   data() {
     return {
       progressNum: 100,

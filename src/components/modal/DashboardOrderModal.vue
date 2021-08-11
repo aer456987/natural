@@ -355,7 +355,6 @@
 import Modal from 'bootstrap/js/dist/modal';
 
 export default {
-  name: 'DashboardOrderModal',
   props: ['modalOrder'],
   data() {
     return {

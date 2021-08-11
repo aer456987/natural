@@ -58,7 +58,6 @@ import Favorite from '@/components/Favorite.vue';
 import { swalFn, errorSwalFn } from '@/methods/swal';
 
 export default {
-  name: 'ProductCard',
   props: ['cartProductData'],
   data() {
     return {

@@ -174,7 +174,6 @@ import { swalFn } from '@/methods/swal';
 import Modal from 'bootstrap/js/dist/modal';
 
 export default {
-  name: 'DashboardCouponModal',
   data() {
     return {
       couponModal: '',

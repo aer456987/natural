@@ -215,7 +215,6 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import CartProgress from '@/components/CartProgress.vue';
 
 export default {
-  name: 'OrderCheck',
   props: ['orderId'],
   data() {
     return {

@@ -212,7 +212,6 @@ import Arrow from '@/components/home/Arrow.vue';
 import GoToTopBtn from '@/components/GoToTopBtn.vue';
 
 export default {
-  name: 'Home',
   data() {
     return {
       platformData: [

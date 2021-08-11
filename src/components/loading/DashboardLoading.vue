@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  name: 'DashboardLoading.vue',
   props: ['status'],
 };
 </script>

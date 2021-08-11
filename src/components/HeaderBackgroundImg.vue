@@ -18,7 +18,6 @@
 
 <script>
 export default {
-  name: 'HeaderBackgroundImg',
   props: ['headerTitle', 'headerImgUrl'],
 };
 </script>

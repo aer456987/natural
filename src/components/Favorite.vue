@@ -36,7 +36,6 @@
 import bus from '@/methods/bus';
 
 export default {
-  name: 'Favorite',
   props: ['idData'],
   data() {
     return {

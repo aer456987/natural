@@ -130,7 +130,6 @@ import DashboardPagination from '@/components/dashboard/DashboardPagination.vue'
 import DashboardCouponModal from '@/components/modal/DashboardCouponModal.vue';
 
 export default {
-  name: 'DashboardCoupon',
   data() {
     return {
       loadingStatus: false,

@@ -51,7 +51,6 @@
 
 <script>
 export default {
-  name: 'HomeButton',
   props: ['buttomText', 'linkPath'],
 };
 </script>

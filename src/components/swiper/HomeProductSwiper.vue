@@ -36,7 +36,6 @@ import SwiperCore, { EffectCoverflow, Pagination, Autoplay } from 'swiper/core';
 SwiperCore.use([EffectCoverflow, Autoplay, Pagination]);
 
 export default {
-  name: 'HomeProductSwiper',
   data() {
     return {
       swiperSetting: {

@@ -95,7 +95,6 @@ import { errorSwalFn } from '@/methods/swal';
 import bus from '@/methods/bus';
 
 export default {
-  name: 'HomeNavBar',
   data() {
     return {
       cartsLength: 0,

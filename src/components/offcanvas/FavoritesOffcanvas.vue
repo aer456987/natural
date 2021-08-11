@@ -131,7 +131,6 @@ import Offcanvas from 'bootstrap/js/dist/offcanvas';
 import Favorite from '@/components/Favorite.vue';
 
 export default {
-  name: 'FavoritesOffcanvas.vue',
   data() {
     return {
       loadingStatus: false,

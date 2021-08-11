@@ -32,7 +32,6 @@
 
 <script>
 export default {
-  name: 'Breadcrumb.vue',
   props: ['breadcrumbData'],
 };
 </script>

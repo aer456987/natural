@@ -59,7 +59,6 @@ import bus from '@/methods/bus';
 import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 
 export default {
-  name: 'GoToTopBtn',
   props: ['bgColor', 'isShow'],
   data() {
     return {

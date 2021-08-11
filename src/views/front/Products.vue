@@ -55,7 +55,6 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import ProductFilterList from '@/components/ProductFilterList.vue';
 
 export default {
-  name: 'Products',
   data() {
     return {
       loadingStatus: false,

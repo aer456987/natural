@@ -163,7 +163,6 @@ import Breadcrumb from '@/components/Breadcrumb.vue';
 import Favorite from '@/components/Favorite.vue';
 
 export default {
-  name: 'Product',
   data() {
     return {
       loadingStatus: false,

@@ -171,7 +171,6 @@
 
 <script>
 export default {
-  name: 'Footer',
   props: ['textColor', 'bgColor', 'moreMsg'],
   data() {
     return {

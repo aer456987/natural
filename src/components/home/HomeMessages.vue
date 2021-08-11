@@ -297,7 +297,6 @@
 import HomeButton from '@/components/home/HomeButton.vue';
 
 export default {
-  name: 'HomeMessages',
   components: {
     HomeButton,
   },

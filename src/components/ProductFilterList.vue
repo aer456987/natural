@@ -119,7 +119,6 @@
 
 <script>
 export default {
-  name: 'ProductFilterList',
   data() {
     return {
       productSelect: '',
