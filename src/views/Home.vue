@@ -6,22 +6,29 @@
   <FavoritesOffcanvas ref="likeOffcanvas" />
 
   <header class="position-relative user-select-none">
-    <div
-      class="position-absolute top-50 start-50 translate-middle transition-duration-3 z-index-2
-        text-center text-light text-shadow"
-    >
-      <p class="header__banner__text custom-fade-animetion">
-        有個聲音正在向你求救，<br>
-        但你卻看不到它們。
-      </p>
+    <div class="container-fluid">
+      <div
+        class="position-absolute top-50 start-50 translate-middle
+          transition-duration-3
+          w-100
+          text-center text-light text-shadow
+          z-index-2"
+      >
+        <p class="header__banner__text custom-fade-animetion">
+          有個聲音正在向你求救，<br>
+          但你卻看不到它們。
+        </p>
 
-      <h3 class="header__banner__title fw-bold custom-fade-animetion-slow">
-        你，<br>
-        聽見它們的聲音了嗎？
-      </h3>
+        <h3 class="header__banner__title fw-bold custom-fade-animetion-slow">
+          你，<br>
+          聽見它們的聲音了嗎？
+        </h3>
+      </div>
+      <Arrow class="arrow z-index-2" />
+
     </div>
-    <Arrow class="arrow z-index-2" />
     <HomeHerderSwiper />
+    <HomeHerderSwiperMobile />
   </header>
 
   <main id="main" class="bg-white overflow-hidden user-select-none">
@@ -110,7 +117,7 @@
       </div>
     </section>
 
-    <section class="container pt-5 pb-2 pt-lg-6 pb-lg-4">
+    <section class="container pt-5 pt-lg-6  pb-2 pb-lg-4">
       <ul class="row justify-content-around list-unstyled">
         <li
           v-for="platform in platformData"
@@ -124,7 +131,8 @@
             <CountTo
               :duration="6000"
               :end-val="platform.num"
-              :count-to-id="platform.id" />
+              :count-to-id="platform.id"
+              class="fs-7"/>
             <span class="fs-4">/{{ platform.unit }}</span>
           </h3>
           <p class="m-0">
@@ -203,6 +211,7 @@ import HomeNavBar from '@/components/navbar/HomeNavBar.vue';
 import FavoritesOffcanvas from '@/components/offcanvas/FavoritesOffcanvas.vue';
 import Footer from '@/components/Footer.vue';
 import HomeHerderSwiper from '@/components/swiper/HomeHerderSwiper.vue';
+import HomeHerderSwiperMobile from '@/components/swiper/HomeHerderSwiperMobile.vue';
 import HomeProductSwiper from '@/components/swiper/HomeProductSwiper.vue';
 import HomeNaturalThreatCard from '@/components/home/HomeNaturalThreatCard.vue';
 import HomeMessages from '@/components/home/HomeMessages.vue';
@@ -253,6 +262,7 @@ export default {
     Footer,
     HomeHerderSwiper,
     HomeProductSwiper,
+    HomeHerderSwiperMobile,
     HomeNaturalThreatCard,
     HomeMessages,
     CountTo,

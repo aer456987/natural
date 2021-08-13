@@ -80,7 +80,7 @@
             </p>
           </li>
           <li>
-            <p class="m-0">
+            <p class="m-0 text-break">
               客服信箱：
               <a
                 href="mailto:naturalConservation@gmail.com"

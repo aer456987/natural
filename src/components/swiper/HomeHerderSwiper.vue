@@ -1,17 +1,19 @@
 <template>
   <swiper
     :="swiperSetting"
-    class="mySwiper"
+    class="mySwiper d-none d-md-block"
   >
     <swiper-slide
       v-for="headerImg in headerImgs"
       :key="headerImg.id"
+      class="d-flex justify-content-center overflow-hidden"
     >
-      <img
-      :src="headerImg.img"
-      :alt="`首圖_${headerImg.id}`"
-      class="w-100"
-    >
+      <div>
+        <img
+          :src="headerImg.img"
+          :alt="`首圖_${headerImg.id}`"
+        >
+      </div>
     </swiper-slide>
   </swiper>
 </template>
@@ -37,31 +39,31 @@ export default {
       headerImgs: [
         {
           id: 0,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211537975.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=VlT5CbDBZusn0%2BQ5GbWo6v%2B98G4FqaiUDZ9Bc6hBbVo2zkJiD1gOHRMobVLbZJeLE4phWE3YdQa4%2BQxhOPJNuwxsJxl986vMrQRfTeR310l9uvFqbYEEt6UPVGKGN7s7NhB0D%2BxjMKVFXPYfNuogTb5fdbD%2FyFa3tCDRQod6LhXvFna9iiYmsfwIAvEnfxGCyb0v5k3MYyexowtAC%2FNfVVUeMJPQXe7CN%2F%2BpJ%2FDlGaTmpgkYwj1B%2BMjmKMc1%2BISXLfloJ3WU9uWbZLfgv6tYH7cGZ67FUYh3wtAXqo03zae62c30oOm2GBZaroV1s24iIrY4JlN0scQHlgeDmyRUJg%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845839603.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=kuqK4hqtUn5SZcX32qafYnKh9BHsqkYhnYb8Yr4azPmjbrIZy%2B9O6vVF79EU5Cdh%2Bu%2FpOGrVgf0ydD2BPFEKtkSEvtXiZlVgHB9R4hkQIlef0jpXqNen%2Bw3tseprN%2Fcj%2F9BeW6yB1FwlclZl4UTdC8g0fB0G7GEvmdJFzNPtl%2Bt2wUQYMj15mXDizguMOexnu22mAyJZ3XUJlvEDr5zTKSDk%2BGG0qnZP%2Fg6LcwSR9fAnm4yDdJU9L2ZhncS8jQ80V2VS%2FsbeumPFSZhz7VytZHjjuU1I72aaIAGPZPw0fY8vbML6NR4ODBxfkU6NkcFFfK8Rx%2BYL3IH0W5tcIquAmg%3D%3D',
         },
         {
           id: 1,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211547457.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=I13xPk%2BEiOzSNfqdzcVfjI31Z9vLfhm4oDnfn2eV1xQdkzBZXW7Zik27rJVVcP%2B%2B1cIw38f1v8xYulZ%2B%2FihXu%2FWlfw31tJDaSXNuiStJoxHKOSJK8z2FGad2PK4V%2FxP8Y2DRcBhFrNiSE6Kzm2NAwniGP7c2eCpACy%2FGc%2F%2BPN9acc%2FeKtzqJPJ%2FTi6nAvSfHQmEKQdmgRvEV%2BcMtUTwbrn9T5Nn86WKvzoLd3K2byU1HZLJviXOxG3goWjZUezIb4VSzJvNIMDIeSl%2BtUdS7zAFhRwvc6ZSHkDAclZuwxDVHLKX7z7NwRQDd5GJfRa4n3lcYf8AG3T8kAKH9TLMH2A%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845849808.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=G71CisBwcjcTT85kM2Yco15icBH35KvJd633iBNl4kSdnDl%2FikFa5uPxpJayzB07fir%2Fba6N7kwENfrAHURC7slHgHTDz4lhrGfwBCGfWyiyq4zdE%2BIS4p8Ha4TTCb02YG9fyRgv1A%2F2d4mTNWWALe%2BciX7xErN0ZQTyNYGbVDAyV8FGUna2VwQaK9vi%2FT2UHgHmZ%2Fe%2Bcx5fFc0ajHclNQnBm8Apn7Zht8n14bH3mPHdOnNiHYm7N34QqQmM%2FQewTI0hcCffI12cdYOgUlWLWupJgqPaiVqDENTRLW3t3U0nhwJ8ORBI3%2BNzF%2B%2F96BQuiby8OgiOfZmajacGCs2vHw%3D%3D',
         },
         {
           id: 2,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211571861.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=RbXG5SWlzC5idadqGaAa1I7sCRfumaGSPkqh5FtIU7JVw7K6bTCT%2B8fF5pCap9ElYJ7jSZo%2BvJWGrwOIqiHuGexDTr80doUvzY5I0TdVYKVSBfA8Cr9yPcpVJXFRDn9oZJwC4hnXnyjXmsYF%2BgRIz2JRqUToOAWbEXLn8FyBZ9bB7pQGK3Nf2YfsMH6BVTZlBevFqL7x6lwpIsijMPZXvQpumraNBHMZcPnplOlkaqX847e41lpkUMP9JOc2Se8PlBUK%2B6D9XtFKB0a4JuxO3hJf8RxknWDhZdmjd%2FNyYbFgW7p0mW2kEit3kVbSDJNRATqx%2BRkoun5aFvS5SDVmxQ%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845856823.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Od34fcw6BvDNNVofbFQMnObSOuuTBbUugzEdIEIkQiQSVNZ73axpBEJgzj5qcUZKt%2FXKDdX8ET0RWO2NsycgQdW7sUYJ71MWgInioJT%2FT80lT9UVgyvEgb14BXiw7B6TFga2k8UJXlzI4in130ngDddrdmG1QgSsN%2F%2Bf9sNsctiTSf6z0tmpEY64pBlnWuQtbaLNUUJN6eCB7pMTYyu3u2kAT7zdyZ5jJN0R7lncu1l66NxTl6X51dkB2pbJPJOMlnjk25Yx64ej%2FKXDiGvjV%2BFBzN9D0VR5SlhGp%2FcVjokMVfX8Iv3lTQfJGarozMYF1CZOblzSdfXwxz2h9KtoUQ%3D%3D',
         },
         {
           id: 3,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211555798.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=lF%2BaSl5x5jAmN2ZaHYHRhK54Pw7GrsG4KoIzPbHhQwJfhfetzrxx4%2BT6SXkxjY5cew68VULHLzfmeRrBlULNjcGLR6JZwyWNU7n%2B5mliyDPg0kA0wG0y99CoWSkDUpcWpdhEVt0A12zSCGhSD6eOqaIpa8tgHrh%2B1Lk5nI4mq8SN%2BNKY6aCWOCLqqC6lwQ1D%2Bgtzgwsa2OOw3b%2Fg1pZ5gKL06NWpsRtBSn0dbYlG9qY%2BmS9Q6HMp2AmS5VIeWlR2F0A3JKsZoGSmdRsKTLj%2B5sG%2BkJ%2FUk5scOS6bSo29sK3n%2Btp%2BnhPxkgjfS40KertN%2F9c5E0oGoF3HRhXsyA2Wiw%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845862968.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=DKFopzmJT50Go4lKzgTNHTjgq5D4hUgx7Ic6J6mFUwgmNgnVaVYRFDP2PuoJFf6OoqjFdorK7PfFcVkc8RvHTiWx9p8a1Lw19jBpyC3ifoUuA2aSsRbo%2B5GnfaAYlVYYmMTn3bIN92FoqRtyE9oSOz%2FAd9fH0jrLM9q4ncF9P5ISH9lVwJxrMY9IARuRuBhhhtPCm1B9TYlCMchcacxakuZWAbkAgbk8zE1pK5Eox6dIgIg9j7ER2LLt2foS9JKxMXjlqRGGwiwk94w4JgYNiwdMMbQN4%2BDeqPwoL7z%2FnO836hfOYMoep9f3pLUILrteyZZUXdCBgvbvAMoszsMqOg%3D%3D',
         },
         {
           id: 4,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211591347.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=qhfVHht%2FT%2BBDrdymEw5tfRTdJ1GYx%2FWahoVsXeXEuBlZts%2FXjLG7IFlPuhRXbpc2ZG56BBQLK0dqONL7g8uz6ER297HuGQtOFhtGvaP6eylBEWxVIg%2Bmi2PJVz755tNXcMSBJBEkDmZ2nV2vsiCSMuZA%2FjEO2xSZ3OIOZ2JvPdq2P3Ud2%2Bna4x8yK9XFsVXN%2Fro9dcflVRh1Uy%2BoTWEQ8HhkBV%2BgKh%2FP0DFXO1C150o1GfQTo1hs8dvMsTEa2zEvmfiAiirD%2FgHWaMjuvq37ICc0Ftao44cgcqNLSaxH0Ll2vRIcGwRb%2Bt3piCLNhPzAciUxBUuuaJjF0dZw1mcwcA%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845877329.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=R%2FT%2B64OP57jNJgQjsKNfp63kfXgIuQOLVZCx7Tm%2FztPm7dWTS%2FBUKqbXgLTKXgkm0aebC%2Fn06oVAsk4J6XovoluqQQJpy5axBYRPTVM4DqECS%2BnjLqtaXRl3bqmzzMoyXSkcoCqpjae%2B9VbJbozAsxqYlY9CPsm9Mb2wHRVzExwhWPkizTrhI0wrqpJuSFQ8FkAKLnT0xj3EEESG%2B0kk3GOwZBQHoaG%2BHhnzazKUwTy3PlAod53CjdiniIt2sfkqGvWnLp1pUoSR9A8EJIl2rdTPoqkuzgldmD6uCNhDTIgtymzPnisF%2BobCdSTIAmWzEGpcfU%2Fml%2FaSAS17RJ%2BYQg%3D%3D',
         },
         {
           id: 5,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211607207.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UB1UO0d52OmexAekI4UhINU1wNuEDvsTAC8zJERWbwRcpDfgGPhqdwlw0WVdlk7TxGqrM%2Bw5wG119TCCJ6DGF26EJ%2B9rwIjlQiBMi3DQf44fOjvvaiPvJ6R9oqEnpJvavtaUV1PGcg9dFHgtoSPHR9My4uGFgM46F0dgW6xIUOFjbBI%2BXNTUE81V24bpLORJ8ibN9%2B8ILxZ4r1ul0cAHlPtxiXO1VrHGuKGoCeUJJZbHjTq85NAUagQCIQdfgMnyh4RSY3ocEM%2FexmCw8VI4NrKnGhYG%2F7ab19AuUOV445PkLjvKIrYYWO%2BICBprPMoxNAbxtXYYCdR3GM%2FSi4u2EA%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845887531.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=jSvZro1itzAyHPBBvwyR%2BaJAeCm%2BtWa6UfEBLxQDDvJ7sz48%2BjTCPVzE1FjLIRSoxr%2BAKD60NTMWnUUV0RhyGvRU3qquyj6exubd3gdod1O9sXcMrLEodG7xmRJ9Op3cHa73trI%2B1hfTQp5b5Wp%2FDLOnIKbFL3VTf%2BQcNMFhrGmy%2Fa4zG6r01KaiPUeuekRzE0KyC8oNsmd3wZOx8YX8KIgXerL2J0FdtPCLZxSQgqvLpwj0GhhPP4RL6bpFv6LDgkEFE6x0OnahlSam1vn3%2BiuRc2vHQKGQlMMsjnSjLfeRLsYNTtOBKFmj%2BPvbrlhMyC8eqJrXp2tjycykiaafcA%3D%3D',
         },
         {
           id: 6,
-          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1625211563788.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=nsWW3Woml%2F2DG3udCFGrJzCdlDqWRO7%2BE0ll610aRjD7UNBD%2BFFpbgX9jtsBkQ0Ovq%2FcqstndHKp5jZKtwlOyje%2BEyf3g2KJdUxEri69%2BL1IliONpyXKbVt2LNNgFcssCfbecZPlZ%2Fr963m5%2FtsmP8ND%2FdtENVOsHtmwpEWVgfzmdKlNsv9MyGWugizMb97ZwU9t4DFIFMACVijlX6gWthXEeoUHYWf6NeWLjtAkgiyj4jRqvpxcgQh3YfvpS2ztmMHhDCIVH8RUnLdRC3h5MMGDgzxwb4XnTPvo%2BmB7I6G7tFbSPtiHtBoagEu9ckEm1Bdt71rFuKLAzYPCe2IXcQ%3D%3D',
+          img: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1628845895196.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=c0fy%2FZaQZYtQ9fgIZbMTsdZGfnmO553WOuanOHPSWcZIPWlqg9D%2FgSnGgwU9fq%2BbtCSrcJCSu60A6VsuNVUWFYRin4dmHBZJfAVnysQRPNa%2F9cwhH7bKW%2Feey8ykHQcagePmOWmzGVXStSyNXIlihCKHPH%2FcVuyfl8lnDns2y7YNh6eNrC7OwIjlcVTsU2aYz8UCp3gqXdpBQ4wce39o%2BWA%2FgLROZX2EFm%2FtvXgX%2FGyCp37HFa96tLoo24YPdXvcryQezz789ooNhwyYytl2U7iLkdX57qyAGmX1xBlxai0IQ2JX1IrTsCF0JicJkIV%2BicWodIslwtBP5khDhM82fQ%3D%3D',
         },
       ],
     };

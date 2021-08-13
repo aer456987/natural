@@ -1,9 +1,9 @@
-.header__banner__text {
-  margin-bottom: 24px;
-  font-size: 24px;
-}
 .header__banner__title {
   font-size: 32px;
+}
+.header__banner__text {
+  margin-bottom: 24px;
+  font-size: 28px;
 }
 
 .custom-style-text-1 {
@@ -11,7 +11,7 @@
 }
 
 .arrow {
-  @include custom-position-bottom(6%, 10%);
+  @include custom-position-bottom(8%, 10%);
 }
 
 .offcanvas {
@@ -19,9 +19,6 @@
 }
 
 @media(max-width: 992px) {
-  .arrow {
-    @include custom-position-bottom(21%, 0%, .8);
-  }
 
   .custom-style-text-1 {
     font-size: 32px;
@@ -29,20 +26,16 @@
 }
 
 @media(max-width: 767px) {
+  .header__banner__title {
+    font-size: 28px;
+  }
   .header__banner__text {
     margin-bottom: 16px;
-    font-size: 16px; 
-  }
-  .header__banner__title {
-    font-size: 24px;
+    font-size: 24px; 
   }
 
   .custom-style-text-1 {
     font-size: 24px;
-  }
-
-  .arrow {
-    @include custom-position-bottom(-5%, 32%, .5);
   }
 
   .custom-style-title {
@@ -55,16 +48,12 @@
 }
 
 @media(max-width: 414px) {
+  .header__banner__title {
+    font-size: 22px;
+  }
   .header__banner__text {
     margin-bottom: 14px;
-    font-size: 12px; 
-  }
-  .header__banner__title {
-    font-size: 16px;
-  }
-
-  .arrow {
-    @include custom-position-bottom(-20%, 60%, .3);
+    font-size: 18px; 
   }
 
   .custom-style-title {
@@ -72,7 +61,7 @@
   }
 
   .custom-style-text-1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .custom-style-text-2 {
