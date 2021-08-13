@@ -1,5 +1,7 @@
 <template>
-  <header class="header position-relative user-select-none">
+  <header class="header position-relative user-select-none shadow"
+    :style="`background-image: url('${headerImgUrl}')`"
+  >
     <h2
     class="custom-style-title
       position-absolute top-50 start-50 translate-middle
@@ -8,11 +10,6 @@
       {{ headerTitle }}
     </h2>
 
-    <img
-      class="img-fluid w-100 shadow"
-      :src="headerImgUrl"
-      alt="首圖"
-    />
   </header>
 </template>
 
