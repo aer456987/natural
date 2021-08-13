@@ -22,7 +22,6 @@
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-duration="1200"
@@ -31,7 +30,6 @@
           </h3>
           <p
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
@@ -43,7 +41,6 @@
           </p>
           <p
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
@@ -58,7 +55,6 @@
         <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
-          data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="0"
@@ -89,7 +85,6 @@
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-duration="1200"
@@ -98,7 +93,6 @@
           </h3>
           <p
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
@@ -110,7 +104,6 @@
           </p>
           <p
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
@@ -125,7 +118,6 @@
         <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
-          data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="0"
@@ -166,7 +158,6 @@
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-duration="1200"
@@ -175,7 +166,6 @@
           </h3>
           <p
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
@@ -187,7 +177,6 @@
           </p>
           <p
             data-aos="fade-left"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
@@ -202,7 +191,6 @@
         <div
           class="col-10 col-md-4 p-0 mb-1"
           data-aos="fade"
-          data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="0"
@@ -232,7 +220,6 @@
           <h3
             class="fw-bold mt-1 mb-2"
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-duration="1200"
@@ -241,7 +228,6 @@
           </h3>
           <p
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="50"
@@ -253,7 +239,6 @@
           </p>
           <p
             data-aos="fade-right"
-            data-aos-offset="300"
             data-aos-easing="ease-out-back"
             data-aos-anchor-placement="top-bottom"
             data-aos-delay="100"
@@ -269,7 +254,6 @@
         <div
           class="col-10 col-md-4 p-0 my-1"
           data-aos="fade"
-          data-aos-offset="300"
           data-aos-easing="ease-in-sine"
           data-aos-anchor-placement="top-bottom"
           data-aos-delay="0"
