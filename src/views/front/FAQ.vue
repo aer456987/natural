@@ -74,7 +74,7 @@ export default {
     return {
       headerData: {
         title: '常見問答',
-        imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1627447004774.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=V5CAS6GzLtEmt%2FK7QTLpft4j9c6dV3Oa8Dl9V75UI%2BSlhZjdM3R5YJOKkj8CMKs06r%2Bm%2Bvwo7bRRy%2ByG5ME2Z4HQ5d5at8QUUBGPPkkOdTrAy2UK6qGsUSzAixGXJAwJEr9A%2FyWYI0n7JS59laczgN3arP9rGxl7NL%2BXUPrWDu7HNGl0g0f6RBFIgCALWGhD5U0oh8qCt17akZHNIcekTs15yXLVR2ZGV2GDqX8GLp7nxZI%2FNrQvVuCfiItZVPK1Qs%2FnACFZbB1H6cDILTX7%2Fg1T%2FhuYtVVie6%2Bun1l84zQKZZvQrEDoeSeQLMiAtokrwfk1TgvxuaCDN2F6AZBvWw%3D%3D',
+        imgUrl: 'https://storage.googleapis.com/vue-course-api.appspot.com/toriha_vuetestapi/1627447004774.jpg',
       },
       breadcrumbData: {
         previous: [
