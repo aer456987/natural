@@ -1,6 +1,6 @@
 <template>
   <header class="header position-relative user-select-none shadow"
-    :style="`background-image: url('${headerImgUrl}')`"
+    :style="`background-image: url('${headerImgUrl}'); background-size: cover;`"
   >
     <h2
     class="custom-style-title
