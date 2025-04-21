@@ -37,3 +37,14 @@
     opacity: 1;
   }
 }
+
+
+.mySwiper .swiper-slide {
+  & div {
+    max-width: 2560px;
+    width: 100%;
+    & img {
+      width: 100%;
+    }
+  }
+}

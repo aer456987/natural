@@ -1,7 +1,7 @@
 <template>
   <swiper
     :="swiperSetting"
-    class="mySwiper d-block d-md-none vh-100 w-100"
+    class="mySwiperMobile d-block d-md-none vh-100 w-100"
   >
     <swiper-slide
       v-for="headerImg in headerImgs"
