@@ -86,68 +86,74 @@ Demo： [https://aer456987.github.io/natural/#/](https://aer456987.github.io/nat
 ## **前台頁面**
 <br>
 
-**首頁**
+### **首頁**
 
-![首頁](https://i.imgur.com/0BTcRHk.jpg)
-
-<br>
-
-**商品頁**
-
-![商品頁](https://i.imgur.com/IfTxgSY.jpg)
+![首頁](https://i.imgur.com/0BTcRHk.jpeg)
 
 <br>
 
-**商品詳細頁**
+### **商品頁**
 
-![產品詳細頁](https://i.imgur.com/oGEzQu8.jpg)
+![商品頁](https://i.imgur.com/IfTxgSY.jpeg)
 
 <br>
 
-**收藏清單**
+### **商品詳細頁**
 
-![收藏清單](https://i.imgur.com/IC7vA5w.jpg)
+![產品詳細頁](https://i.imgur.com/oGEzQu8.jpeg)
+
+<br>
+
+### **收藏清單**
+
+![收藏清單](https://i.imgur.com/IC7vA5w.jpeg)
 
 * 即時更新收藏狀態
 
 <br>
 
-**訂單填寫**
+### **訂單填寫**
 
-![訂單填寫](https://i.imgur.com/aPTUmtV.jpg)
+![訂單填寫](https://i.imgur.com/aPTUmtV.jpeg)
 
 1. 訂單內容如果只有無須出貨的商品，如捐款、參加講座，僅能使用信用卡、ATM 匯款。
 2. 訂單內容如果含有需要出貨的商品，可以使用貨到付款，並需要選擇寄送方式、寄送地址。
 
 <br>
 
-**付款頁面**
+### **付款頁面**
 
-![付款頁面](https://i.imgur.com/4LkFEvB.jpg)
+![付款頁面](https://i.imgur.com/4LkFEvB.jpeg)
 
 1. 選擇信用卡、ATM 匯款可直接前往付款頁面進行線上付款。
 2. 選擇貨到付款不需要先付款。
 
-<br>
+<br><br>
 
 ## **後台頁面**
 
-**商品管理頁**
+### **登入頁**
 
-![商品管理頁](https://i.imgur.com/e4B7K5z.jpg)
-![商品搜尋功能](https://i.imgur.com/5IR1RB7.jpg)
+![登入頁](https://i.imgur.com/WhuJ5kr.jpeg)
+
+<br>
+
+### **商品管理頁**
+
+![商品管理頁](https://i.imgur.com/e4B7K5z.jpeg)
+![商品搜尋功能](https://i.imgur.com/5IR1RB7.jpeg)
 
 * 可同時使用篩選及搜尋功能尋找特定商品。
 
-![商品編輯視窗](https://i.imgur.com/twCQu6C.jpg)
+![商品編輯視窗](https://i.imgur.com/twCQu6C.jpeg)
 
 * 可從本地端上傳商品圖片，也可使用網址新增商品圖片。
 
 <br>
 
-**訂單管理頁**
+### **訂單管理頁**
 
-![訂單管理頁](https://i.imgur.com/7U7im4W.jpg)
+![訂單管理頁](https://i.imgur.com/7U7im4W.jpeg)
 
 **紅框** ( 付款方式為信用卡或 ATM 匯款 )
 
@@ -158,6 +164,17 @@ Demo： [https://aer456987.github.io/natural/#/](https://aer456987.github.io/nat
 **藍框** ( 付款方式為貨到付款 )
 1. 無需事先完成付款即可開始出貨。
 2. 已出貨。
+
+![訂單編輯視窗](https://i.imgur.com/uz9fhI9.jpeg)
+
+* 可編輯訂單付款狀態及出貨狀態
+
+<br>
+
+### **優惠券管理頁**
+
+![優惠券管理頁](https://i.imgur.com/r1A7BOK.jpeg)
+![優惠券編輯視窗](https://i.imgur.com/4QsdmcR.jpeg)
 
 <br><hr>
 
